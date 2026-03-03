@@ -430,6 +430,16 @@ public class SpacerProver implements Prover {
 			throw new RuntimeException(e.getMessage());
 		}
 	}
+	@Override
+	public ProverExpr mkIntToUnsignedBV(ProverExpr expr, int bitLength)
+	{
+		throw new RuntimeException("not implemented");
+	}
+	@Override
+	public ProverExpr mkCastToInt(ProverExpr expr)
+	{
+		throw new RuntimeException("not implemented");
+	}
 
 	@Override
 	public ProverExpr mkLiteral(int value)   {
@@ -665,12 +675,20 @@ public class SpacerProver implements Prover {
 	}
 	@Override
 	public ProverExpr mkBVUge(ProverExpr left, ProverExpr right) {
-		throw new RuntimeException("not implemented");
+		try {
+			return new SpacerBoolExpr(ctx.mkBVUGE( (BitVecExpr) unpack(left), (BitVecExpr) unpack(right)));
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 	@Override
 	public ProverExpr mkBVUle(ProverExpr left, ProverExpr right)
 	{
-		throw new RuntimeException("not implemented");
+		try {
+			return new SpacerBoolExpr(ctx.mkBVULE( (BitVecExpr) unpack(left), (BitVecExpr) unpack(right)));
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 	@Override
 	public ProverExpr mkBVUlt(ProverExpr left, ProverExpr right)
@@ -1558,10 +1576,6 @@ public class SpacerProver implements Prover {
         return mkTuple(subExprs);
     }
 
-	@Override
-	public ProverExpr mkIntToUnsignedBV(ProverExpr pe, int i ){
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
 }
 
 

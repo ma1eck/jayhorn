@@ -70,6 +70,10 @@ public interface Prover {
 
 	ProverExpr mkIte(ProverExpr cond, ProverExpr thenExpr, ProverExpr elseExpr);
 
+	ProverExpr mkIntToUnsignedBV(ProverExpr expr, int bitLength);
+
+	public ProverExpr mkCastToInt(ProverExpr expr);
+
 	// Arithmetic
 	ProverExpr mkLiteral(int value);
 
@@ -324,14 +328,14 @@ public interface Prover {
     void parseSMTLIBFormula(final String formula);
 
 
-	default ProverExpr mkIntToUnsignedBV(ProverExpr pe, int i )
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-	default ProverExpr mkCastToInt(ProverExpr pe){
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-//		TODO: remove
+//	default ProverExpr mkIntToUnsignedBV(ProverExpr pe, int i )
+//	{
+//		throw new UnsupportedOperationException("Not supported yet.");
+//	}
+//	default ProverExpr mkCastToInt(ProverExpr pe){
+//		throw new UnsupportedOperationException("Not supported yet.");
+//	}
+////		TODO: remove
 
 
 
