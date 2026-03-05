@@ -8818,8 +8818,8 @@ public class FloatingPointEncoder {
                         varMap.get(resultSignVar),
                         varMap.get(ee),
                         p.mkBVMul(
-                                p.mkBVZeroExtend(this.ef-this.f,leftMantisa,this.ef),
-                                p.mkBVZeroExtend(this.ef-this.f,rightMantisa,this.ef),this.ef),
+                                p.mkBVZeroExtend(this.ef-this.f,leftMantisa,this.f),
+                                p.mkBVZeroExtend(this.ef-this.f,rightMantisa,this.f),this.ef),
                         p.mkLiteral(false),
                         p.mkLiteral(false)
                 )
