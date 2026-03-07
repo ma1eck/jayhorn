@@ -247,7 +247,7 @@ Legal parameters are:
 	at com.microsoft.z3.Native.fixedpointSetParams(Native.java:5162)
 	at com.microsoft.z3.Fixedpoint.setParameters(Fixedpoint.java:45)
 	at jayhorn.solver.spacer.SpacerProver.createSolver(SpacerProver.java:96)
-	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1282)
+	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1291)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
 	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
@@ -256,5 +256,5 @@ Legal parameters are:
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-Spacer takes 39.30 ?s to check the given benchmark!
+Spacer takes 30.30 ?s to check the given benchmark!
 SAFE

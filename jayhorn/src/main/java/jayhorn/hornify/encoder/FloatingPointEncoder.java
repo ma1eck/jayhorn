@@ -351,11 +351,16 @@ public class FloatingPointEncoder {
 
         ProverExpr signExpr = p.mkIte(p.mkLt(intExpr,p.mkLiteral(0)),p.mkLiteral(true),p.mkLiteral(false));
         ProverExpr intBVExpr = p.mkIte(p.mkLt(intExpr,p.mkLiteral(0)),
-                p.mkBVNeg(p.mkIntToUnsignedBV(p.mkMult(intExpr,p.mkNeg(p.mkLiteral(true))),intType),intType),
+                p.mkBVNeg(p.mkIntToUnsignedBV(p.mkMult(intExpr,p.mkNeg(p.mkLiteral(1))),intType),intType), // TODO: reachek
                 p.mkIntToUnsignedBV(intExpr,intType));
 
         List<Variable> postPred1Vars = new ArrayList<>(prePred.variables);
-        Variable sign = new Variable("sign",  IntType.instance());
+        Variable sign;
+        if (p instanceof SpacerProver) {
+            sign = new Variable("sign",  BoolType.instance());
+        }else {
+            sign = new Variable("sign",  IntType.instance());
+        }
         Variable intBv = new Variable("intBV",  Type.instance(),intType);
         postPred1Vars.add(sign);
         postPred1Vars.add(intBv);
@@ -413,7 +418,7 @@ public class FloatingPointEncoder {
         ProverExpr resultExpr = p.mkIte(
                 p.mkEq(sign,p.mkLiteral(false)),
                 p.mkCastToInt(p.mkBVConcat(exponent,p.mkBVExtract(f-2,0,mantissa),e+f-1)),
-                p.mkMult(p.mkCastToInt(p.mkBVNeg(p.mkBVConcat(exponent,p.mkBVExtract(f-2,0,mantissa),e+f-1),e+f-1)),p.mkNeg(p.mkLiteral(true)))
+                p.mkMult(p.mkCastToInt(p.mkBVNeg(p.mkBVConcat(exponent,p.mkBVExtract(f-2,0,mantissa),e+f-1),e+f-1)),p.mkNeg(p.mkLiteral(1))) //TODO: recheck
 
         );
         varMap.put(idInt.getVariable(),resultExpr);
@@ -447,7 +452,7 @@ public class FloatingPointEncoder {
                                 )
 
                         ),
-                        p.mkNeg(p.mkLiteral(true))
+                        p.mkNeg(p.mkLiteral(1))
                 );
 
 
@@ -577,7 +582,7 @@ public class FloatingPointEncoder {
                                         ,f
                                 )
                         ),
-                        p.mkNeg(p.mkLiteral(true))
+                        p.mkNeg(p.mkLiteral(1))
                 )
         );
         varMap.put(idInt.getVariable(),resultExpr1);
@@ -1067,11 +1072,16 @@ public class FloatingPointEncoder {
         List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
 
 
-        ProverExpr signExpr = p.mkIte(p.mkGeq(intExpr,p.mkLiteral(0)),p.mkLiteral(false),p.mkLiteral(true));  // TODO: recheck
+        ProverExpr signExpr = p.mkIte(p.mkGeq(intExpr,p.mkLiteral(0)),p.mkLiteral(false),p.mkLiteral(true));
         ProverExpr intBVExpr = p.mkIntToUnsignedBV(p.mkIte(p.mkGeq(intExpr,p.mkLiteral(0)), intExpr,p.mkNeg(intExpr)),intType);
 
         List<Variable> postPred1Vars = new ArrayList<>(prePred.variables);
-        Variable sign = new Variable("sign",  IntType.instance());
+        Variable sign;
+        if (p instanceof SpacerProver) {
+            sign = new Variable("sign",  BoolType.instance());
+        }else {
+            sign = new Variable("sign",  IntType.instance());
+        }
         Variable intBv = new Variable("intBV",  Type.instance(),intType);
         postPred1Vars.add(sign);
         postPred1Vars.add(intBv);

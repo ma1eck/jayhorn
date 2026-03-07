@@ -18,6 +18,8 @@ LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
 ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
+white_list = ["Conflict", "Arctan_Pade", "exp_loop", "filter2_iterated", "float-zero-sum1","Float1", "Float12"و "Float_int_inv_square"
+              ,"float_req_bl_1381", "interpolation"]
 
 def run_benchmark(task_info):
     """Run a single benchmark with specific encodings and save its output."""
@@ -146,16 +148,22 @@ def main():
     results_data = []
 
     with ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_benchmark = {
-            executor.submit(run_benchmark, t): t for t in tasks
-        }
+        try:
+            future_to_benchmark = {
+                executor.submit(run_benchmark, t): t for t in tasks
+            }
 
-        for future in as_completed(future_to_benchmark):
-            res = future.result()
-            if res:
-                results_data.append(res)
-                if res[4] == "UNKNOWN":
-                    print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
+            for future in as_completed(future_to_benchmark):
+                res = future.result()
+                if res:
+                    results_data.append(res)
+                    if res[4] == "UNKNOWN" and not res[0] in white_list:
+                        print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
+
+        except KeyboardInterrupt:
+            print("\nCtrl+C detected. Terminating workers...")
+            executor.shutdown(wait=False, cancel_futures=True)
+            raise
 
     # Added columns to reflect the configurations
     headers = ['Benchmark Name', 'Rounding', 'Normalization', 'Total Time (ms)', 'Result', 'Solver Time (ms)']

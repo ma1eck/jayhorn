@@ -433,12 +433,26 @@ public class SpacerProver implements Prover {
 	@Override
 	public ProverExpr mkIntToUnsignedBV(ProverExpr expr, int bitLength)
 	{
-		throw new RuntimeException("not implemented");
+		try {
+			IntExpr intexpr = (IntExpr) unpack(expr);
+ 			return new SpacerTermExpr(ctx.mkInt2BV(bitLength, intexpr), this.getBVType(bitLength));
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 	@Override
 	public ProverExpr mkCastToInt(ProverExpr expr)
 	{
-		throw new RuntimeException("not implemented");
+		//TODO: this is not correct.
+		//z3 don't have general cast to int, we assume that the input is BV.
+
+		try {
+			BitVecExpr bvexpr = (BitVecExpr) ((SpacerTermExpr) expr).term;
+			boolean isSigned = false;
+			return new SpacerTermExpr(ctx.mkBV2Int(bvexpr, isSigned), this.getIntType());
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 
 	@Override
@@ -590,6 +604,7 @@ public class SpacerProver implements Prover {
 	@Override
 	public ProverExpr mkEMod(ProverExpr num, ProverExpr denom)  {
 		try {
+			//TODO: a bug here
 			return new SpacerTermExpr(ctx.mkMod((IntExpr) unpack(num),
 					(IntExpr) unpack(num)), this.getIntType());
 		} catch (Exception e) {
