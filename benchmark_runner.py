@@ -11,7 +11,7 @@ NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'benchmark_results.csv'
 
-TIMEOUT_SECONDS = 2 * 60
+TIMEOUT_SECONDS =  20
 MAX_WORKERS = 6
 
 LOOP_BASED = "loop-based"

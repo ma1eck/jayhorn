@@ -827,8 +827,8 @@ public class FloatingPointEncoder {
                                 ), //mantissa
                                 expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 3, varMap.get(resultFP)), //NaN
                                 expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 4, varMap.get(resultFP)), //Inf
-                                expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
-                                expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
+//                                expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
+//                                expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
                         }
                 )
         );
@@ -902,8 +902,8 @@ public class FloatingPointEncoder {
                                     ), //mantissa
                                     expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 3, varMap.get(resultFP)), //NaN
                                     expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 4, varMap.get(resultFP)), //Inf
-                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
-                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
+//                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
+//                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
                             }
                     )
             );
@@ -977,8 +977,8 @@ public class FloatingPointEncoder {
                                     ), //mantissa
                                     expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 3, varMap.get(resultFP)), //NaN
                                     expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 4, varMap.get(resultFP)), //Inf
-                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
-                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
+//                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
+//                                    expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
                             }
                     )
             );
@@ -6000,16 +6000,16 @@ public class FloatingPointEncoder {
                                 4,
                                 varMap.get(resultFP)
                         ), //NaN
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                5,
-                                varMap.get(resultFP)
-                        ), //OVF
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                6,
-                                varMap.get(resultFP)
-                        ) //UDF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                5,
+//                                varMap.get(resultFP)
+//                        ), //OVF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                6,
+//                                varMap.get(resultFP)
+//                        ) //UDF
                 })
         );
 
@@ -6655,16 +6655,16 @@ public class FloatingPointEncoder {
                                 4,
                                 varMap.get(resultFP)
                         ), //Inf
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                5,
-                                varMap.get(resultFP)
-                        ), //OVF
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                6,
-                                varMap.get(resultFP)
-                        ) //UDF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                5,
+//                                varMap.get(resultFP)
+//                        ), //OVF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                6,
+//                                varMap.get(resultFP)
+//                        ) //UDF
                 })
         );
 
@@ -7847,16 +7847,16 @@ public class FloatingPointEncoder {
                                 4,
                                 varMap.get(resultFP)
                         ), //Inf
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                5,
-                                varMap.get(resultFP)
-                        ), //OVF
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                6,
-                                varMap.get(resultFP)
-                        ) //UDF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                5,
+//                                varMap.get(resultFP)
+//                        ), //OVF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                6,
+//                                varMap.get(resultFP)
+//                        ) //UDF
                 })
         );
 
@@ -8126,16 +8126,16 @@ public class FloatingPointEncoder {
                                 4,
                                 varMap.get(resultFP)
                         ), //Inf
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                5,
-                                varMap.get(resultFP)
-                        ), //OVF
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                6,
-                                varMap.get(resultFP)
-                        ) //UDF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                5,
+//                                varMap.get(resultFP)
+//                        ), //OVF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                6,
+//                                varMap.get(resultFP)
+//                        ) //UDF
                 })
         );
 
@@ -8446,16 +8446,16 @@ public class FloatingPointEncoder {
                                 4,
                                 varMap.get(resultFP)
                         ), //Inf
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                5,
-                                varMap.get(resultFP)
-                        ), //OVF
-                        floatingPointADT.mkSelExpr(
-                                0,
-                                6,
-                                varMap.get(resultFP)
-                        ) //UDF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                5,
+//                                varMap.get(resultFP)
+//                        ), //OVF
+//                        floatingPointADT.mkSelExpr(
+//                                0,
+//                                6,
+//                                varMap.get(resultFP)
+//                        ) //UDF
                 })
         );
 
@@ -10495,8 +10495,8 @@ public class FloatingPointEncoder {
                                 ), //mantissa
                                 floatingPointADT.mkSelExpr(0, 3, varMap.get(resultFP)), //NaN
                                 floatingPointADT.mkSelExpr(0, 4, varMap.get(resultFP)), //Inf
-                                floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
-                                floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
+//                                floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
+//                                floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
                         }
                 )
         );
@@ -10853,8 +10853,8 @@ public class FloatingPointEncoder {
                                 ), //mantissa
                                 floatingPointADT.mkSelExpr(0, 3, varMap.get(resultFP)), //NaN
                                 floatingPointADT.mkSelExpr(0, 4, varMap.get(resultFP)), //Inf
-                                floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
-                                floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
+//                                floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
+//                                floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
                         }
                 )
         );
@@ -11230,8 +11230,8 @@ public class FloatingPointEncoder {
                                 ), //mantissa
                                 floatingPointADT.mkSelExpr(0, 3, varMap.get(resultFP)), //NaN
                                 floatingPointADT.mkSelExpr(0, 4, varMap.get(resultFP)), //Inf
-                                floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
-                                floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
+//                                floatingPointADT.mkSelExpr(0, 5, varMap.get(resultFP)), //OVF
+//                                floatingPointADT.mkSelExpr(0, 6, varMap.get(resultFP)) //UDF
                         }
                 )
         );
@@ -11507,7 +11507,7 @@ public class FloatingPointEncoder {
         // byte [] ma = ieeeOne.get_fraction().toByteArray();
         mantissa = BVLit(ieeeOne.get_fraction(),f);
         //ieeeOne.get_fraction().add(BigInteger.ONE).doubleValue()
-        ProverExpr res = floatingPointADT.mkCtorExpr(0,new ProverExpr[]{sign, exponent,mantissa,isNan,isInf, OVF, UDF });
+        ProverExpr res = floatingPointADT.mkCtorExpr(0,new ProverExpr[]{sign, exponent,mantissa,isNan,isInf/*, OVF, UDF*/ });
 
         return  res;
     }

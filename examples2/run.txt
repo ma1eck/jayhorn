@@ -1,8 +1,8 @@
-PartitionEx
+Arctan_Pade
 
 compile:
-javac .\examples2\Java-SVCOM\PartitionEx\src\Main.java .\examples2\Java-SVCOM\PartitionEx\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\Java-SVCOM\PartitionEx\classes\
+javac .\examples2\C-SVCOM\Arctan_Pade\src\Main.java .\examples2\C-SVCOM\Arctan_Pade\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Arctan_Pade\classes\
 
 
-config: 
--j examples2/Java-SVCOM/PartitionEx/classes -src examples2/Java-SVCOM/PartitionEx/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\Java-SVCOM\PartitionEx\horn -print-horn
+config:
+-j examples2/C-SVCOM/Arctan_Pade/classes -src examples2/C-SVCOM/Arctan_Pade/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Arctan_Pade\horn -print-horn
