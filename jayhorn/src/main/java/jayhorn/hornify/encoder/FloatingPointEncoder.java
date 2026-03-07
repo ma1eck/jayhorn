@@ -2233,7 +2233,7 @@ public class FloatingPointEncoder {
         HornHelper.hh().findOrCreateProverVar(p, postPred6Vars, varMap);
         postAtom6 = postPred6.instPredicate(varMap);
 
-        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(efp)));
+        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(efp))); //TODO: recheck passing mantissa to isUDFExp
 
         resultAdd = p.mkTupleUpdate(idLhsTExpr,3, makeUDF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(efp))));
         varMap.put(idLhs.getVariable(),resultAdd);
@@ -3481,7 +3481,7 @@ public class FloatingPointEncoder {
         HornHelper.hh().findOrCreateProverVar(p, postPred6Vars, varMap);
         postAtom6 = postPred6.instPredicate(varMap);
 
-        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(efp)));
+        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(efp))); //TODO: recheck passing mantissa to isUDFExp
 
         resultAdd = p.mkTupleUpdate(idLhsTExpr,3, makeUDF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(efp))));
         varMap.put(idLhs.getVariable(),resultAdd);
@@ -3981,7 +3981,7 @@ public class FloatingPointEncoder {
         HornHelper.hh().findOrCreateProverVar(p, postPred6Vars, varMap);
         postAtom6 = postPred6.instPredicate(varMap);
 
-        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(efp)));
+        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(efp))); //TODO: recheck passing mantissa to isUDFExp
 
         resultAdd = p.mkTupleUpdate(idLhsTExpr,3, makeUDF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(efp))));
         varMap.put(idLhs.getVariable(),resultAdd);
@@ -4884,7 +4884,7 @@ public class FloatingPointEncoder {
         HornHelper.hh().findOrCreateProverVar(p, postPred6Vars, varMap);
         postAtom6 = postPred6.instPredicate(varMap);
 
-        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(efp)));
+        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(efp))); //TODO: recheck passing mantissa to isUDFExp
 
         resultAdd = p.mkTupleUpdate(idLhsTExpr,3, makeUDF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(efp))));
         varMap.put(idLhs.getVariable(),resultAdd);
@@ -6150,7 +6150,7 @@ public class FloatingPointEncoder {
         // First create the atom for prePred.
         HornHelper.hh().findOrCreateProverVar(p, postPred1Vars, varMap);
         postAtom1 = postPred1.instPredicate(varMap);
-        Cond = isUDFExp(varMap.get(ee));
+        Cond = isUDFExp(varMap.get(ee)); //should pass mantissa to isUDFExp
         mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeUDF(varMap.get(resultSignVar)));
         varMap.put(idLhs.getVariable(),mulResult);
         postAtom = postPred.instPredicate(varMap);
@@ -6250,7 +6250,7 @@ public class FloatingPointEncoder {
         // First create the atom for prePred.
         HornHelper.hh().findOrCreateProverVar(p, postPred3Vars, varMap);
         postAtom3 = postPred3.instPredicate(varMap);
-        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP)));
+        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))); //TODO: recheck passing mantissa to isUDFExp
         mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeUDF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP))));
         varMap.put(idLhs.getVariable(),mulResult);
         HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
@@ -11482,7 +11482,7 @@ public class FloatingPointEncoder {
         // byte [] ma = ieeeOne.get_fraction().toByteArray();
         mantissa = BVLit(ieeeOne.get_fraction(),f);
         //ieeeOne.get_fraction().add(BigInteger.ONE).doubleValue()
-        ProverExpr res = floatingPointADT.mkCtorExpr(0,new ProverExpr[]{sign, exponent,mantissa,isNan,isInf, OVF, UDF });
+        ProverExpr res = floatingPointADT.mkCtorExpr(0,new ProverExpr[]{sign, exponent,mantissa,isNan,isInf, /*OVF, UDF*/ });
 
         return  res;
     }

@@ -58,7 +58,11 @@ configurations.all {
         force 'org.scala-lang:scala-library:2.11.12'
         force 'org.scala-lang:scala-reflect:2.11.12'
         force 'org.scala-lang:scala-compiler:2.11.12'
+        cacheChangingModulesFor 36, 'days' //todo
+        cacheDynamicVersionsFor 36, 'days' //todo
+
     }
+
 }
 
 
@@ -200,3 +204,4 @@ tasks.withType(JavaExec) {
     environment "DYLD_LIBRARY_PATH", nativeLibFile.absolutePath
     environment "PATH", nativeLibFile.absolutePath + File.pathSeparator + System.getenv("PATH")
 }
+

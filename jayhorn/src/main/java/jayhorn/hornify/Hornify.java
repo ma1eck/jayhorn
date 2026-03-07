@@ -820,8 +820,8 @@ public class Hornify {
 						prover.mkLiteral(false), //sign // TODO: recheck
 						prover.mkBV(2047,11),
 						prover.mkBV(0,53),
-						prover.mkLiteral(1), //Inf
-						prover.mkLiteral(0)/*, //NaN
+						prover.mkLiteral(true), //Inf
+						prover.mkLiteral(false)/*, //NaN
 						prover.mkLiteral(true), //OVF
 						prover.mkLiteral(false) //UDF*/
 				}));
