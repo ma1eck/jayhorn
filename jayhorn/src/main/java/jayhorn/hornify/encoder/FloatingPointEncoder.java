@@ -6725,8 +6725,9 @@ public class FloatingPointEncoder {
         Variable resultSignVar;
         if (p instanceof SpacerProver) {
             resultSignVar = new Variable("resultSignVar", BoolType.instance()); //Todo: recheck didn't make new method for spacer.
+        }else {
+            resultSignVar = new Variable("resultSignVar", IntType.instance());
         }
-        resultSignVar = new Variable("resultSignVar", IntType.instance());
         ProverExpr subExponents =
                 p.mkBVPlus(
                         p.mkBVZeroExtend(1,
@@ -8719,8 +8720,9 @@ public class FloatingPointEncoder {
         Variable resultSignVar;
         if (p instanceof SpacerProver) {
             resultSignVar = new Variable("resultSignVar", BoolType.instance()); //Todo: recheck didn't make new method for spacer.
+        }else {
+            resultSignVar = new Variable("resultSignVar", IntType.instance());
         }
-        resultSignVar = new Variable("resultSignVar", IntType.instance());
 
 
         leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
