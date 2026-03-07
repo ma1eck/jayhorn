@@ -602,8 +602,8 @@ public class FloatingPointEncoder {
         ProverExpr mantissa = floatingPointADT.mkSelExpr(0, 2, doublefp);
         ProverExpr isNaN = floatingPointADT.mkSelExpr(0, 3, doublefp);
         ProverExpr isInf = floatingPointADT.mkSelExpr(0, 4, doublefp);
-        ProverExpr OVF = floatingPointADT.mkSelExpr(0, 5, doublefp);
-        ProverExpr UDF = floatingPointADT.mkSelExpr(0, 6, doublefp);
+//        ProverExpr OVF = floatingPointADT.mkSelExpr(0, 5, doublefp);
+//        ProverExpr UDF = floatingPointADT.mkSelExpr(0, 6, doublefp);
 
         Variable resultFP = new Variable("resultFP", new WrappedProverType(expEncoder.getSingleFloatingPointEnCoder().floatingPointADT.getType(0)));
 
@@ -1029,8 +1029,8 @@ public class FloatingPointEncoder {
         ProverExpr mantissa = floatingPointADT.mkSelExpr(0, 2, singlefp);
         ProverExpr isNaN = floatingPointADT.mkSelExpr(0, 3, singlefp);
         ProverExpr isInf = floatingPointADT.mkSelExpr(0, 4, singlefp);
-        ProverExpr OVF = floatingPointADT.mkSelExpr(0, 5, singlefp);
-        ProverExpr UDF = floatingPointADT.mkSelExpr(0, 6, singlefp);
+//        ProverExpr OVF = floatingPointADT.mkSelExpr(0, 5, singlefp);
+//        ProverExpr UDF = floatingPointADT.mkSelExpr(0, 6, singlefp);
 
 
         ProverExpr floatingPointADTExpr = expEncoder.getDoubleFloatingPointEnCoder().mkDoublePE(
@@ -1882,8 +1882,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
 
@@ -1929,8 +1929,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
         tRight = (ProverTupleExpr)right;
@@ -1969,8 +1969,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
         tRight = (ProverTupleExpr)right;
@@ -3224,8 +3224,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
 
@@ -3268,8 +3268,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
         tRight = (ProverTupleExpr)right;
@@ -3308,8 +3308,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
         tRight = (ProverTupleExpr)right;
@@ -4522,8 +4522,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
 
@@ -4568,8 +4568,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
         tRight = (ProverTupleExpr)right;
@@ -4615,8 +4615,8 @@ public class FloatingPointEncoder {
             ProverExpr rightMantisa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
             ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
             ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
-            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
+//            ProverExpr rightOVF = floatingPointADT.mkSelExpr(0, 5, rightFloatingPointADT);
+//            ProverExpr rightUDF = floatingPointADT.mkSelExpr(0, 6, rightFloatingPointADT);
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkNot(rightSign), rightExponent, rightMantisa, rightIsNan, rightIsInf));
         }
         tRight = (ProverTupleExpr)right;
@@ -11437,8 +11437,8 @@ public class FloatingPointEncoder {
         ProverExpr mantissa = p.mkBVZeroExtend(2,floatingPointADT.mkSelExpr(0, 2, DoublePE),55);
         ProverExpr isNaN = floatingPointADT.mkSelExpr(0, 3, DoublePE);
         ProverExpr isInf = floatingPointADT.mkSelExpr(0, 4, DoublePE);
-        ProverExpr OVF = floatingPointADT.mkSelExpr(0, 5, DoublePE);
-        ProverExpr UDF = floatingPointADT.mkSelExpr(0, 6, DoublePE);
+//        ProverExpr OVF = floatingPointADT.mkSelExpr(0, 5, DoublePE);
+//        ProverExpr UDF = floatingPointADT.mkSelExpr(0, 6, DoublePE);
         return mkExtendedDoublePE(sign, exponent, mantissa, isNaN, isInf);
     }
     private ProverExpr mkExtendedDoublePE(ProverExpr sign, ProverExpr exponent,ProverExpr mantissa, ProverExpr isNan, ProverExpr isInf)

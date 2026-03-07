@@ -6,13 +6,13 @@ import time
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # --- CONFIGURATION ---
-BASE_DIRS = [r"examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop"]
+BASE_DIRS = [r"examples2\JAVA-SVCOM", r"examples2\C-SVCOM"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'sv-benchmarks_float_unboundedloop_benchmarks_results.csv'
+CSV_FILE_PATH = 'benchmark_results.csv'
 
-TIMEOUT_SECONDS = 2 * 60
-MAX_WORKERS = 4
+TIMEOUT_SECONDS = 20
+MAX_WORKERS = 6
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
@@ -25,7 +25,7 @@ def run_benchmark(task_info):
     folder_path = os.path.join(base_dir, folder_name)
 
     classes_dir = os.path.join(folder_path, "classes")
-    src_dir = folder_path
+    src_dir = os.path.join(folder_path, "src")
     
     # Create unique output file names so the 4 runs don't overwrite each other
     output_filename = f"output_R_{rounding_enc}_N_{norm_enc}.txt"
@@ -154,7 +154,8 @@ def main():
             res = future.result()
             if res:
                 results_data.append(res)
-                print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
+                if res[4] == "UNKNOWN":
+                    print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
 
     # Added columns to reflect the configurations
     headers = ['Benchmark Name', 'Rounding', 'Normalization', 'Total Time (ms)', 'Result', 'Solver Time (ms)']

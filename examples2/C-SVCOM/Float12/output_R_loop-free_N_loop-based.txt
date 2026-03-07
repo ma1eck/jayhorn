@@ -4,10 +4,10 @@
 Soot failed to parse <Main: void main(JayArray_java_lang_String)>
 java.lang.RuntimeException: Class java.lang.Character doesn't have method byteValue([]) : byte
 	at soot.SootClass.getMethod(SootClass.java:466)
-	at soottocfg.soot.visitors.SootValueSwitch.boxDownCastExpression(SootValueSwitch.java:416)
-	at soottocfg.soot.visitors.SootValueSwitch.caseCastExpr(SootValueSwitch.java:349)
+	at soottocfg.soot.visitors.SootValueSwitch.boxDownCastExpression(SootValueSwitch.java:444)
+	at soottocfg.soot.visitors.SootValueSwitch.caseCastExpr(SootValueSwitch.java:366)
 	at soot.jimple.internal.AbstractCastExpr.apply(AbstractCastExpr.java:134)
-	at soottocfg.soot.visitors.SootStmtSwitch.translateDefinitionStmt(SootStmtSwitch.java:1325)
+	at soottocfg.soot.visitors.SootStmtSwitch.translateDefinitionStmt(SootStmtSwitch.java:1388)
 	at soottocfg.soot.visitors.SootStmtSwitch.caseAssignStmt(SootStmtSwitch.java:228)
 	at soot.jimple.internal.JAssignStmt.apply(JAssignStmt.java:238)
 	at soottocfg.soot.visitors.SootStmtSwitch.<init>(SootStmtSwitch.java:120)
@@ -17,5 +17,5 @@ java.lang.RuntimeException: Class java.lang.Character doesn't have method byteVa
 	at soottocfg.soot.SootToCfg.run(SootToCfg.java:158)
 	at jayhorn.Main.safetyAnalysis(Main.java:63)
 	at jayhorn.Main.main(Main.java:129)
-2026-02-24 01:50:45,535 ERROR (main) [root] - java.lang.RuntimeException: Class java.lang.Character doesn't have method byteValue([]) : byte
+2026-03-07 18:25:15,686 ERROR (main) [root] - java.lang.RuntimeException: Class java.lang.Character doesn't have method byteValue([]) : byte
 UNKNOWN
