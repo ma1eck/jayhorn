@@ -11,7 +11,7 @@ NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'benchmark_results.csv'
 
-TIMEOUT_SECONDS = 2 * 60
+TIMEOUT_SECONDS = 5 * 60
 MAX_WORKERS = 6
 
 LOOP_BASED = "loop-based"
@@ -146,15 +146,21 @@ def main():
     results_data = []
 
     with ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_benchmark = {
-            executor.submit(run_benchmark, t): t for t in tasks
-        }
+        try:
+            future_to_benchmark = {
+                executor.submit(run_benchmark, t): t for t in tasks
+            }
 
-        for future in as_completed(future_to_benchmark):
-            res = future.result()
-            if res:
-                results_data.append(res)
-                print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
+            for future in as_completed(future_to_benchmark):
+                res = future.result()
+                if res:
+                    results_data.append(res)
+                    print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
+
+        except KeyboardInterrupt:
+            print("\nCtrl+C detected. Terminating workers...")
+            executor.shutdown(wait=False, cancel_futures=True)
+            raise
 
     # Added columns to reflect the configurations
     headers = ['Benchmark Name', 'Rounding', 'Normalization', 'Total Time (ms)', 'Result', 'Solver Time (ms)']

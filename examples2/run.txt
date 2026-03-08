@@ -1,8 +1,8 @@
-Inv_square_int
+Zonotope_3
 
 compile:
-javac .\examples2\C-SVCOM\Inv_square_int\src\Main.java .\examples2\C-SVCOM\Inv_square_int\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Inv_square_int\classes\
+javac .\examples2\C-SVCOM\Zonotope_3\src\Main.java .\examples2\C-SVCOM\Zonotope_3\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Zonotope_3\classes\
 
 
 config:
--j examples2/C-SVCOM/Inv_square_int/classes -src examples2/C-SVCOM/Inv_square_int/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Inv_square_int\horn -print-horn
+-j examples2/C-SVCOM/Zonotope_3/classes -src examples2/C-SVCOM/Zonotope_3/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Zonotope_3\horn -print-horn

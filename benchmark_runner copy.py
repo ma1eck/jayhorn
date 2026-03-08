@@ -18,12 +18,16 @@ LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
 ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
-white_list = ["Conflict", "Arctan_Pade", "exp_loop", "filter2_iterated", "float-zero-sum1","Float1", "Float12"و "Float_int_inv_square"
-              ,"float_req_bl_1381", "interpolation"]
+white_list = ["Conflict", "Arctan_Pade", "exp_loop", "filter2_iterated", "float-zero-sum1","Float1", "Float12", "Float_int_inv_square"
+              ,"float_req_bl_1381", "interpolation", "inv_Newton-2","Inv_square_int", "Loop1Minus1", "Loop1Minus2", "Loop2Minus1"
+              ,"Loop3", "sin_interpolated_bigrange_loose", "sqrt_biNewton_pseudoconstant", "Sqrt_Householder_pseudoconstant"
+              ]
 
 def run_benchmark(task_info):
     """Run a single benchmark with specific encodings and save its output."""
     base_dir, folder_name, rounding_enc, norm_enc = task_info
+    if folder_name in white_list:
+        return None
     folder_path = os.path.join(base_dir, folder_name)
 
     classes_dir = os.path.join(folder_path, "classes")
