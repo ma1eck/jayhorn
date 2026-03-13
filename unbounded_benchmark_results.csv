@@ -1,0 +1,121 @@
+Benchmark Name,Rounding,Normalization,Total Time (ms),Result,Solver Time (ms)
+Adjustable-Inner-Count-Halving,loop-free,loop-free,11457.24,SAFE,2188.0
+Adjustable-Inner-Count-Halving,loop-free,loop-based,13936.45,SAFE,2187.0
+Adjustable-Inner-Count-Halving,loop-based,loop-free,14568.69,SAFE,2856.0
+Adjustable-Inner-Count-Halving,loop-based,loop-based,14843.03,SAFE,2688.0
+Alternating-Step-Schedule,loop-free,loop-based,60260.33,UNKNOWN,
+Batch-Conveyor-Counter,loop-free,loop-based,6454.05,SAFE,3624.0
+Batch-Conveyor-Counter,loop-free,loop-free,11227.18,UNKNOWN,
+Bounded-Proportional-Update,loop-based,loop-based,6032.24,SAFE,2409.0
+Alternating-Step-Schedule,loop-free,loop-free,83723.51,UNKNOWN,
+Bounded-Proportional-Update,loop-based,loop-free,7094.72,SAFE,3679.0
+Bounded-Proportional-Update,loop-free,loop-based,6026.59,SAFE,3202.0
+Bounded-Proportional-Update,loop-free,loop-free,7676.16,SAFE,3827.0
+Bounded-Reset-Linear-Growth,loop-based,loop-based,7135.46,SAFE,3622.0
+Bounded-Reset-Linear-Growth,loop-free,loop-based,7342.25,SAFE,2877.0
+Bounded-Reset-Linear-Growth,loop-free,loop-free,6959.16,SAFE,3548.0
+Alternating-Step-Schedule,loop-based,loop-based,300000,TIMEOUT,
+Alternating-Step-Schedule,loop-based,loop-free,300000,TIMEOUT,
+Batch-Conveyor-Counter,loop-based,loop-based,300000,TIMEOUT,
+Batch-Conveyor-Counter,loop-based,loop-free,300000,TIMEOUT,
+Cyclic-Preset-Inner-ABC,loop-based,loop-based,12596.2,SAFE,7708.0
+Cyclic-Preset-Inner-ABC,loop-based,loop-free,21582.78,SAFE,17570.0
+Cyclic-Preset-Inner-ABC,loop-free,loop-based,12433.91,SAFE,9732.0
+Cyclic-Preset-Inner-ABC,loop-free,loop-free,11013.36,SAFE,8531.0
+Bounded-Reset-Linear-Growth,loop-based,loop-free,300000,TIMEOUT,
+Clamped-Triangular-Drift,loop-based,loop-based,300000,TIMEOUT,
+Clamped-Triangular-Drift,loop-free,loop-free,181995.87,UNKNOWN,
+Clamped-Triangular-Drift,loop-based,loop-free,300000,TIMEOUT,
+Clamped-Triangular-Drift,loop-free,loop-based,300000,TIMEOUT,
+Hysteresis-On-Off-with-Deadband,loop-based,loop-free,15143.8,UNKNOWN,
+Fixed-Block-Accumulator,loop-based,loop-based,300000,TIMEOUT,
+Fixed-Block-Accumulator,loop-based,loop-free,300000,TIMEOUT,
+Hysteresis-On-Off-with-Deadband,loop-free,loop-based,1592684.22,UNSAFE,26.56 min
+Inner-Retry-Until-OK,loop-based,loop-based,10674.7,SAFE,7687.0
+Fixed-Block-Accumulator,loop-free,loop-based,300000,TIMEOUT,
+Inner-Retry-Until-OK,loop-free,loop-based,5941.88,SAFE,3711.0
+Leak-and-Refill,loop-based,loop-based,3023.64,SAFE,949.7
+Leak-and-Refill,loop-based,loop-free,2847.89,SAFE,967.3
+Leak-and-Refill,loop-free,loop-based,7274.48,SAFE,1051.0
+Leak-and-Refill,loop-free,loop-free,4873.96,SAFE,542.5
+Inner-Retry-Until-OK,loop-based,loop-free,51700.84,SAFE,48770.0
+Hysteresis-On-Off-with-Deadband,loop-based,loop-based,1687247.74,UNSAFE,28.13 min
+Inner-Retry-Until-OK,loop-free,loop-free,70642.8,SAFE,1.141 min
+Fixed-Block-Accumulator,loop-free,loop-free,300000,TIMEOUT,
+Hysteresis-On-Off-with-Deadband,loop-free,loop-free,300000,TIMEOUT,
+Mixed-Phase-AddHalve-with-Slack-Box,loop-based,loop-based,300000,TIMEOUT,
+Mixed-Phase-AddHalve-with-Slack-Box,loop-free,loop-free,270740.7,SAFE,4.466 min
+Mixed-Phase-AddHalve-with-Slack-Box,loop-based,loop-free,300000,TIMEOUT,
+Mixed-Phase-AddHalve-with-Slack-Box,loop-free,loop-based,300000,TIMEOUT,
+Nested-Drain-Then-Step,loop-based,loop-based,300000,TIMEOUT,
+Nested-Drain-Then-Step,loop-based,loop-free,128007.37,UNKNOWN,
+Nested-MinStep-Regulator,loop-free,loop-free,51708.9,UNKNOWN,
+Nested-Drain-Then-Step,loop-free,loop-based,300000,TIMEOUT,
+Nested-Drain-Then-Step,loop-free,loop-free,300000,TIMEOUT,
+Nested-MinStep-Regulator,loop-based,loop-based,300000,TIMEOUT,
+Nested-MinStep-Regulator,loop-based,loop-free,300000,TIMEOUT,
+Nested-MinStep-Regulator,loop-free,loop-based,300000,TIMEOUT,
+Nested-PingPong-with-Caps,loop-free,loop-based,67300.93,SAFE,1.038 min
+Nested-PingPong-with-Caps,loop-based,loop-based,295542.69,SAFE,4.843 min
+Nested-Saturation-Then-Reset,loop-free,loop-based,106725.68,SAFE,1.741 min
+Nested-PingPong-with-Caps,loop-based,loop-free,222673.18,SAFE,3.666 min
+Nested-Windowed-Add-Remove,loop-based,loop-based,50697.09,SAFE,45260.0
+Nested-Saturation-Then-Reset,loop-based,loop-based,207835.17,SAFE,3.421 min
+Nested-Windowed-Add-Remove,loop-free,loop-based,66052.08,SAFE,1.057 min
+Nested-PingPong-with-Caps,loop-free,loop-free,300000,TIMEOUT,
+Producer-Consumer-Level,loop-based,loop-based,15630.38,SAFE,12460.0
+Nested-Windowed-Add-Remove,loop-free,loop-free,78464.34,UNKNOWN,
+Nested-Windowed-Add-Remove,loop-based,loop-free,117985.48,SAFE,1.919 min
+Producer-Consumer-Level,loop-free,loop-based,13275.45,SAFE,10480.0
+Producer-Consumer-Level,loop-based,loop-free,20901.14,SAFE,17940.0
+Producer-Consumer-Level,loop-free,loop-free,16017.63,SAFE,12980.0
+Nested-Saturation-Then-Reset,loop-based,loop-free,300000,TIMEOUT,
+Safe-Accumulator-with-Bounded-Noise,loop-based,loop-based,13767.25,SAFE,10220.0
+Safe-Accumulator-with-Bounded-Noise,loop-based,loop-free,15500.63,SAFE,12400.0
+Safe-Accumulator-with-Bounded-Noise,loop-free,loop-based,13025.45,SAFE,8632.0
+Nested-Saturation-Then-Reset,loop-free,loop-free,300000,TIMEOUT,
+Safe-Accumulator-with-Bounded-Noise,loop-free,loop-free,17338.88,SAFE,12800.0
+Saturating-Integrator,loop-based,loop-based,7352.99,SAFE,2944.0
+Saturating-Integrator,loop-based,loop-free,7499.73,SAFE,3080.0
+Saturating-Integrator,loop-free,loop-based,8634.56,SAFE,3971.0
+Saturating-Integrator,loop-free,loop-free,9240.54,SAFE,4630.0
+Slew-Rate-Limiter,loop-based,loop-free,162630.31,UNKNOWN,
+Ramp-and-Hold,loop-based,loop-based,300000,TIMEOUT,
+Ramp-and-Hold,loop-based,loop-free,300000,TIMEOUT,
+Ramp-and-Hold,loop-free,loop-based,300000,TIMEOUT,
+Ramp-and-Hold,loop-free,loop-free,300000,TIMEOUT,
+Switched-Linear-Plant,loop-free,loop-based,50717.37,UNKNOWN,
+Slew-Rate-Limiter,loop-based,loop-based,300000,TIMEOUT,
+Slew-Rate-Limiter,loop-free,loop-based,300000,TIMEOUT,
+Slew-Rate-Limiter,loop-free,loop-free,300000,TIMEOUT,
+Switched-Linear-Plant,loop-based,loop-based,300000,TIMEOUT,
+Switched-Linear-Plant,loop-based,loop-free,300000,TIMEOUT,
+Two-Counter-Lexicographic-Small,loop-based,loop-based,11406.21,SAFE,8345.0
+Two-Counter-Lexicographic-Small,loop-based,loop-free,13529.74,SAFE,11100.0
+Two-Counter-Lexicographic-Small,loop-free,loop-based,9967.39,SAFE,7575.0
+Two-Counter-Lexicographic-Small,loop-free,loop-free,12853.94,UNKNOWN,
+Two-Level-Nested-Scheduler,loop-based,loop-based,16242.8,SAFE,13710.0
+Switched-Linear-Plant,loop-free,loop-free,300000,TIMEOUT,
+Two-Band-Piecewise-Linear-Oscillator,loop-based,loop-based,300000,TIMEOUT,
+Two-Level-Nested-Scheduler,loop-based,loop-free,25894.74,SAFE,22960.0
+Two-Level-Nested-Scheduler,loop-free,loop-based,20224.25,SAFE,17440.0
+Two-Level-Nested-Scheduler,loop-free,loop-free,26825.21,SAFE,24320.0
+Two-Band-Piecewise-Linear-Oscillator,loop-free,loop-free,206719.87,SAFE,3.354 min
+Two-Band-Piecewise-Linear-Oscillator,loop-based,loop-free,300000,TIMEOUT,
+Two-Band-Piecewise-Linear-Oscillator,loop-free,loop-based,300000,TIMEOUT,
+Two-State-FP-Oscillator,loop-based,loop-based,300000,TIMEOUT,
+Two-State-FP-Oscillator,loop-based,loop-free,300000,TIMEOUT,
+Two-State-FP-Oscillator,loop-free,loop-based,300000,TIMEOUT,
+Two-Variable_Averaging_Filter,loop-based,loop-based,31503.32,SAFE,28810.0
+Two-Variable_Averaging_Filter,loop-based,loop-free,51920.96,SAFE,49080.0
+Two-State-FP-Oscillator,loop-free,loop-free,300000,TIMEOUT,
+Two-Variable_Averaging_Filter,loop-free,loop-based,29792.8,SAFE,27030.0
+Unbounded-Outer-Inner-Safety-Gate,loop-based,loop-based,6307.68,SAFE,3375.0
+Unbounded-Outer-Inner-Safety-Gate,loop-based,loop-free,7588.23,SAFE,5207.0
+Two-Variable_Averaging_Filter,loop-free,loop-free,36376.0,SAFE,32750.0
+Unbounded-Outer-Inner-Safety-Gate,loop-free,loop-based,7655.88,SAFE,4888.0
+Unbounded-Outer-Inner-Safety-Gate,loop-free,loop-free,6580.77,SAFE,4029.0
+Two-Var-Nested-Handshake,loop-based,loop-based,300000,TIMEOUT,
+Two-Var-Nested-Handshake,loop-based,loop-free,300000,TIMEOUT,
+Two-Var-Nested-Handshake,loop-free,loop-based,300000,TIMEOUT,
+Two-Var-Nested-Handshake,loop-free,loop-free,300000,TIMEOUT,

@@ -1,0 +1,1075 @@
+(let ((a!1 (exists ((x!1 DoubleFloatingPoint))
+             (! (let ((a!1 (and (not (sign x!1))
+                                (not (= (mantissa x!1)
+                                        #b11111111111111111111111111111111111111111111111111111))))
+                      (a!2 (ite (sign x!1)
+                                (not (bvule (exponent x!1) #b11111111110))
+                                (not (bvule #b11111111110 (exponent x!1)))))
+                      (a!4 (and (not (= (exponent x!1) #b01111111111))
+                                (not (bvule #b01111111111 (exponent x!1)))))
+                      (a!6 (and (= ((_ extract 52 52) (mantissa x!1)) #b0)
+                                (= (exponent x!1) #b00000000001)
+                                (not (= (mantissa x!1)
+                                        #b00000000000000000000000000000000000000000000000000000))))
+                      (a!7 (and (= ((_ extract 52 52) (mantissa x!1)) #b1)
+                                (bvule (exponent x!1) #b11111111110)
+                                (bvule #b00000000001 (exponent x!1))))
+                      (a!8 (not (= ((_ extract 51 0) (mantissa x!1))
+                                   #x0000000000000))))
+                (let ((a!3 (or (sign x!1)
+                               (= x!1
+                                  (DoubleFloatingPoint
+                                    false
+                                    #b11111111110
+                                    #b11111111111111111111111111111111111111111111111111111
+                                    false
+                                    false))
+                               (ite (= (exponent x!1) #b11111111110) a!1 a!2)))
+                      (a!5 (or (= (DoubleFloatingPoint
+                                    true
+                                    #b01111111111
+                                    #b00000000000000000000000000000000000000000000000000000
+                                    true
+                                    false)
+                                  x!1)
+                               a!4
+                               (not (sign x!1)))))
+                  (and (= (exponent x!1) #b11111111111)
+                       a!3
+                       a!5
+                       (or a!6 a!7)
+                       a!8)))
+                :weight 0)))
+      (a!2 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Bool)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int)
+                    (L Int)
+                    (M DoubleFloatingPoint)
+                    (N Int))
+             (! (let ((a!1 (and (not (sign M))
+                                (not (= (mantissa M)
+                                        #b11111111111111111111111111111111111111111111111111111))))
+                      (a!2 (ite (sign M)
+                                (not (bvule (exponent M) #b11111111110))
+                                (not (bvule #b11111111110 (exponent M)))))
+                      (a!4 (and (not (= (exponent M) #b01111111111))
+                                (not (bvule #b01111111111 (exponent M)))))
+                      (a!6 (and (= ((_ extract 52 52) (mantissa M)) #b0)
+                                (= (exponent M) #b00000000001)
+                                (not (= (mantissa M)
+                                        #b00000000000000000000000000000000000000000000000000000))))
+                      (a!7 (and (= ((_ extract 52 52) (mantissa M)) #b1)
+                                (bvule (exponent M) #b11111111110)
+                                (bvule #b00000000001 (exponent M)))))
+                (let ((a!3 (or (sign M)
+                               (= M
+                                  (DoubleFloatingPoint
+                                    false
+                                    #b11111111110
+                                    #b11111111111111111111111111111111111111111111111111111
+                                    false
+                                    false))
+                               (ite (= (exponent M) #b11111111110) a!1 a!2)))
+                      (a!5 (or (not (sign M))
+                               (= (DoubleFloatingPoint
+                                    true
+                                    #b01111111111
+                                    #b00000000000000000000000000000000000000000000000000000
+                                    true
+                                    false)
+                                  M)
+                               a!4)))
+                  (= (Main_void_mainJayArray_java_lang_String_Block1_9
+                       A
+                       B
+                       C
+                       D
+                       E
+                       F
+                       G
+                       H
+                       I
+                       J
+                       K
+                       L
+                       M
+                       N)
+                     (and a!3
+                          a!5
+                          (or a!6 a!7)
+                          (>= D 0)
+                          (= A 1)
+                          (= B 137)
+                          F
+                          (= G 0)
+                          (= H 0)
+                          (= I 0)
+                          (= N 1)))))
+                :weight 0)))
+      (a!3 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int)
+                    (L DoubleFloatingPoint)
+                    (M Int))
+             (! (let ((a!1 (and (not (sign L))
+                                (not (= (mantissa L)
+                                        #b11111111111111111111111111111111111111111111111111111))))
+                      (a!2 (ite (sign L)
+                                (not (bvule (exponent L) #b11111111110))
+                                (not (bvule #b11111111110 (exponent L)))))
+                      (a!4 (and (not (= (exponent L) #b01111111111))
+                                (not (bvule #b01111111111 (exponent L))))))
+                (let ((a!3 (or (sign L)
+                               (= L
+                                  (DoubleFloatingPoint
+                                    false
+                                    #b11111111110
+                                    #b11111111111111111111111111111111111111111111111111111
+                                    false
+                                    false))
+                               (ite (= (exponent L) #b11111111110) a!1 a!2)))
+                      (a!5 (or (not (sign L))
+                               (= (DoubleFloatingPoint
+                                    true
+                                    #b01111111111
+                                    #b00000000000000000000000000000000000000000000000000000
+                                    true
+                                    false)
+                                  L)
+                               a!4)))
+                  (= (Main_void_mainJayArray_java_lang_String_Block1_7-FAssumeResult
+                       A
+                       B
+                       C
+                       D
+                       E
+                       F
+                       G
+                       H
+                       I
+                       J
+                       K
+                       L
+                       M)
+                     (and a!3
+                          a!5
+                          (>= D 0)
+                          (= A 1)
+                          (= B 137)
+                          (= F 0)
+                          (= G 0)
+                          (= H 0)
+                          (= M 1)))))
+                :weight 0)))
+      (a!4 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Bool)
+                    (J Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block1_5
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J)
+                   (and (>= D 0)
+                        (= A 1)
+                        (= B 137)
+                        (= F 0)
+                        (= G 0)
+                        (= H 0)
+                        (= J 1)))
+                :weight 0)))
+      (a!5 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Bool)
+                    (K Int)
+                    (L Int)
+                    (M Int)
+                    (N Int)
+                    (O Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block1_2
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J
+                     K
+                     L
+                     M
+                     N
+                     O)
+                   (and (>= D 0)
+                        (= A 1)
+                        (= B 137)
+                        (= F 1)
+                        (= G 137)
+                        (= H C)
+                        (= I D)
+                        (= K 1)))
+                :weight 0)))
+      (a!6 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int))
+             (! (= (Main_void_clinit_Block1_2 A B C D E F G H)
+                   (and (= A 1) (= E 0) (= F 0) (= G 0) (= H 1)))
+                :weight 0)))
+      (a!7 (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+             (! (= (Main_void_clinit_Block1_1 A B C D E) (and (= A 1) (= E 1)))
+                :weight 0)))
+      (a!8 (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+             (! (= (Main_void_clinit_Block1 A B C D E) (and (= A 1) (= E 1)))
+                :weight 0)))
+      (a!9 (forall ((A Int) (B Int))
+             (! (= (JayHornAssertions_void_clinit_Block1_1 A B)
+                   (and (= A 1) (= B 1)))
+                :weight 0)))
+      (a!10 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L DoubleFloatingPoint)
+                     (M Bool)
+                     (N Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1_6
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N)
+                    (and (>= D 0)
+                         (= A 1)
+                         (= B 137)
+                         (= F 0)
+                         (= G 0)
+                         (= H 0)
+                         (= N 1)))
+                 :weight 0)))
+      (a!11 (forall ((A Int) (B Int))
+              (! (= (JayHornAssertions_void_clinit_Block1 A B)
+                    (and (= A 1) (= B 1)))
+                 :weight 0)))
+      (a!12 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Bool)
+                     (L Int)
+                     (M Int)
+                     (N Int)
+                     (O Int)
+                     (P Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1_1
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P)
+                    (and (= F A) (= G B) (= H C) (= I D) (= L 1)))
+                 :weight 0)))
+      (a!13 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Bool)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L Int)
+                     (M Int)
+                     (N Int)
+                     (O Int)
+                     (P Int)
+                     (Q Int)
+                     (R Int)
+                     (S DoubleFloatingPoint)
+                     (T Bool)
+                     (U Int)
+                     (V Int)
+                     (W Int)
+                     (X Int)
+                     (Y Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P
+                      Q
+                      R
+                      S
+                      T
+                      U
+                      V
+                      W
+                      X
+                      Y)
+                    (and (= K A) (= L B) (= M C) (= N D)))
+                 :weight 0)))
+      (a!14 (forall ((A Int) (B Int) (C Int) (D Int) (E Bool))
+              (! (= (inv_$StaticFields_Main_2 A B C D E)
+                    (and (= A (- 4)) (= B 297) (not E)))
+                 :weight 0))))
+  (and (= |Assert_#1_Main.java,_line_10| a!1)
+       (= |Assert_#0_Main.java,_line_8| true)
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (let ((a!1 (exists ((x!1 DoubleFloatingPoint))
+                         (! (let ((a!1 (and (not (sign x!1))
+                                            (not (= (mantissa x!1)
+                                                    #b11111111111111111111111111111111111111111111111111111))))
+                                  (a!2 (ite (sign x!1)
+                                            (not (bvule (exponent x!1)
+                                                        #b11111111110))
+                                            (not (bvule #b11111111110
+                                                        (exponent x!1)))))
+                                  (a!4 (and (not (= (exponent x!1)
+                                                    #b01111111111))
+                                            (not (bvule #b01111111111
+                                                        (exponent x!1)))))
+                                  (a!6 (and (= ((_ extract 52 52)
+                                                 (mantissa x!1))
+                                               #b0)
+                                            (= (exponent x!1) #b00000000001)
+                                            (not (= (mantissa x!1)
+                                                    #b00000000000000000000000000000000000000000000000000000))))
+                                  (a!7 (and (= ((_ extract 52 52)
+                                                 (mantissa x!1))
+                                               #b1)
+                                            (bvule (exponent x!1) #b11111111110)
+                                            (bvule #b00000000001 (exponent x!1)))))
+                            (let ((a!3 (or (sign x!1)
+                                           (= x!1
+                                              (DoubleFloatingPoint
+                                                false
+                                                #b11111111110
+                                                #b11111111111111111111111111111111111111111111111111111
+                                                false
+                                                false))
+                                           (ite (= (exponent x!1) #b11111111110)
+                                                a!1
+                                                a!2)))
+                                  (a!5 (or (= (DoubleFloatingPoint
+                                                true
+                                                #b01111111111
+                                                #b00000000000000000000000000000000000000000000000000000
+                                                true
+                                                false)
+                                              x!1)
+                                           a!4
+                                           (not (sign x!1)))))
+                              (and (= (exponent x!1) #b00000000000)
+                                   (>= D 0)
+                                   a!3
+                                   a!5
+                                   (or a!6 a!7)
+                                   (= (mantissa x!1)
+                                      #b00000000000000000000000000000000000000000000000000000)
+                                   (= A 1)
+                                   (= B 137)
+                                   (= F 0)
+                                   (= G 0)
+                                   (= H 0)
+                                   (= I 0)
+                                   (= J 1))))
+                            :weight 0)))
+                  (a!2 (exists ((x!1 DoubleFloatingPoint))
+                         (! (let ((a!1 (and (not (sign x!1))
+                                            (not (= (mantissa x!1)
+                                                    #b11111111111111111111111111111111111111111111111111111))))
+                                  (a!2 (ite (sign x!1)
+                                            (not (bvule (exponent x!1)
+                                                        #b11111111110))
+                                            (not (bvule #b11111111110
+                                                        (exponent x!1)))))
+                                  (a!4 (and (not (= (exponent x!1)
+                                                    #b01111111111))
+                                            (not (bvule #b01111111111
+                                                        (exponent x!1)))))
+                                  (a!6 (and (= ((_ extract 52 52)
+                                                 (mantissa x!1))
+                                               #b0)
+                                            (= (exponent x!1) #b00000000001)
+                                            (not (= (mantissa x!1)
+                                                    #b00000000000000000000000000000000000000000000000000000))))
+                                  (a!7 (and (= ((_ extract 52 52)
+                                                 (mantissa x!1))
+                                               #b1)
+                                            (bvule (exponent x!1) #b11111111110)
+                                            (bvule #b00000000001 (exponent x!1))))
+                                  (a!8 (not (= ((_ extract 51 0) (mantissa x!1))
+                                               #x0000000000000))))
+                            (let ((a!3 (or (sign x!1)
+                                           (= x!1
+                                              (DoubleFloatingPoint
+                                                false
+                                                #b11111111110
+                                                #b11111111111111111111111111111111111111111111111111111
+                                                false
+                                                false))
+                                           (ite (= (exponent x!1) #b11111111110)
+                                                a!1
+                                                a!2)))
+                                  (a!5 (or (= (DoubleFloatingPoint
+                                                true
+                                                #b01111111111
+                                                #b00000000000000000000000000000000000000000000000000000
+                                                true
+                                                false)
+                                              x!1)
+                                           a!4
+                                           (not (sign x!1)))))
+                              (and (= (exponent x!1) #b11111111111)
+                                   (>= D 0)
+                                   a!3
+                                   a!5
+                                   (or a!6 a!7)
+                                   a!8
+                                   (= A 1)
+                                   (= B 137)
+                                   (= F 2)
+                                   (= G 0)
+                                   (= H 0)
+                                   (= I 0)
+                                   (= J 1))))
+                            :weight 0))))
+            (let ((a!3 (or a!1
+                           a!2
+                           (exists ((x!1 DoubleFloatingPoint))
+                             (! (let ((a!1 (and (not (sign x!1))
+                                                (not (= (mantissa x!1)
+                                                        #b11111111111111111111111111111111111111111111111111111))))
+                                      (a!2 (ite (sign x!1)
+                                                (not (bvule (exponent x!1)
+                                                            #b11111111110))
+                                                (not (bvule #b11111111110
+                                                            (exponent x!1)))))
+                                      (a!4 (and (not (= (exponent x!1)
+                                                        #b01111111111))
+                                                (not (bvule #b01111111111
+                                                            (exponent x!1)))))
+                                      (a!6 (or (not (= (exponent x!1)
+                                                       #b11111111111))
+                                               (= ((_ extract 51 0)
+                                                    (mantissa x!1))
+                                                  #x0000000000000)))
+                                      (a!7 (and (= ((_ extract 52 52)
+                                                     (mantissa x!1))
+                                                   #b0)
+                                                (= (exponent x!1) #b00000000001)
+                                                (not (= (mantissa x!1)
+                                                        #b00000000000000000000000000000000000000000000000000000))))
+                                      (a!8 (and (= ((_ extract 52 52)
+                                                     (mantissa x!1))
+                                                   #b1)
+                                                (bvule (exponent x!1)
+                                                       #b11111111110)
+                                                (bvule #b00000000001
+                                                       (exponent x!1)))))
+                                (let ((a!3 (or (sign x!1)
+                                               (= x!1
+                                                  (DoubleFloatingPoint
+                                                    false
+                                                    #b11111111110
+                                                    #b11111111111111111111111111111111111111111111111111111
+                                                    false
+                                                    false))
+                                               (ite (= (exponent x!1)
+                                                       #b11111111110)
+                                                    a!1
+                                                    a!2)))
+                                      (a!5 (or (= (DoubleFloatingPoint
+                                                    true
+                                                    #b01111111111
+                                                    #b00000000000000000000000000000000000000000000000000000
+                                                    true
+                                                    false)
+                                                  x!1)
+                                               a!4
+                                               (not (sign x!1)))))
+                                  (and a!3
+                                       a!5
+                                       a!6
+                                       (or a!7 a!8)
+                                       (>= D 0)
+                                       (= A 1)
+                                       (= B 137)
+                                       (= F 0)
+                                       (= G 0)
+                                       (= H 0)
+                                       (= I 0)
+                                       (= J 1))))
+                                :weight 0)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_11-FCmpResult
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J)
+                 a!3)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (let ((a!1 (exists ((x!1 DoubleFloatingPoint))
+                         (! (let ((a!1 (and (not (sign x!1))
+                                            (not (= (mantissa x!1)
+                                                    #b11111111111111111111111111111111111111111111111111111))))
+                                  (a!2 (ite (sign x!1)
+                                            (not (bvule (exponent x!1)
+                                                        #b11111111110))
+                                            (not (bvule #b11111111110
+                                                        (exponent x!1)))))
+                                  (a!4 (and (not (= (exponent x!1)
+                                                    #b01111111111))
+                                            (not (bvule #b01111111111
+                                                        (exponent x!1)))))
+                                  (a!6 (and (= ((_ extract 52 52)
+                                                 (mantissa x!1))
+                                               #b0)
+                                            (= (exponent x!1) #b00000000001)
+                                            (not (= (mantissa x!1)
+                                                    #b00000000000000000000000000000000000000000000000000000))))
+                                  (a!7 (and (= ((_ extract 52 52)
+                                                 (mantissa x!1))
+                                               #b1)
+                                            (bvule (exponent x!1) #b11111111110)
+                                            (bvule #b00000000001 (exponent x!1))))
+                                  (a!8 (not (= ((_ extract 51 0) (mantissa x!1))
+                                               #x0000000000000))))
+                            (let ((a!3 (or (sign x!1)
+                                           (= x!1
+                                              (DoubleFloatingPoint
+                                                false
+                                                #b11111111110
+                                                #b11111111111111111111111111111111111111111111111111111
+                                                false
+                                                false))
+                                           (ite (= (exponent x!1) #b11111111110)
+                                                a!1
+                                                a!2)))
+                                  (a!5 (or (= (DoubleFloatingPoint
+                                                true
+                                                #b01111111111
+                                                #b00000000000000000000000000000000000000000000000000000
+                                                true
+                                                false)
+                                              x!1)
+                                           a!4
+                                           (not (sign x!1)))))
+                              (and (= (exponent x!1) #b11111111111)
+                                   (>= D 0)
+                                   a!3
+                                   a!5
+                                   (or a!6 a!7)
+                                   a!8
+                                   (= A 1)
+                                   (= B 137)
+                                   (= F 2)
+                                   (= G 0)
+                                   (= H 0)
+                                   (= I 0)
+                                   (= J 1))))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block3
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J)
+                 a!1))
+            :weight 0))
+       a!2
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L DoubleFloatingPoint)
+                (M Int))
+         (! (let ((a!1 (and (not (sign L))
+                            (not (= (mantissa L)
+                                    #b11111111111111111111111111111111111111111111111111111))))
+                  (a!2 (ite (sign L)
+                            (not (bvule (exponent L) #b11111111110))
+                            (not (bvule #b11111111110 (exponent L)))))
+                  (a!4 (and (not (= (exponent L) #b01111111111))
+                            (not (bvule #b01111111111 (exponent L)))))
+                  (a!5 (and (= ((_ extract 52 52) (mantissa L)) #b0)
+                            (= (exponent L) #b00000000001)
+                            (not (= (mantissa L)
+                                    #b00000000000000000000000000000000000000000000000000000))))
+                  (a!6 (and (= ((_ extract 52 52) (mantissa L)) #b1)
+                            (bvule (exponent L) #b11111111110)
+                            (bvule #b00000000001 (exponent L)))))
+            (let ((a!3 (or (sign L)
+                           (= L
+                              (DoubleFloatingPoint
+                                false
+                                #b11111111110
+                                #b11111111111111111111111111111111111111111111111111111
+                                false
+                                false))
+                           (ite (= (exponent L) #b11111111110) a!1 a!2))))
+            (let ((a!7 (and a!3
+                            (or (= (DoubleFloatingPoint
+                                     true
+                                     #b01111111111
+                                     #b00000000000000000000000000000000000000000000000000000
+                                     true
+                                     false)
+                                   L)
+                                a!4
+                                (not (sign L)))
+                            (or a!5 a!6)
+                            (>= D 0)
+                            (= A 1)
+                            (= B 137)
+                            (= F 0)
+                            (= G 0)
+                            (= H 0)
+                            (= M 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_8
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M)
+                 a!7))))
+            :weight 0))
+       a!3
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L DoubleFloatingPoint)
+                (M Bool)
+                (N Int))
+         (! (let ((a!1 (and (not (= (exponent L) #b01111111111))
+                            (not (bvule #b01111111111 (exponent L))))))
+            (let ((a!2 (and (or (= (DoubleFloatingPoint
+                                     true
+                                     #b01111111111
+                                     #b00000000000000000000000000000000000000000000000000000
+                                     true
+                                     false)
+                                   L)
+                                a!1
+                                (not (sign L)))
+                            (>= D 0)
+                            (= A 1)
+                            (= B 137)
+                            (= F 0)
+                            (= G 0)
+                            (= H 0)
+                            (= N 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_6_11
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N)
+                 a!2)))
+            :weight 0))
+       a!4
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int) (F Bool) (G Int))
+         (! (let ((a!1 (and (>= D 0) (= A 1) (= B 137) (= G 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_4
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G)
+                 a!1))
+            :weight 0))
+       a!5
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_Block1_3 A B C D E) a!1))
+            :weight 0))
+       a!6
+       a!7
+       a!8
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L DoubleFloatingPoint)
+                (M Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block1_10_12
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J
+                 K
+                 L
+                 M)
+               false)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L DoubleFloatingPoint)
+                (M Int))
+         (! (let ((a!1 (and (not (sign L))
+                            (not (= (mantissa L)
+                                    #b11111111111111111111111111111111111111111111111111111))))
+                  (a!2 (ite (sign L)
+                            (not (bvule (exponent L) #b11111111110))
+                            (not (bvule #b11111111110 (exponent L)))))
+                  (a!4 (and (not (= (exponent L) #b01111111111))
+                            (not (bvule #b01111111111 (exponent L)))))
+                  (a!5 (and (= ((_ extract 52 52) (mantissa L)) #b0)
+                            (= (exponent L) #b00000000001)
+                            (not (= (mantissa L)
+                                    #b00000000000000000000000000000000000000000000000000000))))
+                  (a!6 (and (= ((_ extract 52 52) (mantissa L)) #b1)
+                            (bvule (exponent L) #b11111111110)
+                            (bvule #b00000000001 (exponent L)))))
+            (let ((a!3 (or (sign L)
+                           (= L
+                              (DoubleFloatingPoint
+                                false
+                                #b11111111110
+                                #b11111111111111111111111111111111111111111111111111111
+                                false
+                                false))
+                           (ite (= (exponent L) #b11111111110) a!1 a!2))))
+            (let ((a!7 (and a!3
+                            (or (= (DoubleFloatingPoint
+                                     true
+                                     #b01111111111
+                                     #b00000000000000000000000000000000000000000000000000000
+                                     true
+                                     false)
+                                   L)
+                                a!4
+                                (not (sign L)))
+                            (or a!5 a!6)
+                            (>= D 0)
+                            (= A 1)
+                            (= B 137)
+                            (= F 0)
+                            (= G 0)
+                            (= H 0)
+                            (= M 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_10
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M)
+                 a!7))))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_post A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_Block0 A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_Block1_2 A B C D E) a!1))
+            :weight 0))
+       a!9
+       a!10
+       a!11
+       (forall ((A Int))
+         (! (= (JayHornAssertions_void_clinit_pre A) (= A 1)) :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_post A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int)) (! (= (Main_void_clinit_pre A) (= A 1)) :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int) (F Bool) (G Int))
+         (! (let ((a!1 (and (>= D 0) (= A 1) (= B 137) (= G 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_3
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G)
+                 a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_Block0 A B C D E) a!1))
+            :weight 0))
+       a!12
+       a!13
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_pre A B C D E) true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block3_1
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               true)
+            :weight 0))
+       a!14
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_post A B C D E F G H I)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block0
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int))
+         (! (= (inv_JayArray_java_lang_String_103 A B C D E F G H I J K) true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block2
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               true)
+            :weight 0))))

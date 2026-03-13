@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -249,15 +249,15 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
 java.lang.RuntimeException: Uninterpreted 'i4_1494' in <null>:
-Main_void_mainJayArray_java_lang_String_Block8_1(#30,#40,#14,#35,#13,#36,#19,#3,#38,#9,#41,#34,#42,#6,#20,#7,#37,#32,#17,#10,#28,#33,#27,#5,#16,#1,#15,#0,#29,#22,#26) :- 
- Main_void_mainJayArray_java_lang_String_Block8_12(#30,#40,#14,#35,#13,#8,#2,#36,#19,#3,#38,#9,#41,#34,#4,#12,#18,#23,#11,#6,#20,#7,#37,#32,#17,#10,#28,#33,#27,#5,#16,#1,#15,#0,#29,#21,#22,#26,#39,#24,#31,#25),
+Main_void_mainJayArray_java_lang_String_Block8_1(#30,#40,#13,#35,#12,#36,#19,#2,#38,#8,#41,#34,#42,#5,#20,#6,#37,#32,#17,#9,#28,#33,#27,#4,#15,#1,#14,#0,#29,#22,#26) :- 
+ Main_void_mainJayArray_java_lang_String_Block8_12(#30,#40,#13,#35,#12,#16,#7,#36,#19,#2,#38,#8,#41,#34,#3,#11,#18,#23,#10,#5,#20,#6,#37,#32,#17,#9,#28,#33,#27,#4,#15,#1,#14,#0,#29,#21,#22,#26,#39,#24,#31,#25),
  (let ((a!1 ((_ extract 23 0)
              (bvshl (:var 24) (bvsub #x00000018 (bvsub #x00000020 (:var 25)))))))
 (let ((a!2 (FloatingPoint (:var 39)
@@ -272,12 +272,12 @@ Main_void_mainJayArray_java_lang_String_Block8_1(#30,#40,#14,#35,#13,#36,#19,#3,
  (= (:var 31) ((_ int2bv 32) (ite (>= i4_1494 0) i4_1494 (- i4_1494)))).
 
 	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:149)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
-2026-03-08 04:34:44,321 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i4_1494' in <null>:
-Main_void_mainJayArray_java_lang_String_Block8_1(#30,#40,#14,#35,#13,#36,#19,#3,#38,#9,#41,#34,#42,#6,#20,#7,#37,#32,#17,#10,#28,#33,#27,#5,#16,#1,#15,#0,#29,#22,#26) :- 
- Main_void_mainJayArray_java_lang_String_Block8_12(#30,#40,#14,#35,#13,#8,#2,#36,#19,#3,#38,#9,#41,#34,#4,#12,#18,#23,#11,#6,#20,#7,#37,#32,#17,#10,#28,#33,#27,#5,#16,#1,#15,#0,#29,#21,#22,#26,#39,#24,#31,#25),
+2026-03-13 01:02:31,715 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i4_1494' in <null>:
+Main_void_mainJayArray_java_lang_String_Block8_1(#30,#40,#13,#35,#12,#36,#19,#2,#38,#8,#41,#34,#42,#5,#20,#6,#37,#32,#17,#9,#28,#33,#27,#4,#15,#1,#14,#0,#29,#22,#26) :- 
+ Main_void_mainJayArray_java_lang_String_Block8_12(#30,#40,#13,#35,#12,#16,#7,#36,#19,#2,#38,#8,#41,#34,#3,#11,#18,#23,#10,#5,#20,#6,#37,#32,#17,#9,#28,#33,#27,#4,#15,#1,#14,#0,#29,#21,#22,#26,#39,#24,#31,#25),
  (let ((a!1 ((_ extract 23 0)
              (bvshl (:var 24) (bvsub #x00000018 (bvsub #x00000020 (:var 25)))))))
 (let ((a!2 (FloatingPoint (:var 39)

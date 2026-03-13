@@ -1,0 +1,1930 @@
+(let ((a!1 (exists ((x!1 Int) (x!2 Int))
+             (! (and (not (>= x!2 21))
+                     (not (<= x!1 0))
+                     (not (<= x!2 4))
+                     (not (<= 5 x!2)))
+                :weight 0)))
+      (a!2 (exists ((x!1 Int) (x!2 Int))
+             (! (and (not (>= x!2 21))
+                     (not (<= x!1 0))
+                     (not (<= x!2 4))
+                     (not (<= x!2 20))
+                     (<= 5 x!2))
+                :weight 0)))
+      (a!3 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Bool)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Bool)
+                    (L Int)
+                    (M Int)
+                    (N Int)
+                    (O DoubleFloatingPoint)
+                    (P Int)
+                    (Q Int)
+                    (R Int)
+                    (S Bool)
+                    (T (_ BitVec 12))
+                    (U (_ BitVec 159)))
+             (! (let ((a!1 (or ((_ bit2bool 0) T)
+                               (not (= ((_ extract 106 106) U) #b0)))))
+                  (= (Main_void_mainJayArray_java_lang_String_Block7_13
+                       A
+                       B
+                       C
+                       D
+                       E
+                       F
+                       G
+                       H
+                       I
+                       J
+                       K
+                       L
+                       M
+                       N
+                       O
+                       P
+                       Q
+                       R
+                       S
+                       T
+                       U)
+                     (and (not (<= P 4))
+                          (not S)
+                          (not ((_ bit2bool 53) U))
+                          (not ((_ bit2bool 52) U))
+                          a!1
+                          (>= Q 0))))
+                :weight 0)))
+      (a!4 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block12
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J
+                     K)
+                   (and (not (>= J 21)) (not (<= F 0)) (not (<= J 4)) (<= 5 J)))
+                :weight 0)))
+      (a!5 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Bool)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Bool)
+                    (L Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block1_5
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J
+                     K
+                     L)
+                   (and (>= D 0)
+                        (= A 1)
+                        (= B 137)
+                        (= H 0)
+                        (= I 0)
+                        (= J 0)
+                        (= L 1)))
+                :weight 0)))
+      (a!6 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Bool)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int)
+                    (L Bool)
+                    (M Int)
+                    (N Int)
+                    (O Int)
+                    (P Int)
+                    (Q Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block1_2
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J
+                     K
+                     L
+                     M
+                     N
+                     O
+                     P
+                     Q)
+                   (and (>= D 0)
+                        (= A 1)
+                        (= B 137)
+                        (= H 1)
+                        (= I 137)
+                        (= J C)
+                        (= K D)
+                        (= M 1)))
+                :weight 0)))
+      (a!7 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Bool)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Bool)
+                    (L Int)
+                    (M Int)
+                    (N Int)
+                    (O DoubleFloatingPoint)
+                    (P Int)
+                    (Q Int)
+                    (R Int))
+             (! (let ((a!1 (or ((_ bit2bool 52) (mantissa O))
+                               (= ((_ extract 0 0) (exponent O)) #b1))))
+                  (= (Main_void_mainJayArray_java_lang_String_Block4_1
+                       A
+                       B
+                       C
+                       D
+                       E
+                       F
+                       G
+                       H
+                       I
+                       J
+                       K
+                       L
+                       M
+                       N
+                       O
+                       P
+                       Q
+                       R)
+                     (and a!1
+                          (not (sign O))
+                          (not (<= P 4))
+                          (not (>= P 21))
+                          K
+                          (= Q 0))))
+                :weight 0)))
+      (a!8 (forall ((A Int) (B Int))
+             (! (= (JayHornAssertions_void_clinit_Block1_1 A B)
+                   (and (= A 1) (= B 1)))
+                :weight 0)))
+      (a!9 (forall ((A Int) (B Int))
+             (! (= (JayHornAssertions_void_clinit_Block1 A B)
+                   (and (= A 1) (= B 1)))
+                :weight 0)))
+      (a!10 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int))
+              (! (= (Main_void_clinit_Block1_2 A B C D E F G H)
+                    (and (= A 1) (= E 0) (= F 0) (= G 0) (= H 1)))
+                 :weight 0)))
+      (a!11 (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+              (! (= (Main_void_clinit_Block1_1 A B C D E) (and (= A 1) (= E 1)))
+                 :weight 0)))
+      (a!12 (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+              (! (= (Main_void_clinit_Block1 A B C D E) (and (= A 1) (= E 1)))
+                 :weight 0)))
+      (a!13 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Bool)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Bool)
+                     (L Int)
+                     (M Int)
+                     (N Int)
+                     (O DoubleFloatingPoint)
+                     (P Int)
+                     (Q Int))
+              (! (let ((a!1 (or ((_ bit2bool 52) (mantissa O))
+                                (= ((_ extract 0 0) (exponent O)) #b1))))
+                   (= (Main_void_mainJayArray_java_lang_String_Block4
+                        A
+                        B
+                        C
+                        D
+                        E
+                        F
+                        G
+                        H
+                        I
+                        J
+                        K
+                        L
+                        M
+                        N
+                        O
+                        P
+                        Q)
+                      (and a!1 (not (sign O)) (not (<= P 4)) (not (>= P 21)) K)))
+                 :weight 0)))
+      (a!14 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Bool)
+                     (K Int)
+                     (L Int)
+                     (M Int)
+                     (N DoubleFloatingPoint)
+                     (O Int)
+                     (P Int))
+              (! (let ((a!1 (or ((_ bit2bool 52) (mantissa N))
+                                (= ((_ extract 0 0) (exponent N)) #b1))))
+                   (= (Main_void_mainJayArray_java_lang_String_Block3
+                        A
+                        B
+                        C
+                        D
+                        E
+                        F
+                        G
+                        H
+                        I
+                        J
+                        K
+                        L
+                        M
+                        N
+                        O
+                        P)
+                      (and a!1
+                           (not (sign N))
+                           (not (<= O 4))
+                           (not (>= O 21))
+                           (not J))))
+                 :weight 0)))
+      (a!15 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Bool)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Bool)
+                     (L Int)
+                     (M Int)
+                     (N Int)
+                     (O DoubleFloatingPoint)
+                     (P Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1_6
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P)
+                    (and (>= D 0)
+                         (= A 1)
+                         (= B 137)
+                         (= H 0)
+                         (= I 0)
+                         (= J 0)
+                         (= L (- 1))
+                         (= M 133)
+                         (= O
+                            (DoubleFloatingPoint
+                              false
+                              #b01111111111
+                              #b10000000000000000000000000000000000000000000000000000
+                              false
+                              false))
+                         (= P 1)))
+                 :weight 0)))
+      (a!16 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Bool)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L Bool)
+                     (M Int)
+                     (N Int)
+                     (O Int)
+                     (P Int)
+                     (Q Int)
+                     (R Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1_1
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P
+                      Q
+                      R)
+                    (and (= H A) (= I B) (= J C) (= K D) (= N 1)))
+                 :weight 0)))
+      (a!17 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Bool)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L Bool)
+                     (M Int)
+                     (N Int)
+                     (O Int)
+                     (P Int)
+                     (Q Int)
+                     (R Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P
+                      Q
+                      R)
+                    (and (= H A) (= I B) (= J C) (= K D)))
+                 :weight 0)))
+      (a!18 (forall ((A Int) (B Int) (C Int) (D Int) (E Bool))
+              (! (= (inv_$StaticFields_Main_2 A B C D E)
+                    (and (= A (- 4)) (= B 297) (not E)))
+                 :weight 0))))
+  (and (= |Assert_#1_Main.java,_line_35| (or a!1 a!2))
+       (= |Assert_#0_Main.java,_line_30| true)
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (or ((_ bit2bool 52) (mantissa O))
+                           (= ((_ extract 0 0) (exponent O)) #b1))))
+            (let ((a!2 (and a!1 (not (sign O)) (not (<= P 4)) (not (>= P 21)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2_2
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int)
+                (S Bool)
+                (T (_ BitVec 12))
+                (U (_ BitVec 159))
+                (V DoubleFloatingPoint)
+                (W (_ BitVec 1))
+                (X (_ BitVec 1))
+                (Y (_ BitVec 1))
+                (Z (_ BitVec 53))
+                (A1 Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block7_13_S
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J
+                 K
+                 L
+                 M
+                 N
+                 O
+                 P
+                 Q
+                 R
+                 S
+                 T
+                 U
+                 V
+                 W
+                 X
+                 Y
+                 Z
+                 A1)
+               false)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int))
+         (! (let ((a!1 (and (not (<= P 4))
+                            (not (sign O))
+                            (>= Q 0)
+                            (or ((_ bit2bool 0) (exponent O))
+                                ((_ bit2bool 52) (mantissa O))))))
+              (= (Main_void_mainJayArray_java_lang_String_Block5
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R)
+                 a!1))
+            :weight 0))
+       a!3
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int))
+         (! (let ((a!1 (and (not (>= J 21)) (not (<= F 0)) (not (<= J 4)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int)
+                (S Bool)
+                (T (_ BitVec 12))
+                (U (_ BitVec 159))
+                (V DoubleFloatingPoint)
+                (W (_ BitVec 1))
+                (X (_ BitVec 1))
+                (Y (_ BitVec 1))
+                (Z (_ BitVec 53)))
+         (! (let ((a!1 (or ((_ bit2bool 0) T)
+                           (not (= ((_ extract 106 106) U) #b0))))
+                  (a!2 (= V
+                          (DoubleFloatingPoint
+                            S
+                            ((_ extract 10 0) T)
+                            ((_ extract 106 54) U)
+                            false
+                            false))))
+            (let ((a!3 (and (not (<= P 4))
+                            (not S)
+                            (not ((_ bit2bool 53) U))
+                            (not ((_ bit2bool 52) U))
+                            a!1
+                            (>= Q 0)
+                            (= Z (concat #b0 ((_ extract 51 0) U)))
+                            (= Y ((_ extract 52 52) U))
+                            (= W ((_ extract 54 54) U))
+                            (= X ((_ extract 53 53) U))
+                            a!2)))
+              (= (Main_void_mainJayArray_java_lang_String_Block7_13_Bits
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T
+                   U
+                   V
+                   W
+                   X
+                   Y
+                   Z)
+                 a!3)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Bool)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P Int))
+         (! (let ((a!1 (or ((_ bit2bool 52) (mantissa N))
+                           (= ((_ extract 0 0) (exponent N)) #b1)))
+                  (a!2 (or (not (= (exponent N) #b00000000000))
+                           (not (= (mantissa N)
+                                   #b00000000000000000000000000000000000000000000000000000))))
+                  (a!3 (or (not (= (exponent N) #b11111111111))
+                           (= ((_ extract 51 0) (mantissa N)) #x0000000000000))))
+            (let ((a!4 (and a!1
+                            (not (sign N))
+                            (not (<= O 4))
+                            (not (>= O 21))
+                            a!2
+                            a!3
+                            (not (= N
+                                    (DoubleFloatingPoint
+                                      false
+                                      #b00000000000
+                                      #b00000000000000000000000000000000000000000000000000000
+                                      false
+                                      false)))
+                            (= F 0)
+                            (not J))))
+              (= (Main_void_mainJayArray_java_lang_String_Block3_11
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P)
+                 a!4)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int))
+         (! (let ((a!1 (exists ((x!1 (_ BitVec 159))
+                                (x!2 Bool)
+                                (x!3 (_ BitVec 12)))
+                         (! (let ((a!1 (or ((_ bit2bool 0) x!3)
+                                           (not (= ((_ extract 106 106) x!1)
+                                                   #b0)))))
+                              (and (not (<= P 4))
+                                   (not x!2)
+                                   (not ((_ bit2bool 53) x!1))
+                                   (not ((_ bit2bool 52) x!1))
+                                   a!1
+                                   (>= Q 0)
+                                   (= ((_ extract 53 53) x!1) #b0)
+                                   (= O
+                                      (DoubleFloatingPoint
+                                        x!2
+                                        ((_ extract 10 0) x!3)
+                                        ((_ extract 106 54) x!1)
+                                        false
+                                        false))))
+                            :weight 0)))
+                  (a!2 (exists ((x!1 (_ BitVec 159))
+                                (x!2 Bool)
+                                (x!3 (_ BitVec 12)))
+                         (! (let ((a!1 (or ((_ bit2bool 0) x!3)
+                                           (not (= ((_ extract 106 106) x!1)
+                                                   #b0))))
+                                  (a!2 (= O
+                                          (DoubleFloatingPoint
+                                            x!2
+                                            ((_ extract 10 0) x!3)
+                                            (bvadd #b00000000000000000000000000000000000000000000000000001
+                                                   ((_ extract 106 54) x!1))
+                                            false
+                                            false))))
+                              (and (not (<= P 4))
+                                   (not x!2)
+                                   (not ((_ bit2bool 53) x!1))
+                                   (not ((_ bit2bool 52) x!1))
+                                   a!1
+                                   (>= Q 0)
+                                   (= ((_ extract 53 53) x!1) #b1)
+                                   (or (= ((_ extract 52 52) x!1) #b1)
+                                       (= ((_ extract 54 54) x!1) #b1))
+                                   a!2))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block7_1
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R)
+                 (or a!1 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int)
+                (S Bool)
+                (T (_ BitVec 12)))
+         (! (let ((a!1 (bvadd #x3ff
+                              (concat #b0 (bvadd #b10000000000 (exponent O))))))
+            (let ((a!2 (and (not (<= P 4))
+                            (not (sign O))
+                            (>= Q 0)
+                            (or ((_ bit2bool 0) (exponent O))
+                                ((_ bit2bool 52) (mantissa O)))
+                            (= S (sign O))
+                            (not (>= Q P))
+                            (= T a!1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block7_11
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T)
+                 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int))
+         (! (let ((a!1 (and (not (<= P 4))
+                            (not (sign O))
+                            (>= Q 0)
+                            (or ((_ bit2bool 0) (exponent O))
+                                ((_ bit2bool 52) (mantissa O)))
+                            (not (>= Q P)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block7
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int)
+                (S Bool)
+                (T (_ BitVec 12))
+                (U (_ BitVec 159)))
+         (! (let ((a!1 (bvadd #x3ff
+                              (concat #b0 (bvadd #b10000000000 (exponent O))))))
+            (let ((a!2 (and (not (<= P 4))
+                            (not (sign O))
+                            (>= Q 0)
+                            (or ((_ bit2bool 0) (exponent O))
+                                ((_ bit2bool 52) (mantissa O)))
+                            (= U
+                               (concat #x0000000000000
+                                       (mantissa O)
+                                       #b000000000000000000000000000000000000000000000000000000))
+                            (= S (sign O))
+                            (not (>= Q P))
+                            (= T a!1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block7_12
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T
+                   U)
+                 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int))
+         (! (let ((a!1 (exists ((x!1 (_ BitVec 159))
+                                (x!2 Bool)
+                                (x!3 (_ BitVec 12))
+                                (x!4 Int))
+                         (! (let ((a!1 (or ((_ bit2bool 0) x!3)
+                                           (not (= ((_ extract 106 106) x!1)
+                                                   #b0)))))
+                              (and (not (<= P 4))
+                                   (not x!2)
+                                   (not ((_ bit2bool 53) x!1))
+                                   (not ((_ bit2bool 52) x!1))
+                                   a!1
+                                   (>= x!4 0)
+                                   (= Q (+ 1 x!4))
+                                   (= ((_ extract 53 53) x!1) #b0)
+                                   (= O
+                                      (DoubleFloatingPoint
+                                        x!2
+                                        ((_ extract 10 0) x!3)
+                                        ((_ extract 106 54) x!1)
+                                        false
+                                        false))))
+                            :weight 0)))
+                  (a!2 (exists ((x!1 (_ BitVec 159))
+                                (x!2 Bool)
+                                (x!3 (_ BitVec 12))
+                                (x!4 Int))
+                         (! (let ((a!1 (or ((_ bit2bool 0) x!3)
+                                           (not (= ((_ extract 106 106) x!1)
+                                                   #b0))))
+                                  (a!2 (= O
+                                          (DoubleFloatingPoint
+                                            x!2
+                                            ((_ extract 10 0) x!3)
+                                            (bvadd #b00000000000000000000000000000000000000000000000000001
+                                                   ((_ extract 106 54) x!1))
+                                            false
+                                            false))))
+                              (and (not (<= P 4))
+                                   (not x!2)
+                                   (not ((_ bit2bool 53) x!1))
+                                   (not ((_ bit2bool 52) x!1))
+                                   a!1
+                                   (>= x!4 0)
+                                   (= Q (+ 1 x!4))
+                                   (= ((_ extract 53 53) x!1) #b1)
+                                   (or (= ((_ extract 52 52) x!1) #b1)
+                                       (= ((_ extract 54 54) x!1) #b1))
+                                   a!2))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block7_2
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R)
+                 (or a!1 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int))
+         (! (let ((a!1 (and (not (>= J 21)) (not (<= F 0)) (not (<= J 4)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block11
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (exists ((x!1 Int))
+                         (! (and (not (<= P 4))
+                                 (not (sign O))
+                                 (>= x!1 0)
+                                 (or ((_ bit2bool 0) (exponent O))
+                                     ((_ bit2bool 52) (mantissa O)))
+                                 (>= x!1 P)
+                                 (not (>= P 20)))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block9
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (exists ((x!1 Int))
+                         (! (and (not (<= P 4))
+                                 (not (sign O))
+                                 (>= x!1 0)
+                                 (or ((_ bit2bool 0) (exponent O))
+                                     ((_ bit2bool 52) (mantissa O)))
+                                 (>= x!1 P)
+                                 (>= P 20))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block8
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int))
+         (! (let ((a!1 (or (and (not (>= J 21))
+                                (not (<= F 0))
+                                (not (<= J 4))
+                                (not (<= 5 J)))
+                           (and (not (>= J 21))
+                                (not (<= F 0))
+                                (not (<= J 4))
+                                (not (<= J 20))
+                                (<= 5 J)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block10
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (exists ((x!1 Int) (x!2 Int))
+                         (! (and (not (<= x!1 4))
+                                 (not (sign O))
+                                 (>= x!2 0)
+                                 (or ((_ bit2bool 0) (exponent O))
+                                     ((_ bit2bool 52) (mantissa O)))
+                                 (not (>= x!1 20))
+                                 (>= x!2 x!1)
+                                 (= P (+ 1 x!1)))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block9_1
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int))
+         (! (let ((a!1 (and (not (<= P 4))
+                            (not (sign O))
+                            (>= Q 0)
+                            (or ((_ bit2bool 0) (exponent O))
+                                ((_ bit2bool 52) (mantissa O)))
+                            (>= Q P))))
+              (= (Main_void_mainJayArray_java_lang_String_Block6
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R)
+                 a!1))
+            :weight 0))
+       a!4
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Bool)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P Int))
+         (! (let ((a!1 (or ((_ bit2bool 52) (mantissa N))
+                           (= ((_ extract 0 0) (exponent N)) #b1)))
+                  (a!2 (or (not (= (exponent N) #b00000000000))
+                           (not (= (mantissa N)
+                                   #b00000000000000000000000000000000000000000000000000000))))
+                  (a!3 (or (not (= (exponent N) #b11111111111))
+                           (= ((_ extract 51 0) (mantissa N)) #x0000000000000))))
+            (let ((a!4 (and a!1
+                            (not (sign N))
+                            (not (<= O 4))
+                            (not (>= O 21))
+                            a!2
+                            a!3
+                            (not (= N
+                                    (DoubleFloatingPoint
+                                      false
+                                      #b00000000000
+                                      #b00000000000000000000000000000000000000000000000000000
+                                      false
+                                      false)))
+                            (= F 0)
+                            (not J))))
+              (= (Main_void_mainJayArray_java_lang_String_Block3_12
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P)
+                 a!4)))
+            :weight 0))
+       a!5
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Bool)
+                (I Int))
+         (! (let ((a!1 (and (>= D 0) (= A 1) (= B 137) (= I 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_4
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I)
+                 a!1))
+            :weight 0))
+       a!6
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int)
+                (R Int)
+                (S Bool)
+                (T (_ BitVec 12))
+                (U (_ BitVec 159))
+                (V DoubleFloatingPoint)
+                (W (_ BitVec 1))
+                (X (_ BitVec 1))
+                (Y (_ BitVec 1))
+                (Z (_ BitVec 53)))
+         (! (let ((a!1 (or ((_ bit2bool 0) T)
+                           (not (= ((_ extract 106 106) U) #b0))))
+                  (a!2 (= V
+                          (DoubleFloatingPoint
+                            S
+                            ((_ extract 10 0) T)
+                            ((_ extract 106 54) U)
+                            false
+                            false))))
+            (let ((a!3 (and (not (<= P 4))
+                            (not S)
+                            (not ((_ bit2bool 53) U))
+                            (not ((_ bit2bool 52) U))
+                            a!1
+                            (>= Q 0)
+                            (= Z (concat #b0 ((_ extract 51 0) U)))
+                            (= ((_ extract 53 53) U) #b1)
+                            (= W ((_ extract 54 54) U))
+                            (= Y ((_ extract 52 52) U))
+                            a!2
+                            (= X #b1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block7_13_LSBR
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T
+                   U
+                   V
+                   W
+                   X
+                   Y
+                   Z)
+                 a!3)))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_Block0 A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_post A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_Block0 A B C D E) a!1))
+            :weight 0))
+       a!7
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_Block1_2 A B C D E) a!1))
+            :weight 0))
+       a!8
+       a!9
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_post A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_Block1_3 A B C D E) a!1))
+            :weight 0))
+       a!10
+       a!11
+       a!12
+       a!13
+       a!14
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (or ((_ bit2bool 52) (mantissa O))
+                           (= ((_ extract 0 0) (exponent O)) #b1))))
+            (let ((a!2 (and a!1 (not (sign O)) (not (<= P 4)) (not (>= P 21)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2_3
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (exists ((x!1 Int) (x!2 Int))
+                         (! (and (not (<= x!1 4))
+                                 (not (sign O))
+                                 (>= x!2 0)
+                                 (or ((_ bit2bool 0) (exponent O))
+                                     ((_ bit2bool 52) (mantissa O)))
+                                 (>= x!2 x!1)
+                                 (>= x!1 20)
+                                 (= P 5))
+                            :weight 0)))
+                  (a!2 (exists ((x!1 Int) (x!2 Int))
+                         (! (and (not (<= x!1 4))
+                                 (not (sign O))
+                                 (>= x!2 0)
+                                 (or ((_ bit2bool 0) (exponent O))
+                                     ((_ bit2bool 52) (mantissa O)))
+                                 (not (>= x!1 20))
+                                 (>= x!2 x!1)
+                                 (= P (+ 1 x!1)))
+                            :weight 0)))
+                  (a!3 (and (>= D 0)
+                            (= A 1)
+                            (= B 137)
+                            (= H 0)
+                            (= I 0)
+                            (= J 0)
+                            (= L (- 1))
+                            (= M 133)
+                            (= O
+                               (DoubleFloatingPoint
+                                 false
+                                 #b01111111111
+                                 #b10000000000000000000000000000000000000000000000000000
+                                 false
+                                 false))
+                            (= P 5)
+                            (= Q 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 (or a!1 a!2 a!3)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Bool)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P Int))
+         (! (let ((a!1 (exists ((x!1 Int) (x!2 Int))
+                         (! (and (not (<= x!1 4))
+                                 (not (sign N))
+                                 (>= x!2 0)
+                                 (or ((_ bit2bool 0) (exponent N))
+                                     ((_ bit2bool 52) (mantissa N)))
+                                 (>= x!2 x!1)
+                                 (>= x!1 20)
+                                 (= O 5))
+                            :weight 0)))
+                  (a!2 (exists ((x!1 Int) (x!2 Int))
+                         (! (and (not (<= x!1 4))
+                                 (not (sign N))
+                                 (>= x!2 0)
+                                 (or ((_ bit2bool 0) (exponent N))
+                                     ((_ bit2bool 52) (mantissa N)))
+                                 (not (>= x!1 20))
+                                 (>= x!2 x!1)
+                                 (= O (+ 1 x!1)))
+                            :weight 0))))
+            (let ((a!3 (or a!1
+                           a!2
+                           (and (>= D 0)
+                                (= A 1)
+                                (= B 137)
+                                (= G 0)
+                                (= H 0)
+                                (= I 0)
+                                (= K (- 1))
+                                (= L 133)
+                                (= N
+                                   (DoubleFloatingPoint
+                                     false
+                                     #b01111111111
+                                     #b10000000000000000000000000000000000000000000000000000
+                                     false
+                                     false))
+                                (= O 5)
+                                (= P 1)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2_1
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P)
+                 a!3)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (and (>= D 0)
+                            (= A 1)
+                            (= B 137)
+                            (= H 0)
+                            (= I 0)
+                            (= J 0)
+                            (= L (- 1))
+                            (= M 133)
+                            (= O
+                               (DoubleFloatingPoint
+                                 false
+                                 #b01111111111
+                                 #b10000000000000000000000000000000000000000000000000000
+                                 false
+                                 false))
+                            (= P 5)
+                            (= Q 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_7
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!1))
+            :weight 0))
+       a!15
+       (forall ((A Int))
+         (! (= (JayHornAssertions_void_clinit_pre A) (= A 1)) :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Bool)
+                (L Int)
+                (M Int)
+                (N Int)
+                (O DoubleFloatingPoint)
+                (P Int)
+                (Q Int))
+         (! (let ((a!1 (exists ((x!1 Int) (x!2 Int))
+                         (! (and (not (<= x!1 4))
+                                 (not (sign O))
+                                 (>= x!2 0)
+                                 (or ((_ bit2bool 0) (exponent O))
+                                     ((_ bit2bool 52) (mantissa O)))
+                                 (>= x!2 x!1)
+                                 (>= x!1 20)
+                                 (= P 5))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block8_1
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)) (! (= (Main_void_clinit_pre A) (= A 1)) :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Bool)
+                (G Int)
+                (H Bool)
+                (I Int))
+         (! (let ((a!1 (and (>= D 0) (= A 1) (= B 137) (= I 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_3
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I)
+                 a!1))
+            :weight 0))
+       a!16
+       a!17
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_pre A B C D E) true)
+            :weight 0))
+       a!18
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block13
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_post A B C D E F G H I)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block0
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int))
+         (! (= (inv_JayArray_java_lang_String_103 A B C D E F G H I J K) true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block10_1
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               true)
+            :weight 0))))

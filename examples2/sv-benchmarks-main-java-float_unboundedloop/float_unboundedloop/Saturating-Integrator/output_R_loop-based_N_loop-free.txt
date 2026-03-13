@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -246,59 +246,14 @@ Legal parameters are:
 	at com.microsoft.z3.Native.fixedpointSetParams(Native.java:5162)
 	at com.microsoft.z3.Fixedpoint.setParameters(Fixedpoint.java:45)
 	at jayhorn.solver.spacer.SpacerProver.createSolver(SpacerProver.java:96)
-	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1264)
+	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-Failed to find a lemma for: (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-Available lemmas are: 1: (<= Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_3_n 0)
-2: (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_3_n 0)
-3: (let ((a!1 (bvule #b11000000000000000000000000000000000000000000000000000
-                  (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 104 52)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))))
-      (a!2 (bvule (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 104 52)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))
-                  #b11000000000000000000000000000000000000000000000000000))
-      (a!3 (and (= ((_ extract 104 52)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                   #b10111111111111111111111111111111111111111111111111111)
-                (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                (not (eOVF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                (not (eUDF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))))
-  (or (not a!1) (not a!2) a!3))
-4: (and (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-     (not (eOVF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-     (not (eUDF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))
-Simplified goal is:
-0: (<= Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_3_n 0)
-1: (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_3_n 0)
-2: (let ((a!1 (bvule #b11000000000000000000000000000000000000000000000000000
-                  (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 104 52)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))))
-      (a!2 (bvule (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 104 52)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))
-                  #b11000000000000000000000000000000000000000000000000000))
-      (a!3 (and (= ((_ extract 104 52)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                   #b10111111111111111111111111111111111111111111111111111)
-                (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                (not (eOVF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-                (not (eUDF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n)))))
-  (or (not a!1) (not a!2) a!3))
-3: (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-4: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-5: (not (eOVF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-6: (not (eUDF Main_void_mainJayArray_java_lang_String_Block4_16!slice!9_5_n))
-Failed to verify: found
+Spacer takes 3.080 s to check the given benchmark!
+SAFE

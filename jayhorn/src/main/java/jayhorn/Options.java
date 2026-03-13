@@ -385,6 +385,13 @@ public class Options {
         return stepHeapSize;
     }
 
+	@Option(name = "-cex-path", usage = "Path to store the counterexample", required = false)
+	private String cexPath = "cex generated.txt";
+
+	public String getCexPath() {
+		return cexPath;
+	}
+
 	/**
 	 * Determines, whether Joogie has an additional classpath
 	 * 

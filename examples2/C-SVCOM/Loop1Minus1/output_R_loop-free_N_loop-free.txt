@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -249,46 +249,46 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
 java.lang.RuntimeException: Uninterpreted 'i4_1435' in <null>:
-Main_void_mainJayArray_java_lang_String_Block8_1(#40,#38,#41,#30,#29,#0,#32,#8,#10,#5,#18,#19,#42,#22,#4,#14,#7,#3,#15,#21,#13,#11,#37,#9,#36,#31,#16,#6,#12,#23,#35) :- 
- Main_void_mainJayArray_java_lang_String_Block8_12(#40,#38,#41,#30,#29,#2,#25,#0,#32,#8,#10,#5,#18,#19,#1,#39,#28,#33,#24,#22,#4,#14,#7,#3,#15,#21,#13,#11,#37,#9,#36,#31,#16,#6,#12,#34,#23,#35,#17,#26,#20,#27),
+Main_void_mainJayArray_java_lang_String_Block8_1(#40,#37,#41,#28,#27,#0,#30,#7,#9,#4,#17,#18,#42,#21,#3,#13,#6,#2,#14,#20,#12,#10,#35,#8,#34,#29,#15,#5,#11,#22,#33) :- 
+ Main_void_mainJayArray_java_lang_String_Block8_12(#40,#37,#41,#28,#27,#36,#38,#0,#30,#7,#9,#4,#17,#18,#1,#39,#26,#31,#23,#21,#3,#13,#6,#2,#14,#20,#12,#10,#35,#8,#34,#29,#15,#5,#11,#32,#22,#33,#16,#24,#19,#25),
  (let ((a!1 ((_ extract 23 0)
-             (bvshl (:var 26) (bvsub #x00000018 (bvsub #x00000020 (:var 27)))))))
-(let ((a!2 (FloatingPoint (:var 17)
+             (bvshl (:var 24) (bvsub #x00000018 (bvsub #x00000020 (:var 25)))))))
+(let ((a!2 (FloatingPoint (:var 16)
                           ((_ extract 7 0)
-                            (bvadd #x0000007f (bvsub #x0000001f (:var 27))))
+                            (bvadd #x0000007f (bvsub #x0000001f (:var 25))))
                           a!1
                           false
                           false)))
   (= (:var 42) a!2))),
- (= (bvand (bvlshr (:var 26) (bvsub #x0000001f (:var 27))) #x00000001)
+ (= (bvand (bvlshr (:var 24) (bvsub #x0000001f (:var 25))) #x00000001)
    #x00000001),
- (= (:var 20) ((_ int2bv 32) (ite (>= i4_1435 0) i4_1435 (- i4_1435)))).
+ (= (:var 19) ((_ int2bv 32) (ite (>= i4_1435 0) i4_1435 (- i4_1435)))).
 
 	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:149)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
-2026-03-08 04:34:51,520 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i4_1435' in <null>:
-Main_void_mainJayArray_java_lang_String_Block8_1(#40,#38,#41,#30,#29,#0,#32,#8,#10,#5,#18,#19,#42,#22,#4,#14,#7,#3,#15,#21,#13,#11,#37,#9,#36,#31,#16,#6,#12,#23,#35) :- 
- Main_void_mainJayArray_java_lang_String_Block8_12(#40,#38,#41,#30,#29,#2,#25,#0,#32,#8,#10,#5,#18,#19,#1,#39,#28,#33,#24,#22,#4,#14,#7,#3,#15,#21,#13,#11,#37,#9,#36,#31,#16,#6,#12,#34,#23,#35,#17,#26,#20,#27),
+2026-03-13 01:02:35,192 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i4_1435' in <null>:
+Main_void_mainJayArray_java_lang_String_Block8_1(#40,#37,#41,#28,#27,#0,#30,#7,#9,#4,#17,#18,#42,#21,#3,#13,#6,#2,#14,#20,#12,#10,#35,#8,#34,#29,#15,#5,#11,#22,#33) :- 
+ Main_void_mainJayArray_java_lang_String_Block8_12(#40,#37,#41,#28,#27,#36,#38,#0,#30,#7,#9,#4,#17,#18,#1,#39,#26,#31,#23,#21,#3,#13,#6,#2,#14,#20,#12,#10,#35,#8,#34,#29,#15,#5,#11,#32,#22,#33,#16,#24,#19,#25),
  (let ((a!1 ((_ extract 23 0)
-             (bvshl (:var 26) (bvsub #x00000018 (bvsub #x00000020 (:var 27)))))))
-(let ((a!2 (FloatingPoint (:var 17)
+             (bvshl (:var 24) (bvsub #x00000018 (bvsub #x00000020 (:var 25)))))))
+(let ((a!2 (FloatingPoint (:var 16)
                           ((_ extract 7 0)
-                            (bvadd #x0000007f (bvsub #x0000001f (:var 27))))
+                            (bvadd #x0000007f (bvsub #x0000001f (:var 25))))
                           a!1
                           false
                           false)))
   (= (:var 42) a!2))),
- (= (bvand (bvlshr (:var 26) (bvsub #x0000001f (:var 27))) #x00000001)
+ (= (bvand (bvlshr (:var 24) (bvsub #x0000001f (:var 25))) #x00000001)
    #x00000001),
- (= (:var 20) ((_ int2bv 32) (ite (>= i4_1435 0) i4_1435 (- i4_1435)))).
+ (= (:var 19) ((_ int2bv 32) (ite (>= i4_1435 0) i4_1435 (- i4_1435)))).
 
 UNKNOWN

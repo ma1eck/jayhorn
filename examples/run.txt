@@ -1,8 +1,8 @@
-floatGE
+floatMul2
 
 compile:
-javac .\examples\floatGE\src\Main.java .\examples\floatGE\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatGE\classes\
+javac .\examples\floatMul2\src\Main.java .\examples\floatMul2\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatMul2\classes\
 
 
 config: 
--j examples/floatGE/classes -src examples/floatGE/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatGE\horn -print-horn
+-j examples/floatMul2/classes -src examples/floatMul2/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatMul2\horn -print-horn

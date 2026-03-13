@@ -12,12 +12,17 @@ JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'benchmark_results.csv'
 
 TIMEOUT_SECONDS = 5 * 60
-MAX_WORKERS = 6
+MAX_WORKERS = 2
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
 ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
+CEX_DIR_NAME = "counter examples or models"
+
+GET_CEX = False
+
+SKIP_TIMEOUTS = False
 
 def run_benchmark(task_info):
     """Run a single benchmark with specific encodings and save its output."""
@@ -34,6 +39,13 @@ def run_benchmark(task_info):
     # Validate folders
     if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
         return None
+    if SKIP_TIMEOUTS:
+        with open(output_file_path, "r", encoding="utf-8", errors="replace") as f:
+            stdout = f.read()
+            if stdout and "TIMEOUT" in stdout:
+                print(f"  Skipping {folder_name} [R: {rounding_enc}, N: {norm_enc}] due to previous TIMEOUT.")
+                return [folder_name, rounding_enc, norm_enc, TIMEOUT_SECONDS * 1000, "TIMEOUT", ""]
+
 
     cmd = [
         "java",
@@ -44,10 +56,13 @@ def run_benchmark(task_info):
         "-rounding-encoding", rounding_enc,
         "-normalization-encoding", norm_enc,
         "-solver", "spacer",
-        # "-solution",
-        # "-full-cex",
-        # "-print-horn",
+        "-heap-mode", "bounded"
     ]
+
+    if GET_CEX:
+        cex_path = os.path.join(folder_path, CEX_DIR_NAME, "rounding "+rounding_enc + " normalization " + norm_enc + ".txt" )
+        cmd += ["-solution","-full-cex","-print-horn","-cex-path", cex_path]
+
 
     env = os.environ.copy()
     env["PATH"] = NATIVE_LIB + ";" + env["PATH"]
@@ -135,6 +150,10 @@ def main():
             continue
         
         for folder in os.listdir(b_dir):
+            if GET_CEX and os.path.isdir(os.path.join(b_dir, folder)):
+                cex_dir = os.path.join(b_dir, folder, CEX_DIR_NAME)
+                os.makedirs(cex_dir, exist_ok=True)
+
             # Create 4 tasks for each benchmark covering all combinations
             for rounding_enc in ENCODINGS:
                 for norm_enc in ENCODINGS:

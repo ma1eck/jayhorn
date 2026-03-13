@@ -1,8 +1,8 @@
-Float1
+Filter2_reinit
 
 compile:
-javac .\examples2\C-SVCOM\Float1\src\Main.java .\examples2\C-SVCOM\Float1\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Float1\classes\
+javac .\examples2\C-SVCOM\Filter2_reinit\src\Main.java .\examples2\C-SVCOM\Filter2_reinit\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Filter2_reinit\classes\
 
 
 config:
--j examples2/C-SVCOM/Float1/classes -src examples2/C-SVCOM/Float1/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Float1\horn -print-horn
+-j examples2/C-SVCOM/Filter2_reinit/classes -src examples2/C-SVCOM/Filter2_reinit/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Filter2_reinit\horn -print-horn

@@ -1434,6 +1434,10 @@ public class SpacerProver implements Prover {
 //		return (ProverExpr) fx.getAnswer();
     	return fx.getAnswer().toString();
      }
+	 public String getModel(){
+		solver.check();
+		return solver.getModel().toString();
+	 }
     /**
      * Retrieve explanation why fixedpoint engine returned status Unknown.
      **/

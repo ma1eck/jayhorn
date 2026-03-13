@@ -1,7 +1,7 @@
 import pandas as pd
 
-input_file = "benchmark_results2.csv"
-output_file = "benchmark_results_cleaned.csv"
+input_file = "unbounded_benchmark_results2.csv"
+output_file = "unbounded_benchmark_results_cleaned.csv"
 
 # Read the CSV (comma separated since csv.writer was used)
 df = pd.read_csv(input_file)

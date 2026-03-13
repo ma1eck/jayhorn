@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -249,7 +249,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
@@ -272,10 +272,10 @@ Main_void_mainJayArray_java_lang_String_Block9_5(#23,#47,#16,#37,#52,#27,#45,#4,
  (= (:var 15) ((_ int2bv 32) (ite (>= i8_2726 0) i8_2726 (- i8_2726)))).
 
 	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:149)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
-2026-03-08 04:35:24,056 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i8_2726' in <null>:
+2026-03-13 01:02:51,098 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i8_2726' in <null>:
 Main_void_mainJayArray_java_lang_String_Block9_5(#23,#47,#16,#37,#52,#27,#45,#4,#14,#10,#8,#18,#6,#28,#19,#33,#38,#30,#29,#2,#26,#13,#32,#21,#36,#17,#42,#25,#51,#35,#53,#24,#50,#41,#9,#12,#31,#0,#49,#7,#1,#40,#11,#43,#39,#46,#3,#5,#48,#34) :- 
  Main_void_mainJayArray_java_lang_String_Block9_4_12(#23,#47,#16,#37,#52,#27,#45,#4,#14,#10,#8,#18,#6,#28,#19,#33,#38,#30,#29,#2,#26,#13,#32,#21,#36,#17,#42,#24,#50,#41,#9,#12,#31,#0,#49,#7,#1,#40,#11,#43,#39,#46,#3,#5,#48,#34,#22,#44,#15,#20),
  (let ((a!1 ((_ extract 23 0)

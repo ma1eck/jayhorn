@@ -8727,6 +8727,13 @@ public class FloatingPointEncoder {
 
 */
 
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap); // don't like this
+        // ProverExpr postAtom11_1 = postPred11.instPredicate(varMap);
+        preAtom = prePred.instPredicate(varMap);
+
+
         Variable resultSignVar;
         if (p instanceof SpacerProver) {
             resultSignVar = new Variable("resultSignVar", BoolType.instance()); //Todo: recheck didn't make new method for spacer.
@@ -8734,6 +8741,13 @@ public class FloatingPointEncoder {
             resultSignVar = new Variable("resultSignVar", IntType.instance());
         }
 
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
 
         leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
         ProverExpr leftMantisa = floatingPointADT.mkSelExpr(0, 2, lFP);
@@ -8767,7 +8781,7 @@ public class FloatingPointEncoder {
         ProverExpr Cond = p.mkAnd(
                 p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))), //lf not in {NaN, Inf}
                 p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e))), //rf not in {NaN, Inf}
-                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)),p.mkEq(leftMantissa,p.mkBV(0,f)))), //lf not is 0
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)),p.mkEq(leftMantisa,p.mkBV(0,f)))), //lf not is 0
                 p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)),p.mkEq(rightMantisa,p.mkBV(0,f)))) // rf not is 0
 
         );

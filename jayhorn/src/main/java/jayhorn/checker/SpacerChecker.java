@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
@@ -135,6 +137,9 @@ public class SpacerChecker extends Checker{
 				Stats.stats().add("CheckSatTime", stopTime);
 				System.out.println("Spacer takes "
 						+ stopTime + " to check the given benchmark!");
+				if (Options.v().solution){
+					cex();
+				}
 				return CheckerResult.SAFE;
 			}
 			
@@ -151,14 +156,14 @@ public class SpacerChecker extends Checker{
 			    String propLine = "Property@Line"+props.getValue();
 			    if (result == ProverResult.Unsat) {
 			    	Stats.stats().add(propLine, "SAFE");
-					if (Options.v().solution){
-						cex();
-					}
+//					if (Options.v().solution){
+//						cex();
+//					}
 			    } else if (result == ProverResult.Sat){
 			    	Stats.stats().add(propLine, "UNSAFE");
-			    	if (Options.v().solution){
-			    		cex();
-			    	}
+//			    	if (Options.v().solution){
+//			    		cex();
+//			    	}
 			    } else {
 			    	Stats.stats().add(propLine, "ERROR");
 			    }
@@ -169,7 +174,9 @@ public class SpacerChecker extends Checker{
 			Stats.stats().add("CheckSatTime", stopTime);
 			System.out.println("Spacer takes "
 					+ stopTime + " to check the given benchmark!");
-			
+			if (Options.v().solution){
+				cex();
+			}
 		} catch (Throwable t) {
 			
 			t.printStackTrace();
@@ -195,9 +202,13 @@ public class SpacerChecker extends Checker{
 //		System.out.println(prover.getCex());
 
 		String c = ((SpacerProver) prover).getFXAnswer(); // TODO: recheck
+
+//		String c = ((SpacerProver) prover).getModel(); // TODO: recheck
 		try {
-		FileWriter myWriter = new FileWriter("cex generated.txt");
-		myWriter.write(c);
+			// TODO: change this
+			String path = Options.v().getCexPath();
+			FileWriter myWriter = new FileWriter(path);
+			myWriter.write(c);
 			myWriter.close();
 		} catch (IOException e) {
 			throw new RuntimeException(e);

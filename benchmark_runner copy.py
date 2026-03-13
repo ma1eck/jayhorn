@@ -9,26 +9,30 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 BASE_DIRS = [r"examples2\JAVA-SVCOM", r"examples2\C-SVCOM"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'benchmark_results.csv'
+CSV_FILE_PATH = 'benchmark_results99999999999.csv'
 
-TIMEOUT_SECONDS = 20
-MAX_WORKERS = 6
+TIMEOUT_SECONDS = 5 * 60
+MAX_WORKERS = 2
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
 ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
-white_list = ["Conflict", "Arctan_Pade", "exp_loop", "filter2_iterated", "float-zero-sum1","Float1", "Float12", "Float_int_inv_square"
-              ,"float_req_bl_1381", "interpolation", "inv_Newton-2","Inv_square_int", "Loop1Minus1", "Loop1Minus2", "Loop2Minus1"
-              ,"Loop3", "sin_interpolated_bigrange_loose", "sqrt_biNewton_pseudoconstant", "Sqrt_Householder_pseudoconstant"
-              ]
+CEX_DIR_NAME = "counter examples or models"
+
+GET_CEX = True
+
+SKIP_TIMEOUTS = True
+
+UNKNOWNS = ['Conflict', 'Conflict', 'Conflict', 'Conflict', 'Arctan_Pade', 'Arctan_Pade', 'Arctan_Pade', 'Arctan_Pade', 'exp_loop', 'exp_loop', 'exp_loop', 'exp_loop', 'filter2_iterated', 'filter2_iterated', 'filter2_iterated', 'filter2_iterated', 'float-zero-sum1', 'float-zero-sum1', 'float-zero-sum1', 'float-zero-sum1', 'Float12', 'Float12', 'Float12', 'Float12', 'filter_iir', 'Float_int_inv_square', 'Float_int_inv_square', 'Float_int_inv_square', 'Float_int_inv_square', 'float_req_bl_1381', 'float_req_bl_1381', 'float_req_bl_1381', 'float_req_bl_1381', 'interpolation', 'interpolation', 'interpolation', 'interpolation', 'inv_Newton-2', 'inv_Newton-2', 'inv_Newton-2', 'inv_Newton-2', 'Inv_square_int', 'Inv_square_int', 'Inv_square_int', 'Inv_square_int', 'Loop1Minus1', 'Loop1Minus1', 'Loop1Minus1', 'Loop1Minus1', 'Loop1Minus2', 'Loop1Minus2', 'Loop1Minus2', 'Loop1Minus2', 'Loop2Minus1', 'Loop2Minus1', 'Loop2Minus1', 'Loop2Minus1', 'Loop3', 'Loop3', 'Loop3', 'Loop3', 'sin_interpolated_bigrange_loose', 'sin_interpolated_bigrange_loose', 'sin_interpolated_bigrange_loose', 'sin_interpolated_bigrange_loose', 'sqrt_biNewton_pseudoconstant', 'sqrt_biNewton_pseudoconstant', 'sqrt_biNewton_pseudoconstant', 'sqrt_biNewton_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Square_1', 'Square_1', 'Square_1', 'Square_2', 'Square_2', 'Square_3', 'Square_3', 'Square_3', 'Square_4', 'Square_4', 'Square_5', 'Square_5', 'Square_6', 'Square_6', 'Square_6', 'Square_7', 'Square_8', 'Square_8', 'Square_8', 'Zonotope_2', 'Zonotope_2', 'Zonotope_3', 'Zonotope_3', 'Zonotope_3', 'Zonotope_3', 'Zonotope_2']
+
 
 def run_benchmark(task_info):
     """Run a single benchmark with specific encodings and save its output."""
     base_dir, folder_name, rounding_enc, norm_enc = task_info
-    if folder_name in white_list:
-        return None
     folder_path = os.path.join(base_dir, folder_name)
+    if not folder_name in UNKNOWNS:
+        return None
 
     classes_dir = os.path.join(folder_path, "classes")
     src_dir = os.path.join(folder_path, "src")
@@ -40,6 +44,13 @@ def run_benchmark(task_info):
     # Validate folders
     if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
         return None
+    if SKIP_TIMEOUTS:
+        with open(output_file_path, "r", encoding="utf-8", errors="replace") as f:
+            stdout = f.read()
+            if stdout and "TIMEOUT" in stdout:
+                print(f"  Skipping {folder_name} [R: {rounding_enc}, N: {norm_enc}] due to previous TIMEOUT.")
+                return [folder_name, rounding_enc, norm_enc, TIMEOUT_SECONDS * 1000, "TIMEOUT", ""]
+
 
     cmd = [
         "java",
@@ -50,10 +61,17 @@ def run_benchmark(task_info):
         "-rounding-encoding", rounding_enc,
         "-normalization-encoding", norm_enc,
         "-solver", "spacer",
-        # "-solution",
-        # "-full-cex",
-        # "-print-horn",
+        "-solution",
+        "-full-cex",
+        "-print-horn",
     ]
+
+    if GET_CEX:
+        cex_path = os.path.join(folder_path, CEX_DIR_NAME, "rounding "+rounding_enc + " normalization " + norm_enc + ".txt" )
+        cmd += ["-cex-path", cex_path]
+
+    
+
 
     env = os.environ.copy()
     env["PATH"] = NATIVE_LIB + ";" + env["PATH"]
@@ -141,6 +159,10 @@ def main():
             continue
         
         for folder in os.listdir(b_dir):
+            if GET_CEX and os.path.isdir(os.path.join(b_dir, folder)):
+                cex_dir = os.path.join(b_dir, folder, CEX_DIR_NAME)
+                os.makedirs(cex_dir, exist_ok=True)
+
             # Create 4 tasks for each benchmark covering all combinations
             for rounding_enc in ENCODINGS:
                 for norm_enc in ENCODINGS:
@@ -161,8 +183,7 @@ def main():
                 res = future.result()
                 if res:
                     results_data.append(res)
-                    if res[4] == "UNKNOWN" and not res[0] in white_list:
-                        print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
+                    print(f"  Finished: {res[0]} [R: {res[1]}, N: {res[2]}] -> {res[4]} ({res[3]} ms), solver took:{res[5]} ms")
 
         except KeyboardInterrupt:
             print("\nCtrl+C detected. Terminating workers...")

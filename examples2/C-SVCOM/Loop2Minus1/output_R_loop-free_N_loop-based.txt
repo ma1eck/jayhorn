@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -249,18 +249,18 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
 java.lang.RuntimeException: Uninterpreted 'i4_984' in <null>:
-Main_void_mainJayArray_java_lang_String_Block6_1(#38,#25,#45,#60,#36,#54,#53,#35,#44,#3,#33,#37,#20,#41,#69,#13,#51,#50,#58,#29,#59,#15,#63,#18,#67,#17,#21,#52,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#22,#66,#14,#61,#16,#48,#1,#30,#65,#11,#42,#47,#46,#27,#28,#7,#0,#68,#19,#31) :- 
- Main_void_mainJayArray_java_lang_String_Block6_12(#38,#25,#45,#60,#36,#40,#54,#53,#35,#44,#3,#33,#37,#20,#41,#62,#55,#24,#43,#8,#13,#51,#50,#58,#29,#59,#15,#63,#18,#67,#17,#21,#52,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#57,#22,#66,#14,#61,#16,#48,#1,#30,#65,#11,#42,#47,#46,#27,#28,#7,#0,#68,#19,#31,#49,#5,#4,#56),
+Main_void_mainJayArray_java_lang_String_Block6_1(#38,#25,#46,#60,#36,#54,#43,#35,#45,#3,#33,#37,#20,#41,#69,#13,#52,#51,#58,#29,#59,#15,#63,#18,#67,#17,#21,#53,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#22,#66,#14,#61,#16,#49,#1,#30,#65,#11,#42,#48,#47,#27,#28,#7,#0,#68,#19,#31) :- 
+ Main_void_mainJayArray_java_lang_String_Block6_12(#38,#25,#46,#60,#36,#40,#54,#43,#35,#45,#3,#33,#37,#20,#41,#62,#55,#24,#44,#8,#13,#52,#51,#58,#29,#59,#15,#63,#18,#67,#17,#21,#53,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#57,#22,#66,#14,#61,#16,#49,#1,#30,#65,#11,#42,#48,#47,#27,#28,#7,#0,#68,#19,#31,#50,#5,#4,#56),
  (let ((a!1 ((_ extract 23 0)
              (bvshl (:var 5) (bvsub #x00000018 (bvsub #x00000020 (:var 56)))))))
-(let ((a!2 (FloatingPoint (:var 49)
+(let ((a!2 (FloatingPoint (:var 50)
                           ((_ extract 7 0)
                             (bvadd #x0000007f (bvsub #x0000001f (:var 56))))
                           a!1
@@ -271,15 +271,15 @@ Main_void_mainJayArray_java_lang_String_Block6_1(#38,#25,#45,#60,#36,#54,#53,#35
  (= (:var 4) ((_ int2bv 32) (ite (>= i4_984 0) i4_984 (- i4_984)))).
 
 	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:149)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
-2026-03-08 04:35:16,533 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i4_984' in <null>:
-Main_void_mainJayArray_java_lang_String_Block6_1(#38,#25,#45,#60,#36,#54,#53,#35,#44,#3,#33,#37,#20,#41,#69,#13,#51,#50,#58,#29,#59,#15,#63,#18,#67,#17,#21,#52,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#22,#66,#14,#61,#16,#48,#1,#30,#65,#11,#42,#47,#46,#27,#28,#7,#0,#68,#19,#31) :- 
- Main_void_mainJayArray_java_lang_String_Block6_12(#38,#25,#45,#60,#36,#40,#54,#53,#35,#44,#3,#33,#37,#20,#41,#62,#55,#24,#43,#8,#13,#51,#50,#58,#29,#59,#15,#63,#18,#67,#17,#21,#52,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#57,#22,#66,#14,#61,#16,#48,#1,#30,#65,#11,#42,#47,#46,#27,#28,#7,#0,#68,#19,#31,#49,#5,#4,#56),
+2026-03-13 01:02:47,231 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i4_984' in <null>:
+Main_void_mainJayArray_java_lang_String_Block6_1(#38,#25,#46,#60,#36,#54,#43,#35,#45,#3,#33,#37,#20,#41,#69,#13,#52,#51,#58,#29,#59,#15,#63,#18,#67,#17,#21,#53,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#22,#66,#14,#61,#16,#49,#1,#30,#65,#11,#42,#48,#47,#27,#28,#7,#0,#68,#19,#31) :- 
+ Main_void_mainJayArray_java_lang_String_Block6_12(#38,#25,#46,#60,#36,#40,#54,#43,#35,#45,#3,#33,#37,#20,#41,#62,#55,#24,#44,#8,#13,#52,#51,#58,#29,#59,#15,#63,#18,#67,#17,#21,#53,#34,#26,#6,#32,#10,#39,#12,#64,#2,#9,#23,#57,#22,#66,#14,#61,#16,#49,#1,#30,#65,#11,#42,#48,#47,#27,#28,#7,#0,#68,#19,#31,#50,#5,#4,#56),
  (let ((a!1 ((_ extract 23 0)
              (bvshl (:var 5) (bvsub #x00000018 (bvsub #x00000020 (:var 56)))))))
-(let ((a!2 (FloatingPoint (:var 49)
+(let ((a!2 (FloatingPoint (:var 50)
                           ((_ extract 7 0)
                             (bvadd #x0000007f (bvsub #x0000001f (:var 56))))
                           a!1

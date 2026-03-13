@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -249,7 +249,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
@@ -258,7 +258,7 @@ Legal parameters are:
 #
 # A fatal error has been detected by the Java Runtime Environment:
 #
-#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb87437fc6, pid=12252, tid=0x0000000000002ee0
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffd6cf37fc6, pid=24956, tid=0x0000000000003ffc
 #
 # JRE version: OpenJDK Runtime Environment (8.0_462-b08) (build 1.8.0_462-b08)
 # Java VM: OpenJDK 64-Bit Server VM (25.462-b08 mixed mode windows-amd64 compressed oops)
@@ -268,7 +268,7 @@ Legal parameters are:
 # Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
 #
 # An error report file with more information is saved as:
-# C:\am21\Float_Z3_jayhorn\jayhorn\hs_err_pid12252.log
+# C:\am21\Float_Z3_jayhorn\jayhorn\hs_err_pid24956.log
 #
 # If you would like to submit a bug report, please visit:
 #   https://github.com/adoptium/adoptium-support/issues

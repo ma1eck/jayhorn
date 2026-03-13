@@ -125,7 +125,7 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
@@ -249,17 +249,17 @@ Legal parameters are:
 	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
 	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:85)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
 java.lang.RuntimeException: Uninterpreted 'i2_1080' in <null>:
-Main_void_mainJayArray_java_lang_String_Block2_1(#20,#11,#31,#33,#4,#0,#15,#19,#10,#13,#14,#7,#42,#1,#36,#32,#27,#40,#9,#29,#26,#35,#39,#38,#3,#23,#25,#17,#22,#5,#21) :- 
- Main_void_mainJayArray_java_lang_String_Block2_12(#20,#11,#31,#33,#4,#2,#34,#0,#15,#19,#10,#13,#14,#7,#30,#41,#16,#12,#37,#1,#36,#32,#27,#40,#9,#29,#26,#35,#39,#38,#3,#23,#25,#17,#22,#8,#5,#21,#18,#6,#24,#28),
+Main_void_mainJayArray_java_lang_String_Block2_1(#20,#10,#31,#33,#3,#0,#14,#19,#9,#12,#13,#6,#42,#1,#35,#32,#27,#40,#8,#29,#26,#34,#39,#38,#2,#23,#25,#17,#22,#4,#21) :- 
+ Main_void_mainJayArray_java_lang_String_Block2_12(#20,#10,#31,#33,#3,#16,#37,#0,#14,#19,#9,#12,#13,#6,#30,#41,#15,#11,#36,#1,#35,#32,#27,#40,#8,#29,#26,#34,#39,#38,#2,#23,#25,#17,#22,#7,#4,#21,#18,#5,#24,#28),
  (let ((a!1 ((_ extract 23 0)
-             (bvshl (:var 6) (bvsub #x00000018 (bvsub #x00000020 (:var 28)))))))
+             (bvshl (:var 5) (bvsub #x00000018 (bvsub #x00000020 (:var 28)))))))
 (let ((a!2 (FloatingPoint (:var 18)
                           ((_ extract 7 0)
                             (bvadd #x0000007f (bvsub #x0000001f (:var 28))))
@@ -267,18 +267,18 @@ Main_void_mainJayArray_java_lang_String_Block2_1(#20,#11,#31,#33,#4,#0,#15,#19,#
                           false
                           false)))
   (= (:var 42) a!2))),
- (= (bvand (bvlshr (:var 6) (bvsub #x0000001f (:var 28))) #x00000001) #x00000001),
+ (= (bvand (bvlshr (:var 5) (bvsub #x0000001f (:var 28))) #x00000001) #x00000001),
  (= (:var 24) ((_ int2bv 32) (ite (>= i2_1080 0) i2_1080 (- i2_1080)))).
 
 	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:149)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
 	at jayhorn.Main.safetyAnalysis(Main.java:72)
 	at jayhorn.Main.main(Main.java:129)
-2026-03-08 04:34:54,926 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i2_1080' in <null>:
-Main_void_mainJayArray_java_lang_String_Block2_1(#20,#11,#31,#33,#4,#0,#15,#19,#10,#13,#14,#7,#42,#1,#36,#32,#27,#40,#9,#29,#26,#35,#39,#38,#3,#23,#25,#17,#22,#5,#21) :- 
- Main_void_mainJayArray_java_lang_String_Block2_12(#20,#11,#31,#33,#4,#2,#34,#0,#15,#19,#10,#13,#14,#7,#30,#41,#16,#12,#37,#1,#36,#32,#27,#40,#9,#29,#26,#35,#39,#38,#3,#23,#25,#17,#22,#8,#5,#21,#18,#6,#24,#28),
+2026-03-13 01:02:36,757 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted 'i2_1080' in <null>:
+Main_void_mainJayArray_java_lang_String_Block2_1(#20,#10,#31,#33,#3,#0,#14,#19,#9,#12,#13,#6,#42,#1,#35,#32,#27,#40,#8,#29,#26,#34,#39,#38,#2,#23,#25,#17,#22,#4,#21) :- 
+ Main_void_mainJayArray_java_lang_String_Block2_12(#20,#10,#31,#33,#3,#16,#37,#0,#14,#19,#9,#12,#13,#6,#30,#41,#15,#11,#36,#1,#35,#32,#27,#40,#8,#29,#26,#34,#39,#38,#2,#23,#25,#17,#22,#7,#4,#21,#18,#5,#24,#28),
  (let ((a!1 ((_ extract 23 0)
-             (bvshl (:var 6) (bvsub #x00000018 (bvsub #x00000020 (:var 28)))))))
+             (bvshl (:var 5) (bvsub #x00000018 (bvsub #x00000020 (:var 28)))))))
 (let ((a!2 (FloatingPoint (:var 18)
                           ((_ extract 7 0)
                             (bvadd #x0000007f (bvsub #x0000001f (:var 28))))
@@ -286,7 +286,7 @@ Main_void_mainJayArray_java_lang_String_Block2_1(#20,#11,#31,#33,#4,#0,#15,#19,#
                           false
                           false)))
   (= (:var 42) a!2))),
- (= (bvand (bvlshr (:var 6) (bvsub #x0000001f (:var 28))) #x00000001) #x00000001),
+ (= (bvand (bvlshr (:var 5) (bvsub #x0000001f (:var 28))) #x00000001) #x00000001),
  (= (:var 24) ((_ int2bv 32) (ite (>= i2_1080 0) i2_1080 (- i2_1080)))).
 
 UNKNOWN
