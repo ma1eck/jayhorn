@@ -275,12 +275,12 @@ public class ExpressionEncoder {
 							//final ProverADT FloatingPointADT = (new PrincessFloatingPointADTFactory()).spawnFloatingPointADT(PrincessFloatingPointType.Precision.Double);
 							ProverExpr leftSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, tLeft.getSubExpr(3));
 							ProverExpr leftExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, tLeft.getSubExpr(3));
-							ProverExpr leftMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tLeft.getSubExpr(3));
+							ProverExpr leftmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tLeft.getSubExpr(3));
 							ProverExpr leftIsNan = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 3, tLeft.getSubExpr(3));
 							ProverExpr leftIsInf = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 4, tLeft.getSubExpr(3));
 							ProverExpr rightSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, tRight.getSubExpr(3));
 							ProverExpr rightExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, tRight.getSubExpr(3));
-							ProverExpr rightMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tRight.getSubExpr(3));
+							ProverExpr rightmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tRight.getSubExpr(3));
 							ProverExpr rightIsNan = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tRight.getSubExpr(3));
 							ProverExpr rightIsInf = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tRight.getSubExpr(3));
 
@@ -291,14 +291,14 @@ public class ExpressionEncoder {
 
 											doubleFloatingPointEnCoder.mkDoublePE(leftSign, //sign
 													p.mkIte( // exponent
-															p.mkEq(p.mkBVExtract(53,53,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(1,rightMantisa,53),54)),p.mkBV(1,1)), // Overflow?
+															p.mkEq(p.mkBVExtract(53,53,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(1,rightmantissa,53),54)),p.mkBV(1,1)), // Overflow?
 															p.mkBVPlus(leftExponent,p.mkBV(1,11),11), //overflow occured! => e= e+1
 															leftExponent // No overflow! => e = e
 															),
 													p.mkIte( // Mantissa
-															p.mkEq(p.mkBVExtract(1,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(1,rightMantisa,53),54)),p.mkBV(1,1)),
-															p.mkBVPlus(p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(1,rightMantisa,53),54)),p.mkBV(1,53),53),
-															p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(1,rightMantisa,53),54))
+															p.mkEq(p.mkBVExtract(1,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(1,rightmantissa,53),54)),p.mkBV(1,1)),
+															p.mkBVPlus(p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(1,rightmantissa,53),54)),p.mkBV(1,53),53),
+															p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(1,rightmantissa,53),54))
 													)
 													),
 											p.mkIte(p.mkBVUge(leftExponent,rightExponent),
@@ -306,18 +306,18 @@ public class ExpressionEncoder {
 													doubleFloatingPointEnCoder.mkDoublePE(leftSign, //sign
 															p.mkBVPlus(leftExponent,p.mkBV(1,11),11), // exponent
 															p.mkIte(
-																	p.mkEq(p.mkBVExtract(0,0,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVlshr(p.mkBVZeroExtend(1,rightMantisa,53),p.mkBVZeroExtend(43,p.mkBVSub(leftExponent,rightExponent,11),53),54),54)),p.mkBV(1,1)),
-																	p.mkBVPlus(p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVlshr(p.mkBVZeroExtend(1,rightMantisa,53),p.mkBVZeroExtend(43,p.mkBVSub(leftExponent,rightExponent,11),53),54),54)),p.mkBV(1,53),53),
-																	p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVlshr(p.mkBVZeroExtend(1,rightMantisa,53),p.mkBVZeroExtend(43,p.mkBVSub(leftExponent,rightExponent,11),53),54),54))
+																	p.mkEq(p.mkBVExtract(0,0,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVlshr(p.mkBVZeroExtend(1,rightmantissa,53),p.mkBVZeroExtend(43,p.mkBVSub(leftExponent,rightExponent,11),53),54),54)),p.mkBV(1,1)),
+																	p.mkBVPlus(p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVlshr(p.mkBVZeroExtend(1,rightmantissa,53),p.mkBVZeroExtend(43,p.mkBVSub(leftExponent,rightExponent,11),53),54),54)),p.mkBV(1,53),53),
+																	p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVlshr(p.mkBVZeroExtend(1,rightmantissa,53),p.mkBVZeroExtend(43,p.mkBVSub(leftExponent,rightExponent,11),53),54),54))
 															)
 													),
 
 													doubleFloatingPointEnCoder.mkDoublePE(leftSign, //sign
 															p.mkBVPlus(rightExponent,p.mkBV(1,11),11), // exponent
 															p.mkIte(
-																	p.mkEq(p.mkBVExtract(0,0,p.mkBVPlus(p.mkBVZeroExtend(1,rightMantisa,53),p.mkBVlshr(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(43,p.mkBVSub(rightExponent,leftExponent,11),53),54),54)),p.mkBV(1,1)),
-																	p.mkBVPlus(p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,rightMantisa,53),p.mkBVlshr(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(43,p.mkBVSub(rightExponent,leftExponent,11),53),54),54)),p.mkBV(1,53),53),
-																	p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,rightMantisa,53),p.mkBVlshr(p.mkBVZeroExtend(1,leftMantisa,53),p.mkBVZeroExtend(43,p.mkBVSub(rightExponent,leftExponent,11),54),53),54))
+																	p.mkEq(p.mkBVExtract(0,0,p.mkBVPlus(p.mkBVZeroExtend(1,rightmantissa,53),p.mkBVlshr(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(43,p.mkBVSub(rightExponent,leftExponent,11),53),54),54)),p.mkBV(1,1)),
+																	p.mkBVPlus(p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,rightmantissa,53),p.mkBVlshr(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(43,p.mkBVSub(rightExponent,leftExponent,11),53),54),54)),p.mkBV(1,53),53),
+																	p.mkBVExtract(53,1,p.mkBVPlus(p.mkBVZeroExtend(1,rightmantissa,53),p.mkBVlshr(p.mkBVZeroExtend(1,leftmantissa,53),p.mkBVZeroExtend(43,p.mkBVSub(rightExponent,leftExponent,11),54),53),54))
 															)
 													)
 													)
@@ -342,16 +342,16 @@ public class ExpressionEncoder {
 							//final ProverADT FloatingPointADT = (new PrincessFloatingPointADTFactory()).spawnFloatingPointADT(PrincessFloatingPointType.Precision.Double);
 							ProverExpr leftSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, tLeft.getSubExpr(3));
 							ProverExpr leftExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, tLeft.getSubExpr(3));
-							ProverExpr leftMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tLeft.getSubExpr(3));
+							ProverExpr leftmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tLeft.getSubExpr(3));
 							ProverExpr rightSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, tRight.getSubExpr(3));
 							ProverExpr rightExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, tRight.getSubExpr(3));
-							ProverExpr rightMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tRight.getSubExpr(3));
+							ProverExpr rightmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, tRight.getSubExpr(3));
 
 							return p.mkTuple(new ProverExpr[]{tLeft.getSubExpr(0), tLeft.getSubExpr(1), tLeft.getSubExpr(2),
 									p.mkIte(p.mkEq(
 													p.mkBVExtract(105, 105,
-															p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																	  p.mkBVZeroExtend(53, rightMantisa, 53),
+															p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																	  p.mkBVZeroExtend(53, rightmantissa, 53),
 																	106
 															)
 													),
@@ -368,16 +368,16 @@ public class ExpressionEncoder {
 													p.mkIte( //Mantissa
 															p.mkEq(
 																	p.mkBVExtract(52, 52,
-																			p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																					p.mkBVZeroExtend(53, rightMantisa, 53), 106)),
+																			p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																					p.mkBVZeroExtend(53, rightmantissa, 53), 106)),
 																	p.mkBV(1, 1)),
 															p.mkBVPlus(p.mkBVExtract(105, 53,
-																			p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																					p.mkBVZeroExtend(53, rightMantisa, 53), 106)),
+																			p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																					p.mkBVZeroExtend(53, rightmantissa, 53), 106)),
 																	p.mkBV(1, 53), 53),
 															p.mkBVExtract(105, 53,
-																	p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																			p.mkBVZeroExtend(53, rightMantisa, 53), 106))
+																	p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																			p.mkBVZeroExtend(53, rightmantissa, 53), 106))
 													)
 											),
 											doubleFloatingPointEnCoder.mkDoublePE(p.mkBVXOR(leftSign, rightSign, 1), //sign
@@ -389,16 +389,16 @@ public class ExpressionEncoder {
 													p.mkIte(
 															p.mkEq(
 																	p.mkBVExtract(51, 51,
-																			p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																					p.mkBVZeroExtend(53, rightMantisa, 53), 106)),
+																			p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																					p.mkBVZeroExtend(53, rightmantissa, 53), 106)),
 																	p.mkBV(1, 1)),
 															p.mkBVPlus(p.mkBVExtract(104, 52,
-																			p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																					p.mkBVZeroExtend(53, rightMantisa, 53), 106)),
+																			p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																					p.mkBVZeroExtend(53, rightmantissa, 53), 106)),
 																	p.mkBV(1, 53), 53),
 															p.mkBVExtract(104, 52,
-																	p.mkBVMul(p.mkBVZeroExtend(53, leftMantisa, 53),
-																			p.mkBVZeroExtend(53, rightMantisa, 53), 106))
+																	p.mkBVMul(p.mkBVZeroExtend(53, leftmantissa, 53),
+																			p.mkBVZeroExtend(53, rightmantissa, 53), 106))
 													)
 											)
 									)
@@ -461,13 +461,13 @@ public class ExpressionEncoder {
 							//final ProverADT FloatingPointADT = (new PrincessFloatingPointADTFactory()).spawnFloatingPointADT(PrincessFloatingPointType.Precision.Double);
 							ProverExpr leftSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0,rightFP);
 							ProverExpr rightExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return p.mkIte(p.mkEq(leftSign, rightSign),
 									p.mkIte(p.mkEq(leftExponent, rightExponent),
-											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftMantisa, rightMantisa), p.mkBVUgt(leftMantisa, rightMantisa)), // TODO: recheck
+											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftmantissa, rightmantissa), p.mkBVUgt(leftmantissa, rightmantissa)), // TODO: recheck
 											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftExponent, rightExponent), p.mkBVUgt(leftExponent, rightExponent))), // TODO: recheck
 									p.mkIte(p.mkBVUlt(leftSign, rightSign), p.mkLiteral(true), p.mkLiteral(false))
 							);
@@ -475,13 +475,13 @@ public class ExpressionEncoder {
 						} else if (((ProverADTType) leftFP.getType()).getName().equals("FloatingPoint")) {
 							ProverExpr leftSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return p.mkIte(p.mkEq(leftSign, rightSign),
 									p.mkIte(p.mkEq(leftExponent, rightExponent),
-											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftMantisa, rightMantisa), p.mkBVUgt(leftMantisa, rightMantisa)),// TODO: recheck
+											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftmantissa, rightmantissa), p.mkBVUgt(leftmantissa, rightmantissa)),// TODO: recheck
 											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftExponent, rightExponent), p.mkBVUgt(leftExponent, rightExponent))),// TODO: recheck
 									p.mkIte(p.mkBVUlt(leftSign, rightSign), p.mkLiteral(true), p.mkLiteral(false))
 							);
@@ -498,16 +498,16 @@ public class ExpressionEncoder {
 							//final ProverADT FloatingPointADT = (new PrincessFloatingPointADTFactory()).spawnFloatingPointADT(PrincessFloatingPointType.Precision.Double);
 							ProverExpr leftSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return p.mkIte(p.mkEq(leftFP, rightFP),
 									p.mkLiteral(true),
 									p.mkIte(p.mkEq(leftSign, rightSign),
 											p.mkIte(p.mkEq(leftExponent, rightExponent),
-													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkAnd(p.mkBVUlt(leftMantisa, rightMantisa),p.mkEq(p.mkBVExtract(53,53,leftMantisa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightMantisa),p.mkBV(1,1))), p.mkAnd(p.mkBVUgt(leftMantisa, rightMantisa),p.mkEq(p.mkBVExtract(53,53,leftMantisa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightMantisa),p.mkBV(1,1)) )),// TODO: recheck
-													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkAnd(p.mkBVUlt(leftExponent, rightExponent),p.mkEq(p.mkBVExtract(53,53,leftMantisa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightMantisa),p.mkBV(1,1))), p.mkAnd(p.mkBVUgt(leftExponent, rightExponent),p.mkEq(p.mkBVExtract(53,53,leftMantisa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightMantisa),p.mkBV(1,1))))),// TODO: recheck
+													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkAnd(p.mkBVUlt(leftmantissa, rightmantissa),p.mkEq(p.mkBVExtract(53,53,leftmantissa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightmantissa),p.mkBV(1,1))), p.mkAnd(p.mkBVUgt(leftmantissa, rightmantissa),p.mkEq(p.mkBVExtract(53,53,leftmantissa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightmantissa),p.mkBV(1,1)) )),// TODO: recheck
+													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkAnd(p.mkBVUlt(leftExponent, rightExponent),p.mkEq(p.mkBVExtract(53,53,leftmantissa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightmantissa),p.mkBV(1,1))), p.mkAnd(p.mkBVUgt(leftExponent, rightExponent),p.mkEq(p.mkBVExtract(53,53,leftmantissa),p.mkBV(1,1)),p.mkEq(p.mkBVExtract(53,53,rightmantissa),p.mkBV(1,1))))),// TODO: recheck
 											p.mkIte(p.mkBVUlt(leftSign, rightSign), p.mkLiteral(true), p.mkLiteral(false))
 									)
 							);
@@ -517,15 +517,15 @@ public class ExpressionEncoder {
 						else if (((ProverADTType) leftFP.getType()).getName().equals("FloatingPoint")) {
 							ProverExpr leftSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return p.mkIte(p.mkEq(leftFP, rightFP),
 									p.mkLiteral(true),
 									p.mkIte(p.mkEq(leftSign, rightSign),
 											p.mkIte(p.mkEq(leftExponent, rightExponent),// TODO: recheck
-													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftMantisa, rightMantisa), p.mkBVUgt(leftMantisa, rightMantisa)),
+													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftmantissa, rightmantissa), p.mkBVUgt(leftmantissa, rightmantissa)),
 													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUlt(leftExponent, rightExponent), p.mkBVUgt(leftExponent, rightExponent))),
 											p.mkIte(p.mkBVUlt(leftSign, rightSign), p.mkLiteral(true), p.mkLiteral(false))
 									)
@@ -543,13 +543,13 @@ public class ExpressionEncoder {
 							//final ProverADT FloatingPointADT = (new PrincessFloatingPointADTFactory()).spawnFloatingPointADT(PrincessFloatingPointType.Precision.Double);
 							ProverExpr leftSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return p.mkIte(p.mkEq(leftSign, rightSign),
 									p.mkIte(p.mkEq(leftExponent, rightExponent), // TODO: recheck
-											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftMantisa, rightMantisa), p.mkBVUlt(leftMantisa, rightMantisa)),
+											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftmantissa, rightmantissa), p.mkBVUlt(leftmantissa, rightmantissa)),
 											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftExponent, rightExponent), p.mkBVUlt(leftExponent, rightExponent))),
 									p.mkIte(p.mkBVUlt(leftSign, rightSign), p.mkLiteral(false), p.mkLiteral(true))
 							);
@@ -558,13 +558,13 @@ public class ExpressionEncoder {
 						else if (((ProverADTType) leftFP.getType()).getName().equals("FloatingPoint")) {
 							ProverExpr leftSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return p.mkIte(p.mkEq(leftSign, rightSign),
 									p.mkIte(p.mkEq(leftExponent, rightExponent),// TODO: recheck
-											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftMantisa, rightMantisa), p.mkBVUlt(leftMantisa, rightMantisa)),
+											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftmantissa, rightmantissa), p.mkBVUlt(leftmantissa, rightmantissa)),
 											p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftExponent, rightExponent), p.mkBVUlt(leftExponent, rightExponent))),
 									p.mkIte(p.mkBVUlt(leftSign, rightSign), p.mkLiteral(false), p.mkLiteral(true))
 							);
@@ -581,10 +581,10 @@ public class ExpressionEncoder {
 							//final ProverADT FloatingPointADT = (new PrincessFloatingPointADTFactory()).spawnFloatingPointADT(PrincessFloatingPointType.Precision.Double);
 							ProverExpr leftSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = doubleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 					return
 //							p.mkIte(
 //									doubleFloatingPointEnCoder.existNaNFun(leftFP,rightFP),p.mkLiteral(false),
@@ -592,7 +592,7 @@ public class ExpressionEncoder {
 											p.mkLiteral(true),
 											p.mkIte(p.mkEq(leftSign, rightSign),
 													p.mkIte(p.mkEq(leftExponent, rightExponent),// TODO: recheck
-															p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftMantisa, rightMantisa), p.mkBVUlt(leftMantisa, rightMantisa)),
+															p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftmantissa, rightmantissa), p.mkBVUlt(leftmantissa, rightmantissa)),
 															p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftExponent, rightExponent), p.mkBVUlt(leftExponent, rightExponent))),
 													p.mkIte(p.mkEq(leftSign, p.mkLiteral(false)), p.mkLiteral(false), p.mkLiteral(true))
 											)
@@ -602,10 +602,10 @@ public class ExpressionEncoder {
 						} else if (((ProverADTType) leftFP.getType()).getName().equals("FloatingPoint")) {
 							ProverExpr leftSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, leftFP);
 							ProverExpr leftExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, leftFP);
-							ProverExpr leftMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
+							ProverExpr leftmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, leftFP);
 							ProverExpr rightSign = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 0, rightFP);
 							ProverExpr rightExponent = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 1, rightFP);
-							ProverExpr rightMantisa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
+							ProverExpr rightmantissa = singleFloatingPointEnCoder.getFloatingPointADT().mkSelExpr(0, 2, rightFP);
 							return
 									/*p.mkIte(
 									singleFloatingPointEnCoder.existNaNFun(leftFP,rightFP),p.mkLiteral(false),*/
@@ -613,7 +613,7 @@ public class ExpressionEncoder {
 									p.mkLiteral(true),
 									p.mkIte(p.mkEq(leftSign, rightSign),
 											p.mkIte(p.mkEq(leftExponent, rightExponent),
-													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftMantisa, rightMantisa), p.mkBVUlt(leftMantisa, rightMantisa)),
+													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftmantissa, rightmantissa), p.mkBVUlt(leftmantissa, rightmantissa)),
 													p.mkIte(p.mkEq(leftSign, p.mkLiteral(true)), p.mkBVUgt(leftExponent, rightExponent), p.mkBVUlt(leftExponent, rightExponent))),
 											p.mkIte(p.mkEq(leftSign, p.mkLiteral(false)), p.mkLiteral(false), p.mkLiteral(true))
 									)
