@@ -1137,7 +1137,17 @@ System.out.println("all preds: " + allPreds);
 		
 	}
 
-	@Override
+    @Override
+    public ProverExpr mkCustomTrue() {
+        return this.mkLiteral(1);
+    }
+
+    @Override
+    public ProverExpr mkCustomFalse() {
+        return this.mkLiteral(0);
+    }
+
+    @Override
 	public ProverResult query(ProverExpr relation, boolean isTimed) {
 		// TODO Auto-generated method stub
 		return null;

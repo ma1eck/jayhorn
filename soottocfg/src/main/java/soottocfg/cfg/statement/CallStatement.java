@@ -46,7 +46,9 @@ public class CallStatement extends Statement {
 			Expression arg = arguments.get(i);
 			Type parType = method.getInParam(i).getType();
 
-			if (!(arg instanceof NullLiteral) && !arg.canBeAssignedToType(parType)) {
+			if (!(arg instanceof NullLiteral) && !arg.canBeAssignedToType(parType)
+//					&& !arg.getType().toString().equals("FloatType") // TODO: recheck
+ 			) {
 
 				if (arg instanceof IntegerLiteral && parType == BoolType.instance()) {
 					if (((IntegerLiteral) arg).getValue() == 0L) {

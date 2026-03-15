@@ -337,6 +337,9 @@ public interface Prover {
 //	}
 ////		TODO: remove
 
+	ProverExpr mkCustomTrue();
+	ProverExpr mkCustomFalse();
+
 
 
 }

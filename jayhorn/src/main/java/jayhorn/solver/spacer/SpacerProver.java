@@ -1549,7 +1549,17 @@ public class SpacerProver implements Prover {
     	throw new UnsupportedOperationException();
     }
 
-    public String toSMTLIBScript(List<ProverHornClause> clauses) {
+	@Override
+	public ProverExpr mkCustomTrue() {
+		return this.mkLiteral(true);
+	}
+
+	@Override
+	public ProverExpr mkCustomFalse() {
+		return this.mkLiteral(false);
+	}
+
+	public String toSMTLIBScript(List<ProverHornClause> clauses) {
     	throw new UnsupportedOperationException();
     }
 
