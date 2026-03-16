@@ -255,38 +255,5 @@ Legal parameters are:
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-java.lang.RuntimeException: Uninterpreted '$i2_189' in <null>:
-Main_void_mainJayArray_java_lang_String_Block5_5(#14,#10,#3,#12,#13,#1,#0,#5,#4,#8,#9,#17,#6) :- 
- Main_void_mainJayArray_java_lang_String_Block5_4_12(#14,#10,#3,#12,#13,#1,#0,#5,#15,#6,#7,#2,#11,#16),
- (let ((a!1 ((_ extract 23 0)
-             (bvshl (:var 2) (bvsub #x00000018 (bvsub #x00000020 (:var 16)))))))
-(let ((a!2 (FloatingPoint (:var 7)
-                          ((_ extract 7 0)
-                            (bvadd #x0000007f (bvsub #x0000001f (:var 16))))
-                          a!1
-                          false
-                          false)))
-  (= (:var 17) a!2))),
- (= (bvand (bvlshr (:var 2) (bvsub #x0000001f (:var 16))) #x00000001) #x00000001),
- (= (:var 11) ((_ int2bv 32) (ite (>= $i2_189 0) $i2_189 (- $i2_189)))).
-
-	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
-	at jayhorn.Main.safetyAnalysis(Main.java:72)
-	at jayhorn.Main.main(Main.java:129)
-2026-03-13 00:59:48,653 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Uninterpreted '$i2_189' in <null>:
-Main_void_mainJayArray_java_lang_String_Block5_5(#14,#10,#3,#12,#13,#1,#0,#5,#4,#8,#9,#17,#6) :- 
- Main_void_mainJayArray_java_lang_String_Block5_4_12(#14,#10,#3,#12,#13,#1,#0,#5,#15,#6,#7,#2,#11,#16),
- (let ((a!1 ((_ extract 23 0)
-             (bvshl (:var 2) (bvsub #x00000018 (bvsub #x00000020 (:var 16)))))))
-(let ((a!2 (FloatingPoint (:var 7)
-                          ((_ extract 7 0)
-                            (bvadd #x0000007f (bvsub #x0000001f (:var 16))))
-                          a!1
-                          false
-                          false)))
-  (= (:var 17) a!2))),
- (= (bvand (bvlshr (:var 2) (bvsub #x0000001f (:var 16))) #x00000001) #x00000001),
- (= (:var 11) ((_ int2bv 32) (ite (>= $i2_189 0) $i2_189 (- $i2_189)))).
-
-UNKNOWN
+Spacer takes 1.039 min to check the given benchmark!
+SAFE

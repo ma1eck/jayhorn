@@ -255,10 +255,5 @@ Legal parameters are:
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-java.lang.RuntimeException: Stuck on a lemma
-	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1388)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:154)
-	at jayhorn.Main.safetyAnalysis(Main.java:72)
-	at jayhorn.Main.main(Main.java:129)
-2026-03-13 00:47:43,051 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Stuck on a lemma
-UNKNOWN
+Spacer takes 28.30 s to check the given benchmark!
+SAFE

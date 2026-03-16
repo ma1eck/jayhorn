@@ -9,23 +9,29 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 BASE_DIRS = [r"examples2\JAVA-SVCOM", r"examples2\C-SVCOM"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'benchmark_results99999999999.csv'
+CSV_FILE_PATH = 'int2float_benchmark_result.csv'
 
-TIMEOUT_SECONDS = 5 * 60
+TIMEOUT_SECONDS = 15 * 60
 MAX_WORKERS = 2
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
-ENCODINGS = [LOOP_BASED, LOOP_FREE]
+ENCODINGS = [
+    LOOP_BASED,
+              LOOP_FREE
+]
 
 CEX_DIR_NAME = "counter examples or models"
 
-GET_CEX = True
+GET_CEX = False
 
-SKIP_TIMEOUTS = True
+SKIP_TIMEOUTS = False
 
-UNKNOWNS = ['Conflict', 'Conflict', 'Conflict', 'Conflict', 'Arctan_Pade', 'Arctan_Pade', 'Arctan_Pade', 'Arctan_Pade', 'exp_loop', 'exp_loop', 'exp_loop', 'exp_loop', 'filter2_iterated', 'filter2_iterated', 'filter2_iterated', 'filter2_iterated', 'float-zero-sum1', 'float-zero-sum1', 'float-zero-sum1', 'float-zero-sum1', 'Float12', 'Float12', 'Float12', 'Float12', 'filter_iir', 'Float_int_inv_square', 'Float_int_inv_square', 'Float_int_inv_square', 'Float_int_inv_square', 'float_req_bl_1381', 'float_req_bl_1381', 'float_req_bl_1381', 'float_req_bl_1381', 'interpolation', 'interpolation', 'interpolation', 'interpolation', 'inv_Newton-2', 'inv_Newton-2', 'inv_Newton-2', 'inv_Newton-2', 'Inv_square_int', 'Inv_square_int', 'Inv_square_int', 'Inv_square_int', 'Loop1Minus1', 'Loop1Minus1', 'Loop1Minus1', 'Loop1Minus1', 'Loop1Minus2', 'Loop1Minus2', 'Loop1Minus2', 'Loop1Minus2', 'Loop2Minus1', 'Loop2Minus1', 'Loop2Minus1', 'Loop2Minus1', 'Loop3', 'Loop3', 'Loop3', 'Loop3', 'sin_interpolated_bigrange_loose', 'sin_interpolated_bigrange_loose', 'sin_interpolated_bigrange_loose', 'sin_interpolated_bigrange_loose', 'sqrt_biNewton_pseudoconstant', 'sqrt_biNewton_pseudoconstant', 'sqrt_biNewton_pseudoconstant', 'sqrt_biNewton_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Sqrt_Householder_pseudoconstant', 'Square_1', 'Square_1', 'Square_1', 'Square_2', 'Square_2', 'Square_3', 'Square_3', 'Square_3', 'Square_4', 'Square_4', 'Square_5', 'Square_5', 'Square_6', 'Square_6', 'Square_6', 'Square_7', 'Square_8', 'Square_8', 'Square_8', 'Zonotope_2', 'Zonotope_2', 'Zonotope_3', 'Zonotope_3', 'Zonotope_3', 'Zonotope_3', 'Zonotope_2']
-
+UNKNOWNS = [
+    "Loop1Minus2", "Loop3", "Loop1Minus1", 
+            # "Float_int_inv_square",
+            #   "Inv_square_int" ,
+            "Loop2Minus1"]
 
 def run_benchmark(task_info):
     """Run a single benchmark with specific encodings and save its output."""
