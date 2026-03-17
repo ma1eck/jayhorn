@@ -255,5 +255,46 @@ Legal parameters are:
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-Spacer takes 21.60 s to check the given benchmark!
-SAFE
+Failed to find a lemma for: (not (eisNan Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+Available lemmas are: 5: (>= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_3_n 0)
+6: (<= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_3_n 0)
+7: (let ((a!1 (bvule #b11110000000000000000000000000000000000000000000000000
+                  (bvadd #b00000000000000000000000000000000000000000000000000001
+                         ((_ extract 157 105)
+                           (emantissa Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))))
+      (a!2 (bvule (bvadd #b00000000000000000000000000000000000000000000000000001
+                         ((_ extract 157 105)
+                           (emantissa Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))
+                  #b11110000000000000000000000000000000000000000000000000))
+      (a!3 (and (= ((_ extract 157 105)
+                     (emantissa Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+                   #b11101111111111111111111111111111111111111111111111111)
+                (not (eisNan Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))))
+  (or (not a!1) (not a!2) a!3))
+8: (and (not (eisNan Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))
+9: (or (<= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_6_n 0)
+    (<= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_3_n 0))
+10: (or (>= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_3_n 0)
+    (<= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_6_n 0))
+Simplified goal is:
+0: (>= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_3_n 0)
+1: (<= Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_3_n 0)
+2: (let ((a!1 (bvule #b11110000000000000000000000000000000000000000000000000
+                  (bvadd #b00000000000000000000000000000000000000000000000000001
+                         ((_ extract 157 105)
+                           (emantissa Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))))
+      (a!2 (bvule (bvadd #b00000000000000000000000000000000000000000000000000001
+                         ((_ extract 157 105)
+                           (emantissa Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))
+                  #b11110000000000000000000000000000000000000000000000000))
+      (a!3 (and (= ((_ extract 157 105)
+                     (emantissa Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+                   #b11101111111111111111111111111111111111111111111111111)
+                (not (eisNan Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n)))))
+  (or (not a!1) (not a!2) a!3))
+3: (not (eisNan Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+4: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block10_16!slice!15_7_n))
+Failed to verify: found

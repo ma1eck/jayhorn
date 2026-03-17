@@ -9,9 +9,9 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 BASE_DIRS = [r"examples2\JAVA-SVCOM", r"examples2\C-SVCOM"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'benchmark_results.csv'
+CSV_FILE_PATH = 'benchmark_results__.csv'
 
-TIMEOUT_SECONDS = 6 * 60
+TIMEOUT_SECONDS =  7
 MAX_WORKERS = 2
 
 LOOP_BASED = "loop-based"

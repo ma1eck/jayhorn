@@ -255,14 +255,23 @@ Legal parameters are:
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-Failed to find a lemma for: (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_6_n))
-Available lemmas are: 1: (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_4_n 0)
-2: (and (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_6_n))
-     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_6_n)))
-3: (<= Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_4_n 0)
-Simplified goal is:
-0: (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_4_n 0)
-1: (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_6_n))
-2: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_6_n))
-3: (<= Main_void_mainJayArray_java_lang_String_Block4_16!slice!12_4_n 0)
-Failed to verify: found
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffd6cbd7fc6, pid=21048, tid=0x0000000000002178
+#
+# JRE version: OpenJDK Runtime Environment (8.0_462-b08) (build 1.8.0_462-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.462-b08 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# C  [libz3.dll+0x137fc6]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# An error report file with more information is saved as:
+# C:\am21\Float_Z3_jayhorn\jayhorn\hs_err_pid21048.log
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#

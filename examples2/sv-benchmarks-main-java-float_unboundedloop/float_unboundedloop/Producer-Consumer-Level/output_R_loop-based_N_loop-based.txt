@@ -255,42 +255,5 @@ Legal parameters are:
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-Failed to find a lemma for: (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-Available lemmas are: 3: (let ((a!1 (bvule (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 157 105)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))
-                  #b10100000000000000000000000000000000000000000000000000))
-      (a!2 (bvule #b10100000000000000000000000000000000000000000000000000
-                  (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 157 105)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))))
-      (a!3 (and (= ((_ extract 157 105)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-                   #b10011111111111111111111111111111111111111111111111111)
-                (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))))
-  (or (not a!1) (not a!2) a!3))
-4: (and (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))
-5: (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_5_n 0)
-6: (not (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_5_n 3))
-Simplified goal is:
-0: (let ((a!1 (bvule (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 157 105)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))
-                  #b10100000000000000000000000000000000000000000000000000))
-      (a!2 (bvule #b10100000000000000000000000000000000000000000000000000
-                  (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 157 105)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))))
-      (a!3 (and (= ((_ extract 157 105)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-                   #b10011111111111111111111111111111111111111111111111111)
-                (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n)))))
-  (or (not a!1) (not a!2) a!3))
-1: (not (eisNan Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-2: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_6_n))
-3: (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_5_n 0)
-4: (not (>= Main_void_mainJayArray_java_lang_String_Block4_16!slice!369_5_n 3))
-Failed to verify: found
+Spacer takes 7.407 s to check the given benchmark!
+SAFE

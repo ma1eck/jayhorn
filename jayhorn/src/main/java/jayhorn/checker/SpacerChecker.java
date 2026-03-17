@@ -131,12 +131,18 @@ public class SpacerChecker extends Checker{
 //			}
 			Log.info("Checking properties");
 			Stopwatch satTimer = Stopwatch.createStarted();
+//			long startTime = System.nanoTime();
 			if (S2H.sh().getErrorState().isEmpty()){
 				Stats.stats().add("Warning", "No assertions found.");
-				String stopTime =  String.valueOf(satTimer.stop());
-				Stats.stats().add("CheckSatTime", stopTime);
+				Stopwatch stoppedTimer =  satTimer.stop();
+//				long endTime = System.nanoTime();
+//				long executionTime
+//						= (endTime - startTime) / 1000000;
+//				String executionTimeStr = String.valueOf(executionTime);
+				String executionTimeStr = String.valueOf(stoppedTimer.elapsed(TimeUnit.NANOSECONDS) / 1e6F);
+				Stats.stats().add("CheckSatTime", executionTimeStr);
 				System.out.println("Spacer takes "
-						+ stopTime + " to check the given benchmark!");
+						+ executionTimeStr + " to check the given benchmark!");
 				if (Options.v().solution){
 					cex();
 				}
@@ -170,10 +176,15 @@ public class SpacerChecker extends Checker{
 				results.put(prop, result);
 			}
 
-			String stopTime =  String.valueOf(satTimer.stop());
-			Stats.stats().add("CheckSatTime", stopTime);
+//			long endTime = System.nanoTime();
+//			long executionTime
+//					= (endTime - startTime) / 1000000;
+//			String executionTimeStr = String.valueOf(executionTime);
+			Stopwatch stoppedTimer =  satTimer.stop();
+			String executionTimeStr = String.valueOf(stoppedTimer.elapsed(TimeUnit.MILLISECONDS));
+			Stats.stats().add("CheckSatTime", executionTimeStr);
 			System.out.println("Spacer takes "
-					+ stopTime + " to check the given benchmark!");
+					+ executionTimeStr + " to check the given benchmark!");
 			if (Options.v().solution){
 				cex();
 			}

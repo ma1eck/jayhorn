@@ -1,0 +1,460 @@
+[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
+[root] - Horn solver: eldarica
+[root] - Building CFG  ... 
+[root] - Safety Verification ... 
+[root] - Trying to verify with max explicit heap size 10
+[root] - ======== Round 1: heap size 1
+[root] - - Searching for counterexamples ...
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3031)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3040)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3062)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3070)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3080)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3118)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3131)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3143)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3161)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3031)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3040)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3062)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3070)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3080)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3118)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3131)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3143)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+Warning: java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+java.lang.RuntimeException: Wrong argument type: expected (_ BitVec 46) but got (_ BitVec 46) of type (_ BitVec 46)
+	at jayhorn.solver.princess.PredicateFun.checkArgTypes(PredicateFun.java:53)
+	at jayhorn.solver.princess.PredicateFun.mkExpr(PredicateFun.java:24)
+	at jayhorn.hornify.HornPredicate.instPredicate(HornPredicate.java:34)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.roundingEncoding(FloatingPointEncoder.java:3161)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.mkAddFPs(FloatingPointEncoder.java:4081)
+	at jayhorn.hornify.encoder.FloatingPointEncoder.handleFloatingPointExpr(FloatingPointEncoder.java:222)
+	at jayhorn.hornify.encoder.StatementEncoder.assignToClause(StatementEncoder.java:250)
+	at jayhorn.hornify.encoder.StatementEncoder.statementToClause(StatementEncoder.java:125)
+	at jayhorn.hornify.encoder.MethodEncoder.blockToHorn(MethodEncoder.java:323)
+	at jayhorn.hornify.encoder.MethodEncoder.blocksToHorn(MethodEncoder.java:202)
+	at jayhorn.hornify.encoder.MethodEncoder.encode(MethodEncoder.java:76)
+	at jayhorn.hornify.Hornify.toHorn(Hornify.java:1328)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:176)
+	at jayhorn.checker.EldaricaChecker.boundedChecking(EldaricaChecker.java:118)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:97)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             185       119
+After eliminating fwd/bwd unreachable clauses (32ms):  180       115
+After partial evaluation (1347ms):                     180       115
+After constraint simplification (1282ms):              179       115
+After clause inlining (1209ms):                        75        11
+After equality propagation (270ms):                    75        11
+After constant propagation (384ms):                    75        11
+After inlining ADT constructors (526ms):               75        11
+After constraint simplification (891ms):               49        11
+After clause inlining (4ms):                           49        11
+After eliminating fwd/bwd unreachable clauses (17ms):  49        11
+After slicing (69ms):                                  49        11
+After equality propagation (11ms):                     49        11
+After constant propagation (9ms):                      49        11
+After constraint simplification (49ms):                49        11
+After clause inlining (1ms):                           49        11
+After eliminating fwd/bwd unreachable clauses (2ms):   49        11
+After slicing (6ms):                                   49        11
+After Boolean clause splitting (1652ms):               69        11
+After equality propagation (53ms):                     69        11
+After constant propagation (20ms):                     69        11
+After constraint simplification (131ms):               59        11
+After clause inlining (2ms):                           59        11
+After eliminating fwd/bwd unreachable clauses (1ms):   59        11
+After slicing (3ms):                                   59        11
+After equality propagation (10ms):                     59        11
+After constant propagation (6ms):                      59        11
+After constraint simplification (85ms):                58        11
+After clause inlining (4ms):                           57        10
+After eliminating fwd/bwd unreachable clauses (1ms):   57        10
+After slicing (9ms):                                   57        10
+After equality propagation (9ms):                      57        10
+After constant propagation (44ms):                     57        10
+After constraint simplification (55ms):                55        10
+After clause inlining (1ms):                           55        10
+After eliminating fwd/bwd unreachable clauses (4ms):   55        10
+After slicing (4ms):                                   55        10
+After equality propagation (12ms):                     55        10
+After constant propagation (5ms):                      55        10
+After constraint simplification (96ms):                55        10
+After clause inlining (0ms):                           55        10
+After eliminating fwd/bwd unreachable clauses (6ms):   55        10
+After slicing (77ms):                                  55        10
+After cloning of relation symbols (56ms):              55        10
+After shortening of clauses (2ms):                     55        10
+
+Total preprocessing time (ms): 9919
+
+Theories: Types, GroebnerMultiplicationValueEnumerator, GroebnerMultiplication, ModuloArithmetic, ADT(DoubleFloatingPoint)
+State hashing enabled
+Forward  constant and interval propagation +++++++++++++++++++++++
+
+Backward constant and interval propagation +++++++++++++++++++
+
+Unique satisfiable clauses: 34
+   1 clauses with 0 body literals
+   33 clauses with 1 body literals
+
+Starting CEGAR ...
+........
+Found counterexample #1, refining ... (5and/0or)  64 -> 64 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block1_22_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_22_exp_1_0 = 255.\as[bv[8]] & <Main: void main(JayArray_java_lang_String)>_Block1_22_exp_2_0 != 8388608.\as[bv[24]] & <Main: void main(JayArray_java_lang_String)>_Block1_22_exp_2_0.\as[int] >= 1)
+<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 2361183241434822606848.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 1180591620717411303424.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 130.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 129.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 128.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 127.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0.\as[int] >= 1)
+......
+Found counterexample #2, refining ... (5and/0or)  79 -> 79 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block1_22_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_22_exp_1_0 = 255.\as[bv[8]] & !\forall int v0; <Main: void main(JayArray_java_lang_String)>_Block1_22_exp_2_0.\as[int] != -8388608*v0)
+<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 590295810358705651712.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 295147905179352825856.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 147573952589676412928.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 73786976294838206464.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 126.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 125.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 124.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 123.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 122.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 121.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 120.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 119.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 118.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 117.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 116.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 115.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 114.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 113.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 112.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 111.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 110.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 109.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 108.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 107.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 106.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 105.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 104.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 103.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 102.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 101.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 100.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 99.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 98.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 97.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 96.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 95.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 94.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 93.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 92.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 91.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 90.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 89.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 88.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 87.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 86.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 85.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 84.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 83.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 82.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 81.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 80.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 79.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 78.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 77.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 76.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 75.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 74.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 73.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 72.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 71.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 70.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 69.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 68.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 67.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 66.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 65.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 64.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 63.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 62.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 61.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 60.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 59.\as[bv[9]])
+..
+Found counterexample #3, refining ... (5and/0or)  81 -> 81 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block1_32-FCmpResult_exp: -1 >= <Main: void main(JayArray_java_lang_String)>_Block1_32-FCmpResult_exp_0_0
+<Main: void main(JayArray_java_lang_String)>_Block1_22_exp: 8388608 >= <Main: void main(JayArray_java_lang_String)>_Block1_22_exp_2_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 2361183241434822606848.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 1180591620717411303424.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 590295810358705651712.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 295147905179352825856.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 147573952589676412928.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 73786976294838206464.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0.\as[int] >= 1)
+.........
+Found counterexample #4, refining ... (5and/0or)  83 -> 83 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block1_22_exp: 127 >= <Main: void main(JayArray_java_lang_String)>_Block1_22_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 127.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 126.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 125.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 124.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 123.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 122.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 121.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 120.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 119.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 118.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 117.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 116.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 115.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 114.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 113.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 112.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 111.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 110.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 109.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 108.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 107.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 106.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 105.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 104.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 103.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 102.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 101.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 100.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 99.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 98.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 97.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 96.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 95.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 94.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 93.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 92.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 91.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 90.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 89.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 88.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 87.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 86.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 85.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 84.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 83.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 82.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 81.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 80.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 79.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 78.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 77.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 76.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 75.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 74.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 73.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 72.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 71.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 70.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 69.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 68.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 67.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 66.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 65.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 64.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 63.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 62.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 61.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 60.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 59.\as[bv[9]])
+.........
+Found counterexample #5, refining ... (8and/0or)  124 -> 124 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_12_exp: <Main: void main(JayArray_java_lang_String)>_Block2_12_exp_1_0 = 126.\as[bv[8]]
+.......
+Found counterexample #6, refining ... (8and/0or)  124 -> 124 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: !(<Main: void main(JayArray_java_lang_String)>_Block2_exp_2_0 = 0.\as[bv[24]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0 = 0.\as[bv[8]])
+<Main: void main(JayArray_java_lang_String)>_Block1_32-FCmpResult_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_32-FCmpResult_exp_3_0 = 0.\as[bv[24]] & <Main: void main(JayArray_java_lang_String)>_Block1_32-FCmpResult_exp_2_0 = 0.\as[bv[8]])
+<Main: void main(JayArray_java_lang_String)>_Block1_22_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_22_exp_2_0 = 0.\as[bv[24]] & <Main: void main(JayArray_java_lang_String)>_Block1_22_exp_1_0 = 0.\as[bv[8]])
+<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp: !(<Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 1180591620717411303424.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 590295810358705651712.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 295147905179352825856.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 147573952589676412928.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_2_0 != 73786976294838206464.\as[bv[72]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 125.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 124.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 123.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 122.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 121.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 120.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 119.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 118.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 117.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 116.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 115.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 114.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 113.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 112.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 111.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 110.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 109.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 108.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 107.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 106.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 105.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 104.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 103.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 102.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 101.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 100.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 99.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 98.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 97.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 96.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 95.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 94.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 93.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 92.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 91.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 90.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 89.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 88.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 87.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 86.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 85.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 84.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 83.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 82.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 81.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 80.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 79.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 78.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 77.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 76.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 75.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 74.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 73.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 72.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 71.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 70.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 69.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 68.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 67.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 66.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 65.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 64.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 63.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 62.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 61.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 60.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block1_21_16_exp_1_0 != 59.\as[bv[9]])
+....................
+Found counterexample #7, refining ... (10and/0or)  178 -> 178 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp: <Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp_4_0 = 0
+
+Found counterexample #8, refining ... (10and/0or)  181 -> 181 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp: <Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp_1_0 = 0
+..........
+Found counterexample #9, refining ... (11and/0or)  217 -> 217 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_12_exp: \forall int v0; <Main: void main(JayArray_java_lang_String)>_Block2_12_exp_2_0.\as[int] != -8388608*v0
+
+Found counterexample #10, refining ... (11and/0or)  212 -> 212 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_12_exp: \exists int v0; !(<Main: void main(JayArray_java_lang_String)>_Block2_12_exp_1_0 = 255.\as[bv[8]] & !(v0 != 0 & <Main: void main(JayArray_java_lang_String)>_Block2_12_exp_2_0[22:1] = v0))
+<Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp: !(<Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 126.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 125.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 124.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 123.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 122.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 121.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 120.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 119.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 118.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 117.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 116.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 115.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 114.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 113.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 112.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 111.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 110.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 109.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 108.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 107.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 106.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 105.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 104.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 103.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 102.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 101.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 100.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 99.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 98.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 97.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 96.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 95.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 94.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 93.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 92.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 91.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 90.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 89.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 88.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 87.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 86.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 85.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 84.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 83.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 82.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 81.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 80.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 79.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 78.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 77.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 76.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 75.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 74.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 73.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 72.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 71.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 70.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 69.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 68.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 67.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 66.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 65.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 64.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 63.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 62.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 61.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 60.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 59.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 58.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 57.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 56.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_1_0 != 55.\as[bv[9]] & <Main: void main(JayArray_java_lang_String)>_Block2_11_16_exp_2_0.\as[int] >= 1)
+<Main: void main(JayArray_java_lang_String)>_Block2_11_13_15_exp: <Main: void main(JayArray_java_lang_String)>_Block2_11_13_15_exp_1_0 = 126.\as[bv[9]]
+<Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp: <Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp_2_0 = 126.\as[bv[8]]
+
+Found counterexample #11, refining ... (11and/0or)  210 -> 210 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp: <Main: void main(JayArray_java_lang_String)>_Block2_11_12_exp_5_0 = 126.\as[bv[8]]
+..........
+Found counterexample #12, refining ... (11and/0or)  209 -> 209

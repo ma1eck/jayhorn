@@ -1,0 +1,9 @@
+n2
+
+compile:
+javac .\examples2\normalizationBetter2Loop\n1\src\Main.java .\examples2\normalizationBetter2Loop\n1\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\normalizationBetter2Loop\n1\classes\
+
+
+config: 
+-j examples2/normalizationBetter2Loop/n1/classes -src examples2/normalizationBetter2Loop/n1/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\normalizationBetter2Loop\n1\horn -print-horn
+-j examples2/normalizationBetter2Loop/n1/classes -src examples2/normalizationBetter2Loop/n1/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\normalizationBetter2Loop\n1\horn -print-horn

@@ -1,8 +1,11 @@
-Filter1
+Addsub_double_exact
 
 compile:
-javac .\examples2\C-SVCOM\Filter1\src\Main.java .\examples2\C-SVCOM\Filter1\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Filter1\classes\
+javac .\examples2\C-SVCOM\Addsub_double_exact\src\Main.java .\examples2\C-SVCOM\Addsub_double_exact\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Addsub_double_exact\classes\
 
 
 config:
--j examples2/C-SVCOM/Filter1/classes -srFilter1c examples2/C-SVCOM/Filter1/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Filter1\horn -print-horn
+-j examples2/C-SVCOM/Addsub_double_exact/classes -src examples2/C-SVCOM/Addsub_double_exact/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Addsub_double_exact\horn -print-horn
+-j examples2/C-SVCOM/Addsub_double_exact/classes -src examples2/C-SVCOM/Addsub_double_exact/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Addsub_double_exact\horn -print-horn
+-j examples2/C-SVCOM/Addsub_double_exact/classes -src examples2/C-SVCOM/Addsub_double_exact/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Addsub_double_exact\horn -print-horn
+-j examples2/C-SVCOM/Addsub_double_exact/classes -src examples2/C-SVCOM/Addsub_double_exact/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Addsub_double_exact\horn -print-horn

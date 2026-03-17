@@ -256,34 +256,26 @@ Legal parameters are:
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
 Failed to find a lemma for: (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-Available lemmas are: 10: (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-11: (not (<= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 0))
-12: (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 7))
-13: (let ((a!1 (not (bvule #b10000000001
-                       ((_ extract 10 0)
-                         (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
-  (or (= ((_ extract 10 0)
-           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-         #b10000000001)
-      a!1))
+Available lemmas are: 11: (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+12: (not (<= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 0))
+13: (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 7))
 14: (let ((a!1 (not (bvule #b10000000001
                        ((_ extract 10 0)
                          (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
   (or (= ((_ extract 10 0)
            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
          #b11111111111)
+      a!1
       (= ((_ extract 10 0)
            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-         #b10000000001)
-      a!1))
-15: (let ((a!1 (not (bvule #b10100000000000000000000000000000000000000000000000000
-                       ((_ extract 157 105)
-                         (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
-  (or (not ((_ bit2bool 0)
-             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      (not ((_ bit2bool 10)
-             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      a!1))
+         #b10000000001)))
+15: (let ((a!1 (not (bvule #b10000000001
+                       ((_ extract 10 0)
+                         (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+  (or a!1
+      (= ((_ extract 10 0)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+         #b10000000001)))
 16: (let ((a!1 (bvule #b10100000000000000000000000000000000000000000000000000
                   (bvadd #b00000000000000000000000000000000000000000000000000001
                          ((_ extract 157 105)
@@ -300,19 +292,67 @@ Available lemmas are: 10: (not (esign Main_void_mainJayArray_java_lang_String_Bl
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
       (not a!1)
       a!2))
-17: (let ((a!1 (not (= ((_ extract 104 104)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
+17: (let ((a!1 (not (bvule #b10100000000000000000000000000000000000000000000000000
                        ((_ extract 157 105)
                          (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+  (or (not ((_ bit2bool 0)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 10)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1))
+18: (let ((a!1 (not (= ((_ extract 103 103)
+                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b1))))
   (or a!1
       (not ((_ bit2bool 0)
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      ((_ bit2bool 3)
-        (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+      (not ((_ bit2bool 10)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+19: (let ((a!1 (not (= ((_ extract 103 103)
+                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b1)))
+      (a!2 (not (bvule #b10000000001
+                       ((_ extract 10 0)
+                         (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+  (or a!1
+      (= ((_ extract 10 0)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+         #b11111111111)
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
       a!2))
-18: (let ((a!1 (not (bvule #b10100000000000000000000000000000000000000000000000000
+20: (let ((a!1 (not (bvule #b10000000001
+                       ((_ extract 10 0)
+                         (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+  (or (= ((_ extract 10 0)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+         #b11111111111)
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      (= ((_ extract 10 0)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+         #b10000000001)))
+21: (let ((a!1 (bvule #b10100000000000000000000000000000000000000000000000000
+                  (bvadd #b00000000000000000000000000000000000000000000000000001
+                         ((_ extract 157 105)
+                           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+      (a!2 (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                (= ((_ extract 157 105)
+                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10011111111111111111111111111111111111111111111111111)
+                (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+  (or (not ((_ bit2bool 0)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not a!1)
+      a!2
+      (= ((_ extract 5 5)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+         #b1)))
+22: (let ((a!1 (not (bvule #b10100000000000000000000000000000000000000000000000000
                        ((_ extract 157 105)
                          (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
   (or (not (<= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
@@ -322,70 +362,17 @@ Available lemmas are: 10: (not (esign Main_void_mainJayArray_java_lang_String_Bl
       (not ((_ bit2bool 10)
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
       a!1))
-19: (let ((a!1 (not (= ((_ extract 104 104)
+23: (let ((a!1 (not (= ((_ extract 103 103)
                      (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (bvule #b10100000000000000000000000000000000000000000000000000
-                  (bvadd #b00000000000000000000000000000000000000000000000000001
-                         ((_ extract 157 105)
-                           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
-      (a!3 (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                (= ((_ extract 157 105)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10011111111111111111111111111111111111111111111111111)
-                (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+                   #b1))))
   (or a!1
-      (not ((_ bit2bool 0)
-             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      ((_ bit2bool 3)
-        (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-      (not a!2)
-      a!3))
-20: (let ((a!1 (not (= ((_ extract 104 104)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (concat #x0000000000000000000000000000000000000
-                   (bvadd #b10000000010
-                          ((_ extract 10 0)
-                            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
-(let ((a!3 (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-                          a!2)
-                  (concat #b0
-                          ((_ extract 157 105)
-                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                          #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
-  (or a!1
-      (not ((_ bit2bool 0)
-             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
       (not ((_ bit2bool 10)
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      (not (bvule #b10100000000000000000000000000000000000000000000000000
-                  ((_ extract 157 105) a!3))))))
-21: (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-     (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-22: (let ((a!1 (not (= ((_ extract 10 0)
-                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10000000001)))
-      (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
-                       ((_ extract 157 105)
-                         (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
-  (or a!1 a!2))
-23: (let ((a!1 (not (= ((_ extract 10 0)
-                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10000000001))))
-  (or a!1
-      (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
-               4))))
-24: (or (not ((_ bit2bool 10)
-           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not ((_ bit2bool 155)
-           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not ((_ bit2bool 156)
-           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 4)))
-25: (let ((a!1 (not (= ((_ extract 10 0)
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 156)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+24: (let ((a!1 (not (= ((_ extract 10 0)
                      (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                    #b10000000001)))
       (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
@@ -398,27 +385,54 @@ Available lemmas are: 10: (not (esign Main_void_mainJayArray_java_lang_String_Bl
                 (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                 (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
   (or a!1 a!2 a!3))
-26: (or (not ((_ bit2bool 10)
-           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not ((_ bit2bool 156)
-           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 4)))
-27: (let ((a!1 (not (= ((_ extract 104 104)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (not (= ((_ extract 10 0)
-                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10000000001)))
-      (a!3 (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+25: (let ((a!1 (concat #x0000000000000000000000000000000000000
+                   (bvadd #b10000000010
+                          ((_ extract 10 0)
+                            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+      (a!2 (concat #b0
+                   (bvadd #b00000000000000000000000000000000000000000000000000001
+                          ((_ extract 157 105)
+                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+                   #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))
+(let ((a!3 (bvule #b10100000000000000000000000000000000000000000000000000
+                  ((_ extract 157 105)
+                    (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                   a!1)
+                           a!2))))
+      (a!4 (= ((_ extract 157 105)
+                (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                               a!1)
+                       a!2))
+              #b10100000000000000000000000000000000000000000000000000)))
+  (or (not ((_ bit2bool 0)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 10)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 105)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not a!3)
+      a!4)))
+26: (let ((a!1 (concat #x0000000000000000000000000000000000000
+                   (bvadd #b10000000010
+                          ((_ extract 10 0)
+                            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+(let ((a!2 (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                          a!1)
                   (concat #b0
                           ((_ extract 157 105)
                             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
-  (or a!1
-      a!2
+  (or (not ((_ bit2bool 0)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      ((_ bit2bool 5)
+        (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
       (not (bvule #b10100000000000000000000000000000000000000000000000000
-                  ((_ extract 157 105) a!3)))))
-28: (let ((a!1 (not (= ((_ extract 10 0)
+                  ((_ extract 157 105) a!2))))))
+27: (let ((a!1 (not (= ((_ extract 10 0)
                      (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                    #b10000000001)))
       (a!2 (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -427,20 +441,103 @@ Available lemmas are: 10: (not (esign Main_void_mainJayArray_java_lang_String_Bl
                             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
   (or a!1
-      (not (bvule #b10100000000000000000000000000000000000000000000000000
-                  ((_ extract 157 105) a!2)))
       (= ((_ extract 157 105) a!2)
-         #b10100000000000000000000000000000000000000000000000000)))
+         #b10100000000000000000000000000000000000000000000000000)
+      (not (bvule #b10100000000000000000000000000000000000000000000000000
+                  ((_ extract 157 105) a!2)))))
+28: (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+     (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+29: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001)))
+      (a!2 (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                  (concat #b0
+                          ((_ extract 157 105)
+                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                          #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
+  (or (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      (not (bvule #b10100000000000000000000000000000000000000000000000000
+                  ((_ extract 157 105) a!2)))))
+30: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001)))
+      (a!2 (concat #b0
+                   (bvadd #b00000000000000000000000000000000000000000000000000001
+                          ((_ extract 157 105)
+                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+                   #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))
+(let ((a!3 (not (bvule #b10100000000000000000000000000000000000000000000000000
+                       ((_ extract 157 105)
+                         (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                a!2))))))
+  (or (not ((_ bit2bool 105)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      a!3
+      (= ((_ extract 157 105)
+           (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                  a!2))
+         #b10100000000000000000000000000000000000000000000000000))))
+31: (or (not ((_ bit2bool 10)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+    (not ((_ bit2bool 104)
+           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+    (not ((_ bit2bool 156)
+           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))
+32: (let ((a!1 (not (= ((_ extract 10 10)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b1))))
+  (or (not ((_ bit2bool 156)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
+               4))))
+33: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001))))
+  (or a!1
+      (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
+               4))))
+34: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001)))
+      (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
+                       ((_ extract 157 105)
+                         (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+  (or a!1 a!2))
+35: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001)))
+      (a!2 (concat #b0
+                   (bvadd #b00000000000000000000000000000000000000000000000000001
+                          ((_ extract 157 105)
+                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+                   #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))
+(let ((a!3 (not (bvule #b10100000000000000000000000000000000000000000000000000
+                       ((_ extract 157 105)
+                         (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                a!2))))))
+  (or (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      a!3
+      (= ((_ extract 157 105)
+           (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                  a!2))
+         #b10100000000000000000000000000000000000000000000000000))))
 Simplified goal is:
 0: (not (<= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 0))
 1: (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 7))
 2: (let ((a!1 (not (bvule #b10000000001
                        ((_ extract 10 0)
                          (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
-  (or (= ((_ extract 10 0)
+  (or a!1
+      (= ((_ extract 10 0)
            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-         #b10000000001)
-      a!1))
+         #b10000000001)))
 3: (let ((a!1 (bvule #b10100000000000000000000000000000000000000000000000000
                   (bvadd #b00000000000000000000000000000000000000000000000000001
                          ((_ extract 157 105)
@@ -457,86 +554,81 @@ Simplified goal is:
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
       (not a!1)
       a!2))
-4: (let ((a!1 (not (= ((_ extract 104 104)
+4: (let ((a!1 (not (= ((_ extract 103 103)
                      (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
-                       ((_ extract 157 105)
-                         (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+                   #b1))))
   (or a!1
       (not ((_ bit2bool 0)
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      ((_ bit2bool 3)
-        (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-      a!2))
-5: (let ((a!1 (not (= ((_ extract 104 104)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (bvule #b10100000000000000000000000000000000000000000000000000
+      (not ((_ bit2bool 10)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+5: (let ((a!1 (bvule #b10100000000000000000000000000000000000000000000000000
                   (bvadd #b00000000000000000000000000000000000000000000000000001
                          ((_ extract 157 105)
                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
-      (a!3 (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+      (a!2 (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                 (= ((_ extract 157 105)
                      (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                    #b10011111111111111111111111111111111111111111111111111)
                 (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                 (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
-  (or a!1
-      (not ((_ bit2bool 0)
+  (or (not ((_ bit2bool 0)
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      ((_ bit2bool 3)
-        (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-      (not a!2)
-      a!3))
-6: (let ((a!1 (not (= ((_ extract 104 104)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b1)))
-      (a!2 (concat #x0000000000000000000000000000000000000
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not a!1)
+      a!2
+      (= ((_ extract 5 5)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+         #b1)))
+6: (let ((a!1 (concat #x0000000000000000000000000000000000000
+                   (bvadd #b10000000010
+                          ((_ extract 10 0)
+                            (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
+      (a!2 (concat #b0
+                   (bvadd #b00000000000000000000000000000000000000000000000000001
+                          ((_ extract 157 105)
+                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+                   #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))
+(let ((a!3 (bvule #b10100000000000000000000000000000000000000000000000000
+                  ((_ extract 157 105)
+                    (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                   a!1)
+                           a!2))))
+      (a!4 (= ((_ extract 157 105)
+                (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                               a!1)
+                       a!2))
+              #b10100000000000000000000000000000000000000000000000000)))
+  (or (not ((_ bit2bool 0)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 10)
+             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 105)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not a!3)
+      a!4)))
+7: (let ((a!1 (concat #x0000000000000000000000000000000000000
                    (bvadd #b10000000010
                           ((_ extract 10 0)
                             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
-(let ((a!3 (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-                          a!2)
+(let ((a!2 (bvadd (bvlshr #b010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                          a!1)
                   (concat #b0
                           ((_ extract 157 105)
                             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
-  (or a!1
-      (not ((_ bit2bool 0)
+  (or (not ((_ bit2bool 0)
              (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-      (not ((_ bit2bool 10)
-             (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      (not ((_ bit2bool 104)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      ((_ bit2bool 5)
+        (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
       (not (bvule #b10100000000000000000000000000000000000000000000000000
-                  ((_ extract 157 105) a!3))))))
-7: (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-8: (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-9: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-10: (let ((a!1 (not (= ((_ extract 10 0)
-                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10000000001))))
-  (or a!1
-      (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
-               4))))
-11: (let ((a!1 (not (= ((_ extract 10 0)
-                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10000000001)))
-      (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
-                       ((_ extract 157 105)
-                         (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
-      (a!3 (and (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                (= ((_ extract 157 105)
-                     (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                   #b10100000000000000000000000000000000000000000000000000)
-                (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
-                (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))))
-  (or a!1 a!2 a!3))
-12: (or (not ((_ bit2bool 10)
-           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not ((_ bit2bool 156)
-           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
-    (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n 4)))
-13: (let ((a!1 (not (= ((_ extract 10 0)
+                  ((_ extract 157 105) a!2))))))
+8: (let ((a!1 (not (= ((_ extract 10 0)
                      (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                    #b10000000001)))
       (a!2 (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -545,8 +637,58 @@ Simplified goal is:
                             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
   (or a!1
-      (not (bvule #b10100000000000000000000000000000000000000000000000000
-                  ((_ extract 157 105) a!2)))
       (= ((_ extract 157 105) a!2)
-         #b10100000000000000000000000000000000000000000000000000)))
+         #b10100000000000000000000000000000000000000000000000000)
+      (not (bvule #b10100000000000000000000000000000000000000000000000000
+                  ((_ extract 157 105) a!2)))))
+9: (not (esign Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+10: (not (eisNan Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+11: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+12: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001)))
+      (a!2 (concat #b0
+                   (bvadd #b00000000000000000000000000000000000000000000000000001
+                          ((_ extract 157 105)
+                            (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+                   #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))
+(let ((a!3 (not (bvule #b10100000000000000000000000000000000000000000000000000
+                       ((_ extract 157 105)
+                         (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                a!2))))))
+  (or (not ((_ bit2bool 105)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      a!3
+      (= ((_ extract 157 105)
+           (bvadd #b000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                  a!2))
+         #b10100000000000000000000000000000000000000000000000000))))
+13: (or (not ((_ bit2bool 10)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+    (not ((_ bit2bool 104)
+           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+    (not ((_ bit2bool 156)
+           (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))
+14: (let ((a!1 (not (= ((_ extract 10 10)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b1))))
+  (or (not ((_ bit2bool 156)
+             (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n)))
+      a!1
+      (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
+               4))))
+15: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001))))
+  (or a!1
+      (not (>= Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_4_n
+               4))))
+16: (let ((a!1 (not (= ((_ extract 10 0)
+                     (eexponent Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))
+                   #b10000000001)))
+      (a!2 (not (bvule #b10100000000000000000000000000000000000000000000000000
+                       ((_ extract 157 105)
+                         (emantissa Main_void_mainJayArray_java_lang_String_Block7_16!slice!144_5_n))))))
+  (or a!1 a!2))
 Failed to verify: found
