@@ -9,10 +9,10 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 BASE_DIRS = [r"examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'unbounded_benchmark_results.csv'
+CSV_FILE_PATH = 'unbounded_benchmark_results_small.csv'
 
-TIMEOUT_SECONDS = 6 * 60
-MAX_WORKERS = 2
+TIMEOUT_SECONDS =  5*60
+MAX_WORKERS = 1
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
@@ -22,21 +22,26 @@ CEX_DIR_NAME = "counter examples or models"
 
 GET_CEX = False
 
+SKIP_TIMEOUTS = False
+
+NUMBER_OF_REPETITION = 10
+AVERAGING = NUMBER_OF_REPETITION > 1
+
+selected_benchmarks = ["Inner-Retry-Until-OK"]
+
 def run_benchmark(task_info):
-    """Run a single benchmark with specific encodings and save its output."""
     base_dir, folder_name, rounding_enc, norm_enc = task_info
     folder_path = os.path.join(base_dir, folder_name)
 
     classes_dir = os.path.join(folder_path, "classes")
-    # src_dir = os.path.join(folder_path, "src")
     src_dir = folder_path
-    
-    # Create unique output file names so the 4 runs don't overwrite each other
+
     output_filename = f"output_R_{rounding_enc}_N_{norm_enc}.txt"
     output_file_path = os.path.join(folder_path, output_filename)
 
-    # Validate folders
     if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
+        return None
+    if not folder_name in selected_benchmarks:
         return None
 
     cmd = [
@@ -52,88 +57,88 @@ def run_benchmark(task_info):
     ]
 
     if GET_CEX:
-        cex_path = os.path.join(folder_path, CEX_DIR_NAME, "rounding "+rounding_enc + " normalization " + norm_enc + ".txt" )
-        cmd += ["-solution", "-full-cex", "-print-horn","-cex-path", cex_path]
-
-    
-
+        cex_path = os.path.join(folder_path, CEX_DIR_NAME,
+                                f"rounding {rounding_enc} normalization {norm_enc}.txt")
+        cmd += ["-solution", "-full-cex", "-print-horn", "-cex-path", cex_path]
 
     env = os.environ.copy()
     env["PATH"] = NATIVE_LIB + ";" + env["PATH"]
 
+    total_times = []
+    solver_times = []
     result = "UNKNOWN"
-    solver_time_ms = ""
-    total_time_ms = 0.0
     stdout = ""
 
-    start_wall_clock = time.time()
+    for i in range(NUMBER_OF_REPETITION):
 
-    try:
-        process = subprocess.Popen(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            env=env,
-            text=True,
-            encoding='utf-8',
-            errors='replace'
-        )
+        start_wall_clock = time.time()
 
         try:
-            stdout, _ = process.communicate(timeout=TIMEOUT_SECONDS)
-            end_wall_clock = time.time()
-            total_time_ms = (end_wall_clock - start_wall_clock) * 1000
+            process = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                env=env,
+                text=True,
+                encoding="utf-8",
+                errors="replace"
+            )
 
-            for line in stdout.splitlines():
-                # --- UPDATED PARSING LOGIC FOR SOLVER TIME ---
-                if "Spacer takes" in line:
-                    # Captures the numeric value AND the unit following it
-                    match = re.search(r'Spacer takes\s+([\d.]+)\s*(\S+)', line)
-                    if match:
-                        val = float(match.group(1))
-                        unit = match.group(2).lower()
-                        
-                        # Convert parsed time to milliseconds (ms)
-                        if unit == "ms":
-                            solver_time_ms = str(val)
-                        # elif unit in ["?s", "us", "μs"]:
-                        #     # Convert microseconds to milliseconds
-                        #     solver_time_ms = str(round(val / 1000.0, 5))
-                        elif unit in ["?s","s", "sec", "secs"]:
-                            # Convert seconds to milliseconds
-                            solver_time_ms = str(round(val * 1000.0, 2))
-                        else:
-                            # Fallback just in case an unknown unit appears
-                            solver_time_ms = f"{val} {unit}"
+            try:
+                run_stdout, _ = process.communicate(timeout=TIMEOUT_SECONDS)
+                end_wall_clock = time.time()
 
-                clean_line = line.strip()
-                if clean_line in ("SAFE", "UNSAFE"):
-                    result = clean_line
+                total_time_ms = (end_wall_clock - start_wall_clock) * 1000
+                total_times.append(total_time_ms)
 
-                if "Total time:" in line:
-                    match = re.search(r'([\d.]+)\s*secs', line)
-                    if match:
-                        total_time_ms = float(match.group(1)) * 1000
+                solver_time_ms = None
 
-        except subprocess.TimeoutExpired:
-            process.kill()
-            process.wait()
-            result = "TIMEOUT"
-            total_time_ms = TIMEOUT_SECONDS * 1000
-            stdout += "\n\n=== TIMEOUT ===\nBenchmark exceeded time limit."
+                for line in run_stdout.splitlines():
 
-    except Exception as e:
-        result = "ERROR"
-        stdout += f"\n\n=== ERROR ===\n{str(e)}"
+                    if "Spacer takes" in line:
+                        match = re.search(r'Spacer takes\s+([\d.]+)\s*(\S+)', line)
+                        if match:
+                            val = float(match.group(1))
+                            unit = match.group(2).lower()
 
-    # Write specific run output inside the benchmark folder
+                            # if unit == "ms":
+                            solver_time_ms = val
+                            # elif unit in ["s", "sec", "secs"]:
+                                # solver_time_ms = val * 1000
+
+                    clean_line = line.strip()
+                    if clean_line in ("SAFE", "UNSAFE"):
+                        result = clean_line
+
+                if solver_time_ms is not None:
+                    solver_times.append(solver_time_ms)
+
+                stdout += f"\n\n=== RUN {i+1} ===\n"
+                stdout += run_stdout
+
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait()
+
+                result = "TIMEOUT"
+                total_times.append(TIMEOUT_SECONDS * 1000)
+
+                stdout += f"\n\n=== RUN {i+1} TIMEOUT ===\n"
+
+        except Exception as e:
+            result = "ERROR"
+            stdout += f"\n\n=== ERROR ===\n{str(e)}"
+
+    avg_total = round(sum(total_times) / len(total_times), 2) if total_times else ""
+    avg_solver = round(sum(solver_times) / len(solver_times), 2) if solver_times else ""
+
     try:
         with open(output_file_path, "w", encoding="utf-8", errors="replace") as f:
             f.write(stdout)
     except Exception as e:
         print(f"Warning: Failed to write {output_filename} for {folder_name}: {e}")
 
-    return [folder_name, rounding_enc, norm_enc, round(total_time_ms, 2), result, solver_time_ms]
+    return [folder_name, rounding_enc, norm_enc, avg_total, result, avg_solver]
 
 
 def main():
@@ -154,7 +159,9 @@ def main():
                     tasks.append((b_dir, folder, rounding_enc, norm_enc))
 
     print(f"Starting parallel run for {len(tasks)} tasks (4 per benchmark)...")
-    print(f"Timeout set to {TIMEOUT_SECONDS // 60} minutes per benchmark task.")
+    print(f"Timeout set to {TIMEOUT_SECONDS /60:.2f} minutes per benchmark task.")
+    if AVERAGING:
+        print(f"Set to average {NUMBER_OF_REPETITION} repetitions of a benchmark.")
 
     results_data = []
 
@@ -180,6 +187,7 @@ def main():
     with open(CSV_FILE_PATH, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(headers)
+        # results_data.sort()
         writer.writerows(results_data)
 
     print(f"\nAll processing complete. Results written to: {CSV_FILE_PATH}")

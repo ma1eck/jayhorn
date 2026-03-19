@@ -1,8 +1,8 @@
-floatMul2
+floatDib2
 
 compile:
-javac .\examples\floatMul2\src\Main.java .\examples\floatMul2\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatMul2\classes\
+javac .\examples\floatDib2\src\Main.java .\examples\floatDib2\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatDib2\classes\
 
 
 config: 
--j examples/floatMul2/classes -src examples/floatMul2/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatMul2\horn -print-horn
+-j examples/floatDib2/classes -src examples/floatDib2/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatDib2\horn -print-horn

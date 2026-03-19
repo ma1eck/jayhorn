@@ -1,0 +1,8 @@
+8
+
+compile:
+javac "examples2\Configs-Copy\l-lf\8\src\Main.java" ".\examples2\Configs-Copy\l-lf\8\src\org\sosy_lab\sv_benchmarks\Verifier.java" -d ".\examples2\Configs-Copy\l-lf\8\classes\"
+
+
+config:
+-j "examples2/Configs-Copy/l-lf/8/classes" -src "examples2/Configs-Copy/l-lf/8/src" -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded

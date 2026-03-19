@@ -163,10 +163,11 @@ public class SpacerChecker extends Checker{
 			    if (result == ProverResult.Unsat) {
 			    	Stats.stats().add(propLine, "SAFE");
 //					if (Options.v().solution){
-//						cex();
+						cex();
 //					}
 			    } else if (result == ProverResult.Sat){
 			    	Stats.stats().add(propLine, "UNSAFE");
+					((SpacerProver) prover).getReasonUnknown();
 //			    	if (Options.v().solution){
 //			    		cex();
 //			    	}
@@ -212,8 +213,8 @@ public class SpacerChecker extends Checker{
 		//work in progress
 //		System.out.println(prover.getCex());
 
-		String c = ((SpacerProver) prover).getFXAnswer(); // TODO: recheck
-
+//		String c = ((SpacerProver) prover).getFXAnswer(); // TODO: recheck
+		String c = ((SpacerProver) prover).getInvariants(); // TODO: recheck
 //		String c = ((SpacerProver) prover).getModel(); // TODO: recheck
 		try {
 			// TODO: change this

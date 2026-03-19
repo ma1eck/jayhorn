@@ -1,259 +1,285 @@
+
+
+=== RUN 1 ===
 [root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
-[root] - Horn solver: spacer
+[root] - Horn solver: eldarica
 [root] - Building CFG  ... 
 [root] - Safety Verification ... 
+[root] - Trying to verify with max explicit heap size 10
+[root] - ======== Round 1: heap size 1
+[root] - - Searching for counterexamples ...
 [root] - Hornify  ... 
-com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
-Legal parameters are:
-  bmc.linear_unrolling_depth (unsigned int) (default: 4294967295)
-  ctrl_c (bool) (default: true)
-  datalog.all_or_nothing_deltas (bool) (default: false)
-  datalog.check_relation (symbol) (default: null)
-  datalog.compile_with_widening (bool) (default: false)
-  datalog.dbg_fpr_nonempty_relation_signature (bool) (default: false)
-  datalog.default_relation (symbol) (default: pentagon)
-  datalog.default_table (symbol) (default: sparse)
-  datalog.default_table_checked (bool) (default: false)
-  datalog.default_table_checker (symbol) (default: null)
-  datalog.explanations_on_relation_level (bool) (default: false)
-  datalog.generate_explanations (bool) (default: false)
-  datalog.initial_restart_timeout (unsigned int) (default: 0)
-  datalog.magic_sets_for_queries (bool) (default: false)
-  datalog.output_profile (bool) (default: false)
-  datalog.print.tuples (bool) (default: true)
-  datalog.profile_timeout_milliseconds (unsigned int) (default: 0)
-  datalog.similarity_compressor (bool) (default: true)
-  datalog.similarity_compressor_threshold (unsigned int) (default: 11)
-  datalog.subsumption (bool) (default: true)
-  datalog.timeout (unsigned int) (default: 0)
-  datalog.unbound_compressor (bool) (default: true)
-  datalog.use_map_names (bool) (default: true)
-  engine (symbol) (default: auto-config)
-  generate_proof_trace (bool) (default: false)
-  print_aig (symbol) (default: )
-  print_answer (bool) (default: false)
-  print_boogie_certificate (bool) (default: false)
-  print_certificate (bool) (default: false)
-  print_fixedpoint_extensions (bool) (default: true)
-  print_low_level_smt2 (bool) (default: false)
-  print_statistics (bool) (default: false)
-  print_with_variable_declarations (bool) (default: true)
-  spacer.blast_term_ite_inflation (unsigned int) (default: 3)
-  spacer.ctp (bool) (default: true)
-  spacer.dump_benchmarks (bool) (default: false)
-  spacer.dump_threshold (double) (default: 5.0)
-  spacer.elim_aux (bool) (default: true)
-  spacer.eq_prop (bool) (default: true)
-  spacer.gpdr (bool) (default: false)
-  spacer.gpdr.bfs (bool) (default: true)
-  spacer.ground_pobs (bool) (default: true)
-  spacer.iuc (unsigned int) (default: 1)
-  spacer.iuc.arith (unsigned int) (default: 1)
-  spacer.iuc.debug_proof (bool) (default: false)
-  spacer.iuc.old_hyp_reducer (bool) (default: false)
-  spacer.iuc.print_farkas_stats (bool) (default: false)
-  spacer.iuc.split_farkas_literals (bool) (default: false)
-  spacer.keep_proxy (bool) (default: true)
-  spacer.max_level (unsigned int) (default: 4294967295)
-  spacer.max_num_contexts (unsigned int) (default: 500)
-  spacer.mbqi (bool) (default: true)
-  spacer.min_level (unsigned int) (default: 0)
-  spacer.native_mbp (bool) (default: true)
-  spacer.order_children (unsigned int) (default: 0)
-  spacer.p3.share_invariants (bool) (default: false)
-  spacer.p3.share_lemmas (bool) (default: false)
-  spacer.print_json (symbol) (default: )
-  spacer.propagate (bool) (default: true)
-  spacer.push_pob (bool) (default: false)
-  spacer.push_pob_max_depth (unsigned int) (default: 4294967295)
-  spacer.q3 (bool) (default: true)
-  spacer.q3.instantiate (bool) (default: true)
-  spacer.q3.qgen.normalize (bool) (default: true)
-  spacer.q3.use_qgen (bool) (default: false)
-  spacer.random_seed (unsigned int) (default: 0)
-  spacer.reach_dnf (bool) (default: true)
-  spacer.reset_pob_queue (bool) (default: true)
-  spacer.restart_initial_threshold (unsigned int) (default: 10)
-  spacer.restarts (bool) (default: false)
-  spacer.simplify_lemmas_post (bool) (default: false)
-  spacer.simplify_lemmas_pre (bool) (default: false)
-  spacer.simplify_pob (bool) (default: false)
-  spacer.use_array_eq_generalizer (bool) (default: true)
-  spacer.use_bg_invs (bool) (default: false)
-  spacer.use_derivations (bool) (default: true)
-  spacer.use_euf_gen (bool) (default: false)
-  spacer.use_inc_clause (bool) (default: true)
-  spacer.use_inductive_generalizer (bool) (default: true)
-  spacer.use_lemma_as_cti (bool) (default: false)
-  spacer.use_lim_num_gen (bool) (default: false)
-  spacer.validate_lemmas (bool) (default: false)
-  spacer.weak_abs (bool) (default: true)
-  tab.selection (symbol) (default: weight)
-  timeout (unsigned int) (default: 4294967295)
-  validate (bool) (default: false)
-  xform.array_blast (bool) (default: false)
-  xform.array_blast_full (bool) (default: false)
-  xform.bit_blast (bool) (default: false)
-  xform.coalesce_rules (bool) (default: false)
-  xform.coi (bool) (default: true)
-  xform.compress_unbound (bool) (default: true)
-  xform.elim_term_ite (bool) (default: false)
-  xform.elim_term_ite.inflation (unsigned int) (default: 3)
-  xform.fix_unbound_vars (bool) (default: false)
-  xform.inline_eager (bool) (default: true)
-  xform.inline_linear (bool) (default: true)
-  xform.inline_linear_branch (bool) (default: false)
-  xform.instantiate_arrays (bool) (default: false)
-  xform.instantiate_arrays.enforce (bool) (default: false)
-  xform.instantiate_arrays.nb_quantifier (unsigned int) (default: 1)
-  xform.instantiate_arrays.slice_technique (symbol) (default: no-slicing)
-  xform.instantiate_quantifiers (bool) (default: false)
-  xform.karr (bool) (default: false)
-  xform.magic (bool) (default: false)
-  xform.quantify_arrays (bool) (default: false)
-  xform.scale (bool) (default: false)
-  xform.slice (bool) (default: true)
-  xform.subsumption_checker (bool) (default: true)
-  xform.tail_simplifier_pve (bool) (default: true)
-  xform.transform_arrays (bool) (default: false)
-  xform.unfold_rules (unsigned int) (default: 0)
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Dropping call to over-approximated <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 
-	at com.microsoft.z3.Native.fixedpointSetParams(Native.java:5162)
-	at com.microsoft.z3.Fixedpoint.setParameters(Fixedpoint.java:45)
-	at jayhorn.solver.spacer.SpacerProver.createSolver(SpacerProver.java:96)
-	at jayhorn.solver.spacer.SpacerProver.<init>(SpacerProver.java:65)
-	at jayhorn.solver.spacer.SpacerProverFactory.spawn(SpacerProverFactory.java:32)
-	at jayhorn.hornify.Hornify.toHorn(Hornify.java:52)
-	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
-	at jayhorn.Main.safetyAnalysis(Main.java:72)
-	at jayhorn.Main.main(Main.java:129)
-com.microsoft.z3.Z3Exception: unknown parameter 'use_heavy_mev'
-Legal parameters are:
-  bmc.linear_unrolling_depth (unsigned int) (default: 4294967295)
-  ctrl_c (bool) (default: true)
-  datalog.all_or_nothing_deltas (bool) (default: false)
-  datalog.check_relation (symbol) (default: null)
-  datalog.compile_with_widening (bool) (default: false)
-  datalog.dbg_fpr_nonempty_relation_signature (bool) (default: false)
-  datalog.default_relation (symbol) (default: pentagon)
-  datalog.default_table (symbol) (default: sparse)
-  datalog.default_table_checked (bool) (default: false)
-  datalog.default_table_checker (symbol) (default: null)
-  datalog.explanations_on_relation_level (bool) (default: false)
-  datalog.generate_explanations (bool) (default: false)
-  datalog.initial_restart_timeout (unsigned int) (default: 0)
-  datalog.magic_sets_for_queries (bool) (default: false)
-  datalog.output_profile (bool) (default: false)
-  datalog.print.tuples (bool) (default: true)
-  datalog.profile_timeout_milliseconds (unsigned int) (default: 0)
-  datalog.similarity_compressor (bool) (default: true)
-  datalog.similarity_compressor_threshold (unsigned int) (default: 11)
-  datalog.subsumption (bool) (default: true)
-  datalog.timeout (unsigned int) (default: 0)
-  datalog.unbound_compressor (bool) (default: true)
-  datalog.use_map_names (bool) (default: true)
-  engine (symbol) (default: auto-config)
-  generate_proof_trace (bool) (default: false)
-  print_aig (symbol) (default: )
-  print_answer (bool) (default: false)
-  print_boogie_certificate (bool) (default: false)
-  print_certificate (bool) (default: false)
-  print_fixedpoint_extensions (bool) (default: true)
-  print_low_level_smt2 (bool) (default: false)
-  print_statistics (bool) (default: false)
-  print_with_variable_declarations (bool) (default: true)
-  spacer.blast_term_ite_inflation (unsigned int) (default: 3)
-  spacer.ctp (bool) (default: true)
-  spacer.dump_benchmarks (bool) (default: false)
-  spacer.dump_threshold (double) (default: 5.0)
-  spacer.elim_aux (bool) (default: true)
-  spacer.eq_prop (bool) (default: true)
-  spacer.gpdr (bool) (default: false)
-  spacer.gpdr.bfs (bool) (default: true)
-  spacer.ground_pobs (bool) (default: true)
-  spacer.iuc (unsigned int) (default: 1)
-  spacer.iuc.arith (unsigned int) (default: 1)
-  spacer.iuc.debug_proof (bool) (default: false)
-  spacer.iuc.old_hyp_reducer (bool) (default: false)
-  spacer.iuc.print_farkas_stats (bool) (default: false)
-  spacer.iuc.split_farkas_literals (bool) (default: false)
-  spacer.keep_proxy (bool) (default: true)
-  spacer.max_level (unsigned int) (default: 4294967295)
-  spacer.max_num_contexts (unsigned int) (default: 500)
-  spacer.mbqi (bool) (default: true)
-  spacer.min_level (unsigned int) (default: 0)
-  spacer.native_mbp (bool) (default: true)
-  spacer.order_children (unsigned int) (default: 0)
-  spacer.p3.share_invariants (bool) (default: false)
-  spacer.p3.share_lemmas (bool) (default: false)
-  spacer.print_json (symbol) (default: )
-  spacer.propagate (bool) (default: true)
-  spacer.push_pob (bool) (default: false)
-  spacer.push_pob_max_depth (unsigned int) (default: 4294967295)
-  spacer.q3 (bool) (default: true)
-  spacer.q3.instantiate (bool) (default: true)
-  spacer.q3.qgen.normalize (bool) (default: true)
-  spacer.q3.use_qgen (bool) (default: false)
-  spacer.random_seed (unsigned int) (default: 0)
-  spacer.reach_dnf (bool) (default: true)
-  spacer.reset_pob_queue (bool) (default: true)
-  spacer.restart_initial_threshold (unsigned int) (default: 10)
-  spacer.restarts (bool) (default: false)
-  spacer.simplify_lemmas_post (bool) (default: false)
-  spacer.simplify_lemmas_pre (bool) (default: false)
-  spacer.simplify_pob (bool) (default: false)
-  spacer.use_array_eq_generalizer (bool) (default: true)
-  spacer.use_bg_invs (bool) (default: false)
-  spacer.use_derivations (bool) (default: true)
-  spacer.use_euf_gen (bool) (default: false)
-  spacer.use_inc_clause (bool) (default: true)
-  spacer.use_inductive_generalizer (bool) (default: true)
-  spacer.use_lemma_as_cti (bool) (default: false)
-  spacer.use_lim_num_gen (bool) (default: false)
-  spacer.validate_lemmas (bool) (default: false)
-  spacer.weak_abs (bool) (default: true)
-  tab.selection (symbol) (default: weight)
-  timeout (unsigned int) (default: 4294967295)
-  validate (bool) (default: false)
-  xform.array_blast (bool) (default: false)
-  xform.array_blast_full (bool) (default: false)
-  xform.bit_blast (bool) (default: false)
-  xform.coalesce_rules (bool) (default: false)
-  xform.coi (bool) (default: true)
-  xform.compress_unbound (bool) (default: true)
-  xform.elim_term_ite (bool) (default: false)
-  xform.elim_term_ite.inflation (unsigned int) (default: 3)
-  xform.fix_unbound_vars (bool) (default: false)
-  xform.inline_eager (bool) (default: true)
-  xform.inline_linear (bool) (default: true)
-  xform.inline_linear_branch (bool) (default: false)
-  xform.instantiate_arrays (bool) (default: false)
-  xform.instantiate_arrays.enforce (bool) (default: false)
-  xform.instantiate_arrays.nb_quantifier (unsigned int) (default: 1)
-  xform.instantiate_arrays.slice_technique (symbol) (default: no-slicing)
-  xform.instantiate_quantifiers (bool) (default: false)
-  xform.karr (bool) (default: false)
-  xform.magic (bool) (default: false)
-  xform.quantify_arrays (bool) (default: false)
-  xform.scale (bool) (default: false)
-  xform.slice (bool) (default: true)
-  xform.subsumption_checker (bool) (default: true)
-  xform.tail_simplifier_pve (bool) (default: true)
-  xform.transform_arrays (bool) (default: false)
-  xform.unfold_rules (unsigned int) (default: 0)
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             44        42
+After eliminating fwd/bwd unreachable clauses (6ms):   0         0
 
-	at com.microsoft.z3.Native.fixedpointSetParams(Native.java:5162)
-	at com.microsoft.z3.Fixedpoint.setParameters(Fixedpoint.java:45)
-	at jayhorn.solver.spacer.SpacerProver.createSolver(SpacerProver.java:96)
-	at jayhorn.solver.spacer.SpacerProver.setHornLogic(SpacerProver.java:1297)
-	at jayhorn.hornify.Hornify.toHorn(Hornify.java:53)
-	at jayhorn.hornify.Hornify.toHorn(Hornify.java:42)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:87)
-	at jayhorn.Main.safetyAnalysis(Main.java:72)
-	at jayhorn.Main.main(Main.java:129)
+Total preprocessing time (ms): 20
+
+Theories: Types
+Forward  constant and interval propagation 
+
+Backward constant and interval propagation 
+
+Unique satisfiable clauses: 0
+
+Starting CEGAR ...
+
+
+--------------------------------- Statistics -----------------------------------
+CEGAR iterations:                                      0
+Total CEGAR time (ms):                                 102
+Setup time (ms):                                       100
+Final number of abstract states:                       0
+Final number of matched abstract states:               0
+Final number of abstract edges:                        0
+Number of generated predicates:                        0
+Average predicate size (# of sub-formulas):            0.00
+Predicate generation time (ms):                        0
+Number of implication checks:                          0
+
+Number of implication checks (setup):                  0
+Number of implication checks (positive):               0
+Number of implication checks (negative):               0
+Time for implication checks (setup, ms):               0
+Time for implication checks (positive, ms):            0
+Time for implication checks (negative, ms):            0
+--------------------------------------------------------------------------------
+
+Eldarica takes 214ms to check the given benchmark!
+[root] - No counterexamples, checking heap bounds ...
+[root] - Hornify  ... 
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
-[root] - Checking properties
-Spacer takes 2450 to check the given benchmark!
-UNSAFE
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             43        40
+After eliminating fwd/bwd unreachable clauses (1ms):   27        26
+After partial evaluation (17ms):                       27        26
+After constraint simplification (27ms):                27        26
+After clause inlining (55ms):                          1         0
+After equality propagation (7ms):                      1         0
+After constant propagation (2ms):                      1         0
+After constraint simplification (4ms):                 1         0
+After clause inlining (0ms):                           1         0
+After eliminating fwd/bwd unreachable clauses (0ms):   1         0
+After slicing (8ms):                                   1         0
+After Boolean clause splitting (2ms):                  1         0
+After cloning of relation symbols (6ms):               1         0
+After shortening of clauses (0ms):                     1         0
+
+Total preprocessing time (ms): 155
+
+Theories: Types
+Forward  constant and interval propagation +
+
+Backward constant and interval propagation 
+
+Unique satisfiable clauses: 1
+   1 clauses with 0 body literals
+
+Starting CEGAR ...
+
+Found counterexample #1, refining ... (1and/0or)  ... failed, counterexample is genuine
+
+--------------------------------- Statistics -----------------------------------
+CEGAR iterations:                                      1
+Total CEGAR time (ms):                                 89
+Setup time (ms):                                       21
+Final number of abstract states:                       0
+Final number of matched abstract states:               0
+Final number of abstract edges:                        0
+Number of generated predicates:                        0
+Average predicate size (# of sub-formulas):            0.00
+Predicate generation time (ms):                        65
+Number of implication checks:                          1
+
+Number of implication checks (setup):                  1
+Number of implication checks (positive):               0
+Number of implication checks (negative):               0
+Time for implication checks (setup, ms):               2
+Time for implication checks (positive, ms):            0
+Time for implication checks (negative, ms):            0
+--------------------------------------------------------------------------------
+
+Eldarica takes 245ms to check the given benchmark!
+[root] - - insufficient heap, increasing size
+[root] - ======== Round 2: heap size 2
+[root] - - Searching for counterexamples ...
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Dropping call to over-approximated <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             46        42
+After eliminating fwd/bwd unreachable clauses (0ms):   0         0
+
+Total preprocessing time (ms): 0
+
+Theories: Types
+Forward  constant and interval propagation 
+
+Backward constant and interval propagation 
+
+Unique satisfiable clauses: 0
+
+Starting CEGAR ...
+
+
+--------------------------------- Statistics -----------------------------------
+CEGAR iterations:                                      0
+Total CEGAR time (ms):                                 2
+Setup time (ms):                                       2
+Final number of abstract states:                       0
+Final number of matched abstract states:               0
+Final number of abstract edges:                        0
+Number of generated predicates:                        0
+Average predicate size (# of sub-formulas):            0.00
+Predicate generation time (ms):                        0
+Number of implication checks:                          0
+
+Number of implication checks (setup):                  0
+Number of implication checks (positive):               0
+Number of implication checks (negative):               0
+Time for implication checks (setup, ms):               0
+Time for implication checks (positive, ms):            0
+Time for implication checks (negative, ms):            0
+--------------------------------------------------------------------------------
+
+Eldarica takes 2ms to check the given benchmark!
+[root] - No counterexamples, checking heap bounds ...
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             45        40
+After eliminating fwd/bwd unreachable clauses (0ms):   28        26
+After partial evaluation (6ms):                        28        26
+After constraint simplification (14ms):                28        26
+After clause inlining (13ms):                          5         3
+After equality propagation (12ms):                     5         3
+After constant propagation (32ms):                     5         3
+After inlining ADT constructors (70ms):                5         3
+After constraint simplification (83ms):                4         3
+After clause inlining (5ms):                           1         0
+After eliminating fwd/bwd unreachable clauses (0ms):   1         0
+After slicing (0ms):                                   1         0
+After equality propagation (8ms):                      1         0
+After constant propagation (2ms):                      1         0
+After constraint simplification (6ms):                 0         0
+
+Total preprocessing time (ms): 257
+
+Theories: Types
+Forward  constant and interval propagation 
+
+Backward constant and interval propagation 
+
+Unique satisfiable clauses: 0
+
+Starting CEGAR ...
+
+
+--------------------------------- Statistics -----------------------------------
+CEGAR iterations:                                      0
+Total CEGAR time (ms):                                 2
+Setup time (ms):                                       2
+Final number of abstract states:                       0
+Final number of matched abstract states:               0
+Final number of abstract edges:                        0
+Number of generated predicates:                        0
+Average predicate size (# of sub-formulas):            0.00
+Predicate generation time (ms):                        0
+Number of implication checks:                          0
+
+Number of implication checks (setup):                  0
+Number of implication checks (positive):               0
+Number of implication checks (negative):               0
+Time for implication checks (setup, ms):               0
+Time for implication checks (positive, ms):            0
+Time for implication checks (negative, ms):            0
+--------------------------------------------------------------------------------
+
+Eldarica takes 262ms to check the given benchmark!
+[root] - - program is bounded, checking full safety ...
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             48        42
+After eliminating fwd/bwd unreachable clauses (0ms):   43        38
+After partial evaluation (4ms):                        43        38
+After constraint simplification (8ms):                 43        38
+After clause inlining (12ms):                          11        6
+After equality propagation (23ms):                     11        6
+After constant propagation (11ms):                     11        6
+After inlining ADT constructors (15ms):                11        6
+After constraint simplification (62ms):                9         6
+After clause inlining (7ms):                           5         2
+After eliminating fwd/bwd unreachable clauses (0ms):   5         2
+After slicing (9ms):                                   5         2
+After equality propagation (12ms):                     5         2
+After constant propagation (4ms):                      5         2
+After constraint simplification (7ms):                 4         2
+After clause inlining (0ms):                           3         1
+After eliminating fwd/bwd unreachable clauses (0ms):   3         1
+After slicing (2ms):                                   3         1
+After equality propagation (0ms):                      3         1
+After constant propagation (0ms):                      3         1
+After constraint simplification (0ms):                 3         1
+After clause inlining (0ms):                           3         1
+After eliminating fwd/bwd unreachable clauses (0ms):   3         1
+After slicing (0ms):                                   3         1
+After Boolean clause splitting (0ms):                  3         1
+After cloning of relation symbols (1ms):               3         1
+After shortening of clauses (0ms):                     3         1
+
+Total preprocessing time (ms): 190
+
+Theories: Types
+Forward  constant and interval propagation +++
+
+Backward constant and interval propagation ++
+
+Unique satisfiable clauses: 2
+   1 clauses with 0 body literals
+   1 clauses with 1 body literals
+
+Starting CEGAR ...
+.
+Found counterexample #1, refining ... (2and/0or)  ... failed, counterexample is genuine
+
+--------------------------------- Statistics -----------------------------------
+CEGAR iterations:                                      1
+Total CEGAR time (ms):                                 93
+Setup time (ms):                                       50
+Final number of abstract states:                       1
+Final number of matched abstract states:               1
+Final number of abstract edges:                        1
+Number of generated predicates:                        0
+Average predicate size (# of sub-formulas):            0.00
+Predicate generation time (ms):                        36
+Number of implication checks:                          2
+
+Number of implication checks (setup):                  2
+Number of implication checks (positive):               0
+Number of implication checks (negative):               0
+Time for implication checks (setup, ms):               2
+Time for implication checks (positive, ms):            0
+Time for implication checks (negative, ms):            0
+--------------------------------------------------------------------------------
+
+Eldarica takes 283ms to check the given benchmark!
+[root] - Could not prove safety, giving up
+UNKNOWN

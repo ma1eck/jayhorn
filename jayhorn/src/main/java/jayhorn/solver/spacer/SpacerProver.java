@@ -33,6 +33,8 @@ public class SpacerProver implements Prover {
 	private HashMap<String, String> cfg = new HashMap<String, String>();
 	private Fixedpoint fx;
 
+	private List<SpacerFun> registeredPredicates = new ArrayList<>();
+
 	static class SpacerSolverThread implements Runnable {
 		private final Fixedpoint fx;
 		private Status status;
@@ -60,6 +62,9 @@ public class SpacerProver implements Prover {
 
 	public SpacerProver(){
 		this.cfg.put("model", "true");
+		if (Options.v().solution) {
+			this.cfg.put("proof", "true");
+		}
 		try {
 			this.ctx = new Context(this.cfg);
 			createSolver();
@@ -74,17 +79,26 @@ public class SpacerProver implements Prover {
 				this.solver = this.ctx.mkSolver();
 				this.fx = this.ctx.mkFixedpoint();
 				Params params = this.ctx.mkParams();
+//				params.add(":timeout", 60*60*1000); // milliseconds
+//				params.add(":spacer.max_level", 1000);
+//				params.add(":spacer.restarts", true); // enable restarts
+//				params.add(":spacer.restart_initial_threshold", 100);
+//				params.add(":spacer.use_inductive_generalizer", false);
+//				params.add(":spacer.weak_abs", false);
+//				params.add(":validate", true);
 				params.add(":engine", "spacer");
-				params.add (":use_heavy_mev", true);
-				params.add (":reset_obligation_queue", true);
-				params.add (":pdr.flexible_trace", false);
+//				params.add (":use_heavy_mev", true);
+				params.add(":spacer.native_mbp", true);
+//				params.add (":reset_obligation_queue", true);
+				params.add(":spacer.reset_pob_queue", true);
+//				params.add (":pdr.flexible_trace", false);
 				if (Options.v().getSolverOptions().contains("spacer_no_pp")){
 					// No pre-processing
 					params.add (":xform.slice", false);
 					params.add (":xform.inline-linear", false);
 					params.add (":xform.inline-eager", false);
 				}
-				params.add (":pdr.utvpi", false);
+//				params.add (":pdr.utvpi", false);
 			    //params.set (":pdr.flexible_trace", FlexTrace);
 
 			    // -- disable propagate_variable_equivalences in tail_simplifier
@@ -1255,6 +1269,7 @@ public class SpacerProver implements Prover {
 		try {
 			SpacerFun fun = this.mkUnintFunction(this.replaceName(name), argTypes, this.getBooleanType());
 			this.fx.registerRelation(fun.getFun());
+			registeredPredicates.add(fun);
 			return fun;
 		} catch (Z3Exception e) {
 			throw new RuntimeException(e.getMessage());
@@ -1434,7 +1449,47 @@ public class SpacerProver implements Prover {
 //		return (ProverExpr) fx.getAnswer();
     	return fx.getAnswer().toString();
      }
-	 public String getModel(){
+	public String getInvariants() {
+		try {
+			StringBuilder result = new StringBuilder();
+
+			BoolExpr[] rules = fx.getRules();
+			result.append("Total rules: ").append(rules.length).append("\n\n");
+
+			for (SpacerFun predicate : registeredPredicates) {
+				FuncDecl relation = predicate.getFun();
+				int numLevels = fx.getNumLevels(relation);
+
+				result.append("Predicate: ").append(relation.getName()).append("\n");
+				result.append("Levels explored: ").append(numLevels).append("\n");
+
+				// Get the final converged invariant (level -1)
+				Expr finalInvariant = fx.getCoverDelta(-1, relation);
+				if (finalInvariant != null) {
+					result.append("Final invariant: ").append(finalInvariant).append("\n");
+				}
+
+				// Optionally, get invariants at each level
+				for (int level = 0; level < numLevels; level++) {
+					Expr levelInvariant = fx.getCoverDelta(level, relation);
+					if (levelInvariant != null) {
+						result.append("  Level ").append(level).append(": ")
+								.append(levelInvariant).append("\n");
+					}
+				}
+				result.append("\n");
+			}
+
+			Statistics stats = fx.getStatistics();
+			result.append("Statistics:\n").append(stats);
+
+			return result.toString();
+		} catch (Z3Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+	public String getModel(){
 		solver.check();
 		return solver.getModel().toString();
 	 }

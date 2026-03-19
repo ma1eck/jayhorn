@@ -6,14 +6,15 @@ import time
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # --- CONFIGURATION ---
-BASE_DIRS = [r"examples2\normalizationBetter2Loop"]
+BASE_DIRS = [r"examples2\roundingBetter2Loop"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'n1_result.csv'
+CSV_FILE_PATH = 'r4_result.csv'
 
-SOLVER = "eldarica"
+SOLVER = "spacer"
+# SOLVER = "eldarica"
 
-TIMEOUT_SECONDS = 6 * 60
+TIMEOUT_SECONDS = 15 * 60
 MAX_WORKERS = 4
 
 LOOP_BASED = "loop-based"
@@ -25,6 +26,8 @@ CEX_DIR_NAME = "counter examples or models"
 GET_CEX = False
 
 SKIP_TIMEOUTS = False
+
+selected_benchmark = ["r7"]
 
 def run_benchmark(task_info):
     """Run a single benchmark with specific encodings and save its output."""
@@ -40,6 +43,8 @@ def run_benchmark(task_info):
 
     # Validate folders
     if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
+        return None
+    if (not folder_name in selected_benchmark):
         return None
     if SKIP_TIMEOUTS:
         with open(output_file_path, "r", encoding="utf-8", errors="replace") as f:
