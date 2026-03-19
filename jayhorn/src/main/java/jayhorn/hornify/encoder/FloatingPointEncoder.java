@@ -2902,6 +2902,7 @@ public class FloatingPointEncoder {
         postPredVars.add(G);
         postPredVars.add(R);
         postPredVars.add(S);
+//        postPredVars.add(efp); // todo remove. just for debug
         if(!isDivOp) postPredVars.remove(efp);
 
         ProverExpr mantissa = extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(efp));
@@ -6894,6 +6895,20 @@ public class FloatingPointEncoder {
 
                         this.e + 1
                 );
+//        ProverExpr subExponents =
+//                p.mkBVPlus(
+//                        p.mkBVPlus(
+//                                p.mkBVZeroExtend(1, leftExponent, this.e),
+//                                p.mkBVNeg(
+//                                        p.mkBVZeroExtend(1, rightExponent, this.e),
+//                                        this.e+1),
+//                                this.e+1
+//                        ),
+//                        p.mkBV(this.bias,this.e + 1),
+//
+//                        this.e + 1
+//                );
+
 
         ProverExpr leftS_xor_rightS = XORSigns(lFP, rFP);
         varMap.put(resultSignVar, leftS_xor_rightS);
@@ -6959,7 +6974,8 @@ public class FloatingPointEncoder {
         HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
         postAtom12 = postPred12.instPredicate(varMap);
 
-        Cond = p.mkEq(p.mkBVExtract(2*this.f,2*this.f,varMap.get(em)),p.mkBV(1,1));
+        Cond =p.mkOr(  p.mkEq(p.mkBVExtract(this.e-1, 0, varMap.get(ee)),p.mkBV(1,this.e)), // todo: recheck subnormal
+                p.mkEq(p.mkBVExtract(2*this.f,2*this.f,varMap.get(em)),p.mkBV(1,1)));
 
         List<Variable> postPred13Vars = new ArrayList<>(postPred12Vars);
         HornPredicate postPred13 = new HornPredicate(p, prePred.name + "_13", postPred13Vars);
@@ -6974,7 +6990,8 @@ public class FloatingPointEncoder {
         HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
         postAtom12 = postPred12.instPredicate(varMap);
 
-        Cond = p.mkEq(p.mkBVExtract(2*this.f,2*this.f,varMap.get(em)),p.mkBV(0,1));//p.mkNot(p.mkEq(p.mkBVExtract(48,48,varMap.get(em)),p.mkBV(1,1)));
+        Cond = p.mkAnd( p.mkNot(p.mkEq(p.mkBVExtract(this.e-1, 0, varMap.get(ee)),p.mkBV(1,this.e))), // todo: recheck subnormal
+                p.mkEq(p.mkBVExtract(2*this.f,2*this.f,varMap.get(em)),p.mkBV(0,1)));//p.mkNot(p.mkEq(p.mkBVExtract(48,48,varMap.get(em)),p.mkBV(1,1)));
         // List<Variable> postPred14Vars = new ArrayList<>(postPred12Vars);
         varMap.put(ee, p.mkBVSub(varMap.get(ee),p.mkBV(1,this.e+1),this.e + 1));
         varMap.put(em,p.mkBVshl(varMap.get(em),p.mkBV(1,this.ef),this.ef));
@@ -8942,20 +8959,24 @@ public class FloatingPointEncoder {
 
         rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
         rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
-
-        ProverExpr leftePlusrighte_Sub_1023 =
+        //TODO: recheck ee0 
+        ProverExpr leftePlusrighte_Sub_1023_0 =
                 /*p.mkBVPlus(
                 p.mkBVPlus(p.mkBVZeroExtend(1,leftExponent,this.e), p.mkBVZeroExtend(1,rightExponent,this.e),this.e+1),
                 p.mkBVZeroExtend(1,p.mkBVNeg(p.mkBV(this.bias, this.e),this.e),this.e),
                         this.e+1);*/
                 p.mkBVSub(
-                        p.mkBVPlus(p.mkBVZeroExtend(1,leftExponent,this.e), p.mkBVZeroExtend(1,rightExponent,this.e),this.e+1),
-                        p.mkBVZeroExtend(1,p.mkBV(this.bias, this.e),this.e),
-                        this.e+1);
+                        p.mkBVPlus(p.mkBVZeroExtend(2,leftExponent,this.e), p.mkBVZeroExtend(2,rightExponent,this.e),this.e+2), // todo recheck
+                        p.mkBVZeroExtend(2,p.mkBV(this.bias, this.e),this.e),
+                        this.e+2);
+        ProverExpr leftePlusrighte_Sub_1023 =
+                p.mkBVExtract(e, 0, leftePlusrighte_Sub_1023_0);
 
 
         ProverExpr leftS_xor_rightS = XORSigns(lFP, rFP);
         varMap.put(resultSignVar, leftS_xor_rightS);
+        Variable ee0 = new Variable("ee0", Type.instance(), this.e+2); //TODO: recheck ee0
+        varMap.put(ee0,leftePlusrighte_Sub_1023_0); //TODO: recheck ee0
         Variable ee = new Variable("ee", Type.instance(), this.e+1);
         varMap.put(ee,leftePlusrighte_Sub_1023);
 
@@ -8963,6 +8984,7 @@ public class FloatingPointEncoder {
         List<Variable> postPred11Vars = new ArrayList<>(prePred.variables);
         postPred11Vars.add(resultSignVar);
         postPred11Vars.add(ee);
+        postPred11Vars.add(ee0); //TODO: recheck ee0
 
         HornPredicate postPred11 = new HornPredicate(p, prePred.name + "_111", postPred11Vars);
         ProverExpr postAtom11 = postPred11.instPredicate(varMap);
@@ -8987,8 +9009,35 @@ public class FloatingPointEncoder {
         varMap.put(idLhs.getVariable(),mulResult);
         postAtom = postPred.instPredicate(varMap);
 
-        Cond = p.mkEq(p.mkBVExtract(e,e,varMap.get(ee)),p.mkBV(1,1)); //isOVFExp(varMap.get(ee));
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        //TODO: recheck ee0
+        Cond = p.mkAnd(
+                p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(0,1)),
+                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(1,1))); //isOVFExp(varMap.get(ee));
         clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom11}, Cond)); // postAtom(makeOVF) <-- p1(s, ee, lFP, rFP) & isOVFExp(ee)
+
+        //TODO: recheck ee0 this for underflow:
+        Cond = p.mkAnd(
+                p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(1,1)),
+                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(1,1))); //not sure about this one
+
+        resultFP = mkDoublePE(
+                varMap.get(resultSignVar),
+                p.mkBV(0,e),
+                p.mkBV(0,f),
+                p.mkCustomFalse(), // TODO: recheck
+                p.mkCustomFalse()
+        );
+        mulResult =p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),mulResult);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom11}, Cond));
+
 
        /* varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
 //        varMap = new HashMap<Variable, ProverExpr>();
@@ -9027,6 +9076,7 @@ public class FloatingPointEncoder {
         List<Variable> postPred12Vars = new ArrayList<>(postPred11.variables);
         postPred12Vars.remove(resultSignVar);
         postPred12Vars.remove(ee);
+        postPred12Vars.remove(ee0); //TODO: recheck ee0
         postPred12Vars.add(extendedFP);
 
         varMap.put(
@@ -11766,7 +11816,11 @@ public class FloatingPointEncoder {
             sign = p.mkCustomTrue();
         }//BVLit( new BigInteger(ieeeOne.get_sign() ? "1" : "0"),1);
         // exponent = value > 0 ? BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()),e) : (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE),e));
-        exponent = (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()),e) );//: (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE),e));
+//        if (!ieeeOne.isNormal() && value != 0){ //TODO recheck subnormal
+//            exponent = BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE), e);
+//        }else {
+            exponent = (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()),e) );//: (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE),e));
+//        }
         if (ieeeOne.NaN_flag == null || !ieeeOne.NaN_flag){
             isNan = p.mkCustomFalse();
         }

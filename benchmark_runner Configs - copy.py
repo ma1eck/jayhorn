@@ -16,8 +16,8 @@ NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'Configs_copy_benchmark_result.csv'
 
-TIMEOUT_SECONDS = 30 * 60
-MAX_WORKERS = 4
+TIMEOUT_SECONDS = 1 * 60
+MAX_WORKERS = 1
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
@@ -33,7 +33,7 @@ NUMBER_OF_REPETITION = 5
 AVERAGING = NUMBER_OF_REPETITION > 1
 
 
-selected_benchmark = ["11"]
+selected_benchmark = []
 
 
 def run_benchmark(task_info):
@@ -48,7 +48,7 @@ def run_benchmark(task_info):
 
     if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
         return None
-    if (not folder_name in selected_benchmark):
+    if (len(selected_benchmark) > 0 and not folder_name in selected_benchmark):
         return None
 
     cmd = [

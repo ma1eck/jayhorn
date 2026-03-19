@@ -1,8 +1,8 @@
-floatDib2
+Zonotope_loose
 
 compile:
-javac .\examples\floatDib2\src\Main.java .\examples\floatDib2\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatDib2\classes\
+javac .\examples\Zonotope_loose\src\Main.java .\examples\Zonotope_loose\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\Zonotope_loose\classes\
 
 
 config: 
--j examples/floatDib2/classes -src examples/floatDib2/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatDib2\horn -print-horn
+-j examples/Zonotope_loose/classes -src examples/Zonotope_loose/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\Zonotope_loose\horn -print-horn

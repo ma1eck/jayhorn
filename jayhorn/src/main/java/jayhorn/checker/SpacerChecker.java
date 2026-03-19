@@ -213,13 +213,14 @@ public class SpacerChecker extends Checker{
 		//work in progress
 //		System.out.println(prover.getCex());
 
-//		String c = ((SpacerProver) prover).getFXAnswer(); // TODO: recheck
+		String c1 = ((SpacerProver) prover).getFXAnswer(); // TODO: recheck
 		String c = ((SpacerProver) prover).getInvariants(); // TODO: recheck
 //		String c = ((SpacerProver) prover).getModel(); // TODO: recheck
 		try {
 			// TODO: change this
 			String path = Options.v().getCexPath();
 			FileWriter myWriter = new FileWriter(path);
+			myWriter.write(c1);
 			myWriter.write(c);
 			myWriter.close();
 		} catch (IOException e) {
