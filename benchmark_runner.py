@@ -12,8 +12,8 @@ JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'benchmark_results.csv'
 SOLVER = "spacer"
 
-TIMEOUT_SECONDS =  1*60
-MAX_WORKERS = 2
+TIMEOUT_SECONDS =  8*60
+MAX_WORKERS = 4
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
@@ -21,7 +21,7 @@ ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
 CEX_DIR_NAME = "counter examples or models"
 
-GET_CEX = True
+GET_CEX = False
 
 SKIP_TIMEOUTS = False
 

@@ -1,0 +1,3154 @@
+(let ((a!1 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J)
+                   (not (= F 0)))
+                :weight 0)))
+      (a!2 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int)
+                    (L Int)
+                    (M Int)
+                    (N Int)
+                    (O Int)
+                    (P Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block1_2
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J
+                     K
+                     L
+                     M
+                     N
+                     O
+                     P)
+                   (and (= A 1)
+                        (>= D 0)
+                        (= B 137)
+                        (= H A)
+                        (= I B)
+                        (= J C)
+                        (= K D)
+                        (= L 1)))
+                :weight 0)))
+      (a!3 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int))
+             (! (= (Main_void_mainJayArray_java_lang_String_Block1_5
+                     A
+                     B
+                     C
+                     D
+                     E
+                     F
+                     G
+                     H
+                     I
+                     J
+                     K)
+                   (and (= A 1)
+                        (>= D 0)
+                        (= B 137)
+                        (= H 0)
+                        (= I 0)
+                        (= J 0)
+                        (= K 1)))
+                :weight 0)))
+      (a!4 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int)
+                    (L Int)
+                    (M Int)
+                    (N DoubleFloatingPoint)
+                    (O Int))
+             (! (let ((a!1 (or (not ((_ bit2bool 1) (mantissa N)))
+                               (not ((_ bit2bool 50) (mantissa N)))
+                               (not (= (exponent N) #b01111111000))))
+                      (a!2 (or (not (>= F 0))
+                               (not (= (exponent N) #b01111110011)))))
+                  (= (Main_void_mainJayArray_java_lang_String_Block4
+                       A
+                       B
+                       C
+                       D
+                       E
+                       F
+                       G
+                       H
+                       I
+                       J
+                       K
+                       L
+                       M
+                       N
+                       O)
+                     (and a!1 a!2 (not (<= F 0)))))
+                :weight 0)))
+      (a!5 (forall ((A Int)
+                    (B Int)
+                    (C Int)
+                    (D Int)
+                    (E Int)
+                    (F Int)
+                    (G Int)
+                    (H Int)
+                    (I Int)
+                    (J Int)
+                    (K Int)
+                    (L Int)
+                    (M Int)
+                    (N DoubleFloatingPoint)
+                    (O Int))
+             (! (let ((a!1 (or (not ((_ bit2bool 1) (mantissa N)))
+                               (not ((_ bit2bool 50) (mantissa N)))
+                               (not (= (exponent N) #b01111111000))))
+                      (a!2 (or (not (>= F 0))
+                               (not (= (exponent N) #b01111110011)))))
+                  (= (Main_void_mainJayArray_java_lang_String_Block3
+                       A
+                       B
+                       C
+                       D
+                       E
+                       F
+                       G
+                       H
+                       I
+                       J
+                       K
+                       L
+                       M
+                       N
+                       O)
+                     (and a!1 a!2 (<= F 0))))
+                :weight 0)))
+      (a!6 (forall ((A Int) (B Int))
+             (! (= (JayHornAssertions_void_clinit_Block1 A B)
+                   (and (= A 1) (= B 1)))
+                :weight 0)))
+      (a!7 (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+             (! (= (Main_void_clinit_Block1 A B C D E) (and (= A 1) (= E 1)))
+                :weight 0)))
+      (a!8 (forall ((A Int) (B Int))
+             (! (= (JayHornAssertions_void_clinit_Block1_1 A B)
+                   (and (= A 1) (= B 1)))
+                :weight 0)))
+      (a!9 (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+             (! (= (Main_void_clinit_Block1_1 A B C D E) (and (= A 1) (= E 1)))
+                :weight 0)))
+      (a!10 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L Int)
+                     (M Int)
+                     (N DoubleFloatingPoint)
+                     (O Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1_6
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O)
+                    (and (= A 1)
+                         (>= D 0)
+                         (= B 137)
+                         (= H 0)
+                         (= I 0)
+                         (= J 0)
+                         (= K (- 1))
+                         (= L 133)
+                         (= N
+                            (DoubleFloatingPoint
+                              false
+                              #b01111111101
+                              #b10101010101010010101001010101010101010101010101011101
+                              false
+                              false))
+                         (= O 1)))
+                 :weight 0)))
+      (a!11 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int))
+              (! (= (Main_void_clinit_Block1_2 A B C D E F G H)
+                    (and (= A 1) (= E 0) (= F 0) (= G 0) (= H 1)))
+                 :weight 0)))
+      (a!12 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L Int)
+                     (M Int)
+                     (N Int)
+                     (O Int)
+                     (P Int)
+                     (Q Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1_1
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P
+                      Q)
+                    (and (= H A) (= I B) (= J C) (= K D) (= M 1)))
+                 :weight 0)))
+      (a!13 (forall ((A Int)
+                     (B Int)
+                     (C Int)
+                     (D Int)
+                     (E Int)
+                     (F Int)
+                     (G Int)
+                     (H Int)
+                     (I Int)
+                     (J Int)
+                     (K Int)
+                     (L Int)
+                     (M Int)
+                     (N Int)
+                     (O Int)
+                     (P Int)
+                     (Q Int))
+              (! (= (Main_void_mainJayArray_java_lang_String_Block1
+                      A
+                      B
+                      C
+                      D
+                      E
+                      F
+                      G
+                      H
+                      I
+                      J
+                      K
+                      L
+                      M
+                      N
+                      O
+                      P
+                      Q)
+                    (and (= H A) (= I B) (= J C) (= K D)))
+                 :weight 0)))
+      (a!14 (forall ((A Int) (B Int) (C Int) (D Int) (E Bool))
+              (! (= (inv_$StaticFields_Main_2 A B C D E)
+                    (and (= A (- 5)) (= B 297) (not E)))
+                 :weight 0))))
+  (and (= |Assert_#0_Main.java,_line_12| false)
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not (= (exponent N) #b01111111000))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not ((_ bit2bool 1) (mantissa N))))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not (= (exponent N) #b01111111000))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not ((_ bit2bool 1) (mantissa N))))))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_1
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P DoubleFloatingPoint)
+                (Q (_ BitVec 1))
+                (R (_ BitVec 1))
+                (S (_ BitVec 1))
+                (T (_ BitVec 51))
+                (U Int))
+         (! (let ((a!1 (or ((_ bit2bool 0) (exponent P))
+                           (not ((_ bit2bool 7) (exponent P)))
+                           (not ((_ bit2bool 5) (exponent P)))
+                           (not ((_ bit2bool 8) (exponent P)))
+                           (not ((_ bit2bool 9) (exponent P)))
+                           (not ((_ bit2bool 50) (mantissa P)))
+                           ((_ bit2bool 1) (exponent P))
+                           (not ((_ bit2bool 4) (exponent P)))
+                           ((_ bit2bool 2) (exponent P))
+                           (not ((_ bit2bool 3) (exponent P)))
+                           (not ((_ bit2bool 6) (exponent P)))
+                           ((_ bit2bool 10) (exponent P)))))
+            (let ((a!2 (and a!1 (not ((_ bit2bool 0) (mantissa P))))))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_13_S
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T
+                   U)
+                 a!2)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P ExtendedDoubleFloatingPoint))
+         (! (let ((a!1 (or (not ((_ bit2bool 6) (eexponent P)))
+                           (not ((_ bit2bool 8) (eexponent P)))
+                           ((_ bit2bool 2) (eexponent P))
+                           ((_ bit2bool 0) (eexponent P))
+                           (not ((_ bit2bool 5) (eexponent P)))
+                           (not ((_ bit2bool 4) (eexponent P)))
+                           (not ((_ bit2bool 9) (eexponent P)))
+                           (not ((_ bit2bool 7) (eexponent P)))
+                           (not ((_ bit2bool 3) (eexponent P)))
+                           (not ((_ bit2bool 102) (emantissa P)))
+                           ((_ bit2bool 10) (eexponent P))
+                           ((_ bit2bool 1) (eexponent P)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_13
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not (= (exponent N) #b01111111000))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not ((_ bit2bool 1) (mantissa N)))))
+                  (a!2 (or (not (>= F 0)) (not (= (exponent N) #b01111110011)))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 (and a!1 a!2)))
+            :weight 0))
+       a!1
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P DoubleFloatingPoint)
+                (Q (_ BitVec 1))
+                (R (_ BitVec 1))
+                (S (_ BitVec 1))
+                (T (_ BitVec 51)))
+         (! (let ((a!1 (exists ((x!1 ExtendedDoubleFloatingPoint))
+                         (! (let ((a!1 (or ((_ bit2bool 10) (eexponent x!1))
+                                           (not ((_ bit2bool 102)
+                                                  (emantissa x!1)))
+                                           ((_ bit2bool 1) (eexponent x!1))
+                                           (not ((_ bit2bool 3) (eexponent x!1)))
+                                           (not ((_ bit2bool 7) (eexponent x!1)))
+                                           (not ((_ bit2bool 4) (eexponent x!1)))
+                                           (not ((_ bit2bool 5) (eexponent x!1)))
+                                           (not ((_ bit2bool 9) (eexponent x!1)))
+                                           ((_ bit2bool 0) (eexponent x!1))
+                                           (not ((_ bit2bool 8) (eexponent x!1)))
+                                           (not ((_ bit2bool 6) (eexponent x!1)))
+                                           ((_ bit2bool 2) (eexponent x!1))))
+                                  (a!2 (= T
+                                          (concat #b0
+                                                  ((_ extract 49 0)
+                                                    (emantissa x!1)))))
+                                  (a!3 (= P
+                                          (DoubleFloatingPoint
+                                            (esign x!1)
+                                            ((_ extract 10 0) (eexponent x!1))
+                                            ((_ extract 104 52) (emantissa x!1))
+                                            (eisNan x!1)
+                                            (eisInfinity x!1)))))
+                              (and a!1
+                                   a!2
+                                   (= R ((_ extract 51 51) (emantissa x!1)))
+                                   (= Q ((_ extract 52 52) (emantissa x!1)))
+                                   (= S ((_ extract 50 50) (emantissa x!1)))
+                                   a!3))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_13_Bits
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T)
+                 a!1))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P Bool)
+                (Q (_ BitVec 12))
+                (R (_ BitVec 13)))
+         (! (let ((a!1 (or (not ((_ bit2bool 1) (mantissa N)))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not (= (exponent N) #b01111111000))))
+                  (a!2 (or (not (>= F 0)) (not (= (exponent N) #b01111110011))))
+                  (a!3 (= Q (bvadd #x005 (concat #b0 (exponent N)))))
+                  (a!4 (or (not (= (exponent N) #b00000000000))
+                           (not (= (mantissa N)
+                                   #b00000000000000000000000000000000000000000000000000000))))
+                  (a!5 (= R (bvadd #b0000000000101 (concat #b00 (exponent N))))))
+            (let ((a!6 (and a!1
+                            a!2
+                            a!3
+                            (not (= (exponent N) #b11111111111))
+                            (= P (sign N))
+                            (not (<= F 0))
+                            a!4
+                            a!5)))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_111
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R)
+                 a!6)))
+            :weight 0))
+       a!2
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not (= (exponent N) #b01111111000))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not ((_ bit2bool 1) (mantissa N)))))
+                  (a!2 (or (not (= (exponent N) #b11111111111))
+                           (= ((_ extract 51 0) (mantissa N)) #x0000000000000))))
+            (let ((a!3 (and a!1
+                            a!2
+                            (not (= N
+                                    (DoubleFloatingPoint
+                                      false
+                                      #b01111111100
+                                      #b11001100110011001100110011001100110011001100110011010
+                                      false
+                                      false)))
+                            (= F 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2_11
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 a!3)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not (= (exponent N) #b01111111000))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not ((_ bit2bool 1) (mantissa N)))))
+                  (a!2 (or (not (>= F 0)) (not (= (exponent N) #b01111110011))))
+                  (a!3 (or (not (= (exponent N) #b11111111111))
+                           (= ((_ extract 51 0) (mantissa N)) #x0000000000000))))
+            (let ((a!4 (and a!1
+                            a!2
+                            (<= F 0)
+                            a!3
+                            (not (= N
+                                    (DoubleFloatingPoint
+                                      false
+                                      #b01111111000
+                                      #b10100011110101011011111111111111111111111111111111110
+                                      false
+                                      false)))
+                            (= G 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block3_11
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 a!4)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P ExtendedDoubleFloatingPoint))
+         (! (let ((a!1 (or (not ((_ bit2bool 1) (mantissa N)))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not (= (exponent N) #b01111111000))))
+                  (a!2 (or (not (>= F 0)) (not (= (exponent N) #b01111110011))))
+                  (a!3 (ExtendedDoubleFloatingPoint
+                         (sign N)
+                         (bvadd #x005 (concat #b0 (exponent N)))
+                         (bvmul #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000101010101010101010101010101010101010101010110010
+                                (concat #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                        (mantissa N)))
+                         false
+                         false))
+                  (a!4 (or (not (= (exponent N) #b00000000000))
+                           (not (= (mantissa N)
+                                   #b00000000000000000000000000000000000000000000000000000))))
+                  (a!5 (bvule #x7ff (bvadd #x005 (concat #b0 (exponent N))))))
+            (let ((a!6 (and a!1
+                            a!2
+                            (= P a!3)
+                            (not (= (exponent N) #b11111111111))
+                            (not (<= F 0))
+                            a!4
+                            (not a!5))))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_12
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P)
+                 a!6)))
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int)
+                (P DoubleFloatingPoint)
+                (Q (_ BitVec 1))
+                (R (_ BitVec 1))
+                (S (_ BitVec 1))
+                (T (_ BitVec 51)))
+         (! (let ((a!1 (exists ((x!1 ExtendedDoubleFloatingPoint))
+                         (! (let ((a!1 (or ((_ bit2bool 10) (eexponent x!1))
+                                           (not ((_ bit2bool 102)
+                                                  (emantissa x!1)))
+                                           ((_ bit2bool 1) (eexponent x!1))
+                                           (not ((_ bit2bool 3) (eexponent x!1)))
+                                           (not ((_ bit2bool 7) (eexponent x!1)))
+                                           (not ((_ bit2bool 4) (eexponent x!1)))
+                                           (not ((_ bit2bool 5) (eexponent x!1)))
+                                           (not ((_ bit2bool 9) (eexponent x!1)))
+                                           ((_ bit2bool 0) (eexponent x!1))
+                                           (not ((_ bit2bool 8) (eexponent x!1)))
+                                           (not ((_ bit2bool 6) (eexponent x!1)))
+                                           ((_ bit2bool 2) (eexponent x!1))))
+                                  (a!2 (= T
+                                          (concat #b0
+                                                  ((_ extract 49 0)
+                                                    (emantissa x!1)))))
+                                  (a!3 (= P
+                                          (DoubleFloatingPoint
+                                            (esign x!1)
+                                            ((_ extract 10 0) (eexponent x!1))
+                                            ((_ extract 104 52) (emantissa x!1))
+                                            (eisNan x!1)
+                                            (eisInfinity x!1)))))
+                              (and a!1
+                                   a!2
+                                   (= R ((_ extract 51 51) (emantissa x!1)))
+                                   (= R #b1)
+                                   (= Q ((_ extract 52 52) (emantissa x!1)))
+                                   (= S ((_ extract 50 50) (emantissa x!1)))
+                                   a!3))
+                            :weight 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block4_13_LSBR
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O
+                   P
+                   Q
+                   R
+                   S
+                   T)
+                 a!1))
+            :weight 0))
+       a!3
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block6
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               false)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not ((_ bit2bool 1) (mantissa N)))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not (= (exponent N) #b01111111000))))
+                  (a!2 (or (not (>= F 0)) (not (= (exponent N) #b01111110011))))
+                  (a!3 (or (not (= (exponent N) #b11111111111))
+                           (= ((_ extract 51 0) (mantissa N)) #x0000000000000))))
+            (let ((a!4 (and a!1
+                            a!2
+                            (not (sign N))
+                            (<= F 0)
+                            a!3
+                            (not (= N
+                                    (DoubleFloatingPoint
+                                      false
+                                      #b01111111000
+                                      #b10100011110101011011111111111111111111111111111111110
+                                      false
+                                      false)))
+                            (= G 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block3_12
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 a!4)))
+            :weight 0))
+       a!4
+       a!5
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int)
+                (L Int)
+                (M Int)
+                (N DoubleFloatingPoint)
+                (O Int))
+         (! (let ((a!1 (or (not (= (exponent N) #b01111111000))
+                           (not ((_ bit2bool 50) (mantissa N)))
+                           (not ((_ bit2bool 1) (mantissa N)))))
+                  (a!2 (or (not (= (exponent N) #b11111111111))
+                           (= ((_ extract 51 0) (mantissa N)) #x0000000000000))))
+            (let ((a!3 (and a!1
+                            (not (sign N))
+                            a!2
+                            (not (= N
+                                    (DoubleFloatingPoint
+                                      false
+                                      #b01111111100
+                                      #b11001100110011001100110011001100110011001100110011010
+                                      false
+                                      false)))
+                            (= F 0))))
+              (= (Main_void_mainJayArray_java_lang_String_Block2_12
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H
+                   I
+                   J
+                   K
+                   L
+                   M
+                   N
+                   O)
+                 a!3)))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int) (F Int) (G Int) (H Int))
+         (! (let ((a!1 (and (= A 1) (>= D 0) (= B 137) (= H 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_4
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H)
+                 a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_Block0 A B C D E) a!1))
+            :weight 0))
+       a!6
+       a!7
+       a!8
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_Block1_2 A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_Block0 A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (JayHornAssertions_void_clinit_post A B C D E) a!1))
+            :weight 0))
+       a!9
+       a!10
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_post A B C D E) a!1))
+            :weight 0))
+       (forall ((A Int))
+         (! (= (JayHornAssertions_void_clinit_pre A) (= A 1)) :weight 0))
+       a!11
+       (forall ((A Int)) (! (= (Main_void_clinit_pre A) (= A 1)) :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int) (F Int) (G Int) (H Int))
+         (! (let ((a!1 (and (= A 1) (>= D 0) (= B 137) (= H 1))))
+              (= (Main_void_mainJayArray_java_lang_String_Block1_3
+                   A
+                   B
+                   C
+                   D
+                   E
+                   F
+                   G
+                   H)
+                 a!1))
+            :weight 0))
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (let ((a!1 (and (= A 1) (= B 0) (= C 0) (= D 0) (= E 1))))
+              (= (Main_void_clinit_Block1_3 A B C D E) a!1))
+            :weight 0))
+       a!12
+       a!13
+       (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_pre A B C D E) true)
+            :weight 0))
+       a!14
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_post A B C D E F G H I)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block6_1
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block0
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I)
+               true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int)
+                (K Int))
+         (! (= (inv_JayArray_java_lang_String_103 A B C D E F G H I J K) true)
+            :weight 0))
+       (forall ((A Int)
+                (B Int)
+                (C Int)
+                (D Int)
+                (E Int)
+                (F Int)
+                (G Int)
+                (H Int)
+                (I Int)
+                (J Int))
+         (! (= (Main_void_mainJayArray_java_lang_String_Block5
+                 A
+                 B
+                 C
+                 D
+                 E
+                 F
+                 G
+                 H
+                 I
+                 J)
+               true)
+            :weight 0))))Total rules: 69
+
+Predicate: Main_void_mainJayArray_java_lang_String_pre
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_post
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_pre
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_post
+Levels explored: 0
+Final invariant: true
+
+Predicate: JayHornAssertions_void_clinit_pre
+Levels explored: 0
+Final invariant: true
+
+Predicate: JayHornAssertions_void_clinit_post
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block2
+Levels explored: 65
+Final invariant: (or (not (= (exponent Main_void_mainJayArray_java_lang_String_Block2!slice!2_2_n)
+            #b01111111000))
+    (not ((_ bit2bool 50)
+           (mantissa Main_void_mainJayArray_java_lang_String_Block2!slice!2_2_n)))
+    (not ((_ bit2bool 1)
+           (mantissa Main_void_mainJayArray_java_lang_String_Block2!slice!2_2_n))))
+  Level 0: true
+  Level 1: true
+  Level 2: true
+  Level 3: (= ((_ extract 0 0)
+     (exponent Main_void_mainJayArray_java_lang_String_Block2!slice!2_2_n))
+   #b1)
+  Level 4: true
+  Level 5: true
+  Level 6: true
+  Level 7: (not (= (exponent Main_void_mainJayArray_java_lang_String_Block2!slice!2_2_n)
+        #b01111111000))
+  Level 8: true
+  Level 9: true
+  Level 10: true
+  Level 11: true
+  Level 12: true
+  Level 13: true
+  Level 14: true
+  Level 15: true
+  Level 16: true
+  Level 17: true
+  Level 18: true
+  Level 19: true
+  Level 20: true
+  Level 21: true
+  Level 22: true
+  Level 23: true
+  Level 24: true
+  Level 25: true
+  Level 26: true
+  Level 27: true
+  Level 28: true
+  Level 29: true
+  Level 30: true
+  Level 31: true
+  Level 32: true
+  Level 33: true
+  Level 34: true
+  Level 35: true
+  Level 36: true
+  Level 37: true
+  Level 38: true
+  Level 39: true
+  Level 40: true
+  Level 41: true
+  Level 42: true
+  Level 43: true
+  Level 44: true
+  Level 45: true
+  Level 46: true
+  Level 47: true
+  Level 48: true
+  Level 49: true
+  Level 50: true
+  Level 51: true
+  Level 52: true
+  Level 53: true
+  Level 54: true
+  Level 55: true
+  Level 56: true
+  Level 57: true
+  Level 58: true
+  Level 59: true
+  Level 60: true
+  Level 61: true
+  Level 62: true
+  Level 63: true
+  Level 64: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block5
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block3
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block6
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block0
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1_2
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1_3
+Levels explored: 0
+Final invariant: true
+
+Predicate: inv_JayArray_java_lang_String_103
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1_4
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1_5
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1_6
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult
+Levels explored: 65
+Final invariant: (let ((a!1 (or (not (= (exponent Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_2_n)
+                       #b01111110011))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_1_n
+                        0))))
+      (a!2 (or (not ((_ bit2bool 1)
+                      (mantissa Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_2_n)))
+               (not ((_ bit2bool 50)
+                      (mantissa Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_2_n)))
+               (not (= (exponent Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_2_n)
+                       #b01111111000)))))
+  (and a!1 a!2))
+  Level 0: false
+  Level 1: true
+  Level 2: true
+  Level 3: true
+  Level 4: (= ((_ extract 0 0)
+     (exponent Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_2_n))
+   #b1)
+  Level 5: true
+  Level 6: true
+  Level 7: true
+  Level 8: (not (= (exponent Main_void_mainJayArray_java_lang_String_Block2_1-FCmpResult!slice!6_2_n)
+        #b01111111000))
+  Level 9: true
+  Level 10: true
+  Level 11: true
+  Level 12: true
+  Level 13: true
+  Level 14: true
+  Level 15: true
+  Level 16: true
+  Level 17: true
+  Level 18: true
+  Level 19: true
+  Level 20: true
+  Level 21: true
+  Level 22: true
+  Level 23: true
+  Level 24: true
+  Level 25: true
+  Level 26: true
+  Level 27: true
+  Level 28: true
+  Level 29: true
+  Level 30: true
+  Level 31: true
+  Level 32: true
+  Level 33: true
+  Level 34: true
+  Level 35: true
+  Level 36: true
+  Level 37: true
+  Level 38: true
+  Level 39: true
+  Level 40: true
+  Level 41: true
+  Level 42: true
+  Level 43: true
+  Level 44: true
+  Level 45: true
+  Level 46: true
+  Level 47: true
+  Level 48: true
+  Level 49: true
+  Level 50: true
+  Level 51: true
+  Level 52: true
+  Level 53: true
+  Level 54: true
+  Level 55: true
+  Level 56: true
+  Level 57: true
+  Level 58: true
+  Level 59: true
+  Level 60: true
+  Level 61: true
+  Level 62: true
+  Level 63: true
+  Level 64: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block2_11
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block2_12
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+Levels explored: 65
+Final invariant: (not (= Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult!slice!3_1_n
+        0))
+  Level 0: true
+  Level 1: false
+  Level 2: true
+  Level 3: true
+  Level 4: true
+  Level 5: true
+  Level 6: true
+  Level 7: true
+  Level 8: true
+  Level 9: true
+  Level 10: true
+  Level 11: true
+  Level 12: true
+  Level 13: true
+  Level 14: true
+  Level 15: true
+  Level 16: true
+  Level 17: true
+  Level 18: true
+  Level 19: true
+  Level 20: true
+  Level 21: true
+  Level 22: true
+  Level 23: true
+  Level 24: true
+  Level 25: true
+  Level 26: true
+  Level 27: true
+  Level 28: true
+  Level 29: true
+  Level 30: true
+  Level 31: true
+  Level 32: true
+  Level 33: true
+  Level 34: true
+  Level 35: true
+  Level 36: true
+  Level 37: true
+  Level 38: true
+  Level 39: true
+  Level 40: true
+  Level 41: true
+  Level 42: true
+  Level 43: true
+  Level 44: true
+  Level 45: true
+  Level 46: true
+  Level 47: true
+  Level 48: true
+  Level 49: true
+  Level 50: true
+  Level 51: true
+  Level 52: true
+  Level 53: true
+  Level 54: true
+  Level 55: true
+  Level 56: true
+  Level 57: true
+  Level 58: true
+  Level 59: true
+  Level 60: true
+  Level 61: true
+  Level 62: true
+  Level 63: true
+  Level 64: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block3_11
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block3_12
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_1
+Levels explored: 65
+Final invariant: (or (not (= (exponent Main_void_mainJayArray_java_lang_String_Block4_1!slice!4_2_n)
+            #b01111111000))
+    (not ((_ bit2bool 1)
+           (mantissa Main_void_mainJayArray_java_lang_String_Block4_1!slice!4_2_n)))
+    (not ((_ bit2bool 50)
+           (mantissa Main_void_mainJayArray_java_lang_String_Block4_1!slice!4_2_n))))
+  Level 0: true
+  Level 1: false
+  Level 2: (= ((_ extract 0 0)
+     (exponent Main_void_mainJayArray_java_lang_String_Block4_1!slice!4_2_n))
+   #b1)
+  Level 3: true
+  Level 4: true
+  Level 5: true
+  Level 6: (not (= (exponent Main_void_mainJayArray_java_lang_String_Block4_1!slice!4_2_n)
+        #b01111111000))
+  Level 7: true
+  Level 8: true
+  Level 9: true
+  Level 10: true
+  Level 11: true
+  Level 12: true
+  Level 13: true
+  Level 14: true
+  Level 15: true
+  Level 16: true
+  Level 17: true
+  Level 18: true
+  Level 19: true
+  Level 20: true
+  Level 21: true
+  Level 22: true
+  Level 23: true
+  Level 24: true
+  Level 25: true
+  Level 26: true
+  Level 27: true
+  Level 28: true
+  Level 29: true
+  Level 30: true
+  Level 31: true
+  Level 32: true
+  Level 33: true
+  Level 34: true
+  Level 35: true
+  Level 36: true
+  Level 37: true
+  Level 38: true
+  Level 39: true
+  Level 40: true
+  Level 41: true
+  Level 42: true
+  Level 43: true
+  Level 44: true
+  Level 45: true
+  Level 46: true
+  Level 47: true
+  Level 48: true
+  Level 49: true
+  Level 50: true
+  Level 51: true
+  Level 52: true
+  Level 53: true
+  Level 54: true
+  Level 55: true
+  Level 56: true
+  Level 57: true
+  Level 58: true
+  Level 59: true
+  Level 60: true
+  Level 61: true
+  Level 62: true
+  Level 63: true
+  Level 64: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_111
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_12
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_13
+Levels explored: 65
+Final invariant: (or ((_ bit2bool 0)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    ((_ bit2bool 1)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    ((_ bit2bool 2)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    ((_ bit2bool 10)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    (not ((_ bit2bool 3)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 4)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 5)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 6)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 7)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 8)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 9)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 102)
+           (emantissa Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))))
+  Level 0: true
+  Level 1: false
+  Level 2: true
+  Level 3: true
+  Level 4: true
+  Level 5: (or ((_ bit2bool 1)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    ((_ bit2bool 2)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    ((_ bit2bool 10)
+      (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))
+    (not ((_ bit2bool 3)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 4)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 5)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 6)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 7)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 8)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n)))
+    (not ((_ bit2bool 9)
+           (eexponent Main_void_mainJayArray_java_lang_String_Block4_13!slice!5_3_n))))
+  Level 6: true
+  Level 7: true
+  Level 8: true
+  Level 9: true
+  Level 10: true
+  Level 11: true
+  Level 12: true
+  Level 13: true
+  Level 14: true
+  Level 15: true
+  Level 16: true
+  Level 17: true
+  Level 18: true
+  Level 19: true
+  Level 20: true
+  Level 21: true
+  Level 22: true
+  Level 23: true
+  Level 24: true
+  Level 25: true
+  Level 26: true
+  Level 27: true
+  Level 28: true
+  Level 29: true
+  Level 30: true
+  Level 31: true
+  Level 32: true
+  Level 33: true
+  Level 34: true
+  Level 35: true
+  Level 36: true
+  Level 37: true
+  Level 38: true
+  Level 39: true
+  Level 40: true
+  Level 41: true
+  Level 42: true
+  Level 43: true
+  Level 44: true
+  Level 45: true
+  Level 46: true
+  Level 47: true
+  Level 48: true
+  Level 49: true
+  Level 50: true
+  Level 51: true
+  Level 52: true
+  Level 53: true
+  Level 54: true
+  Level 55: true
+  Level 56: true
+  Level 57: true
+  Level 58: true
+  Level 59: true
+  Level 60: true
+  Level 61: true
+  Level 62: true
+  Level 63: true
+  Level 64: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_13_Bits
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_13_LSBR
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block4_13_S
+Levels explored: 65
+Final invariant: (let ((a!1 (or ((_ bit2bool 0)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 50)
+                      (mantissa Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not ((_ bit2bool 0)
+              (mantissa Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+       a!1))
+  Level 0: true
+  Level 1: true
+  Level 2: false
+  Level 3: (and (<= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 0)
+     (not ((_ bit2bool 50)
+            Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_7_n)))
+  Level 4: (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 2))
+  Level 5: (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 3))
+  Level 6: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                4))
+       a!1))
+  Level 7: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (<= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                   0)
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                5))
+       a!1))
+  Level 8: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        2))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                6))
+       a!1))
+  Level 9: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        3))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                7))
+       a!1))
+  Level 10: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        4))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                8))
+       a!1))
+  Level 11: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        5))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                9))
+       a!1))
+  Level 12: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        6))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                10))
+       a!1))
+  Level 13: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        7))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                11))
+       a!1))
+  Level 14: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        8))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                12))
+       a!1))
+  Level 15: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        9))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                13))
+       a!1))
+  Level 16: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        10))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                14))
+       a!1))
+  Level 17: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        11))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                15))
+       a!1))
+  Level 18: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        12))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                16))
+       a!1))
+  Level 19: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        13))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                17))
+       a!1))
+  Level 20: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        14))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                18))
+       a!1))
+  Level 21: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        15))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                19))
+       a!1))
+  Level 22: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        16))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                20))
+       a!1))
+  Level 23: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        17))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                21))
+       a!1))
+  Level 24: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        18))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                22))
+       a!1))
+  Level 25: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        19))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                23))
+       a!1))
+  Level 26: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        20))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                24))
+       a!1))
+  Level 27: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        21))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                25))
+       a!1))
+  Level 28: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        22))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                26))
+       a!1))
+  Level 29: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        23))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                27))
+       a!1))
+  Level 30: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        24))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                28))
+       a!1))
+  Level 31: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        25))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                29))
+       a!1))
+  Level 32: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        26))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                30))
+       a!1))
+  Level 33: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        27))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                31))
+       a!1))
+  Level 34: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        28))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                32))
+       a!1))
+  Level 35: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        29))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                33))
+       a!1))
+  Level 36: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        30))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                34))
+       a!1))
+  Level 37: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        31))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                35))
+       a!1))
+  Level 38: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        32))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                36))
+       a!1))
+  Level 39: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        33))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                37))
+       a!1))
+  Level 40: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        34))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                38))
+       a!1))
+  Level 41: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        35))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                39))
+       a!1))
+  Level 42: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        36))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                40))
+       a!1))
+  Level 43: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        37))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                41))
+       a!1))
+  Level 44: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        38))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                42))
+       a!1))
+  Level 45: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        39))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                43))
+       a!1))
+  Level 46: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        40))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                44))
+       a!1))
+  Level 47: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        41))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                45))
+       a!1))
+  Level 48: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        42))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                46))
+       a!1))
+  Level 49: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        43))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                47))
+       a!1))
+  Level 50: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        44))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                48))
+       a!1))
+  Level 51: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        45))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                49))
+       a!1))
+  Level 52: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        46))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                50))
+       a!1))
+  Level 53: (let ((a!1 (or ((_ bit2bool 1)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 2)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               ((_ bit2bool 10)
+                 (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+               (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                        47))
+               (not ((_ bit2bool 4)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 3)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 5)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 6)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 7)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 8)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+               (not ((_ bit2bool 9)
+                      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))))
+  (and (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n
+                51))
+       a!1))
+  Level 54: (or ((_ bit2bool 1)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 2)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 10)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 48))
+    (not ((_ bit2bool 4)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 3)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 5)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 6)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 7)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 8)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 9)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))
+  Level 55: (or ((_ bit2bool 1)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 2)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 10)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 49))
+    (not ((_ bit2bool 4)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 3)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 5)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 6)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 7)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 8)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 9)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))
+  Level 56: (or ((_ bit2bool 1)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 2)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 10)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 50))
+    (not ((_ bit2bool 4)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 3)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 5)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 6)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 7)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 8)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 9)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))
+  Level 57: (or ((_ bit2bool 1)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 2)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    ((_ bit2bool 10)
+      (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))
+    (not (>= Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_8_n 51))
+    (not ((_ bit2bool 4)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 3)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 5)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 6)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 7)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 8)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n)))
+    (not ((_ bit2bool 9)
+           (exponent Main_void_mainJayArray_java_lang_String_Block4_13_S!slice!1_3_n))))
+  Level 58: true
+  Level 59: true
+  Level 60: true
+  Level 61: true
+  Level 62: true
+  Level 63: true
+  Level 64: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block6_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: Assert_#0_Main.java,_line_12
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_Block1
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_Block0
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_Block1_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_Block1_2
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_Block1_3
+Levels explored: 0
+Final invariant: true
+
+Predicate: inv_$StaticFields_Main_2
+Levels explored: 0
+Final invariant: true
+
+Predicate: JayHornAssertions_void_clinit_Block0
+Levels explored: 0
+Final invariant: true
+
+Predicate: JayHornAssertions_void_clinit_Block1
+Levels explored: 0
+Final invariant: true
+
+Predicate: JayHornAssertions_void_clinit_Block1_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: JayHornAssertions_void_clinit_Block1_2
+Levels explored: 0
+Final invariant: true
+
+Statistics:
+(:SPACER-inductive-level               58
+ :SPACER-max-depth                     63
+ :SPACER-max-query-lvl                 63
+ :SPACER-num-active-lemmas             125
+ :SPACER-num-ctp-blocked               2478
+ :SPACER-num-invariants                12
+ :SPACER-num-is_invariant              2680
+ :SPACER-num-lemmas                    1898
+ :SPACER-num-pobs                      61
+ :SPACER-num-propagations              20
+ :SPACER-num-queries                   1834
+ :added-eqs                            3739364
+ :arith-assert-diseq                   1481562
+ :arith-assert-lower                   1462390
+ :arith-assert-upper                   1729094
+ :arith-bound-prop                     314
+ :arith-conflicts                      102
+ :arith-eq-adapter                     13518
+ :arith-fixed-eqs                      2636
+ :arith-offset-eqs                     3510
+ :arith-pivots                         18
+ :bool-inductive-gen                   1827
+ :bool-inductive-gen-failures          3384
+ :bv-bit2core                          14547876
+ :bv-conflicts                         32
+ :bv-diseqs                            14
+ :bv-dynamic-diseqs                    8930
+ :bv-dynamic-eqs                       4672
+ :bv->core-eq                          1249772
+ :conflicts                            60428
+ :datatype-accessor-ax                 72
+ :datatype-constructor-ax              36
+ :datatype-occurs-check                85578
+ :decisions                            11822210
+ :del-clause                           66396
+ :final-checks                         18132
+ :iuc_solver.num_proxies               1751
+ :max-memory                           316.09
+ :memory                               297.71
+ :minimized-lits                       249524
+ :mk-bool-var                          1022321
+ :mk-clause                            312034
+ :num-allocs                           2791711416701.00
+ :num-checks                           42370
+ :pool_solver.checks                   21185
+ :pool_solver.checks.sat               9066
+ :propagations                         44757824
+ :restarts                             240
+ :rlimit-count                         137979246
+ :time.iuc_solver.get_iuc              2.37
+ :time.iuc_solver.get_iuc.hyp_reduce1  0.31
+ :time.iuc_solver.get_iuc.hyp_reduce2  0.87
+ :time.iuc_solver.get_iuc.learn_core   0.14
+ :time.pool_solver.proof               0.49
+ :time.pool_solver.smt.total           60.21
+ :time.pool_solver.smt.total.sat       45.79
+ :time.spacer.ctp                      0.12
+ :time.spacer.init_rules               0.01
+ :time.spacer.mbp                      1.16
+ :time.spacer.solve                    66.41
+ :time.spacer.solve.propagate          0.89
+ :time.spacer.solve.reach              65.52
+ :time.spacer.solve.reach.children     2.33
+ :time.spacer.solve.reach.gen.bool_ind 40.81)

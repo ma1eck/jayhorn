@@ -52,7 +52,6 @@ public class Main {
 //        Verifier.assume(a > 0);
         for (int i =0; i < 3;i++)
             a += 0.2500000000000002;
-
         assert  a != 2.75;
 
 

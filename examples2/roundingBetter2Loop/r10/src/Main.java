@@ -27,10 +27,10 @@ public class Main {
 		double x = 0.0;
 		while (Verifier.nondetBoolean()) {
 			int tries = 0;
-//			while (tries < 3 && x < 5.0) {
+			while (tries < 3 && x < 5.0) {
 				x = x + 1.0;
-//				tries = tries + 1;
-//			}
+				tries = tries + 1;
+			}
 			if (x >= 5.0) x = 0.0;
 		}
 		assert (x >= 0.0 && x <= 5.0);

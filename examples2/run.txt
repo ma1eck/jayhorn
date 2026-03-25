@@ -1,11 +1,11 @@
-Double_div_bad.i.p+cfa-reducer
+Float19
 
 compile:
-javac .\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\src\Main.java .\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\classes\
+javac .\examples2\C-SVCOM\Float19\src\Main.java .\examples2\C-SVCOM\Float19\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Float19\classes\
 
 
 config:
--j examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/classes -src examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\horn -print-horn
--j examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/classes -src examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\horn -print-horn
--j examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/classes -src examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\horn -print-horn
--j examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/classes -src examples2/C-SVCOM/Double_div_bad.i.p+cfa-reducer/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples2\C-SVCOM\Double_div_bad.i.p+cfa-reducer\horn -print-horn
+-j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
+-j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 

@@ -1,0 +1,104 @@
+
+
+=== RUN 1 ===
+[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
+[root] - Horn solver: eldarica
+[root] - Building CFG  ... 
+[root] - Safety Verification ... 
+[root] - Trying to verify with max explicit heap size 10
+[root] - ======== Round 1: heap size 1
+[root] - - Searching for counterexamples ...
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             60        43
+After eliminating fwd/bwd unreachable clauses (8ms):   55        39
+After partial evaluation (54ms):                       55        39
+After constraint simplification (70ms):                53        39
+After clause inlining (73ms):                          19        5
+After equality propagation (34ms):                     19        5
+After constant propagation (21ms):                     19        5
+After inlining ADT constructors (77ms):                19        5
+After constraint simplification (133ms):               19        5
+After clause inlining (2ms):                           19        5
+After eliminating fwd/bwd unreachable clauses (1ms):   19        5
+After slicing (29ms):                                  19        5
+After Boolean clause splitting (420ms):                28        5
+After equality propagation (20ms):                     28        5
+After constant propagation (30ms):                     28        5
+After constraint simplification (44ms):                28        5
+After clause inlining (1ms):                           28        5
+After eliminating fwd/bwd unreachable clauses (1ms):   28        5
+After slicing (3ms):                                   28        5
+After cloning of relation symbols (37ms):              28        5
+After shortening of clauses (1ms):                     28        5
+
+Total preprocessing time (ms): 1126
+
+Theories: Types, GroebnerMultiplicationValueEnumerator, GroebnerMultiplication, ModuloArithmetic, ADT(DoubleFloatingPoint)
+State hashing enabled
+Forward  constant and interval propagation ++++++++++++++
+
+Backward constant and interval propagation ++++++++++
+
+Unique satisfiable clauses: 17
+   1 clauses with 0 body literals
+   16 clauses with 1 body literals
+
+Starting CEGAR ...
+.......
+Found counterexample #1, refining ... (4and/0or)  20 -> 20 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0 = 1028.\as[bv[11]]
+.....
+Found counterexample #2, refining ... (4and/0or)  37 -> 37 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp_3_0 = 6117682696945664.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_2_0 = 6117682696945664.\as[bv[53]]
+...............
+Found counterexample #3, refining ... (8and/0or)  105 -> 105 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp_2_0 = 2047.\as[bv[11]]
+
+Found counterexample #4, refining ... (8and/0or)  101 -> 101 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp_3_0 = 5629499534213120.\as[bv[53]]
+
+Found counterexample #5, refining ... (8and/0or)  122 -> 122 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp_2_0 = 1028.\as[bv[11]]
+..............
+Found counterexample #6, refining ... (8and/0or)  117 -> 117 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block2_1-FCmpResult_exp_3_0 != 6613711023725042.\as[bv[53]]
+.............
+Found counterexample #7, refining ... (8and/0or)  116 -> 116 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block4_13_exp: \exists int v0; (v0 != 0 & <Main: void main(JayArray_java_lang_String)>_Block4_13_exp_2_0[53:53] = v0)
+............
+Found counterexample #8, refining ... (8and/0or)  ... failed, counterexample is genuine
+
+--------------------------------- Statistics -----------------------------------
+CEGAR iterations:                                      8
+Total CEGAR time (ms):                                 4553
+Setup time (ms):                                       1999
+Final number of abstract states:                       5
+Final number of matched abstract states:               9
+Final number of abstract edges:                        15
+Number of generated predicates:                        8
+Average predicate size (# of sub-formulas):            1.13
+Predicate generation time (ms):                        1056
+Number of implication checks:                          115
+
+Number of implication checks (setup):                  77
+Number of implication checks (positive):               24
+Number of implication checks (negative):               14
+Time for implication checks (setup, ms):               838
+Time for implication checks (positive, ms):            14
+Time for implication checks (negative, ms):            304
+
+Number of models in hasher:                            11
+Number of hasher evals:                                261
+Time for hasher eval:                                  58
+Hasher hits/misses:                                    108/44 (71%)
+--------------------------------------------------------------------------------
+
+Eldarica takes 5701ms to check the given benchmark!
+[root] - Program is UNSAFE
+UNSAFE

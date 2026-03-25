@@ -1,8 +1,8 @@
-Zonotope_loose
+floatNaN
 
 compile:
-javac .\examples\Zonotope_loose\src\Main.java .\examples\Zonotope_loose\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\Zonotope_loose\classes\
+javac .\examples\floatNaN\src\Main.java .\examples\floatNaN\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatNaN\classes\
 
 
 config: 
--j examples/Zonotope_loose/classes -src examples/Zonotope_loose/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\Zonotope_loose\horn -print-horn
+-j examples/floatNaN/classes -src examples/floatNaN/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatNaN\horn -print-horn

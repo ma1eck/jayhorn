@@ -86,7 +86,7 @@ public class Main {
 
         double a=2.0;//Verifier.nondetDouble();
         double b = Verifier.nondetDouble();
-        Verifier.assume(b > 0);
+//        Verifier.assume(b > 0);
         for (int i =0; i < 3;i++)
             a += b;/*1.1920928984684068E-7 ;*/
 

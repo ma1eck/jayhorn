@@ -13,12 +13,12 @@ CSV_FILE_PATH = 'roundingBetter2Loop_benchmark_result.csv'
 
 SOLVER = "spacer"
 
-TIMEOUT_SECONDS = 30 * 60
-MAX_WORKERS = 1
+TIMEOUT_SECONDS = 8 * 60
+MAX_WORKERS = 4
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
-ENCODINGS = [LOOP_BASED,LOOP_FREE]
+ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
 CEX_DIR_NAME = "counter examples or models"
 
@@ -26,11 +26,11 @@ GET_CEX = False
 
 SKIP_TIMEOUTS = False
 
-NUMBER_OF_REPETITION = 5
+NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
 
-selected_benchmark = ["r9"]
+selected_benchmark = ["f-f3"]
 
 
 def run_benchmark(task_info):
@@ -99,8 +99,8 @@ def run_benchmark(task_info):
 
                 for line in run_stdout.splitlines():
 
-                    if "Spacer takes" in line:
-                        match = re.search(r'Spacer takes\s+([\d.]+)\s*(\S+)', line)
+                    if " takes" in line:
+                        match = re.search(r' takes\s+([\d.]+)\s*(\S+)', line)
                         if match:
                             val = float(match.group(1))
                             unit = match.group(2).lower()

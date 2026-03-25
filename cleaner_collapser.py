@@ -1,7 +1,7 @@
 import pandas as pd
 
-input_file = "benchmark_results2.csv"
-output_file = "benchmark_results_cleaned.csv"
+input_file = "rounding_benchmark_results.csv"
+output_file = "rounding_benchmark_results_cleaned.csv"
 
 # Read the CSV (comma separated since csv.writer was used)
 df = pd.read_csv(input_file)
@@ -14,6 +14,7 @@ df["Normalization"] = df["Normalization"].str.strip()
 
 # Sort rows
 df = df.sort_values(by=["Benchmark Name", "Rounding", "Normalization"])
+# print(df)
 
 # Pivot table so each (rounding, normalization) combination becomes columns
 pivot_df = df.pivot(

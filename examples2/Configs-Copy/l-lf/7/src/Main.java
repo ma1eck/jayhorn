@@ -43,9 +43,6 @@ public class Main {
 //        Verifier.assume(a > 0);
         for (int i=0; i < 5; i++)
             a *= 2.0;
-
-
-
         assert a+2.0  != 4.0;
 
 

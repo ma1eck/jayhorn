@@ -1,3 +1,6 @@
+
+
+=== RUN 1 ===
 [root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
 [root] - Horn solver: spacer
 [root] - Building CFG  ... 
@@ -17,7 +20,7 @@ Arg 0.0 of type DoubleType cannot be assigned to type java.lang.Double
 	at soottocfg.soot.SootToCfg.run(SootToCfg.java:158)
 	at jayhorn.Main.safetyAnalysis(Main.java:63)
 	at jayhorn.Main.main(Main.java:129)
-2026-03-17 13:48:11,386 ERROR (main) [root] - java.lang.RuntimeException: Type mismatch:
+2026-03-20 13:18:19,264 ERROR (main) [root] - java.lang.RuntimeException: Type mismatch:
 $ex_ := call <JayArray_double: void set(int,double)>($r1, 0)
 At position 2:
 Arg 0.0 of type DoubleType cannot be assigned to type java.lang.Double

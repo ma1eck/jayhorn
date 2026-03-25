@@ -9,10 +9,10 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 BASE_DIRS = [r"examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
-CSV_FILE_PATH = 'unbounded_benchmark_results_small.csv'
+CSV_FILE_PATH = 'unbounded_benchmark_results.csv'
 
-TIMEOUT_SECONDS =  5*60
-MAX_WORKERS = 1
+TIMEOUT_SECONDS =  8*60
+MAX_WORKERS = 4
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
@@ -24,7 +24,7 @@ GET_CEX = False
 
 SKIP_TIMEOUTS = False
 
-NUMBER_OF_REPETITION = 10
+NUMBER_OF_REPETITION = 3
 AVERAGING = NUMBER_OF_REPETITION > 1
 
 selected_benchmarks = ["Inner-Retry-Until-OK"]
@@ -41,7 +41,7 @@ def run_benchmark(task_info):
 
     if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
         return None
-    if not folder_name in selected_benchmarks:
+    if len(selected_benchmarks)!=0 and not folder_name in selected_benchmarks:
         return None
 
     cmd = [

@@ -7,16 +7,16 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # --- CONFIGURATION ---
 BASE_DIRS = [
-# r"examples2\Configs-Copy\l-l",
-            #  r"examples2\Configs-Copy\l-lf",
+r"examples2\Configs-Copy\l-l",
+             r"examples2\Configs-Copy\l-lf",
              r"examples2\Configs-Copy\lf-l",
-            #  r"examples2\Configs-Copy\lf-lf",
+             r"examples2\Configs-Copy\lf-lf",
              ]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'Configs_copy_benchmark_result.csv'
 
-TIMEOUT_SECONDS = 1 * 60
+TIMEOUT_SECONDS = 5 * 60
 MAX_WORKERS = 1
 
 LOOP_BASED = "loop-based"
@@ -29,11 +29,11 @@ GET_CEX = False
 
 SKIP_TIMEOUTS = False
 
-NUMBER_OF_REPETITION = 5
+NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
 
-selected_benchmark = []
+selected_benchmark = ["10"]
 
 
 def run_benchmark(task_info):

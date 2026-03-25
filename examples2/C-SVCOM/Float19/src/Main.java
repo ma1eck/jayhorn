@@ -20,8 +20,15 @@ public class Main
 
 	  float f = Verifier.nondetFloat();
 
-	  f00(f);
+//	  f00(f);
 
 
+		if (f > 0x1.fffffeP+127f)
+		{
+			if (!Float.isInfinite(f))
+			{
+				assert false;
+			}
+		}
 	}
 }
