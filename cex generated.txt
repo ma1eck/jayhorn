@@ -1,7 +1,4 @@
-(Main_void_mainJayArray_java_lang_String_Block1_10!slice!12
-  0
-  2
-  (FloatingPoint false #xff #x800001 false false))Total rules: 48
+trueTotal rules: 47
 
 Predicate: Main_void_mainJayArray_java_lang_String_pre
 Levels explored: 0
@@ -27,11 +24,15 @@ Predicate: JayHornAssertions_void_clinit_post
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block3
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_pre
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block4
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_post
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block1
 Levels explored: 0
 Final invariant: true
 
@@ -39,11 +40,11 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block0
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block2
+Predicate: Main_void_mainJayArray_java_lang_String_Block3
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block1
+Predicate: Main_void_mainJayArray_java_lang_String_Block2
 Levels explored: 0
 Final invariant: true
 
@@ -83,23 +84,7 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block1_8
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block1_9
-Levels explored: 0
-Final invariant: true
-
-Predicate: Assert_#0_Main.java,_line_21
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block1_10
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block1_9_11
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block1_9_12
+Predicate: Assert_#0_Main.java,_line_16
 Levels explored: 0
 Final invariant: true
 
@@ -107,23 +92,7 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block3_1
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_2
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3
-Levels explored: 0
-Final invariant: true
-
-Predicate: Assert_#1_Main.java,_line_28
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block4_1
-Levels explored: 0
-Final invariant: true
-
-Predicate: Assert_#2_Main.java,_line_30
+Predicate: Assert_#1_Main.java,_line_20
 Levels explored: 0
 Final invariant: true
 
@@ -167,43 +136,59 @@ Predicate: JayHornAssertions_void_clinit_Block1_2
 Levels explored: 0
 Final invariant: true
 
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block0
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block2
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block3
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block1
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block0_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block0_2
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block1_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block2_1
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block2_2
+Levels explored: 0
+Final invariant: true
+
+Predicate: java.lang.Boolean_java.lang.Boolean_valueOfboolean_Block2_3
+Levels explored: 0
+Final invariant: true
+
+Predicate: inv_javalangBoolean_104
+Levels explored: 0
+Final invariant: true
+
 Statistics:
-(:SPACER-cex-depth               1
- :SPACER-max-depth               1
- :SPACER-max-query-lvl           1
- :SPACER-num-active-lemmas       1
- :SPACER-num-lemmas              5
- :SPACER-num-pobs                1
- :SPACER-num-queries             2
- :SPACER-num-reach-queries       1
- :SPACER-num-reuse-reach-facts   1
- :added-eqs                      127
- :arith-assert-diseq             12
- :arith-assert-lower             28
- :arith-assert-upper             8
- :arith-eq-adapter               18
- :bv-bit2core                    305
- :bv-dynamic-diseqs              10
- :bv->core-eq                    8
- :conflicts                      20
- :datatype-accessor-ax           8
- :datatype-constructor-ax        4
- :datatype-occurs-check          8
- :decisions                      155
- :del-clause                     15
- :final-checks                   4
- :max-memory                     10.10
- :memory                         7.16
- :mk-bool-var                    758
- :mk-clause                      888
- :num-allocs                     18164094
- :num-checks                     13
- :pool_solver.checks             11
- :pool_solver.checks.sat         3
- :propagations                   498
- :rlimit-count                   22202
- :time.pool_solver.smt.total     0.01
- :time.pool_solver.smt.total.sat 0.00
- :time.spacer.init_rules         0.00
- :time.spacer.solve              0.01
- :time.spacer.solve.reach        0.01)
+(:SPACER-num-pobs        1
+ :final-checks           2
+ :max-memory             6.01
+ :memory                 3.27
+ :mk-bool-var            15
+ :num-allocs             4850622
+ :num-checks             2
+ :pool_solver.checks     1
+ :pool_solver.checks.sat 1
+ :rlimit-count           4129
+ :time.spacer.init_rules 0.00)

@@ -34,12 +34,12 @@ public class SpacerFloatingPointADTFactory implements FloatingPointADTFactory {
                         BoolType.INSTANCE,    // sign
                         exponentType,         // exponent
                         mantissaType,         // mantissa
-                        BoolType.INSTANCE,    // isNan
-                        BoolType.INSTANCE,    // isInfinity
+//                        BoolType.INSTANCE,    // isNan
+//                        BoolType.INSTANCE,    // isInfinity
 //                        BoolType.INSTANCE,    // OVF (overflow)
 //                        BoolType.INSTANCE     // UDF (underflow)
                 },
-                new String[]{"sign", "exponent", "mantissa", "isNan", "isInfinity"/*, "OVF", "UDF"*/}
+                new String[]{"sign", "exponent", "mantissa",/* "isNan", "isInfinity", "OVF", "UDF"*/}
         );
     }
 }

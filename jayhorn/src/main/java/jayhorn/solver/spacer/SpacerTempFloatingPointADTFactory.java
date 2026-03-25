@@ -37,12 +37,12 @@ public class SpacerTempFloatingPointADTFactory implements TempFloatingPointADTFa
                         BoolType.INSTANCE,    // sign
                         exponentType,         // exponent
                         mantissaType,         // mantissa
-                        BoolType.INSTANCE,    // isNan
-                        BoolType.INSTANCE,    // isInfinity
+//                        BoolType.INSTANCE,    // isNan
+//                        BoolType.INSTANCE,    // isInfinity
 //                        BoolType.INSTANCE,    // OVF (overflow)
 //                        BoolType.INSTANCE     // UDF (underflow)
                 },
-                new String[]{"esign", "eexponent", "emantissa", "eisNan", "eisInfinity"/*, "eOVF", "eUDF"*/}
+                new String[]{"esign", "eexponent", "emantissa", /*"eisNan", "eisInfinity", "eOVF", "eUDF"*/}
         );
     }
 }
