@@ -159,9 +159,11 @@ public interface Prover {
 	ProverExpr mkBVLeq(ProverExpr left, ProverExpr right);
 
 	ProverExpr mkBVUge(ProverExpr left, ProverExpr right);
+	ProverExpr mkBVSge(ProverExpr left, ProverExpr right);
 	ProverExpr mkBVUle(ProverExpr left, ProverExpr right);
 
 	ProverExpr mkBVUlt(ProverExpr left, ProverExpr right);
+	ProverExpr mkBVSlt(ProverExpr left, ProverExpr right);
 	ProverExpr mkBVUgt(ProverExpr left, ProverExpr right);
 
 	ProverExpr mkLt(ProverExpr left, ProverExpr right);

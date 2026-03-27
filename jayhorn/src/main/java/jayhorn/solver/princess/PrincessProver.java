@@ -558,6 +558,9 @@ public class PrincessProver implements Prover {
     public ProverExpr mkBVUge(ProverExpr left, ProverExpr right) {
         return  new FormulaExpr(ModuloArithmetic.bvuge(((TermExpr) left).term, ((TermExpr) right).term));
     }
+    public ProverExpr mkBVSge(ProverExpr left, ProverExpr right) {
+        return  new FormulaExpr(ModuloArithmetic.bvsge(((TermExpr) left).term, ((TermExpr) right).term));
+    }
     public ProverExpr mkBVUle(ProverExpr left, ProverExpr right)
     {
         return  new FormulaExpr(ModuloArithmetic.bvule(((TermExpr) left).term, ((TermExpr) right).term));
@@ -565,6 +568,10 @@ public class PrincessProver implements Prover {
     public ProverExpr mkBVUlt(ProverExpr left, ProverExpr right)
     {
         return  new FormulaExpr(ModuloArithmetic.bvult(((TermExpr) left).term, ((TermExpr) right).term));
+    }
+    public ProverExpr mkBVSlt(ProverExpr left, ProverExpr right)
+    {
+        return  new FormulaExpr(ModuloArithmetic.bvslt(((TermExpr) left).term, ((TermExpr) right).term));
     }
     public ProverExpr mkBVUgt(ProverExpr left, ProverExpr right)
     {

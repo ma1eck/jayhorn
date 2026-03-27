@@ -1,3 +1,18 @@
 
 
-=== RUN 1 TIMEOUT ===
+=== RUN 1 ===
+[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
+[root] - Horn solver: spacer
+[root] - Building CFG  ... 
+[root] - Safety Verification ... 
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+[root] - Checking properties
+java.lang.RuntimeException: out of memory
+	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1420)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:160)
+	at jayhorn.Main.safetyAnalysis(Main.java:72)
+	at jayhorn.Main.main(Main.java:129)
+2026-03-27 15:17:23,362 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: out of memory
+UNKNOWN

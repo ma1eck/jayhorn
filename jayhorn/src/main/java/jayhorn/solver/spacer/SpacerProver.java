@@ -711,6 +711,14 @@ public class SpacerProver implements Prover {
 		}
 	}
 	@Override
+	public ProverExpr mkBVSge(ProverExpr left, ProverExpr right) {
+		try {
+			return new SpacerBoolExpr(ctx.mkBVSGE( (BitVecExpr) unpack(left), (BitVecExpr) unpack(right)));
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+	@Override
 	public ProverExpr mkBVUle(ProverExpr left, ProverExpr right)
 	{
 		try {
@@ -724,6 +732,15 @@ public class SpacerProver implements Prover {
 	{
 		try {
 			return new SpacerBoolExpr(ctx.mkBVULT( (BitVecExpr) unpack(left), (BitVecExpr) unpack(right)));
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+	@Override
+	public ProverExpr mkBVSlt(ProverExpr left, ProverExpr right)
+	{
+		try {
+			return new SpacerBoolExpr(ctx.mkBVSLT( (BitVecExpr) unpack(left), (BitVecExpr) unpack(right)));
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}

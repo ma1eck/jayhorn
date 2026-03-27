@@ -1,11 +1,11 @@
-Float19
+interpolation
 
 compile:
-javac .\examples2\C-SVCOM\Float19\src\Main.java .\examples2\C-SVCOM\Float19\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\Float19\classes\
+javac .\examples2\C-SVCOM\interpolation\src\Main.java .\examples2\C-SVCOM\interpolation\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\interpolation\classes\
 
 
 config:
--j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
--j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
--j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
--j examples2/C-SVCOM/Float19/classes -src examples2/C-SVCOM/Float19/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
+-j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 

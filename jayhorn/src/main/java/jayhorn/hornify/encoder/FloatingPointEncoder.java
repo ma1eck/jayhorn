@@ -1026,6 +1026,153 @@ public class FloatingPointEncoder {
         return clauses;
     }
 
+    public List<ProverHornClause> castFloatToDoubleFloatingPointNew(ProverExpr floatExpr,IdentifierExpression idDouble ,Map<Variable, ProverExpr> varMap,HornPredicate postPred,HornPredicate prePred,ProverExpr preAtom)
+    {
+        int eDouble = 11, fDouble = 53;
+        List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
+
+        ProverTupleExpr floatTExpr = (ProverTupleExpr)floatExpr;
+
+        ProverExpr singlefp = floatTExpr.getSubExpr(3);
+
+        ProverExpr sign = floatingPointADT.mkSelExpr(0, 0, singlefp);
+        ProverExpr exponent = floatingPointADT.mkSelExpr(0, 1, singlefp);
+        ProverExpr mantissa = floatingPointADT.mkSelExpr(0, 2, singlefp);
+
+        Variable signVar;
+        if (p instanceof SpacerProver) {
+            signVar = new Variable("sign",  BoolType.instance());
+        }else {
+            signVar = new Variable("sign",  IntType.instance());
+        }
+        Variable exponentVar = new Variable("exponent",  Type.instance(), eDouble);
+        Variable mantissaVar = new Variable("mantissa",  Type.instance(), fDouble);
+
+        List<Variable> postPred1Vars = new ArrayList<>(prePred.variables);
+        postPred1Vars.add(signVar);
+        postPred1Vars.add(exponentVar);
+        postPred1Vars.add(mantissaVar);
+        varMap.put(signVar,sign);
+        varMap.put(exponentVar,
+                p.mkIte(
+                        p.mkEq(exponent,p.mkBV(255,8)), p.mkBV(2047,11),
+                        p.mkBVPlus(
+                                p.mkBVZeroExtend(3,exponent,8),
+                                p.mkBV(1023 - 127 ,11),
+                                11
+                        )));
+        varMap.put(mantissaVar,
+                p.mkBVConcat(mantissa,p.mkBV(0,29),53));
+
+        HornHelper.hh().findOrCreateProverVar(p, postPred1Vars, varMap);
+        HornPredicate postPred1 = new HornPredicate(p, prePred.name + "_111", postPred1Vars);
+
+        ProverExpr postAtom1 = postPred1.instPredicate(varMap);
+        ProverExpr Cond = p.mkLiteral(true);
+        clauses.add(p.mkHornClause(postAtom1, new ProverExpr[]{preAtom}, Cond));
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred1.variables, varMap);
+        postAtom1 = postPred1.instPredicate(varMap);
+
+
+        ProverExpr leadingZeroC = p.mkVariable("leadingZeroC",p.getBVType(fDouble));
+        Variable lzcount = new Variable("lzcount",  Type.instance(),fDouble);
+
+        Cond = p.mkEq(p.mkBVExtract(eDouble-1, eDouble-1, varMap.get(exponentVar)) , p.mkBV(0, 1));
+        ProverExpr shiftedMantissa = p.mkBVlshr(p.mkBVshl(varMap.get(mantissaVar),leadingZeroC,fDouble),leadingZeroC,fDouble);
+        Variable tmpMantissa = new Variable("tmpMantissa",  Type.instance(),fDouble);
+        varMap.put(tmpMantissa, shiftedMantissa);
+        varMap.put(lzcount,leadingZeroC);
+
+        List<Variable> postPred7Vars = new ArrayList<>(postPred1Vars);
+        postPred7Vars.add(tmpMantissa);
+        postPred7Vars.add(lzcount);
+        HornPredicate postPred7 = new HornPredicate(p, prePred.name + "_177", postPred7Vars);
+        ProverExpr postAtom7 = postPred7.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom7, new ProverExpr[]{postAtom1}, Cond));
+
+        //Not require normalization
+        Cond = p.mkEq(p.mkBVExtract(eDouble-1, eDouble-1, varMap.get(exponentVar)) , p.mkBV(1, 1));
+
+
+
+        ProverExpr floatingPointADTExpr = expEncoder.getDoubleFloatingPointEnCoder().mkDoublePE(
+                varMap.get(signVar), //sign
+                varMap.get(exponentVar),//exponent
+                varMap.get(mantissaVar)//mantissa
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        ProverExpr idDoubleExpr = varMap.get(idDouble.getVariable());
+        ProverTupleExpr idDoubleTExpr = (ProverTupleExpr)  idDoubleExpr;
+        ProverExpr resultExpr = p.mkTupleUpdate(idDoubleTExpr,3, floatingPointADTExpr );
+        varMap.put(idDouble.getVariable(),resultExpr);
+
+        ProverExpr postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom1}, Cond));
+
+        varMap = new HashMap<Variable, ProverExpr>();
+
+        HornHelper.hh().findOrCreateProverVar(p, postPred7.variables, varMap);
+        postAtom7 = postPred7.instPredicate(varMap);
+
+        Cond = p.mkAnd(
+                p.mkEq(
+                        p.mkBVAND(
+                                p.mkBVlshr(
+                                        varMap.get(mantissaVar),
+
+                                        p.mkBVSub(
+                                                p.mkBV(fDouble-1,fDouble) ,
+                                                varMap.get(lzcount),
+                                                fDouble
+                                        )
+
+                                        , fDouble
+                                ),
+                                p.mkBV(1,fDouble),
+                                fDouble
+                        ),
+                        p.mkBV(1,fDouble)
+                ),
+                p.mkEq(varMap.get(tmpMantissa),varMap.get(mantissaVar))
+        );
+
+//        floatingPointADTExpr = expEncoder.getDoubleFloatingPointEnCoder().mkDoublePE(
+//                varMap.get(signVar), //sign
+//                p.mkBVSub(
+//                        varMap.get(exponentVar),
+//                        p.mkBVExtract(eDouble-1, 0, p.mkBVSub(varMap.get(lzcount),p.mkBV(1,fDouble),fDouble)), eDouble),
+//                p.mkBVshl(
+//                        varMap.get(mantissaVar),
+//                        p.mkBVSub(varMap.get(lzcount),p.mkBV(1,fDouble),fDouble),
+//                        fDouble
+//                )//mantissa
+//        );
+        floatingPointADTExpr = expEncoder.getDoubleFloatingPointEnCoder().mkDoublePE(
+                varMap.get(signVar), //sign
+                p.mkBVSub(
+                        varMap.get(exponentVar),
+                        p.mkBVExtract(eDouble-1, 0, varMap.get(lzcount)), eDouble),
+                p.mkBVshl(
+                        varMap.get(mantissaVar),
+                        varMap.get(lzcount),
+                        fDouble
+                )//mantissa
+        );
+
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idDoubleExpr = varMap.get(idDouble.getVariable());
+        idDoubleTExpr = (ProverTupleExpr)  idDoubleExpr;
+        resultExpr = p.mkTupleUpdate(idDoubleTExpr,3, floatingPointADTExpr);
+        varMap.put(idDouble.getVariable(),resultExpr);
+
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom7}, Cond));
+
+        return clauses;
+    }
+
     public List<ProverHornClause> castFloatToDoubleFloatingPoint(ProverExpr floatExpr,IdentifierExpression idDouble ,Map<Variable, ProverExpr> varMap,HornPredicate postPred,HornPredicate prePred,ProverExpr preAtom)
     {
         List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
@@ -1532,8 +1679,8 @@ public class FloatingPointEncoder {
         ProverExpr rightmantissa = floatingPointADT.mkSelExpr(0, 2, tRight.getSubExpr(3));
 
         // lf is NaN or rf is NaN
-        varMap.put(idLhs.getVariable(), p.mkLiteral(2)/*thenExpr*/);
-//        varMap.put(idLhs.getVariable(), p.mkLiteral(-1)/*thenExpr*/);  //TODO: recheck. can we say that (NaN <= a) == false?????
+//        varMap.put(idLhs.getVariable(), p.mkLiteral(2)/*thenExpr*/);
+        varMap.put(idLhs.getVariable(), p.mkLiteral(-1)/*thenExpr*/);  //TODO: recheck. can we say that (NaN <= a) == false?????
         ProverExpr postAtom = postPred.instPredicate(varMap);
 
         ProverExpr Cond = p.mkOr(
@@ -8646,7 +8793,7 @@ public class FloatingPointEncoder {
 
         return clauses;
     }
-    public List<ProverHornClause>  FPMul(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+    public List<ProverHornClause>  FPMulOld(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
     {
         Map<Variable, ProverExpr> initialVarMap = new HashMap<>(varMap);
         List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
@@ -8667,10 +8814,6 @@ public class FloatingPointEncoder {
         ProverExpr leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
         ProverExpr leftSign = floatingPointADT.mkSelExpr(0, 0, lFP);
         ProverExpr leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
-        //ProverExpr leftIsNan = floatingPointADT.mkSelExpr(0, 3, lFP);
-        //ProverExpr leftIsInf = floatingPointADT.mkSelExpr(0, 4, lFP);
-        //ProverExpr leftOVF = floatingPointADT.mkSelExpr(0, 5, lFP);
-        //ProverExpr leftUDF = floatingPointADT.mkSelExpr(0, 6, lFP);
         ProverExpr rightSign = floatingPointADT.mkSelExpr(0, 0, rFP);
         ProverExpr rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
         ProverExpr rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
@@ -8681,9 +8824,8 @@ public class FloatingPointEncoder {
                 p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)))),// TODO: recheck
                 p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))// TODO: recheck
         );
-        ProverExpr resultFP = mkDoublePE(p.mkCustomFalse(),  // TODO: recheck
+        ProverExpr resultFP = mkDoublePE(p.mkCustomFalse(),
                 p.mkBV(2*bias+1,e),
-
                 p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
         );
         HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
@@ -8705,9 +8847,8 @@ public class FloatingPointEncoder {
                         p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
                 )
         );
-        resultFP = mkDoublePE(p.mkCustomFalse(), // TODO: recheck
+        resultFP = mkDoublePE(p.mkCustomFalse(),
                 p.mkBV(2*bias+1,e),
-
                 p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
         );
         HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
@@ -8747,11 +8888,11 @@ public class FloatingPointEncoder {
         Cond1 =
                 p.mkAnd(
                         p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1))))), // not NaN
-                        p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftExponent,p.mkBV(0,e)))), //todo: recheck. the last e was f //Not 0
+                        p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)))),  //Not 0
                         p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1)) // rf = Inf
                 );
         resultFP = mkDoublePE(
-                p.mkIte(p.mkEq(leftSign,rightSign),leftSign,p.mkCustomTrue()),
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
                 p.mkBV(2*bias+1,e),
                 p.mkBV(0,f)
         );
@@ -8769,11 +8910,11 @@ public class FloatingPointEncoder {
                 p.mkAnd(
                         p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)), // lf = Inf
                         p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))), // not NaN
-                        p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightExponent,p.mkBV(0,e)))) //todo: recheck. the last e was f //Not 0
+                        p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f)))) //Not 0
 
                 );
         resultFP = mkDoublePE(
-                p.mkIte(p.mkEq(leftSign,rightSign),leftSign,p.mkCustomTrue()),
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
                 p.mkBV(2*bias+1,e),
                 p.mkBV(0,f)
         );
@@ -8786,58 +8927,10 @@ public class FloatingPointEncoder {
         clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
 
 
-        // ProverExpr idLhsExpr = varMap.get(idLhs.getVariable());
-        //ProverTupleExpr idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
-
-       /* ProverExpr Cond = existNaNFun(lFP,rFP); //existNaN
-
-
-        ProverExpr mulResult =p.mkTupleUpdate(idLhsTExpr,3,
-                p.mkIte(
-                        isNaN(rFP),
-                        makeNaNFun(lFP),
-                        lFP
-                )
-        );
-        varMap.put(idLhs.getVariable(),mulResult);
-        ProverExpr postAtom = postPred.instPredicate(varMap);
-        // clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond)); // postAtom(NaN) <-- existNaN(lFP, rFP)
-*/
-      /*  Cond = p.mkAnd(
-                existInfFun(lFP,rFP),
-                existZeroFun(lFP,rFP)
-        );
-        mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeNaNFun(lFP));
-        varMap.put(idLhs.getVariable(),mulResult);
-        postAtom = postPred.instPredicate(varMap);
-        // clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond)); // postAtom(NaN) <-- existInf(lFP, rFP) & existZero(lFP, rFP)
-
-        Cond = p.mkAnd(
-                existInfFun(lFP,rFP),
-                p.mkNot(existZeroFun(lFP,rFP)),
-                isNegFun(rFP)
-        );
-        mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeInfFun(negateFun(lFP)));
-        varMap.put(idLhs.getVariable(),mulResult);
-        postAtom = postPred.instPredicate(varMap);
-        // clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond)); //postAtom(makeInf(negate(lFP))) <-- existInf(lFP, rFP) & !existZero(lFP, rFP) & isNeg(rFP)
-*/
-       /* Cond = p.mkAnd(
-                existInfFun(lFP,rFP),
-                p.mkNot(existZeroFun(lFP,rFP)),
-                p.mkNot(isNegFun(rFP))
-        );
-        mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeInfFun(lFP));
-        varMap.put(idLhs.getVariable(),mulResult);
-        postAtom = postPred.instPredicate(varMap);
-        // clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond)); //postAtom(makeInf(lFP)) <-- existInf(lFP, rFP) & !existZero(lFP, rFP) & !isNeg(rFP)
-
-*/
-
 //        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
         varMap = new HashMap<Variable, ProverExpr>();
         // First create the atom for prePred.
-        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap); // don't like this
+        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap);
         // ProverExpr postAtom11_1 = postPred11.instPredicate(varMap);
         preAtom = prePred.instPredicate(varMap);
 
@@ -8862,7 +8955,7 @@ public class FloatingPointEncoder {
 
         rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
         rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
-        //TODO: recheck ee0 
+        //TODO: recheck ee0
         ProverExpr leftePlusrighte_Sub_1023_0 =
                 /*p.mkBVPlus(
                 p.mkBVPlus(p.mkBVZeroExtend(1,leftExponent,this.e), p.mkBVZeroExtend(1,rightExponent,this.e),this.e+1),
@@ -9269,6 +9362,1469 @@ public class FloatingPointEncoder {
 
         return clauses;
     }
+
+    public List<ProverHornClause>  FPMulNew1(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+//    public List<ProverHornClause>  FPMul(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+    {
+        Map<Variable, ProverExpr> initialVarMap = new HashMap<>(varMap);
+        List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
+
+        final ProverExpr internalFloat = selectFloatingPoint(FPExpr, varMap);
+        if (internalFloat == null)
+            return null;
+
+        ProverExpr left = expEncoder.exprToProverExpr(FPExpr, varMap);
+
+        ProverExpr right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        ProverTupleExpr tLeft = (ProverTupleExpr)left;
+        ProverTupleExpr tRight = (ProverTupleExpr)right;
+
+        ProverExpr lFP = tLeft.getSubExpr(3);
+        ProverExpr rFP = tRight.getSubExpr(3);
+
+        ProverExpr leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        ProverExpr leftSign = floatingPointADT.mkSelExpr(0, 0, lFP);
+        ProverExpr leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        ProverExpr rightSign = floatingPointADT.mkSelExpr(0, 0, rFP);
+        ProverExpr rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        ProverExpr rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // NaN + a or a + NaN --> result = NAN
+
+        ProverExpr Cond1 = p.mkOr(
+                p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)))),// TODO: recheck
+                p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))// TODO: recheck
+        );
+        ProverExpr resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        ProverExpr idLhsExpr = varMap.get(idLhs.getVariable());
+        ProverExpr idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        ProverExpr result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        ProverExpr postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // inf * 0 or 0 * Inf --> result = NAN
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+                )
+        );
+        resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * 0 or 0 * a & a not is NaN or Inf --> result = 0
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))), // not NaN or Inf
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e))) // not NaN or Inf
+                )
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),leftSign,p.mkCustomTrue()),
+                p.mkBV(0,e),
+                p.mkBV(0,f)
+
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * Inf & a not is 0 or NaN--> result = Inf
+        Cond1 =
+                p.mkAnd(
+                        p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1))))), // not NaN
+                        p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)))),  //Not 0
+                        p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1)) // rf = Inf
+                );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+
+        // Inf * a & a not is 0 or NaN--> result = Inf
+        Cond1 =
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)), // lf = Inf
+                        p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))), // not NaN
+                        p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f)))) //Not 0
+
+                );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap);
+        // ProverExpr postAtom11_1 = postPred11.instPredicate(varMap);
+        preAtom = prePred.instPredicate(varMap);
+
+
+        Variable resultSignVar;
+        if (p instanceof SpacerProver) {
+            resultSignVar = new Variable("resultSignVar", BoolType.instance()); //Todo: recheck didn't make new method for spacer.
+        }else {
+            resultSignVar = new Variable("resultSignVar", IntType.instance());
+        }
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+
+        leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        ProverExpr leftmantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+
+        rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+        //TODO: recheck ee0
+        ProverExpr leftePlusrighte_Sub_1023_0 =
+                /*p.mkBVPlus(
+                p.mkBVPlus(p.mkBVZeroExtend(1,leftExponent,this.e), p.mkBVZeroExtend(1,rightExponent,this.e),this.e+1),
+                p.mkBVZeroExtend(1,p.mkBVNeg(p.mkBV(this.bias, this.e),this.e),this.e),
+                        this.e+1);*/
+                p.mkBVSub(
+                        p.mkBVPlus(p.mkBVZeroExtend(2,leftExponent,this.e), p.mkBVZeroExtend(2,rightExponent,this.e),this.e+2), // todo recheck
+                        p.mkBVZeroExtend(2,p.mkBV(this.bias, this.e),this.e),
+                        this.e+2);
+//        ProverExpr leftePlusrighte_Sub_1023 =
+//                p.mkBVExtract(e, 0, leftePlusrighte_Sub_1023_0);
+
+
+        ProverExpr leftS_xor_rightS = XORSigns(lFP, rFP);
+        varMap.put(resultSignVar, leftS_xor_rightS);
+        Variable ee0 = new Variable("ee0", Type.instance(), this.e+2); //TODO: recheck ee0
+        varMap.put(ee0,leftePlusrighte_Sub_1023_0); //TODO: recheck ee0
+//        Variable ee = new Variable("ee", Type.instance(), this.e+1);
+//        varMap.put(ee,leftePlusrighte_Sub_1023);
+
+
+        List<Variable> postPred11Vars = new ArrayList<>(prePred.variables);
+        postPred11Vars.add(resultSignVar);
+//        postPred11Vars.add(ee);
+        postPred11Vars.add(ee0); //TODO: recheck ee0
+
+        HornPredicate postPred11 = new HornPredicate(p, prePred.name + "_111", postPred11Vars);
+        ProverExpr postAtom11 = postPred11.instPredicate(varMap);
+        ProverExpr Cond = p.mkAnd(
+                p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))), //lf not in {NaN, Inf}
+                p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e))), //rf not in {NaN, Inf}
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)),p.mkEq(leftmantissa,p.mkBV(0,f)))), //lf not is 0
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)),p.mkEq(rightmantissa,p.mkBV(0,f)))) // rf not is 0
+
+        );
+        //p.mkCustomTrue();//p.mkNot(existSpecCasInMul(lFP,rFP)); //!existSpecCase(lFP, rFP)
+        clauses.add(p.mkHornClause(postAtom11, new ProverExpr[]{preAtom}, Cond)); // p1(s, ee, lFP, rFP) <-- !existSpecCase(lFP, rFP)
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        ProverExpr mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeOVF(varMap.get(resultSignVar)));
+        varMap.put(idLhs.getVariable(),mulResult);
+        postAtom = postPred.instPredicate(varMap);
+
+//        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+//        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+
+//        postAtom11 = postPred11.instPredicate(varMap);
+
+        //TODO: recheck ee0
+        Cond = p.mkAnd(
+                p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(0,1)),
+                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(1,1))); //isOVFExp(varMap.get(ee));
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom11}, Cond)); // postAtom(makeOVF) <-- p1(s, ee, lFP, rFP) & isOVFExp(ee)
+
+//        varMap = new HashMap<Variable, ProverExpr>();
+//        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+//
+//        postAtom11 = postPred11.instPredicate(varMap);
+//        //TODO: recheck ee0 this for underflow:
+//        Cond = p.mkAnd(
+//                p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(1,1)),
+//                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(1,1))); //not sure about this one
+//
+//        resultFP = mkDoublePE(
+//                varMap.get(resultSignVar),
+//                p.mkBV(0,e),
+//                p.mkBV(0,f)
+//        );
+//        mulResult =p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+//        varMap.put(idLhs.getVariable(),mulResult);
+//        postAtom = postPred.instPredicate(varMap);
+//        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom11}, Cond));
+
+
+       /* varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+//        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        Cond = isUDFExp(varMap.get(ee));
+
+        mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeUDF(varMap.get(resultSignVar)));
+        varMap.put(idLhs.getVariable(),mulResult);
+        postAtom = postPred.instPredicate(varMap);
+*/
+        //clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom1}, Cond)); // postAtom(makeUDF) <-- p1(s, ee, lFP, rFP) & isUDFExp(ee)
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        // ProverExpr postAtom11_1 = postPred11.instPredicate(varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+        leftmantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+//        Cond = p.mkNot(isOVFExp(varMap.get(ee)));//p.mkCustomTrue();//p.mkAnd(p.mkNot(isOVFExp(varMap.get(ee))),p.mkNot(isUDFExp(varMap.get(ee))));
+
+        ProverExpr expOneLimit = p.mkBV(1, this.e + 2);
+        Cond = p.mkAnd(
+//                p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(0,1)), // no under flow
+                p.mkBVSge(varMap.get(ee0), expOneLimit),
+                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(0,1)));// no overflow
+
+        Variable extendedFP = new Variable("efp", new WrappedProverType(extendedFloatingPointADT.getType(0)));
+        List<Variable> postPred12Vars = new ArrayList<>(postPred11.variables);
+        postPred12Vars.remove(resultSignVar);
+//        postPred12Vars.remove(ee);
+        postPred12Vars.remove(ee0); //TODO: recheck ee0
+        postPred12Vars.add(extendedFP);
+
+        varMap.put(
+                extendedFP,
+                mkExtendedDoublePE(
+                        varMap.get(resultSignVar),
+                        p.mkBVExtract(this.e, 0,  varMap.get(ee0)),
+                        p.mkBVMul(
+                                p.mkBVZeroExtend(this.ef-this.f,leftmantissa,this.f),
+                                p.mkBVZeroExtend(this.ef-this.f,rightmantissa,this.f),this.ef)
+                )
+        );
+
+        HornPredicate postPred12 = new HornPredicate(p, prePred.name + "_12", postPred12Vars);
+        ProverExpr postAtom12 = postPred12.instPredicate(varMap);
+        //clauses.add(p.mkHornClause(postAtom12, new ProverExpr[]{postAtom11_1}, Cond)); // p2(efp) <-- p1(s, ee, lFP, rFP) & !isOVFExp(ee) & !isUDFExp(ee)
+        clauses.add(p.mkHornClause(postAtom12, new ProverExpr[]{postAtom11}, Cond));
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        // ProverExpr postAtom11_1 = postPred11.instPredicate(varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+        leftmantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        List<Variable>  postPred13Vars = new ArrayList<>(postPred11.variables);
+        postPred13Vars.remove(resultSignVar);
+        postPred13Vars.remove(ee0); //TODO: recheck ee0
+        postPred13Vars.add(extendedFP);
+
+        ProverExpr currentSign = varMap.get(resultSignVar);
+        ProverExpr currentExp = varMap.get(ee0);
+        ProverExpr currentMantissa = p.mkBVMul(
+                p.mkBVZeroExtend(this.ef-this.f,leftmantissa,this.f),
+                p.mkBVZeroExtend(this.ef-this.f,rightmantissa,this.f),this.ef);
+        ProverExpr expOne = p.mkBV(1, this.e + 2);
+        ProverExpr isSubnormal = p.mkBVSlt(currentExp, expOne);
+        ProverExpr count = p.mkBVSub(expOne, currentExp, this.e + 2);
+
+        ProverExpr shiftedMantissa = p.mkBVlshr(currentMantissa,
+                p.mkBVZeroExtend(this.ef - (this.e + 2), count, this.e + 2), this.ef);
+
+        ProverExpr adjustedExp = p.mkBVExtract(this.e, 0, p.mkIte(isSubnormal, expOne, currentExp));
+        ProverExpr adjustedMantissa = p.mkIte(isSubnormal, shiftedMantissa, currentMantissa);
+
+        ProverExpr adjustedExtFP = mkExtendedDoublePE(currentSign, adjustedExp, adjustedMantissa);
+
+        varMap.put(extendedFP, adjustedExtFP);
+
+//        Cond = p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(1,1)); // under flow
+        Cond = p.mkBVSlt(currentExp, expOneLimit);
+
+        HornPredicate postPred13 = new HornPredicate(p, prePred.name + "_13", postPred13Vars);
+        ProverExpr postAtom13 = postPred13.instPredicate(varMap);
+
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom11}, Cond));
+
+
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+
+        // ProverExpr postAtom12_1 = postPred12.instPredicate(varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        postPred13Vars = new ArrayList<>(postPred12.variables);
+
+        Cond = p.mkEq(
+                p.mkBVExtract(2*this.f - 1,2*this.f-1,extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(0,1)
+        );
+
+        //p.mkNot(isOVFSigInMul(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))));
+//        postPred13 = new HornPredicate(p, prePred.name + "_13", postPred13Vars);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        //clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12_1}, Cond)); //p3(efp) <-- p2(efp) & !isOVFSig(m(efp))
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond));
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        //ProverExpr postAtom12_2 = postPred12.instPredicate(varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        Cond = p.mkEq(
+                p.mkBVExtract(2*this.f - 1,2*this.f - 1,extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(1,1)
+        );
+        //isOVFSigInMul(extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP)));
+        varMap.put(
+                extendedFP,
+                mkExtendedDoublePE(
+                        extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP)),
+                        p.mkBVPlus(
+                                extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP))
+                                ,p.mkBV(1,this.e + 1),
+                                this.e + 1),
+                        p.mkBVlshr(
+                                extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP)),
+                                p.mkBV(1,this.ef),
+                                this.ef)
+                )
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        // ProverExpr postAtom13_1 = postPred13.instPredicate(varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+        // clauses.add(p.mkHornClause(postAtom13_1, new ProverExpr[]{postAtom12_2}, Cond)); //p3(efp(s(efp),e(efp)+1,shr(m(efp),1),isInf(efp), ... )) <-- p2(efp) & isOVFSig(m(efp))
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond));
+        /*
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+       Cond = isOVFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP)));
+        mulResult = p.mkTupleUpdate(idLhsTExpr,3, makeOVF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP))));
+        varMap.put(idLhs.getVariable(),mulResult);
+
+        postAtom = postPred.instPredicate(varMap);
+        //clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom3}, Cond)); // postAtom(makeOVF) <-- p3(efp) & isOVFExp(e(efp))
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        Cond = isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP)));
+        mulResult =p.mkTupleUpdate(idLhsTExpr,3, makeUDF(extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP))));
+        varMap.put(idLhs.getVariable(),mulResult);
+        postAtom = postPred.instPredicate(varMap);
+
+        //clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom3}, Cond)); // postAtom(makeUDF) <-- p3(efp) & isUDFExp(e(efp))
+*/
+
+//        varMap = new HashMap<Variable, ProverExpr>(initialVarMap); // TODO: recheck
+        varMap = new HashMap<Variable, ProverExpr>();
+        // First create the atom for prePred.
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        //ProverExpr postAtom13_2 = postPred13.instPredicate(varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        Cond = p.mkLiteral(true);/*p.mkAnd(
+                p.mkNot(isOVFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP)))),
+                p.mkNot(isUDFExp(extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP))))
+        );*/
+        List<ProverHornClause> roundingClauses = roundingEncoding(varMap,postPred,postPred13,postAtom13,idLhs,extendedFP,false,true);
+        clauses.addAll(roundingClauses);
+
+        return clauses;
+    }
+
+    public List<ProverHornClause>  FPMulNew2(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+    {
+        Map<Variable, ProverExpr> initialVarMap = new HashMap<>(varMap);
+        List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
+
+        final ProverExpr internalFloat = selectFloatingPoint(FPExpr, varMap);
+        if (internalFloat == null)
+            return null;
+
+        ProverExpr left = expEncoder.exprToProverExpr(FPExpr, varMap);
+
+        ProverExpr right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        ProverTupleExpr tLeft = (ProverTupleExpr)left;
+        ProverTupleExpr tRight = (ProverTupleExpr)right;
+
+        ProverExpr lFP = tLeft.getSubExpr(3);
+        ProverExpr rFP = tRight.getSubExpr(3);
+
+        ProverExpr leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        ProverExpr leftSign = floatingPointADT.mkSelExpr(0, 0, lFP);
+        ProverExpr leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        ProverExpr rightSign = floatingPointADT.mkSelExpr(0, 0, rFP);
+        ProverExpr rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        ProverExpr rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // NaN + a or a + NaN --> result = NAN
+        ProverExpr Cond1 = p.mkOr(
+                p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)))),
+                p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))
+        );
+        ProverExpr resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        ProverExpr idLhsExpr = varMap.get(idLhs.getVariable());
+        ProverExpr idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        ProverExpr result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        ProverExpr postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // inf * 0 or 0 * Inf --> result = NAN
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+                )
+        );
+        resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * 0 or 0 * a & a not is NaN or Inf --> result = 0
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)))
+                )
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),leftSign,p.mkCustomTrue()),
+                p.mkBV(0,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * Inf & a not is 0 or NaN--> result = Inf
+        Cond1 = p.mkAnd(
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1))))),
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)))),
+                p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+
+        // Inf * a & a not is 0 or NaN--> result = Inf
+        Cond1 = p.mkAnd(
+                p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))))
+
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap);
+        preAtom = prePred.instPredicate(varMap);
+
+        Variable resultSignVar;
+        if (p instanceof SpacerProver) {
+            resultSignVar = new Variable("resultSignVar", BoolType.instance());
+        }else {
+            resultSignVar = new Variable("resultSignVar", IntType.instance());
+        }
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+
+        leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        ProverExpr leftmantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+
+        rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // ee0 has e+2 bits
+        ProverExpr leftePlusrighte_Sub_1023_0 = p.mkBVSub(
+                p.mkBVPlus(p.mkBVZeroExtend(2,leftExponent,this.e), p.mkBVZeroExtend(2,rightExponent,this.e),this.e+2),
+                p.mkBVZeroExtend(2,p.mkBV(this.bias, this.e),this.e),
+                this.e+2);
+
+
+        ProverExpr leftS_xor_rightS = XORSigns(lFP, rFP);
+        varMap.put(resultSignVar, leftS_xor_rightS);
+        Variable ee0 = new Variable("ee0", Type.instance(), this.e+2);
+        varMap.put(ee0,leftePlusrighte_Sub_1023_0);
+
+
+        List<Variable> postPred11Vars = new ArrayList<>(prePred.variables);
+        postPred11Vars.add(resultSignVar);
+        postPred11Vars.add(ee0);
+
+        HornPredicate postPred11 = new HornPredicate(p, prePred.name + "_111", postPred11Vars);
+        ProverExpr postAtom11 = postPred11.instPredicate(varMap);
+        ProverExpr Cond = p.mkAnd(
+                p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))),
+                p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e))),
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)),p.mkEq(leftmantissa,p.mkBV(0,f)))),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)),p.mkEq(rightmantissa,p.mkBV(0,f))))
+        );
+        clauses.add(p.mkHornClause(postAtom11, new ProverExpr[]{preAtom}, Cond));
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        ProverExpr mulResult = p.mkTupleUpdate(idLhsTExpr,3, makeOVF(varMap.get(resultSignVar)));
+        varMap.put(idLhs.getVariable(),mulResult);
+        postAtom = postPred.instPredicate(varMap);
+
+        Cond = p.mkAnd(
+                p.mkEq(p.mkBVExtract(e+1,e+1,varMap.get(ee0)),p.mkBV(0,1)),
+                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(1,1))); // Overflow condition
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom11}, Cond));
+
+        // ---------------------------------------------------------
+        // NORMAL EXECUTION BRANCH (postPred11 -> postPred12)
+        // ---------------------------------------------------------
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+        leftmantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        ProverExpr expOneLimit = p.mkBV(1, this.e + 2);
+        Cond = p.mkAnd(
+                p.mkBVSge(varMap.get(ee0), expOneLimit),
+                p.mkEq(p.mkBVExtract(e,e,varMap.get(ee0)),p.mkBV(0,1))); // Normal limits
+
+        Variable extendedFP = new Variable("efp", new WrappedProverType(extendedFloatingPointADT.getType(0)));
+        List<Variable> postPred12Vars = new ArrayList<>(postPred11.variables);
+        postPred12Vars.remove(resultSignVar);
+        postPred12Vars.remove(ee0);
+        postPred12Vars.add(extendedFP);
+
+        varMap.put(
+                extendedFP,
+                mkExtendedDoublePE(
+                        varMap.get(resultSignVar),
+                        p.mkBVExtract(this.e, 0,  varMap.get(ee0)),
+                        p.mkBVMul(
+                                p.mkBVZeroExtend(this.ef-this.f,leftmantissa,this.f),
+                                p.mkBVZeroExtend(this.ef-this.f,rightmantissa,this.f),this.ef)
+                )
+        );
+
+        HornPredicate postPred12 = new HornPredicate(p, prePred.name + "_12", postPred12Vars);
+        ProverExpr postAtom12 = postPred12.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom12, new ProverExpr[]{postAtom11}, Cond));
+
+
+        // ---------------------------------------------------------
+        // SUBNORMAL EXECUTION BRANCH (postPred11 -> postPred13)
+        // ---------------------------------------------------------
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+        leftmantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        List<Variable>  postPred13Vars = new ArrayList<>(postPred11.variables);
+        postPred13Vars.remove(resultSignVar);
+        postPred13Vars.remove(ee0);
+        postPred13Vars.add(extendedFP);
+
+        ProverExpr currentSign = varMap.get(resultSignVar);
+        ProverExpr currentExp = varMap.get(ee0);
+        ProverExpr currentMantissa = p.mkBVMul(
+                p.mkBVZeroExtend(this.ef-this.f,leftmantissa,this.f),
+                p.mkBVZeroExtend(this.ef-this.f,rightmantissa,this.f),this.ef);
+
+        ProverExpr expOne = p.mkBV(1, this.e + 2);
+        ProverExpr isSubnormal = p.mkBVSlt(currentExp, expOne);
+        ProverExpr count = p.mkBVSub(expOne, currentExp, this.e + 2);
+
+        ProverExpr shiftedMantissa = p.mkBVlshr(currentMantissa,
+                p.mkBVZeroExtend(this.ef - (this.e + 2), count, this.e + 2), this.ef);
+
+        ProverExpr adjustedExp = p.mkBVExtract(this.e, 0, p.mkIte(isSubnormal, expOne, currentExp));
+        ProverExpr adjustedMantissa = p.mkIte(isSubnormal, shiftedMantissa, currentMantissa);
+
+        ProverExpr adjustedExtFP = mkExtendedDoublePE(currentSign, adjustedExp, adjustedMantissa);
+
+        varMap.put(extendedFP, adjustedExtFP);
+
+        Cond = p.mkBVSlt(currentExp, expOneLimit);
+
+        HornPredicate postPred13 = new HornPredicate(p, prePred.name + "_13", postPred13Vars);
+        ProverExpr postAtom13 = postPred13.instPredicate(varMap);
+
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom11}, Cond));
+
+
+        // ---------------------------------------------------------
+        // NO MANTISSA OVERFLOW (postPred12 -> postPred13)
+        // ---------------------------------------------------------
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        postPred13Vars = new ArrayList<>(postPred12.variables);
+
+        Cond = p.mkEq(
+                p.mkBVExtract(2*this.f - 1,2*this.f-1,extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(0,1)
+        );
+
+        postAtom13 = postPred13.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond));
+
+        // ---------------------------------------------------------
+        // MANTISSA OVERFLOW - NORMALIZATION (postPred12 -> postPred13)
+        // ---------------------------------------------------------
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        Cond = p.mkEq(
+                p.mkBVExtract(2*this.f - 1,2*this.f - 1,extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(1,1)
+        );
+
+        varMap.put(
+                extendedFP,
+                mkExtendedDoublePE(
+                        extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP)),
+                        p.mkBVPlus(
+                                extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP))
+                                ,p.mkBV(1,this.e + 1),
+                                this.e + 1),
+                        p.mkBVlshr(
+                                extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP)),
+                                p.mkBV(1,this.ef),
+                                this.ef)
+                )
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond));
+
+
+        // ---------------------------------------------------------
+        // ROUNDING (postPred13 -> Final)
+        // ---------------------------------------------------------
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        Cond = p.mkLiteral(true);
+        List<ProverHornClause> roundingClauses = roundingEncoding(varMap,postPred,postPred13,postAtom13,idLhs,extendedFP,false,true);
+        clauses.addAll(roundingClauses);
+
+        return clauses;
+    }
+
+    public List<ProverHornClause>  FPMulNew3(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+    {
+        Map<Variable, ProverExpr> initialVarMap = new HashMap<>(varMap);
+        List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
+
+        final ProverExpr internalFloat = selectFloatingPoint(FPExpr, varMap);
+        if (internalFloat == null)
+            return null;
+
+        ProverExpr left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        ProverExpr right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        ProverTupleExpr tLeft = (ProverTupleExpr)left;
+        ProverTupleExpr tRight = (ProverTupleExpr)right;
+
+        ProverExpr lFP = tLeft.getSubExpr(3);
+        ProverExpr rFP = tRight.getSubExpr(3);
+
+        ProverExpr leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        ProverExpr leftSign = floatingPointADT.mkSelExpr(0, 0, lFP);
+        ProverExpr leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        ProverExpr rightSign = floatingPointADT.mkSelExpr(0, 0, rFP);
+        ProverExpr rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        ProverExpr rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // ==========================================
+        // SPECIAL CASES (NaN, Inf, Zero)
+        // ==========================================
+        // NaN + a or a + NaN --> result = NAN
+        ProverExpr Cond1 = p.mkOr(
+                p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)))),
+                p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))
+        );
+        ProverExpr resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        ProverExpr idLhsExpr = varMap.get(idLhs.getVariable());
+        ProverExpr idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        ProverExpr result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        ProverExpr postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // inf * 0 or 0 * Inf --> result = NAN
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+                )
+        );
+        resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * 0 or 0 * a & a not is NaN or Inf --> result = 0
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)))
+                )
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),leftSign,p.mkCustomTrue()),
+                p.mkBV(0,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * Inf & a not is 0 or NaN--> result = Inf
+        Cond1 = p.mkAnd(
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1))))),
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)))),
+                p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // Inf * a & a not is 0 or NaN--> result = Inf
+        Cond1 = p.mkAnd(
+                p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))))
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // ==========================================
+        // NORMAL PIPELINE
+        // ==========================================
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap);
+        preAtom = prePred.instPredicate(varMap);
+
+        Variable resultSignVar;
+        if (p instanceof SpacerProver) {
+            resultSignVar = new Variable("resultSignVar", BoolType.instance());
+        }else {
+            resultSignVar = new Variable("resultSignVar", IntType.instance());
+        }
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+        leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // Exponent Calculation e1 + e2 - bias (Extended to e+2 to handle underflow cleanly)
+        ProverExpr leftePlusrighte_Sub_1023_0 = p.mkBVSub(
+                p.mkBVPlus(p.mkBVZeroExtend(2,leftExponent,this.e), p.mkBVZeroExtend(2,rightExponent,this.e),this.e+2),
+                p.mkBVZeroExtend(2,p.mkBV(this.bias, this.e),this.e),
+                this.e+2);
+
+        ProverExpr leftS_xor_rightS = XORSigns(lFP, rFP);
+        varMap.put(resultSignVar, leftS_xor_rightS);
+        Variable ee0 = new Variable("ee0", Type.instance(), this.e+2);
+        varMap.put(ee0,leftePlusrighte_Sub_1023_0);
+
+        // --- STAGE 11: Base Multiplier ---
+        List<Variable> postPred11Vars = new ArrayList<>(prePred.variables);
+        postPred11Vars.add(resultSignVar);
+        postPred11Vars.add(ee0);
+
+        HornPredicate postPred11 = new HornPredicate(p, prePred.name + "_111", postPred11Vars);
+        ProverExpr postAtom11 = postPred11.instPredicate(varMap);
+        ProverExpr Cond = p.mkAnd(
+                p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))),
+                p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e))),
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)),p.mkEq(leftMantissa,p.mkBV(0,f)))),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)),p.mkEq(rightmantissa,p.mkBV(0,f))))
+        );
+        clauses.add(p.mkHornClause(postAtom11, new ProverExpr[]{preAtom}, Cond));
+
+        // --- STAGE 12: Pack into Extended FP (No Normalization yet) ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        Variable extendedFP = new Variable("efp", new WrappedProverType(extendedFloatingPointADT.getType(0)));
+        List<Variable> postPred12Vars = new ArrayList<>(postPred11.variables);
+        postPred12Vars.remove(resultSignVar);
+        postPred12Vars.remove(ee0);
+        postPred12Vars.add(extendedFP);
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        lFP = ((ProverTupleExpr)left).getSubExpr(3);
+        rFP = ((ProverTupleExpr)right).getSubExpr(3);
+        leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // Pack raw sign, exp, and un-normalized mantissa product
+        varMap.put(extendedFP, mkExtendedDoublePE(
+                varMap.get(resultSignVar),
+                p.mkBVExtract(this.e + 1, 0,  varMap.get(ee0)), // Extracted to e+1 for overflow logic
+                p.mkBVMul(
+                        p.mkBVZeroExtend(this.ef-this.f,leftMantissa,this.f),
+                        p.mkBVZeroExtend(this.ef-this.f,rightmantissa,this.f),this.ef)
+        ));
+
+        HornPredicate postPred12 = new HornPredicate(p, prePred.name + "_12", postPred12Vars);
+        ProverExpr postAtom12 = postPred12.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom12, new ProverExpr[]{postAtom11}, p.mkCustomTrue()));
+
+        // --- STAGE 13: Normalization ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        List<Variable> postPred13Vars = new ArrayList<>(postPred12.variables);
+        HornPredicate postPred13 = new HornPredicate(p, prePred.name + "_13", postPred13Vars);
+        ProverExpr postAtom13 = postPred13.instPredicate(varMap);
+
+        // Branch 13A: Top bit is 0 -> No overflow, copy as is
+        Cond1 = p.mkEq(
+                p.mkBVExtract(2*this.f - 1, 2*this.f-1, extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(0,1)
+        );
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond1));
+
+        // Branch 13B: Top bit is 1 -> Overflow, Shift Mantissa Right by 1, Exp = Exp + 1
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        Cond1 = p.mkEq(
+                p.mkBVExtract(2*this.f - 1, 2*this.f - 1, extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(1,1)
+        );
+        varMap.put(extendedFP, mkExtendedDoublePE(
+                extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP)),
+                p.mkBVPlus(
+                        extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP)),
+                        p.mkBV(1,this.e + 2),
+                        this.e + 2),
+                p.mkBVlshr(
+                        extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP)),
+                        p.mkBV(1,this.ef),
+                        this.ef)
+        ));
+        postAtom13 = postPred13.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond1));
+
+        // --- STAGE 14: Subnormal Adjustment Check ---
+        // (Applies after normalization, ensuring accurate deficit)
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        List<Variable> postPred14Vars = new ArrayList<>(postPred13.variables);
+        HornPredicate postPred14 = new HornPredicate(p, prePred.name + "_14", postPred14Vars);
+        ProverExpr postAtom14 = postPred14.instPredicate(varMap);
+
+        ProverExpr currentExp = extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(extendedFP));
+        ProverExpr currentMantissa = extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(extendedFP));
+        ProverExpr expOne = p.mkBV(1, this.e + 2);
+
+        // Branch 14A: Exponent >= 1 (Normal number) -> Copy as is
+        Cond1 = p.mkBVSge(currentExp, expOne);
+        clauses.add(p.mkHornClause(postAtom14, new ProverExpr[]{postAtom13}, Cond1));
+
+        // Branch 14B: Exponent < 1 (Subnormal) -> Shift Right by Deficit, Exp = 1
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        currentExp = extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(extendedFP));
+        currentMantissa = extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(extendedFP));
+
+        Cond1 = p.mkBVSlt(currentExp, expOne);
+        ProverExpr count = p.mkBVSub(expOne, currentExp, this.e + 2);
+        ProverExpr shiftedMantissa = p.mkBVlshr(currentMantissa,
+                p.mkBVZeroExtend(this.ef - (this.e + 2), count, this.e + 2), this.ef);
+
+        varMap.put(extendedFP, mkExtendedDoublePE(
+                extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP)),
+                expOne, // Force exponent to 1
+                shiftedMantissa
+        ));
+        postAtom14 = postPred14.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom14, new ProverExpr[]{postAtom13}, Cond1));
+
+        // --- FINAL STAGE: Rounding ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred14Vars, varMap);
+        postAtom14 = postPred14.instPredicate(varMap);
+
+        // Call the rounding rules on postPred14 and tie it to the final postPred
+        List<ProverHornClause> roundingClauses = roundingEncoding(varMap, postPred, postPred14, postAtom14, idLhs, extendedFP, false, true);
+        clauses.addAll(roundingClauses);
+
+
+        return clauses;
+    }
+
+    public List<ProverHornClause>  FPMul(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+//    public List<ProverHornClause>  FPMulNew4(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
+    {
+        Map<Variable, ProverExpr> initialVarMap = new HashMap<>(varMap);
+        List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
+
+        final ProverExpr internalFloat = selectFloatingPoint(FPExpr, varMap);
+        if (internalFloat == null)
+            return null;
+
+        ProverExpr left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        ProverExpr right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        ProverTupleExpr tLeft = (ProverTupleExpr)left;
+        ProverTupleExpr tRight = (ProverTupleExpr)right;
+
+        ProverExpr lFP = tLeft.getSubExpr(3);
+        ProverExpr rFP = tRight.getSubExpr(3);
+
+        ProverExpr leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        ProverExpr leftSign = floatingPointADT.mkSelExpr(0, 0, lFP);
+        ProverExpr leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        ProverExpr rightSign = floatingPointADT.mkSelExpr(0, 0, rFP);
+        ProverExpr rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        ProverExpr rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // ==========================================
+        // SPECIAL CASES (NaN, Inf, Zero)
+        // ==========================================
+
+        // NaN + a or a + NaN --> result = NAN
+        ProverExpr Cond1 = p.mkOr(
+                p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)))),
+                p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))
+        );
+        ProverExpr resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        ProverExpr idLhsExpr = varMap.get(idLhs.getVariable());
+        ProverExpr idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        ProverExpr result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        ProverExpr postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // inf * 0 or 0 * Inf --> result = NAN
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+                )
+        );
+        resultFP = mkDoublePE(p.mkCustomFalse(),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(f == 24 ? new BigInteger("c00000",16): new BigInteger("18000000000000",16),f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * 0 or 0 * a & a not is NaN or Inf --> result = 0
+        Cond1 = p.mkOr(
+                p.mkAnd(
+                        p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))),
+                        p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))
+                ),
+                p.mkAnd(
+                        p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)),
+                        p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)))
+                )
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),leftSign,p.mkCustomTrue()),
+                p.mkBV(0,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+        // a * Inf & a not is 0 or NaN--> result = Inf
+        Cond1 = p.mkAnd(
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1))))),
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)), p.mkEq(leftMantissa,p.mkBV(0,f)))),
+                p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+
+        // Inf * a & a not is 0 or NaN--> result = Inf
+        Cond1 = p.mkAnd(
+                p.mkEq(leftExponent,p.mkBV(2*bias+1,e)), p.mkEq(p.mkBVExtract(f-2,0,leftMantissa),p.mkBV(0,f-1)),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(2*bias+1,e)), p.mkNot(p.mkEq(p.mkBVExtract(f-2,0,rightmantissa),p.mkBV(0,f-1))))),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)), p.mkEq(rightmantissa,p.mkBV(0,f))))
+        );
+        resultFP = mkDoublePE(
+                p.mkIte(p.mkEq(leftSign,rightSign),p.mkCustomFalse(),p.mkCustomTrue()),
+                p.mkBV(2*bias+1,e),
+                p.mkBV(0,f)
+        );
+        HornHelper.hh().findOrCreateProverVar(p, postPred.variables, varMap);
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        idLhsTExpr = (ProverTupleExpr)  idLhsExpr;
+        result = p.mkTupleUpdate(idLhsTExpr,3, resultFP);
+        varMap.put(idLhs.getVariable(),result);
+        postAtom = postPred.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{preAtom}, Cond1));
+
+
+        // ==========================================
+        // NORMAL PIPELINE
+        // ==========================================
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap);
+        preAtom = prePred.instPredicate(varMap);
+
+        Variable resultSignVar;
+        if (p instanceof SpacerProver) {
+            resultSignVar = new Variable("resultSignVar", BoolType.instance());
+        }else {
+            resultSignVar = new Variable("resultSignVar", IntType.instance());
+        }
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+
+        leftExponent = floatingPointADT.mkSelExpr(0, 1, lFP);
+        leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightExponent = floatingPointADT.mkSelExpr(0, 1, rFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        // Exponent Calculation e1 + e2 - bias
+        ProverExpr leftePlusrighte_Sub_1023_0 = p.mkBVSub(
+                p.mkBVPlus(p.mkBVZeroExtend(2,leftExponent,this.e), p.mkBVZeroExtend(2,rightExponent,this.e),this.e+2),
+                p.mkBVZeroExtend(2,p.mkBV(this.bias, this.e),this.e),
+                this.e+2);
+
+        ProverExpr leftS_xor_rightS = XORSigns(lFP, rFP);
+        varMap.put(resultSignVar, leftS_xor_rightS);
+        Variable ee0 = new Variable("ee0", Type.instance(), this.e+2);
+        varMap.put(ee0,leftePlusrighte_Sub_1023_0);
+
+        // --- STAGE 11 ---
+        List<Variable> postPred11Vars = new ArrayList<>(prePred.variables);
+        postPred11Vars.add(resultSignVar);
+        postPred11Vars.add(ee0);
+
+        HornPredicate postPred11 = new HornPredicate(p, prePred.name + "_111", postPred11Vars);
+        ProverExpr postAtom11 = postPred11.instPredicate(varMap);
+        ProverExpr Cond = p.mkAnd(
+                p.mkNot(p.mkEq(leftExponent,p.mkBV(2*bias+1,e))),
+                p.mkNot(p.mkEq(rightExponent,p.mkBV(2*bias+1,e))),
+                p.mkNot(p.mkAnd(p.mkEq(leftExponent,p.mkBV(0,e)),p.mkEq(leftMantissa,p.mkBV(0,f)))),
+                p.mkNot(p.mkAnd(p.mkEq(rightExponent,p.mkBV(0,e)),p.mkEq(rightmantissa,p.mkBV(0,f))))
+        );
+        clauses.add(p.mkHornClause(postAtom11, new ProverExpr[]{preAtom}, Cond));
+
+        // --- STAGE 12 ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred11Vars, varMap);
+        postAtom11 = postPred11.instPredicate(varMap);
+
+        Variable extendedFP = new Variable("efp", new WrappedProverType(extendedFloatingPointADT.getType(0)));
+        List<Variable> postPred12Vars = new ArrayList<>(postPred11.variables);
+        postPred12Vars.remove(resultSignVar);
+        postPred12Vars.remove(ee0);
+        postPred12Vars.add(extendedFP);
+
+        left = expEncoder.exprToProverExpr(FPExpr, varMap);
+        right = expEncoder.exprToProverExpr(lhsRefExpr, varMap);
+        tLeft = (ProverTupleExpr)left;
+        tRight = (ProverTupleExpr)right;
+
+        lFP = tLeft.getSubExpr(3);
+        rFP = tRight.getSubExpr(3);
+        leftMantissa = floatingPointADT.mkSelExpr(0, 2, lFP);
+        rightmantissa = floatingPointADT.mkSelExpr(0, 2, rFP);
+
+        varMap.put(
+                extendedFP,
+                mkExtendedDoublePE(
+                        varMap.get(resultSignVar),
+                        p.mkBVExtract(this.e, 0,  varMap.get(ee0)),
+                        p.mkBVMul(
+                                p.mkBVZeroExtend(this.ef-this.f,leftMantissa,this.f),
+                                p.mkBVZeroExtend(this.ef-this.f,rightmantissa,this.f),this.ef)
+                )
+        );
+
+        HornPredicate postPred12 = new HornPredicate(p, prePred.name + "_12", postPred12Vars);
+        ProverExpr postAtom12 = postPred12.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom12, new ProverExpr[]{postAtom11}, p.mkLiteral(true)));
+
+        // --- STAGE 13 (Normalization) ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        List<Variable> postPred13Vars = new ArrayList<>(postPred12.variables);
+        HornPredicate postPred13 = new HornPredicate(p, prePred.name + "_13", postPred13Vars);
+        ProverExpr postAtom13 = postPred13.instPredicate(varMap);
+
+        Cond1 = p.mkEq(
+                p.mkBVExtract(2*this.f - 1, 2*this.f-1, extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(0,1)
+        );
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond1));
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred12Vars, varMap);
+        postAtom12 = postPred12.instPredicate(varMap);
+
+        Cond1 = p.mkEq(
+                p.mkBVExtract(2*this.f - 1, 2*this.f - 1, extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP))),
+                p.mkBV(1,1)
+        );
+        varMap.put(
+                extendedFP,
+                mkExtendedDoublePE(
+                        extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP)),
+                        p.mkBVPlus(
+                                extendedFloatingPointADT.mkSelExpr(0,1,varMap.get(extendedFP)),
+                                p.mkBV(1,this.e + 1),
+                                this.e + 1),
+                        p.mkBVlshr(
+                                extendedFloatingPointADT.mkSelExpr(0,2,varMap.get(extendedFP)),
+                                p.mkBV(1,this.ef),
+                                this.ef)
+                )
+        );
+        postAtom13 = postPred13.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom13, new ProverExpr[]{postAtom12}, Cond1));
+
+
+        // --- STAGE 14 (Subnormal Checking) ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        List<Variable> postPred14Vars = new ArrayList<>(postPred13.variables);
+        HornPredicate postPred14 = new HornPredicate(p, prePred.name + "_14", postPred14Vars);
+        ProverExpr postAtom14 = postPred14.instPredicate(varMap);
+
+        ProverExpr currentExp = extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(extendedFP));
+        ProverExpr currentMantissa = extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(extendedFP));
+        ProverExpr expOne = p.mkBV(1, this.e + 1);
+
+        Cond1 = p.mkBVSge(currentExp, expOne);
+        clauses.add(p.mkHornClause(postAtom14, new ProverExpr[]{postAtom13}, Cond1));
+
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred13Vars, varMap);
+        postAtom13 = postPred13.instPredicate(varMap);
+
+        currentExp = extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(extendedFP));
+        currentMantissa = extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(extendedFP));
+
+        Cond1 = p.mkBVSlt(currentExp, expOne);
+        ProverExpr count = p.mkBVSub(expOne, currentExp, this.e + 1);
+        ProverExpr shiftedMantissa = p.mkBVlshr(currentMantissa,
+                p.mkBVZeroExtend(this.ef - (this.e + 1), count, this.e + 1), this.ef);
+
+        varMap.put(extendedFP, mkExtendedDoublePE(
+                extendedFloatingPointADT.mkSelExpr(0,0,varMap.get(extendedFP)),
+                expOne,
+                shiftedMantissa
+        ));
+        postAtom14 = postPred14.instPredicate(varMap);
+        clauses.add(p.mkHornClause(postAtom14, new ProverExpr[]{postAtom13}, Cond1));
+
+
+        // --- STAGE 15: ROUNDING AND POST-ROUNDING CHECK ---
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred14Vars, varMap);
+        postAtom14 = postPred14.instPredicate(varMap);
+
+        // Create an intermediate predicate instead of directly outputting to postPred
+        List<Variable> postPred15Vars = new ArrayList<>(postPred.variables);
+        HornPredicate postPred15 = new HornPredicate(p, prePred.name + "_15", postPred15Vars);
+
+        // Pass postPred15 to the rounding algorithm
+        List<ProverHornClause> roundingClauses = roundingEncoding(varMap, postPred15, postPred14, postAtom14, idLhs, extendedFP, false, true);
+        clauses.addAll(roundingClauses);
+
+        // Now collect from postPred15, check if Mantissa is 0, and branch to final postPred
+        varMap = new HashMap<Variable, ProverExpr>();
+        HornHelper.hh().findOrCreateProverVar(p, postPred15Vars, varMap);
+        ProverExpr postAtom15 = postPred15.instPredicate(varMap);
+
+        // Read the result provided by the rounding phase
+        idLhsExpr = varMap.get(idLhs.getVariable());
+        ProverTupleExpr idLhsTupExpr = (ProverTupleExpr) idLhsExpr;
+        ProverExpr roundedResultFP = idLhsTupExpr.getSubExpr(3);
+
+        ProverExpr roundedSign = floatingPointADT.mkSelExpr(0, 0, roundedResultFP);
+        ProverExpr roundedExp  = floatingPointADT.mkSelExpr(0, 1, roundedResultFP);
+        ProverExpr roundedMan  = floatingPointADT.mkSelExpr(0, 2, roundedResultFP);
+
+        // Check if the rounded mantissa is equal to 0
+        ProverExpr isMantissaZero = p.mkEq(roundedMan, p.mkBV(0, this.f));
+
+        // If mantissa is 0, reset the exponent to 0; otherwise keep the rounded exponent
+        ProverExpr finalExp = p.mkIte(isMantissaZero, p.mkBV(0, this.e), roundedExp);
+
+        // Construct the final normalized FP
+        ProverExpr finalFP = mkDoublePE(roundedSign, finalExp, roundedMan);
+
+        // Update the tuple and write to final postPred
+        result = p.mkTupleUpdate(idLhsTExpr, 3, finalFP);
+        varMap.put(idLhs.getVariable(), result);
+
+        postAtom = postPred.instPredicate(varMap);
+
+        // Add final clause linking postPred15 to the final postPred unconditionally
+        clauses.add(p.mkHornClause(postAtom, new ProverExpr[]{postAtom15}, p.mkLiteral(true)));
+
+        return clauses;
+    }
+
+
+
 //    public List<ProverHornClause>  FPMulSpacer(Expression FPExpr, IdentifierExpression idLhs,Expression lhsRefExpr, Map<Variable, ProverExpr> varMap, HornPredicate postPred, HornPredicate prePred, ProverExpr preAtom)
 //    {
 //        List<ProverHornClause> clauses = new LinkedList<ProverHornClause>();
@@ -11720,7 +13276,7 @@ public class FloatingPointEncoder {
 
         return  res;
     }
-    private ProverExpr mkFloatPEFromValue(float value, ProverADT floatingPointADT)
+    private ProverExpr mkFloatPEFromValueOld(float value, ProverADT floatingPointADT)
     {
         ProverExpr sign, exponent,mantissa, isNan,isInf, OVF, UDF;
 
@@ -11752,6 +13308,55 @@ public class FloatingPointEncoder {
         //ieeeOne.get_exponent().doubleValue()
         // byte [] ex = ieeeOne.get_exponent().toByteArray();
         // byte [] ma = ieeeOne.get_fraction().toByteArray();
+        mantissa = BVLit(ieeeOne.get_fraction(),f);
+        //ieeeOne.get_fraction().add(BigInteger.ONE).doubleValue()
+        ProverExpr res = floatingPointADT.mkCtorExpr(0,new ProverExpr[]{sign, exponent,mantissa/*,isNan,isInf, OVF, UDF*/ });
+
+        return  res;
+    }
+    private ProverExpr mkFloatPEFromValue(float value, ProverADT floatingPointADT)
+    {
+        ProverExpr sign, exponent,mantissa, isNan,isInf, OVF, UDF;
+
+        IeeeFloatt ieeeOne = new IeeeFloatt(new IeeeFloatSpect(f-1, e));
+        ieeeOne.fromFloat(value);
+
+        if (!ieeeOne.get_sign()){
+            sign = p.mkCustomFalse();
+        }
+        else{
+            sign = p.mkCustomTrue();
+            value = -value;
+            ieeeOne = new IeeeFloatt(new IeeeFloatSpect(f-1, e)); //TODO recheck
+            ieeeOne.fromFloat(value);
+        }//BVLit( new BigInteger(ieeeOne.get_sign() ? "1" : "0"),1);
+        BigInteger expValue = value > 0 ? ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()) : (value == 0 ? ieeeOne.get_exponent() : ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE));
+        exponent = BVLit(expValue, e);
+
+        if (ieeeOne.NaN_flag == null || !ieeeOne.NaN_flag){
+            isNan = p.mkCustomFalse();
+        }
+        else {
+            isNan = p.mkCustomTrue();
+        }
+        if (ieeeOne.infinity_flag == null || !ieeeOne.infinity_flag ){
+            isInf = p.mkCustomFalse();
+        }
+        else{
+            isInf = p.mkCustomTrue();
+        }
+        OVF = p.mkCustomFalse();
+        UDF = p.mkCustomFalse();
+        //ieeeOne.get_exponent().doubleValue()
+        // byte [] ex = ieeeOne.get_exponent().toByteArray();
+        // byte [] ma = ieeeOne.get_fraction().toByteArray();
+
+
+
+//        if (expValue.equals(BigInteger.ZERO)){
+//            mantissa = BVLit(ieeeOne.get_fraction(),f);
+//        }
+
         mantissa = BVLit(ieeeOne.get_fraction(),f);
         //ieeeOne.get_fraction().add(BigInteger.ONE).doubleValue()
         ProverExpr res = floatingPointADT.mkCtorExpr(0,new ProverExpr[]{sign, exponent,mantissa/*,isNan,isInf, OVF, UDF*/ });

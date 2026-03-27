@@ -28,6 +28,13 @@ SKIP_TIMEOUTS = False
 NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
+# selected_benchmarks = ["Rump_double", "Rump_float", "Sqrt_Householder_pseudoconstant",
+#                        "Square_1", "Square_2", "Square_3", "Square_4", "Square_5"
+#                        ,"Square_6", "Square_7", "Square_8", "Zonotope_2", "Zonotope_3", "Zonotope_loose",
+#                        "Zonotope_tight", "divmul_diverge", "exp_loop"
+#                        ,"filter2_alt", "filter2_iterated", "filter_iir", 
+#                        "float-to-double1", "float-to-double2", "float-zero-sum1",
+#                        "float_req_bl_1381", "inv_Newton-2", ]
 selected_benchmarks = []
 
 def run_benchmark(task_info):

@@ -18,17 +18,19 @@ public class Main
 		E0 = Verifier.nondetDouble();
 		  Verifier.assume(E0 >= -1. && E0 <= 1.);
 
-		if (Verifier.nondetInt() != 0)
-		{
-		  S = 0;
-		}
-		else
-		{
+//		if (Verifier.nondetInt() != 0)
+//		{
+//		  S = 0;
+//		}
+//		else
+//		{
 		  S = 0.999 * S + E0 - E1;
-		}
+//		}
 		E1 = E0;
 
 		assert (S >= -10000.0 && S <= 10000.0);
+//		assert (S <= 10000.0);
+//		  assert(!Double.isNaN(S));
 	  }
 
 	}

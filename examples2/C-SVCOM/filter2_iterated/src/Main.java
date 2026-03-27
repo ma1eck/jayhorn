@@ -20,29 +20,29 @@ public class Main {
             E1 = 0.0f;
             S1 = 0.0f;
         } else {
-            P = (float)(0.5 * X - 0.7 * E0 + 0.4 * E1 + 1.5 * S0 - 0.7 * S1);
+            P = (float)(0.5f * X - 0.7f * E0 + 0.4f * E1 + 1.5f * S0 - 0.7f * S1);
             E1 = E0;
             E0 = X;
             S1 = S0;
             S0 = P;
-            X = (float)(P / 6.0 + S1 / 5.0);
+            X = (float)(P / 6.0f + S1 / 5.0f);
         }
     }
 
     static void filter2() {
         if (INIT2) {
-            S20 = (float)(0.5 * X);
+            S20 = (float)(0.5f * X);
             P = X;
-            E20 = (float)(0.8 * X);
+            E20 = (float)(0.8f * X);
             E21 = 0.0f;
             S21 = 0.0f;
         } else {
-            P = (float)(0.3 * X - 0.2 * E20 + 1.4 * E21 + 0.5 * S20 - 1.7 * S21);
-            E21 = (float)(0.5 * E20);
-            E20 = (float)(2.0 * X);
+            P = (float)(0.3f * X - 0.2f * E20 + 1.4f * E21 + 0.5f * S20 - 1.7f * S21);
+            E21 = (float)(0.5f * E20);
+            E20 = (float)(2.0f * X);
             S21 = S20 + 10.0f;
-            S20 = (float)(P / 2.0 + S21 / 3.0);
-            X = (float)(P / 8.0 + S21 / 10.0);
+            S20 = (float)(P / 2.0f + S21 / 3.0f);
+            X = (float)(P / 8.0f + S21 / 10.0f);
         }
     }
 

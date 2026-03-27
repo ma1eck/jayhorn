@@ -9,5 +9,10 @@
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-Spacer takes 207458 to check the given benchmark!
-UNSAFE
+java.lang.RuntimeException: out of memory
+	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1420)
+	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:160)
+	at jayhorn.Main.safetyAnalysis(Main.java:72)
+	at jayhorn.Main.main(Main.java:129)
+2026-03-27 15:53:50,580 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: out of memory
+UNKNOWN

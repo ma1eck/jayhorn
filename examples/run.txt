@@ -1,8 +1,8 @@
-floatNaN
+floatMulUDF
 
 compile:
-javac .\examples\floatNaN\src\Main.java .\examples\floatNaN\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatNaN\classes\
+javac .\examples\floatMulUDF\src\Main.java .\examples\floatMulUDF\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatMulUDF\classes\
 
 
 config: 
--j examples/floatNaN/classes -src examples/floatNaN/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -out C:\am21\Float_Z3_jayhorn\jayhorn\examples\floatNaN\horn -print-horn
+-j examples/floatMulUDF/classes -src examples/floatMulUDF/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn
