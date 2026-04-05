@@ -23,7 +23,7 @@ CEX_DIR_NAME = "counter examples or models"
 
 GET_CEX = False
 
-SKIP_TIMEOUTS = False
+SKIP_TIMEOUTS = True
 
 NUMBER_OF_REPETITION = 2
 AVERAGING = NUMBER_OF_REPETITION > 1

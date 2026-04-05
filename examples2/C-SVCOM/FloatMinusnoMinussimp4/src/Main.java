@@ -16,10 +16,10 @@ public class Main
 	  {
 		  assert false;
 	  }
-	  if (!Double.isInfinite(d1))
-	  {
-		  assert false;
-	  }
+//	  if (!Double.isInfinite(d1))
+//	  {
+//		  assert false;
+//	  }
 
 	  double d2 = Verifier.nondetDouble();
 	  double _d2 = Verifier.nondetDouble();

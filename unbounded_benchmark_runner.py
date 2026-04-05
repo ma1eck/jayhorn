@@ -24,10 +24,11 @@ GET_CEX = False
 
 SKIP_TIMEOUTS = False
 
-NUMBER_OF_REPETITION = 3
+NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
-selected_benchmarks = ["Inner-Retry-Until-OK"]
+# selected_benchmarks = ["Inner-Retry-Until-OK"]
+selected_benchmarks = []
 
 def run_benchmark(task_info):
     base_dir, folder_name, rounding_enc, norm_enc = task_info

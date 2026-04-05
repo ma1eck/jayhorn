@@ -9,10 +9,23 @@
 [root] - Transform Program Methods into Horn Clauses ... 
 [root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
 [root] - Checking properties
-java.lang.RuntimeException: Stuck on a lemma
-	at jayhorn.solver.spacer.SpacerProver.query(SpacerProver.java:1420)
-	at jayhorn.checker.SpacerChecker.checkProgram(SpacerChecker.java:160)
-	at jayhorn.Main.safetyAnalysis(Main.java:72)
-	at jayhorn.Main.main(Main.java:129)
-2026-03-27 14:51:59,457 ERROR (main) [root] - java.lang.RuntimeException: java.lang.RuntimeException: Stuck on a lemma
-UNKNOWN
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff62307fc6, pid=18028, tid=0x0000000000004efc
+#
+# JRE version: OpenJDK Runtime Environment (8.0_462-b08) (build 1.8.0_462-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.462-b08 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# C  [libz3.dll+0x137fc6]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# An error report file with more information is saved as:
+# C:\am21\Float_Z3_jayhorn\jayhorn\hs_err_pid18028.log
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#

@@ -2623,8 +2623,12 @@ public class FloatingPointEncoder {
         else if(Options.v().getNormalizationEncoding() == NormalizationEncoding.loop_based) {
             // post5 (efp(..., em(efp) << 1,...), lzc+1) --> post5 (efp, lzc) & m(efp)[104] = 0 //has leading zero
 
-
-            ProverExpr Cond = p.mkEq(p.mkBVExtract(this.ef - 2, this.ef - 2, extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(efp))), p.mkBV(0, 1));
+//            ProverExpr Cond = p.mkEq(p.mkBVExtract(this.ef - 2, this.ef - 2, extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(efp))), p.mkBV(0, 1));
+            // considering subnormal results
+            ProverExpr Cond = p.mkAnd(
+                    p.mkEq(p.mkBVExtract(this.ef - 2, this.ef - 2, extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(efp))), p.mkBV(0, 1)), // mantisa doesn't start with 1
+                    p.mkBVUlt(p.mkBV(1, this.ee), extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(efp))) // exponent greater than 1
+            );
             ProverExpr extendedFPInSub = mkExtendedDoublePE(
                     extendedFloatingPointADT.mkSelExpr(0, 0, varMap.get(efp)), //sign
                     extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(efp)), //exponent
@@ -2645,7 +2649,12 @@ public class FloatingPointEncoder {
             HornHelper.hh().findOrCreateProverVar(p, prePred.variables, varMap);
             preAtom = prePred.instPredicate(varMap);
 
-            Cond = p.mkNot(p.mkEq(p.mkBVExtract(this.ef - 2, this.ef - 2, extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(efp))), p.mkBV(0, 1)));
+//            Cond = p.mkNot(p.mkEq(p.mkBVExtract(this.ef - 2, this.ef - 2, extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(efp))), p.mkBV(0, 1)));
+            // considering subnormal results
+            Cond = p.mkNot(p.mkAnd(
+                    p.mkEq(p.mkBVExtract(this.ef - 2, this.ef - 2, extendedFloatingPointADT.mkSelExpr(0, 2, varMap.get(efp))), p.mkBV(0, 1)), // mantisa doesn't start with 1
+                    p.mkBVUlt(p.mkBV(1, this.ee), extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(efp))) // exponent greater than 1
+            ));
             extendedFPInSub = mkExtendedDoublePE(
                     extendedFloatingPointADT.mkSelExpr(0, 0, varMap.get(efp)), //sign
                     p.mkBVSub(extendedFloatingPointADT.mkSelExpr(0, 1, varMap.get(efp)), p.mkBVExtract(this.e, 0, varMap.get(lzc)), this.e + 1), //exponent

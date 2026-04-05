@@ -24,13 +24,13 @@ CEX_DIR_NAME = "counter examples or models"
 
 GET_CEX = False
 
-SKIP_TIMEOUTS = False
+SKIP_TIMEOUTS = True
 
 NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
 
-selected_benchmark = ["f-f3"]
+selected_benchmark = []
 
 
 def run_benchmark(task_info):

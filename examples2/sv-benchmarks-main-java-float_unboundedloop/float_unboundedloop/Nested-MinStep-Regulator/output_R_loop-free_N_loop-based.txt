@@ -1,33 +1,3 @@
 
 
-=== RUN 1 ===
-[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
-[root] - Horn solver: spacer
-[root] - Building CFG  ... 
-[root] - Safety Verification ... 
-[root] - Hornify  ... 
-[root] - Transform Program Methods into Horn Clauses ... 
-[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
-[root] - Checking properties
-Failed to find a lemma for: (not (eisNan Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n))
-Available lemmas are: 3: (>= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0)
-4: (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0)
-5: (and (not (eisNan Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n))
-     (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n)))
-6: (or (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_6_n 0)
-    (and (not (eisNan Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n))
-         (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n))))
-7: (or (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_6_n 0)
-    (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0))
-8: (or (not (>= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_6_n 2))
-    (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0))
-9: (or (not (>= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_6_n 2))
-    (>= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0))
-10: (or (>= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0)
-    (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_6_n 0))
-Simplified goal is:
-0: (>= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0)
-1: (<= Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_3_n 0)
-2: (not (eisNan Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n))
-3: (not (eisInfinity Main_void_mainJayArray_java_lang_String_Block11_16!slice!11_7_n))
-Failed to verify: found
+=== RUN 1 TIMEOUT ===

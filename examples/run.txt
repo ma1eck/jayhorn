@@ -1,8 +1,8 @@
-floatMulUDF
+floatDivSubnormal
 
 compile:
-javac .\examples\floatMulUDF\src\Main.java .\examples\floatMulUDF\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatMulUDF\classes\
+javac .\examples\floatDivSubnormal\src\Main.java .\examples\floatDivSubnormal\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatDivSubnormal\classes\
 
 
 config: 
--j examples/floatMulUDF/classes -src examples/floatMulUDF/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn
+-j examples/floatDivSubnormal/classes -src examples/floatDivSubnormal/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn

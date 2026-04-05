@@ -1,11 +1,11 @@
-interpolation
+FloatMinusnoMinussimp4
 
 compile:
-javac .\examples2\C-SVCOM\interpolation\src\Main.java .\examples2\C-SVCOM\interpolation\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\interpolation\classes\
+javac .\examples2\C-SVCOM\FloatMinusnoMinussimp4\src\Main.java .\examples2\C-SVCOM\FloatMinusnoMinussimp4\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\C-SVCOM\FloatMinusnoMinussimp4\classes\
 
 
 config:
--j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
--j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
--j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
--j examples2/C-SVCOM/interpolation/classes -src examples2/C-SVCOM/interpolation/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/FloatMinusnoMinussimp4/classes -src examples2/C-SVCOM/FloatMinusnoMinussimp4/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/FloatMinusnoMinussimp4/classes -src examples2/C-SVCOM/FloatMinusnoMinussimp4/src -rounding-encoding loop-based -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 
+-j examples2/C-SVCOM/FloatMinusnoMinussimp4/classes -src examples2/C-SVCOM/FloatMinusnoMinussimp4/src -rounding-encoding loop-free -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
+-j examples2/C-SVCOM/FloatMinusnoMinussimp4/classes -src examples2/C-SVCOM/FloatMinusnoMinussimp4/src -rounding-encoding loop-free -normalization-encoding loop-free -solver spacer -heap-mode bounded -solution -full-cex -print-horn 

@@ -1,11 +1,11 @@
-Bounded-Proportional-Update
+Hysteresis-On-Off-with-Deadband
 
 compile:
 
-mkdir .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\classes\
-javac .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\Main.java .\examples2\floatUnboundedLoop4\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\classes\
-echo nul > .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\result.txt
-echo nul > ".\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\model generated.txt"
+mkdir .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\classes\
+javac .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\Main.java .\examples2\C-SVCOM\Addsub_double_exact\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\classes\
+echo nul > .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\result.txt
+echo nul > ".\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\model generated.txt"
 
 config:
--j .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\classes\ -src .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Bounded-Proportional-Update\ -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
+-j .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\classes\ -src .\examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop\Hysteresis-On-Off-with-Deadband\ -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer -heap-mode bounded -solution -full-cex -print-horn
