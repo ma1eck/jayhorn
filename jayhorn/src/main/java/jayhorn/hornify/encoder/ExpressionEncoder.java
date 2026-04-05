@@ -594,7 +594,7 @@ public class ExpressionEncoder {
 													p.mkIte(p.mkEq(leftExponent, rightExponent),// TODO: recheck
 															p.mkIte(p.mkEq(leftSign, p.mkCustomTrue()), p.mkBVUgt(leftmantissa, rightmantissa), p.mkBVUlt(leftmantissa, rightmantissa)),
 															p.mkIte(p.mkEq(leftSign, p.mkCustomTrue()), p.mkBVUgt(leftExponent, rightExponent), p.mkBVUlt(leftExponent, rightExponent))),
-													p.mkIte(p.mkEq(leftSign, p.mkLiteral(false)), p.mkLiteral(false), p.mkLiteral(true))
+													p.mkIte(p.mkEq(leftSign, p.mkCustomFalse()), p.mkLiteral(false), p.mkLiteral(true))
 											)
 									);
 							//);

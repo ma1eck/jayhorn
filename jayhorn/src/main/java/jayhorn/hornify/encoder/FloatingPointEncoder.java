@@ -1488,6 +1488,7 @@ public class FloatingPointEncoder {
         final ProverExpr leftCondAtom = leftCondPred.instPredicate(varMap);
 
         clauses.add(p.mkHornClause(leftCondAtom, new ProverExpr[]{preAtom}, leftCond));
+//        clauses.add(p.mkHornClause(leftCondAtom, new ProverExpr[]{preAtom}, p.mkLiteral(true)));
 
         final ProverExpr rightCond = expEncoder.exprToProverExpr(((BinaryExpression) rightExpr).getRight(), varMap);
         //p.mkCustomTrue();//
@@ -3710,7 +3711,7 @@ public class FloatingPointEncoder {
             rightmantissa = floatingPointADT.mkSelExpr(0, 2, rightFloatingPointADT);
 //            ProverExpr rightIsNan = floatingPointADT.mkSelExpr(0, 3, rightFloatingPointADT);
 //            ProverExpr rightIsInf = floatingPointADT.mkSelExpr(0, 4, rightFloatingPointADT);
-            
+
             right = p.mkTupleUpdate(tRight, 3, mkDoublePE(p.mkIte(p.mkEq(rightSign,p.mkCustomFalse()),p.mkCustomTrue(),p.mkCustomFalse()), rightExponent, rightmantissa));
         }
 
@@ -13261,21 +13262,21 @@ public class FloatingPointEncoder {
 //        }else {
             exponent = (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()),e) );//: (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE),e));
 //        }
-        if (ieeeOne.NaN_flag == null || !ieeeOne.NaN_flag){
-            isNan = p.mkCustomFalse();
-        }
-        else {
-            isNan = p.mkCustomTrue();
-        }
-        if (ieeeOne.infinity_flag == null || !ieeeOne.infinity_flag){
-            isInf = p.mkCustomFalse();
-        }
-        else {
-            isInf = p.mkCustomTrue();
-        }
+//        if (ieeeOne.NaN_flag == null || !ieeeOne.NaN_flag){
+//            isNan = p.mkCustomFalse();
+//        }
+//        else {
+//            isNan = p.mkCustomTrue();
+//        }
+//        if (ieeeOne.infinity_flag == null || !ieeeOne.infinity_flag){
+//            isInf = p.mkCustomFalse();
+//        }
+//        else {
+//            isInf = p.mkCustomTrue();
+//        }
 
-        OVF = p.mkCustomFalse();
-        UDF = p.mkCustomFalse();
+//        OVF = p.mkCustomFalse();
+//        UDF = p.mkCustomFalse();
         //ieeeOne.get_exponent().doubleValue()
         // byte [] ex = ieeeOne.get_exponent().toByteArray();
         // byte [] ma = ieeeOne.get_fraction().toByteArray();

@@ -1,8 +1,8 @@
-floatDivSubnormal
+floataddmul
 
 compile:
-javac .\examples\floatDivSubnormal\src\Main.java .\examples\floatDivSubnormal\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatDivSubnormal\classes\
+javac .\examples\floataddmul\src\Main.java .\examples\floataddmul\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floataddmul\classes\
 
 
 config: 
--j examples/floatDivSubnormal/classes -src examples/floatDivSubnormal/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn
+-j examples/floataddmul/classes -src examples/floataddmul/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn
