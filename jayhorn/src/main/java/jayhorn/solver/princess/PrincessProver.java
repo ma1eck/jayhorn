@@ -1147,11 +1147,13 @@ System.out.println("all preds: " + allPreds);
     @Override
     public ProverExpr mkCustomTrue() {
         return this.mkLiteral(1);
+//        return this.mkLiteral(true);
     }
 
     @Override
     public ProverExpr mkCustomFalse() {
         return this.mkLiteral(0);
+//        return this.mkLiteral(false);
     }
 
     @Override

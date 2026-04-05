@@ -1,31 +1,4 @@
-(and (Main_void_mainJayArray_java_lang_String_Block3_5-FCmpResult!slice!18
-       0
-       0
-       (- 1))
-     (Main_void_mainJayArray_java_lang_String_Block3_4!slice!17
-       0
-       0
-       (DoubleFloatingPoint
-         false
-         #b00000000000
-         #b10000000000000000000000000000000000000000000000000000))
-     (Main_void_mainJayArray_java_lang_String_Block3_3_13!slice!19
-       0
-       0
-       (DoubleFloatingPoint
-         false
-         #b00000000001
-         #b10000000000000000000000000000000000000000000000000000)
-       false
-       #x800
-       #b000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
-     (Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15
-       0
-       0
-       (DoubleFloatingPoint
-         false
-         #b00000000001
-         #b10000000000000000000000000000000000000000000000000000)))Total rules: 81
+(Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!5 0 0)Total rules: 55
 
 Predicate: Main_void_mainJayArray_java_lang_String_pre
 Levels explored: 0
@@ -51,7 +24,11 @@ Predicate: JayHornAssertions_void_clinit_post
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block4
+Predicate: Main_void_mainJayArray_java_lang_String_Block0
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_mainJayArray_java_lang_String_Block2
 Levels explored: 0
 Final invariant: true
 
@@ -60,14 +37,6 @@ Levels explored: 0
 Final invariant: true
 
 Predicate: Main_void_mainJayArray_java_lang_String_Block3
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block0
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block2
 Levels explored: 0
 Final invariant: true
 
@@ -119,7 +88,7 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block1_10
 Levels explored: 0
 Final invariant: true
 
-Predicate: Assert_#0_Main.java,_line_5
+Predicate: Assert_#0_Main.java,_line_6
 Levels explored: 0
 Final invariant: true
 
@@ -135,7 +104,7 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block1_13
 Levels explored: 0
 Final invariant: true
 
-Predicate: Assert_#1_Main.java,_line_5
+Predicate: Assert_#1_Main.java,_line_6
 Levels explored: 0
 Final invariant: true
 
@@ -147,7 +116,7 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block1_15
 Levels explored: 0
 Final invariant: true
 
-Predicate: Assert_#2_Main.java,_line_6
+Predicate: Assert_#2_Main.java,_line_8
 Levels explored: 0
 Final invariant: true
 
@@ -163,337 +132,13 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block1_18
 Levels explored: 0
 Final invariant: true
 
-Predicate: Assert_#3_Main.java,_line_6
+Predicate: Assert_#3_Main.java,_line_8
 Levels explored: 0
 Final invariant: true
 
 Predicate: Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult
-Levels explored: 1
-Final invariant: (let ((a!1 (not (= ((_ extract 52 52)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b0)))
-      (a!2 (not (= ((_ extract 29 29)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!3 (not (= ((_ extract 14 14)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!4 (not (= ((_ extract 3 3)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!5 (not (= ((_ extract 22 22)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!6 (not (= ((_ extract 17 17)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!7 (not (= ((_ extract 25 25)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!8 (not (= ((_ extract 45 45)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!9 (not (= ((_ extract 43 43)
-                     (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                   #b1)))
-      (a!10 (not (= ((_ extract 46 46)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!11 (not (= ((_ extract 35 35)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!12 (not (= ((_ extract 51 51)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!13 (not (= ((_ extract 7 7)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!14 (not (= ((_ extract 13 13)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!15 (not (= ((_ extract 33 33)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!16 (not (= ((_ extract 1 1)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!17 (not (= ((_ extract 16 16)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!18 (not (= ((_ extract 12 12)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!19 (not (= ((_ extract 36 36)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!20 (not (= ((_ extract 34 34)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!21 (not (= ((_ extract 26 26)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!22 (not (= ((_ extract 32 32)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!23 (not (= ((_ extract 10 10)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!24 (not (= ((_ extract 19 19)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!25 (not (= ((_ extract 30 30)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!26 (not (= ((_ extract 18 18)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!27 (not (= ((_ extract 37 37)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!28 (not (= ((_ extract 47 47)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!29 (not (= ((_ extract 24 24)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!30 (not (= ((_ extract 9 9)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!31 (not (= ((_ extract 4 4)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!32 (not (= ((_ extract 40 40)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!33 (not (= ((_ extract 5 5)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!34 (not (= ((_ extract 15 15)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!35 (not (= ((_ extract 42 42)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!36 (not (= ((_ extract 38 38)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!37 (not (= ((_ extract 11 11)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!38 (not (= ((_ extract 8 8)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!39 (not (= ((_ extract 49 49)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!40 (not (= ((_ extract 0 0)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!41 (not (= ((_ extract 6 6)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!42 (not (= ((_ extract 44 44)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!43 (not (= ((_ extract 41 41)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!44 (not (= ((_ extract 39 39)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!45 (not (= ((_ extract 31 31)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!46 (not (= ((_ extract 50 50)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!47 (not (= ((_ extract 2 2)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!48 (not (= ((_ extract 48 48)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!49 (not (= ((_ extract 28 28)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!50 (not (= ((_ extract 21 21)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!51 (not (= ((_ extract 27 27)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!52 (not (= ((_ extract 23 23)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!53 (not (= ((_ extract 20 20)
-                      (mantissa Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))
-                    #b1)))
-      (a!54 (not (bvule #b00000000001
-                        (bvadd #b11111111111
-                               (exponent Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_2_n))))))
-  (and (or a!1
-           (not (>= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                    0)))
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!2)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!3)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!4)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!5)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!6)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!7)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!8)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!9)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!10)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!11)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!12)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!13)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!14)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!15)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!16)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!17)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!18)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!19)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!20)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!21)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!22)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!23)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!24)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!25)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!26)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!27)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!28)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!29)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!30)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!31)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!32)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!33)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!34)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!35)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!36)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!37)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!38)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!39)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!40)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!41)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!42)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!43)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!44)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!45)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!46)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!47)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!48)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!49)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!50)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!51)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!52)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!53)
-       (or (not (= Main_void_mainJayArray_java_lang_String_Block1_19-FCmpResult!slice!15_1_n
-                   0))
-           a!54)))
-  Level 0: true
+Levels explored: 0
+Final invariant: true
 
 Predicate: Main_void_mainJayArray_java_lang_String_Block1_18_11
 Levels explored: 0
@@ -507,100 +152,15 @@ Predicate: Main_void_mainJayArray_java_lang_String_Block3_1
 Levels explored: 0
 Final invariant: true
 
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_2
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3
-Levels explored: 0
-Final invariant: true
-
-Predicate: Assert_#4_Main.java,_line_9
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_4
-Levels explored: 6
-Final invariant: true
-  Level 0: true
-  Level 1: false
-  Level 2: (not (bvule #b00000000001
-            (exponent Main_void_mainJayArray_java_lang_String_Block3_4!slice!17_2_n)))
-  Level 3: true
-  Level 4: true
-  Level 5: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3_11
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3_12
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3_13
-Levels explored: 6
-Final invariant: (and (not ((_ bit2bool 53)
-            Main_void_mainJayArray_java_lang_String_Block3_3_13!slice!19_5_n))
-     (not (bvule #b00000000001
-                 ((_ extract 10 0)
-                   Main_void_mainJayArray_java_lang_String_Block3_3_13!slice!19_4_n))))
-  Level 0: false
-  Level 1: true
-  Level 2: true
-  Level 3: true
-  Level 4: true
-  Level 5: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3_13_Bits
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3_13_LSBR
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_3_13_S
-Levels explored: 6
-Final invariant: true
-  Level 0: true
-  Level 1: false
-  Level 2: true
-  Level 3: true
-  Level 4: true
-  Level 5: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_5-FCmpResult
-Levels explored: 6
-Final invariant: true
-  Level 0: true
-  Level 1: true
-  Level 2: false
-  Level 3: (<= Main_void_mainJayArray_java_lang_String_Block3_5-FCmpResult!slice!18_2_n 0)
-  Level 4: true
-  Level 5: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_4_11
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block3_4_12
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_mainJayArray_java_lang_String_Block4_1
-Levels explored: 0
-Final invariant: true
-
-Predicate: Assert_#5_Main.java,_line_7
-Levels explored: 0
-Final invariant: true
-
-Predicate: Main_void_clinit_Block0
+Predicate: Assert_#4_Main.java,_line_7
 Levels explored: 0
 Final invariant: true
 
 Predicate: Main_void_clinit_Block1
+Levels explored: 0
+Final invariant: true
+
+Predicate: Main_void_clinit_Block0
 Levels explored: 0
 Final invariant: true
 
@@ -637,62 +197,37 @@ Levels explored: 0
 Final invariant: true
 
 Statistics:
-(:SPACER-cex-depth                     4
- :SPACER-max-depth                     4
- :SPACER-max-query-lvl                 4
- :SPACER-num-active-lemmas             63
- :SPACER-num-ctp-blocked               4
- :SPACER-num-invariants                56
- :SPACER-num-is_invariant              11
- :SPACER-num-lemmas                    73
- :SPACER-num-pobs                      63
- :SPACER-num-propagations              1
- :SPACER-num-queries                   70
- :SPACER-num-reach-queries             4
- :SPACER-num-reuse-reach-facts         1
- :added-eqs                            578302
- :arith-assert-diseq                   582
- :arith-assert-lower                   7572
- :arith-assert-upper                   4047
- :arith-eq-adapter                     4440
- :bool-inductive-gen                   58
- :bool-inductive-gen-failures          112
- :bv-bit2core                          395743
- :bv-conflicts                         64
- :bv-diseqs                            24
- :bv-dynamic-diseqs                    89322
- :bv-dynamic-eqs                       1018
- :bv->core-eq                          278059
- :conflicts                            1335
- :datatype-accessor-ax                 60
- :datatype-constructor-ax              26
- :datatype-occurs-check                10452
- :decisions                            234571
- :del-clause                           98281
- :final-checks                         3348
- :iuc_solver.num_proxies               191
- :max-memory                           27.47
- :memory                               23.60
- :minimized-lits                       38
- :mk-bool-var                          130294
- :mk-clause                            111180
- :num-allocs                           438289310
- :num-checks                           4049
- :pool_solver.checks                   2031
- :pool_solver.checks.sat               1676
- :propagations                         1118854
- :rlimit-count                         3321782
- :time.iuc_solver.get_iuc              0.02
- :time.iuc_solver.get_iuc.hyp_reduce2  0.00
- :time.iuc_solver.get_iuc.learn_core   0.00
- :time.pool_solver.proof               0.01
- :time.pool_solver.smt.total           0.49
- :time.pool_solver.smt.total.sat       0.43
- :time.spacer.init_rules               0.01
- :time.spacer.mbp                      0.01
- :time.spacer.solve                    0.55
- :time.spacer.solve.propagate          0.00
- :time.spacer.solve.reach              0.55
- :time.spacer.solve.reach.children     0.02
- :time.spacer.solve.reach.gen.bool_ind 0.43
- :time.spacer.solve.reach.is-reach     0.00)
+(:SPACER-cex-depth               1
+ :SPACER-max-depth               1
+ :SPACER-max-query-lvl           1
+ :SPACER-num-active-lemmas       1
+ :SPACER-num-lemmas              1
+ :SPACER-num-pobs                1
+ :SPACER-num-reach-queries       1
+ :SPACER-num-reuse-reach-facts   1
+ :added-eqs                      228
+ :arith-assert-lower             4
+ :bv-bit2core                    1444
+ :bv->core-eq                    82
+ :conflicts                      24
+ :datatype-accessor-ax           14
+ :datatype-constructor-ax        8
+ :datatype-occurs-check          14
+ :decisions                      1124
+ :del-clause                     2
+ :final-checks                   2
+ :max-memory                     8.88
+ :memory                         5.94
+ :mk-bool-var                    2116
+ :mk-clause                      3642
+ :num-allocs                     33188136
+ :num-checks                     4
+ :pool_solver.checks             2
+ :pool_solver.checks.sat         1
+ :propagations                   1346
+ :rlimit-count                   51654
+ :time.pool_solver.smt.total     0.02
+ :time.pool_solver.smt.total.sat 0.00
+ :time.spacer.init_rules         0.01
+ :time.spacer.solve              0.02
+ :time.spacer.solve.reach        0.02)
