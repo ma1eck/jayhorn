@@ -20,7 +20,7 @@ ENCODINGS = [LOOP_BASED, LOOP_FREE]
 
 CEX_DIR_NAME = "counter examples or models"
 
-GET_CEX = False
+GET_CEX = True
 
 SKIP_TIMEOUTS = False
 
@@ -28,7 +28,7 @@ NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
 # selected_benchmarks = ["Inner-Retry-Until-OK"]
-selected_benchmarks = []
+selected_benchmarks = ["Bounded-Proportional-Update"]
 
 def run_benchmark(task_info):
     base_dir, folder_name, rounding_enc, norm_enc = task_info

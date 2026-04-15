@@ -110,7 +110,7 @@ public class SpacerHornExpr implements ProverHornClause {
      * Get the number of body literals.
      */
     public int getArity() {
-        throw new UnsupportedOperationException();
+		return this.body.size();
     }
     
     /**

@@ -10,6 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.stream.Collectors;
 
 import ap.theories.bitvectors.ModuloArithmetic;
 import com.google.common.base.Verify;
@@ -91,12 +92,18 @@ public class SpacerProver implements Prover {
 				params.add(":spacer.native_mbp", true);
 //				params.add (":reset_obligation_queue", true);
 				params.add(":spacer.reset_pob_queue", true);
+
+//			params.add("engine", "spacer");
+//			params.add("spacer.native_mbp", true);
+//			params.add("spacer.reset_pob_queue", true);
+
 //				params.add (":pdr.flexible_trace", false);
-				if (Options.v().getSolverOptions().contains("spacer_no_pp")){
+				if (Options.v().solution){
 					// No pre-processing
-					params.add (":xform.slice", false);
-					params.add (":xform.inline-linear", false);
-					params.add (":xform.inline-eager", false);
+					params.add("xform.slice", false);
+					params.add("xform.inline_linear", false);
+					params.add("xform.inline_eager", false);
+					params.add("xform.tail_simplifier_pve", false);
 				}
 //				params.add (":pdr.utvpi", false);
 			    //params.set (":pdr.flexible_trace", FlexTrace);
@@ -1466,34 +1473,141 @@ public class SpacerProver implements Prover {
 //		return (ProverExpr) fx.getAnswer();
     	return fx.getAnswer().toString();
      }
-	public String getInvariants() {
+
+//	public String getInvariants(List<ProverHornClause> allClauses) {
+//		try {
+//			// preprocessing the allClauses
+//			class ClauseHeadInfo {
+//				private final String funcName;
+//				private final String[] funcArgs;
+//
+//				public ClauseHeadInfo(String funcName, String[] funcArgs) {
+//					this.funcName = funcName;
+//					this.funcArgs = funcArgs;
+//				}
+//
+//				public String getFuncName() { return funcName; }
+//				public String[] getFuncArgs() { return funcArgs; }
+//			}
+//			List<ClauseHeadInfo> headDataList = new ArrayList<>();
+//			for (ProverHornClause c : allClauses) {
+//				SpacerHornExpr clause = (SpacerHornExpr) c;
+//				SpacerBoolExpr headBoolExpr = (SpacerBoolExpr) clause.getHead();
+//				Expr z3Expr = headBoolExpr.getExpr();
+//
+//				// Ensure it's an application of a function before extracting
+//				if (z3Expr.isApp()) {
+//					String name = z3Expr.getFuncDecl().getName().toString();
+//					Expr[] argsExpr = z3Expr.getArgs();
+//					String[] args = new String[argsExpr.length];
+//
+//					for (int i = 0; i < argsExpr.length; i++) {
+//						args[i] = argsExpr[i].toString();
+//					}
+//
+//					headDataList.add(new ClauseHeadInfo(name, args));
+//				}
+//			}
+//
+//			StringBuilder result = new StringBuilder();
+//
+//			BoolExpr[] rules = fx.getRules();
+//			result.append("Total rules: ").append(rules.length).append("\n\n");
+//
+//			for (SpacerFun predicate : registeredPredicates) {
+//				FuncDecl relation = predicate.getFun();
+//				int numLevels = fx.getNumLevels(relation);
+//				String relationName = relation.getName().toString();
+////				result.append("Predicate: ").append(relation.getName()).append("\n");
+//				result.append(relationName).append(":").append("\n");
+////				result.append("Levels explored: ").append(numLevels).append("\n");
+//				String[] argsName = null;
+//				for (ClauseHeadInfo head : headDataList){
+//					if (head.getFuncName().equals(relationName)){
+//						argsName = head.getFuncArgs();
+//						break;
+//					}
+//				}
+//				// Get the final converged invariant (level -1)
+//				Expr finalInvariant = fx.getCoverDelta(-1, relation);
+//				if (finalInvariant != null) {
+//					String invariantStr = finalInvariant.toString();
+//
+//					if (argsName != null && argsName.length > 0) {
+//						String regex = java.util.regex.Pattern.quote(relationName) + "[^\\s\\(\\)]*?_(\\d+)_n";
+//						java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
+//						java.util.regex.Matcher matcher = pattern.matcher(invariantStr);
+//
+//						StringBuffer sb = new StringBuffer();
+//						while (matcher.find()) {
+//							try {
+//								int argIdx = Integer.parseInt(matcher.group(1)); // Extract the index
+//
+//								if (argIdx >= 0 && argIdx < argsName.length) {
+//									String replacement = argsName[argIdx];
+//									matcher.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(replacement));
+//								} else {
+//									// If index is out of bounds, keep the original text
+//									matcher.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(matcher.group(0)));
+//								}
+//							} catch (NumberFormatException e) {
+//								matcher.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(matcher.group(0)));
+//							}
+//						}
+//						matcher.appendTail(sb);
+//						invariantStr = sb.toString();
+//					}
+//
+//					result.append(invariantStr).append("\n");
+//				}
+//
+//
+//				// Optionally, get invariants at each level
+////				for (int level = 0; level < numLevels; level++) {
+////					Expr levelInvariant = fx.getCoverDelta(level, relation);
+////					if (levelInvariant != null) {
+////						result.append("  Level ").append(level).append(": ")
+////								.append(levelInvariant).append("\n");
+////					}
+////				}
+//				result.append("---------------------------------- ");
+//				result.append("\n");
+//			}
+//
+//			Statistics stats = fx.getStatistics();
+//			result.append("Statistics:\n").append(stats);
+//
+//			return result.toString();
+//		} catch (Z3Exception e) {
+//			throw new RuntimeException(e.getMessage());
+//		}
+//	}
+
+	public String getInvariants(List<ProverHornClause> allClauses) {
 		try {
+			// preprocessing the allClauses
+			List<ClauseHeadInfo> headDataList = extractClauseHeads(allClauses);
+
 			StringBuilder result = new StringBuilder();
 
 			BoolExpr[] rules = fx.getRules();
-			result.append("Total rules: ").append(rules.length).append("\n\n");
 
 			for (SpacerFun predicate : registeredPredicates) {
 				FuncDecl relation = predicate.getFun();
-				int numLevels = fx.getNumLevels(relation);
-
-				result.append("Predicate: ").append(relation.getName()).append("\n");
-				result.append("Levels explored: ").append(numLevels).append("\n");
+				String relationName = relation.getName().toString();
+				result.append(relationName).append(":").append("\n");
+				String[] argNames = findArgNames(headDataList, relationName);
 
 				// Get the final converged invariant (level -1)
 				Expr finalInvariant = fx.getCoverDelta(-1, relation);
 				if (finalInvariant != null) {
-					result.append("Final invariant: ").append(finalInvariant).append("\n");
-				}
-
-				// Optionally, get invariants at each level
-				for (int level = 0; level < numLevels; level++) {
-					Expr levelInvariant = fx.getCoverDelta(level, relation);
-					if (levelInvariant != null) {
-						result.append("  Level ").append(level).append(": ")
-								.append(levelInvariant).append("\n");
+					if (argNames != null && argNames.length > 0) {
+						String invariantStr = replaceIndexedArgs(finalInvariant.toString(), relationName, argNames);
+						result.append(invariantStr).append("\n");
 					}
 				}
+
+				result.append("---------------------------------- ");
 				result.append("\n");
 			}
 
@@ -1505,6 +1619,77 @@ public class SpacerProver implements Prover {
 			throw new RuntimeException(e.getMessage());
 		}
 	}
+
+
+	private static class ClauseHeadInfo {
+		private final String funcName;
+		private final String[] funcArgs;
+
+		ClauseHeadInfo(String funcName, String[] funcArgs) {
+			this.funcName = funcName;
+			this.funcArgs = funcArgs;
+		}
+
+		String getFuncName() { return funcName; }
+		String[] getFuncArgs() { return funcArgs; }
+	}
+
+	private List<ClauseHeadInfo> extractClauseHeads(List<ProverHornClause> clauses) {
+		List<ClauseHeadInfo> list = new ArrayList<>();
+
+		for (ProverHornClause c : clauses) {
+			SpacerHornExpr clause = (SpacerHornExpr) c;
+			SpacerBoolExpr headExpr = (SpacerBoolExpr) clause.getHead();
+			Expr z3Expr = headExpr.getExpr();
+
+			if (!z3Expr.isApp()) continue;
+
+			String name = z3Expr.getFuncDecl().getName().toString();
+			Expr[] argExprs = z3Expr.getArgs();
+			String[] args = new String[argExprs.length];
+
+			for (int i = 0; i < argExprs.length; i++) {
+				args[i] = argExprs[i].toString();
+			}
+
+			list.add(new ClauseHeadInfo(name, args));
+		}
+
+		return list;
+	}
+
+	private String[] findArgNames(List<ClauseHeadInfo> headInfoList, String relationName) {
+		for (ClauseHeadInfo info : headInfoList) {
+			if (info.getFuncName().equals(relationName)) {
+				return info.getFuncArgs();
+			}
+		}
+		return null;
+	}
+	private String replaceIndexedArgs(String invariant, String relationName, String[] argNames) {
+		String regex = java.util.regex.Pattern.quote(relationName) + "[^\\s\\(\\)]*?_(\\d+)_n";
+		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
+		java.util.regex.Matcher matcher = pattern.matcher(invariant);
+
+		StringBuffer sb = new StringBuffer();
+		while (matcher.find()) {
+			try {
+				int argIdx = Integer.parseInt(matcher.group(1));
+
+				if (argIdx >= 0 && argIdx < argNames.length) {
+					String replacement = argNames[argIdx];
+					matcher.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(replacement));
+				} else {
+					matcher.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(matcher.group(0)));
+				}
+			} catch (NumberFormatException e) {
+				matcher.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(matcher.group(0)));
+			}
+		}
+		matcher.appendTail(sb);
+		return sb.toString();
+	}
+
 
 	public String getModel(){
 		solver.check();

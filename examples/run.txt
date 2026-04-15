@@ -1,8 +1,8 @@
-floataddmul
+floatUnboundedLoop3
 
 compile:
-javac .\examples\floataddmul\src\Main.java .\examples\floataddmul\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floataddmul\classes\
+javac .\examples\floatUnboundedLoop3\src\Main.java .\examples\floatUnboundedLoop3\src\org\sosy_lab\sv_benchmarks\Verifier.java -d .\examples\floatUnboundedLoop3\classes\
 
 
 config: 
--j examples/floataddmul/classes -src examples/floataddmul/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn
+-j examples/floatUnboundedLoop3/classes -src examples/floatUnboundedLoop3/src -rounding-encoding loop-based -normalization-encoding loop-based -solver spacer  -heap-mode bounded -solution -full-cex -print-horn

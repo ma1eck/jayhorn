@@ -13255,6 +13255,8 @@ public class FloatingPointEncoder {
         }
         else{
             sign = p.mkCustomTrue();
+            ieeeOne = new IeeeFloatt(new IeeeFloatSpect(f-1, e)); // todo recheck
+            ieeeOne.fromDouble(-value);
         }//BVLit( new BigInteger(ieeeOne.get_sign() ? "1" : "0"),1);
         // exponent = value > 0 ? BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()),e) : (value == 0 ? BVLit(ieeeOne.get_exponent(),e) : BVLit(ieeeOne.get_exponent().add(ieeeOne.getSpec().bias()).subtract(BigInteger.ONE),e));
 //        if (!ieeeOne.isNormal() && value != 0){ //TODO recheck subnormal
