@@ -162,9 +162,9 @@ public class SpacerChecker extends Checker{
 			    String propLine = "Property@Line"+props.getValue();
 			    if (result == ProverResult.Unsat) {
 			    	Stats.stats().add(propLine, "SAFE");
-//					if (Options.v().solution){
+					if (Options.v().solution){
 						cex();
-//					}
+					}
 			    } else if (result == ProverResult.Sat){
 			    	Stats.stats().add(propLine, "UNSAFE");
 					((SpacerProver) prover).getReasonUnknown();

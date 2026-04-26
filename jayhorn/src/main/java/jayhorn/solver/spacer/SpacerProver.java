@@ -10,14 +10,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.stream.Collectors;
 
-import ap.theories.bitvectors.ModuloArithmetic;
 import com.google.common.base.Verify;
 import com.microsoft.z3.*;
 
+import jayhorn.AST.InvariantTree;
+import jayhorn.AST.Nodes.Node;
 import jayhorn.Options;
 import jayhorn.solver.*;
+
+import jayhorn.AST.SpacerParser.Parser;
 
 
 /**
@@ -87,23 +89,24 @@ public class SpacerProver implements Prover {
 //				params.add(":spacer.use_inductive_generalizer", false);
 //				params.add(":spacer.weak_abs", false);
 //				params.add(":validate", true);
-				params.add(":engine", "spacer");
+//				params.add(":engine", "spacer");
 //				params.add (":use_heavy_mev", true);
-				params.add(":spacer.native_mbp", true);
+//				params.add(":spacer.native_mbp", true);
 //				params.add (":reset_obligation_queue", true);
-				params.add(":spacer.reset_pob_queue", true);
+//				params.add(":spacer.reset_pob_queue", true);
+//				params.add(":spacer.lemma_generalization", true);
 
-//			params.add("engine", "spacer");
-//			params.add("spacer.native_mbp", true);
-//			params.add("spacer.reset_pob_queue", true);
+			params.add("engine", "spacer");
+			params.add("spacer.native_mbp", true);
+			params.add("spacer.reset_pob_queue", true);
 
 //				params.add (":pdr.flexible_trace", false);
 				if (Options.v().solution){
 					// No pre-processing
 					params.add("xform.slice", false);
-					params.add("xform.inline_linear", false);
-					params.add("xform.inline_eager", false);
-					params.add("xform.tail_simplifier_pve", false);
+//					params.add("xform.inline_linear", false);
+//					params.add("xform.inline_eager", false);
+//					params.add("xform.tail_simplifier_pve", false);
 				}
 //				params.add (":pdr.utvpi", false);
 			    //params.set (":pdr.flexible_trace", FlexTrace);
@@ -1585,24 +1588,32 @@ public class SpacerProver implements Prover {
 
 	public String getInvariants(List<ProverHornClause> allClauses) {
 		try {
+			ctx.setPrintMode(com.microsoft.z3.enumerations.Z3_ast_print_mode.Z3_PRINT_SMTLIB2_COMPLIANT);
+			com.microsoft.z3.Global.setParameter("pp.min_alias_size", "1000000");
+			com.microsoft.z3.Global.setParameter("pp.max_depth", "1000000");
 			// preprocessing the allClauses
 			List<ClauseHeadInfo> headDataList = extractClauseHeads(allClauses);
 
 			StringBuilder result = new StringBuilder();
 
-			BoolExpr[] rules = fx.getRules();
+//			BoolExpr[] rules = fx.getRules();
 
 			for (SpacerFun predicate : registeredPredicates) {
 				FuncDecl relation = predicate.getFun();
 				String relationName = relation.getName().toString();
 				result.append(relationName).append(":").append("\n");
 				String[] argNames = findArgNames(headDataList, relationName);
+				Sort[] argSorts = findArgSorts(headDataList, relationName);
 
 				// Get the final converged invariant (level -1)
 				Expr finalInvariant = fx.getCoverDelta(-1, relation);
 				if (finalInvariant != null) {
 					if (argNames != null && argNames.length > 0) {
-						String invariantStr = replaceIndexedArgs(finalInvariant.toString(), relationName, argNames);
+						Expr invariantMapped = exprReplaceIndexedArgs(finalInvariant, relationName, argNames, argSorts);
+//						InvariantTree invTree = exprToInvTree(invariantMapped);
+//						String invariantStr = invariantMapped.toString();
+						Node invTree = Parser.convertExpr(invariantMapped);
+						String invariantStr = invTree.toPrettyString();
 						result.append(invariantStr).append("\n");
 					}
 				}
@@ -1611,8 +1622,8 @@ public class SpacerProver implements Prover {
 				result.append("\n");
 			}
 
-			Statistics stats = fx.getStatistics();
-			result.append("Statistics:\n").append(stats);
+//			Statistics stats = fx.getStatistics();
+//			result.append("Statistics:\n").append(stats);
 
 			return result.toString();
 		} catch (Z3Exception e) {
@@ -1620,18 +1631,56 @@ public class SpacerProver implements Prover {
 		}
 	}
 
+	private InvariantTree exprToInvTree(Expr expr) {
+		FuncDecl.Parameter[] params = expr.getFuncDecl().getParameters();
+		Expr[] args = expr.getArgs();
+		InvariantTree[] argsTree = listExprToInvTree(args);
+		if (params.length != 0){
+			InvariantTree[] temp = argsTree.clone();
+			argsTree = new InvariantTree[args.length + params.length];
+			for (int i = 0; i < params.length; i++) {
+//				argsTree[i] = new InvariantTree(String.valueOf(params[i].getInt()), new InvariantTree[0]); // ???
+				argsTree[i] = new InvariantTree(params[i].toString(), new InvariantTree[0]); // ???
+			}
+			for (int j = 0; j < temp.length; j++){
+				argsTree[j + params.length] = temp[j];
+			}
+		}
+
+		String name = expr.getFuncDecl().getName().toString();
+		if (args.length == 0) {
+			name = expr.toString();
+		}
+		InvariantTree invTree = new InvariantTree(name, argsTree);
+		return invTree;
+	}
+	private InvariantTree[] listExprToInvTree(Expr[] exprs) {
+		InvariantTree[] exprsTree = new InvariantTree[exprs.length];
+		for (int i = 0; i < exprs.length; i++) {
+			exprsTree[i] = exprToInvTree(exprs[i]);
+		}
+		return exprsTree;
+	}
 
 	private static class ClauseHeadInfo {
 		private final String funcName;
 		private final String[] funcArgs;
+		private final Sort[] funcArgsSort;
 
 		ClauseHeadInfo(String funcName, String[] funcArgs) {
 			this.funcName = funcName;
 			this.funcArgs = funcArgs;
+			this.funcArgsSort = null;
+		}
+		ClauseHeadInfo(String funcName, String[] funcArgs, Sort[] argsSort) {
+			this.funcName = funcName;
+			this.funcArgs = funcArgs;
+			this.funcArgsSort = argsSort;
 		}
 
 		String getFuncName() { return funcName; }
 		String[] getFuncArgs() { return funcArgs; }
+		Sort[] getFuncArgsSort() { return funcArgsSort;	}
 	}
 
 	private List<ClauseHeadInfo> extractClauseHeads(List<ProverHornClause> clauses) {
@@ -1647,12 +1696,14 @@ public class SpacerProver implements Prover {
 			String name = z3Expr.getFuncDecl().getName().toString();
 			Expr[] argExprs = z3Expr.getArgs();
 			String[] args = new String[argExprs.length];
+			Sort[] argsSort = new Sort[argExprs.length];
 
 			for (int i = 0; i < argExprs.length; i++) {
 				args[i] = argExprs[i].toString();
+				argsSort[i] = argExprs[i].getSort();
 			}
 
-			list.add(new ClauseHeadInfo(name, args));
+			list.add(new ClauseHeadInfo(name, args, argsSort));
 		}
 
 		return list;
@@ -1666,7 +1717,15 @@ public class SpacerProver implements Prover {
 		}
 		return null;
 	}
-	private String replaceIndexedArgs(String invariant, String relationName, String[] argNames) {
+	private Sort[] findArgSorts(List<ClauseHeadInfo> headInfoList, String relationName) {
+		for (ClauseHeadInfo info : headInfoList) {
+			if (info.getFuncName().equals(relationName)) {
+				return info.getFuncArgsSort();
+			}
+		}
+		return null;
+	}
+	private String stringReplaceIndexedArgs(String invariant, String relationName, String[] argNames) {
 		String regex = java.util.regex.Pattern.quote(relationName) + "[^\\s\\(\\)]*?_(\\d+)_n";
 		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
 		java.util.regex.Matcher matcher = pattern.matcher(invariant);
@@ -1688,6 +1747,29 @@ public class SpacerProver implements Prover {
 		}
 		matcher.appendTail(sb);
 		return sb.toString();
+	}
+
+	private Expr exprReplaceIndexedArgs(Expr invariant, String relationName, String[] argNames, Sort[] argSort) {
+		String invariantStr = invariant.toString();
+		String regex = java.util.regex.Pattern.quote(relationName) + "[^\\s\\(\\)]*?_(\\d+)_n";
+		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
+		java.util.regex.Matcher matcher = pattern.matcher(invariantStr);
+
+		while (matcher.find()) {
+			try {
+				int argIdx = Integer.parseInt(matcher.group(1));
+				String varName = matcher.group();
+				if (argIdx >= 0 && argIdx < argNames.length) {
+					Sort sort = argSort[argIdx];
+					String replacement = argNames[argIdx];
+					Expr varExpr = ctx.mkConst(varName, sort);
+					Expr replacementExpr = ctx.mkConst(replacement, sort);
+					invariant = invariant.substitute(varExpr, replacementExpr);
+				}
+			} catch (NumberFormatException e) {
+			}
+		}
+		return invariant;
 	}
 
 

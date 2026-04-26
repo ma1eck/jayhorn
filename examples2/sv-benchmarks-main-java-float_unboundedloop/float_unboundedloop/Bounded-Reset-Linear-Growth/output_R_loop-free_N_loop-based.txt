@@ -1932,7 +1932,8 @@
     (eexponent efp_251)
     (bvshl (emantissa efp_251)
            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001))
-  (bvadd lzc_252 #b00000000000000000000000000000000000000000000000000001)) <- (= ((_ extract 157 157) (emantissa efp_251)) #b0) && (Main_void_mainJayArray_java_lang_String_Block4_13_15
+  (bvadd lzc_252 #b00000000000000000000000000000000000000000000000000001)) <- (and (= ((_ extract 157 157) (emantissa efp_251)) #b0)
+     (bvult #x001 (eexponent efp_251))) && (Main_void_mainJayArray_java_lang_String_Block4_13_15
   $in_0_241_0
   $in_0_241_1
   $in_0_241_2
@@ -1975,7 +1976,9 @@
   (ExtendedDoubleFloatingPoint
     (esign efp_263)
     (bvsub (eexponent efp_263) ((_ extract 11 0) lzc_264))
-    (emantissa efp_263))) <- (not (= ((_ extract 157 157) (emantissa efp_263)) #b0)) && (Main_void_mainJayArray_java_lang_String_Block4_13_15
+    (emantissa efp_263))) <- (let ((a!1 (and (= ((_ extract 157 157) (emantissa efp_263)) #b0)
+                (bvult #x001 (eexponent efp_263)))))
+  (not a!1)) && (Main_void_mainJayArray_java_lang_String_Block4_13_15
   $in_0_253_0
   $in_0_253_1
   $in_0_253_2
@@ -3448,5 +3451,5 @@
 		-------------
 
 [root] - Checking properties
-Spacer takes 4071 to check the given benchmark!
+Spacer takes 2048 to check the given benchmark!
 SAFE

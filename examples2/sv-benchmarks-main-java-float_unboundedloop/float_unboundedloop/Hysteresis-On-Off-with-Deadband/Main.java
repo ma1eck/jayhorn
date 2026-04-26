@@ -44,8 +44,6 @@ public class Main {
       }
     }
 
-        assert x != Double.MAX_VALUE;
-      assert x >= 0.6 && x <= 1.4;
-
+    assert x >= 0.6 && x <= 1.4;
   }
 }

@@ -11,7 +11,7 @@ NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'unbounded_benchmark_results.csv'
 
-TIMEOUT_SECONDS =  8*60
+TIMEOUT_SECONDS =  10*60
 MAX_WORKERS = 4
 
 LOOP_BASED = "loop-based"
@@ -21,14 +21,12 @@ ENCODINGS = [LOOP_BASED, LOOP_FREE]
 CEX_DIR_NAME = "counter examples or models"
 
 GET_CEX = True
-
-SKIP_TIMEOUTS = False
+SKIP_TIMEOUTS = True
 
 NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
 
-# selected_benchmarks = ["Inner-Retry-Until-OK"]
-selected_benchmarks = ["Bounded-Proportional-Update"]
+selected_benchmarks = []
 
 def run_benchmark(task_info):
     base_dir, folder_name, rounding_enc, norm_enc = task_info
@@ -44,6 +42,12 @@ def run_benchmark(task_info):
         return None
     if len(selected_benchmarks)!=0 and not folder_name in selected_benchmarks:
         return None
+    if SKIP_TIMEOUTS:
+        with open(output_file_path, "r", encoding="utf-8", errors="replace") as f:
+            stdout = f.read()
+            if stdout and "TIMEOUT" in stdout:
+                print(f"  Skipping {folder_name} [R: {rounding_enc}, N: {norm_enc}] due to previous TIMEOUT.")
+                return [folder_name, rounding_enc, norm_enc, TIMEOUT_SECONDS * 1000, "TIMEOUT", ""]
 
     cmd = [
         "java",

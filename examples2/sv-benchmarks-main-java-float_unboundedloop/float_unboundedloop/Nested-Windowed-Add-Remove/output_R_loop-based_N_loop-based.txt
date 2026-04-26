@@ -2952,7 +2952,8 @@
     (eexponent efp_415)
     (bvshl (emantissa efp_415)
            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001))
-  (bvadd lzc_416 #b00000000000000000000000000000000000000000000000000001)) <- (= ((_ extract 157 157) (emantissa efp_415)) #b0) && (Main_void_mainJayArray_java_lang_String_Block7_13_15
+  (bvadd lzc_416 #b00000000000000000000000000000000000000000000000000001)) <- (and (= ((_ extract 157 157) (emantissa efp_415)) #b0)
+     (bvult #x001 (eexponent efp_415))) && (Main_void_mainJayArray_java_lang_String_Block7_13_15
   $in_0_402_0
   $in_0_402_1
   $in_0_402_2
@@ -3001,7 +3002,9 @@
   (ExtendedDoubleFloatingPoint
     (esign efp_430)
     (bvsub (eexponent efp_430) ((_ extract 11 0) lzc_431))
-    (emantissa efp_430))) <- (not (= ((_ extract 157 157) (emantissa efp_430)) #b0)) && (Main_void_mainJayArray_java_lang_String_Block7_13_15
+    (emantissa efp_430))) <- (let ((a!1 (and (= ((_ extract 157 157) (emantissa efp_430)) #b0)
+                (bvult #x001 (eexponent efp_430)))))
+  (not a!1)) && (Main_void_mainJayArray_java_lang_String_Block7_13_15
   $in_0_417_0
   $in_0_417_1
   $in_0_417_2
@@ -5025,7 +5028,8 @@
     (eexponent efp_813)
     (bvshl (emantissa efp_813)
            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001))
-  (bvadd lzc_814 #b00000000000000000000000000000000000000000000000000001)) <- (= ((_ extract 157 157) (emantissa efp_813)) #b0) && (Main_void_mainJayArray_java_lang_String_Block10_13_15
+  (bvadd lzc_814 #b00000000000000000000000000000000000000000000000000001)) <- (and (= ((_ extract 157 157) (emantissa efp_813)) #b0)
+     (bvult #x001 (eexponent efp_813))) && (Main_void_mainJayArray_java_lang_String_Block10_13_15
   $in_0_800_0
   $in_0_800_1
   $in_0_800_2
@@ -5074,7 +5078,9 @@
   (ExtendedDoubleFloatingPoint
     (esign efp_828)
     (bvsub (eexponent efp_828) ((_ extract 11 0) lzc_829))
-    (emantissa efp_828))) <- (not (= ((_ extract 157 157) (emantissa efp_828)) #b0)) && (Main_void_mainJayArray_java_lang_String_Block10_13_15
+    (emantissa efp_828))) <- (let ((a!1 (and (= ((_ extract 157 157) (emantissa efp_828)) #b0)
+                (bvult #x001 (eexponent efp_828)))))
+  (not a!1)) && (Main_void_mainJayArray_java_lang_String_Block10_13_15
   $in_0_815_0
   $in_0_815_1
   $in_0_815_2
@@ -7208,5 +7214,5 @@
 		-------------
 
 [root] - Checking properties
-Spacer takes 38514 to check the given benchmark!
+Spacer takes 18299 to check the given benchmark!
 SAFE
