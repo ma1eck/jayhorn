@@ -17,6 +17,7 @@ import java.util.concurrent.TimeoutException;
 
 import ap.basetypes.IdealInt;
 import ap.parser.*;
+import ap.terfor.VariableTerm;
 import ap.theories.bitvectors.ModuloArithmetic$;
 import com.google.common.base.Verify;
 
@@ -87,15 +88,14 @@ import lazabs.viewer.HornPrinter$;
 import scala.Tuple2;
 import scala.collection.Iterator;
 import scala.collection.Seq;
-import scala.collection.immutable.List;
-import scala.collection.immutable.Map;
-import scala.collection.immutable.Set;
+import scala.collection.immutable.*;
 import scala.collection.mutable.ArrayBuffer;
 import scala.collection.mutable.HashSet;
 import scala.util.Either;
 import scala.util.Left;
 import soot.JastAddJ.FloatingPointType;
 import soottocfg.ast.Absyn.Constant;
+import soottocfg.ast.Absyn.If;
 
 
 public class PrincessProver implements Prover {
@@ -660,7 +660,7 @@ public class PrincessProver implements Prover {
     public java.util.Map<Predicate, IFormula>  getLastSolutionFormula() {
         return lastSolutionFormula;
     }
-	
+
     private Dag<Tuple2<ProverFun, ProverExpr[]>>[] lastCEX;
     public Dag<Tuple2<ProverFun, ProverExpr[]>> getLastCEX() {
         return lastCEX[0];
@@ -706,14 +706,15 @@ public class PrincessProver implements Prover {
             lastCEX = new Dag[1];
             if (block) {
                 return runEldarica(assertedClauses, fullHornTypes,
-                                   lastSolution, lastCEX);
+                                   lastSolution, lastSolutionFormula, lastCEX);
+//                                   lastSolution, lastCEX);
             } else {
                 this.executor = Executors.newSingleThreadExecutor();
                 this.thread =
                     new PrincessSolverThread(assertedClauses,
                                              fullHornTypes,
                                              lastSolution,
-//                                             lastSolutionFormula,
+                                             lastSolutionFormula,
                                              lastCEX);
                 this.futureProverResult = executor.submit(this.thread);
                 return ProverResult.Running;
@@ -894,6 +895,7 @@ public class PrincessProver implements Prover {
     static class PrincessSolverThread implements Runnable {
         private final ArrayList<HornExpr> hornClauses;
         private final java.util.Map<String, String> lastSolution;
+        private final java.util.Map<Predicate, IFormula> lastSolutionFormula;
         private final Dag<Tuple2<ProverFun, ProverExpr[]>>[] lastCEX;
         private final java.util.Map<Predicate, ProverType[]> fullHornTypes;
         private ProverResult status;
@@ -906,13 +908,26 @@ public class PrincessProver implements Prover {
             this.fullHornTypes = fullHornTypes;
             this.lastSolution = lastSolution;
             this.lastCEX = lastCEX;
+            this.lastSolutionFormula = null;
+        }
+        public PrincessSolverThread(ArrayList<HornExpr> clauses,
+                                    java.util.Map<Predicate, ProverType[]> fullHornTypes,
+                                    java.util.Map<String, String> lastSolution,
+                                    java.util.Map<Predicate, IFormula> lastSolutionFormula,
+                                    Dag<Tuple2<ProverFun, ProverExpr[]>>[] lastCEX) {
+            this.hornClauses = clauses;
+            this.fullHornTypes = fullHornTypes;
+            this.lastSolution = lastSolution;
+            this.lastCEX = lastCEX;
+            this.lastSolutionFormula = lastSolutionFormula;
         }
 
         @Override
         public void run() {
             status = ProverResult.Running;
             status = runEldarica(hornClauses, fullHornTypes,
-                                 lastSolution, lastCEX);
+                                 lastSolution, lastSolutionFormula, lastCEX);
+//                                 lastSolution, lastCEX);
         }
 
         public ProverResult getStatus() {

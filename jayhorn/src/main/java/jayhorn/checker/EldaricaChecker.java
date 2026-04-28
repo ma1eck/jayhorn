@@ -5,10 +5,17 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import ap.api.SimpleAPI$;
+import ap.parser.*;
+import ap.terfor.ConstantTerm;
+import ap.terfor.preds.Predicate;
+import ap.types.Sort;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import com.google.common.base.Verify;
 
+import jayhorn.AST.Nodes.Node;
 import jayhorn.Log;
 import jayhorn.Options;
 import jayhorn.hornify.HornEncoderContext;
@@ -17,10 +24,14 @@ import jayhorn.hornify.Hornify;
 import jayhorn.solver.*;
 import jayhorn.solver.princess.PrincessProver;
 import jayhorn.solver.princess.CexPrinter;
+import jayhorn.solver.princess.PrincessProverExpr;
 import jayhorn.utils.GhostRegister;
 import jayhorn.utils.HeapCounterTransformer;
 import jayhorn.utils.Stats;
 import jayhorn.witness.WitnessGeneration;
+import scala.Tuple2;
+import scala.collection.immutable.Map$;
+import scala.collection.immutable.Nil$;
 import soottocfg.cfg.Program;
 import soottocfg.cfg.method.Method;
 import soottocfg.cfg.statement.Statement;
@@ -28,6 +39,8 @@ import soottocfg.cfg.type.IntType;
 import soottocfg.cfg.variable.ClassVariable;
 import soottocfg.cfg.variable.Variable;
 import  lazabs.horn.Util.Dag;
+
+import static jayhorn.AST.PrincessParser.Parser.convertExpr;
 
 /**
  * @author teme
@@ -225,7 +238,8 @@ public class EldaricaChecker extends Checker {
             }
             if (Options.v().solution) {
                 if (result == ProverResult.Sat) {
-                     solutionOutput = printHeapInvariants(hornContext, allClauses);
+//                     solutionOutput = printHeapInvariants(hornContext, allClauses);
+                     solutionOutput = printHeapInvariantsToTree(hornContext, allClauses);
                 } else if (result == ProverResult.Unsat) {
                     Log.info("Possible violation at " +
                              ((PrincessProver)prover).getLastCEX().apply(1).productElement(0));
@@ -283,10 +297,6 @@ public class EldaricaChecker extends Checker {
                 String key = entry.getKey();
                 int idx = key.indexOf('/');
                 String beforeSlash = (idx != -1) ? key.substring(0, idx) : key;
-
-
-
-
 
                 Optional<ProverHornClause> hClause = allClauses.stream()
                         .filter(c -> {
@@ -414,6 +424,223 @@ public class EldaricaChecker extends Checker {
         }
         Log.info(" Converted: " + convertedTrace);
         return sb.toString();
+    }
+
+    private String printHeapInvariantsToTree(HornEncoderContext hornContext, List<ProverHornClause> allClauses) {
+        StringBuilder sb = new StringBuilder();
+        String convertedTrace = "";
+        java.util.Map<Predicate, IFormula> lastSolutionFormula = ((PrincessProver) prover).getLastSolutionFormula();
+        if (lastSolutionFormula!= null) {
+            sb.append("No assertion can fail using the following heap invariants:\n");
+
+            Map<ClassVariable, TreeMap<Long, String>> heapInvariants = new LinkedHashMap<ClassVariable, TreeMap<Long, String>>();
+            ClauseGraph graph = new ClauseGraph();
+            graph = ClauseGraphBuilder.buildClauseGraph(allClauses);
+           // graph.prettyPrintTopological();
+            graph.prettyPrint();
+
+            for (Entry<Predicate, IFormula> entry : lastSolutionFormula.entrySet()) {
+                Log.info(entry.getKey() + ":::" + entry.getValue());
+
+                String key = entry.getKey().toString();
+                IFormula currentInvariant = entry.getValue();
+                String valueStr = IFormula2String(currentInvariant);
+                int idx = key.indexOf('/');
+                String beforeSlash = (idx != -1) ? key.substring(0, idx) : key;
+
+                Optional<ProverHornClause> hClause = allClauses.stream()
+                        .filter(c -> {
+                            try {
+                                ProverFun f = c.getHeadFun();
+                                return f != null
+                                        && f.toString().equals(beforeSlash);
+                            } catch (IndexOutOfBoundsException | NullPointerException e) {
+                                return false;
+                            }
+                        })
+                        .findFirst();
+                Log.info("In Head--> " + hClause.toString());
+                Pattern pattern = Pattern.compile("_(\\d+)");
+                Matcher matcher = pattern.matcher(valueStr);
+
+                List<Integer> indices = new ArrayList<>();
+                StringBuffer sb1 = new StringBuffer();
+
+                while (matcher.find()) {
+                    int idx1 = Integer.parseInt(matcher.group(1)); // the number after "_"
+                    indices.add(idx1);
+                    Object[] arr = Arrays.stream(hClause.get().getHeadArgs()).toArray();
+                    // Use A[idx] in replacement, e.g. _x, _z, ...
+                    String replacement = "_" + arr[idx1].toString();
+
+                    // Important: quoteReplacement to avoid problems with $ and \
+                    matcher.appendReplacement(sb1, Matcher.quoteReplacement(replacement));
+                    ITerm replacementTerm = new IConstant(new ConstantTerm(replacement));
+//                    currentInvariant = replaceIndexedVariable(currentInvariant, idx1, replacementTerm);
+                    currentInvariant = replaceIndexedVariable(
+                                                    currentInvariant, idx1, ((PrincessProverExpr) arr[idx1]).toTerm());
+                }
+                matcher.appendTail(sb1);
+//                String newLine = sb1.toString();
+//                String newLine = IFormula2String(currentInvariant);
+
+                Node tree = convertExpr(currentInvariant);
+                String newLine = tree.toPrettyString();
+
+
+                convertedTrace +=  "\n ---------------------------------- \n";
+                convertedTrace +=   key + ":\n" + newLine;
+              //  Log.info(" Original: " + value);
+             //   Log.info("Indices found: " + indices + " in " + hClause.get().getHeadFun());
+              //  Log.info("new: " + newLine);
+
+
+
+
+
+                //String key = key;
+               // int idx = key.indexOf('/');
+               // String beforeSlash = (idx != -1) ? key.substring(0, idx) : key;
+
+                Optional<ProverHornClause> clause1 = allClauses.stream()
+                        .filter(c -> {
+                            try {
+                                ProverFun f = c.getBodyFun(0);
+                                return f != null
+                                        && f.toString().equals(beforeSlash);
+                            } catch (IndexOutOfBoundsException | NullPointerException e) {
+                                return false;
+                            }
+                        })
+                        .findFirst();
+                Log.info("In Body--> " + clause1.toString());
+                String [] constraints = valueStr.split("&");
+                for (String c: constraints) {
+                    String [] constraints1 = c.split(";");
+                    for (String c1: constraints1) {
+                        Matcher m = Pattern.compile("_(\\d+)").matcher(c1);
+                        Log.info(c1);
+                        if (m.find()) {
+                            int value = Integer.parseInt(m.group(1)); // extract the number
+                            Object[] arr = Arrays.stream(hClause.get().getHeadArgs()).toArray();
+
+                            Log.info("Found number: " + value + " var: " + arr[value].toString() + " condition: " + c1.replace("_"+value,arr[value].toString()));
+
+                        }
+
+                    }
+
+                }
+
+                boolean found = false;
+                for (Entry<ClassVariable, Map<Long, HornPredicate>> pentry : hornContext.getInvariantPredicates().entrySet()) {
+
+                    for (Entry<Long, HornPredicate> predEntry : pentry.getValue().entrySet()) {
+                        HornPredicate hp = predEntry.getValue();
+                        if (key.contains(hp.predicate.toString())) {
+                            //we found one.
+                            if (!heapInvariants.containsKey(pentry.getKey())) {
+                                heapInvariants.put(pentry.getKey(), new TreeMap<Long, String>());
+                            }
+                            String readable = valueStr;
+                            for (int i = 0; i < hp.variables.size(); i++) {
+                                readable = readable.replace("_" + i, hp.variables.get(i).getName());
+                            }
+//                            readable = IFormula2String(currentInvariant); //
+                            heapInvariants.get(pentry.getKey()).put(predEntry.getKey(), readable);
+                        }
+                    }
+                    if (found) {
+                        break;
+                    }
+                }
+            }
+            for (Entry<ClassVariable, TreeMap<Long, String>> entry : heapInvariants.entrySet()) {
+                sb.append(entry.getKey());
+                sb.append("\n  ");
+                String comma = "";
+                for (Variable v : entry.getKey().getAssociatedFields()) {
+                    sb.append(comma);
+                    comma = ", ";
+                    sb.append(v.getName());
+                }
+                sb.append(":\n");
+                for (Entry<Long, String> e2 : entry.getValue().entrySet()) {
+                    sb.append("\t");
+                    sb.append(e2.getKey());
+                    sb.append(":  ");
+                    sb.append(e2.getValue());
+                    sb.append("\n");
+                }
+                sb.append("--\n");
+            }
+            sb.append("----\n");
+        }
+        Log.info(" Converted: " + convertedTrace);
+        return sb.toString();
+    }
+
+    private IFormula renameVariable(IFormula formula, ConstantTerm oldTerm, ConstantTerm newTerm) {
+        Tuple2<ConstantTerm, ConstantTerm> pair = new Tuple2<>(oldTerm, newTerm);
+        scala.collection.immutable.Map<ConstantTerm, ConstantTerm> renameMap = Map$.MODULE$.<ConstantTerm, ConstantTerm>empty().$plus(pair);
+
+        // Call the static rename method
+        return ConstantSubstVisitor.rename(formula, renameMap);
+    }
+
+    private IFormula replaceIndexedVariable(IFormula formula, int targetIndex, ITerm replacementTerm, Sort[] boundVariableSorts) {
+        // 1. Start with an empty Scala list
+        @SuppressWarnings("unchecked")
+        scala.collection.immutable.List<ITerm> substitutionList = (scala.collection.immutable.List<ITerm>) (Object) Nil$.MODULE$;
+
+        // 2. Prepend the replacement term (this ends up at 'targetIndex')
+        substitutionList = substitutionList.$colon$colon(replacementTerm);
+
+        // 3. Prepend unmodified variables for all indices before the target.
+        // We use ISortedVariable and assign them their actual corresponding sort.
+        for (int i = targetIndex - 1; i >= 0; i--) {
+            // Look up the correct sort for the variable at De Bruijn index 'i'
+            Sort varSort = boundVariableSorts[i];
+
+            ITerm unchangedVar = new ISortedVariable(i, varSort);
+            substitutionList = substitutionList.$colon$colon(unchangedVar);
+        }
+
+        // 4. Create the Tuple2 argument with a binder depth offset of 0
+        Tuple2<scala.collection.immutable.List<ITerm>, Object> substArgs = new Tuple2<>(substitutionList, 0);
+
+        // 5. Apply the visitor and return the modified formula
+        return (IFormula) VariableSubstVisitor$.MODULE$.apply(formula, substArgs);
+    }
+
+    private IFormula replaceIndexedVariable(IFormula formula, int targetIndex, ITerm replacementTerm) {
+        // 1. Start with an empty Scala list
+        @SuppressWarnings("unchecked")
+        scala.collection.immutable.List<ITerm> substitutionList = (scala.collection.immutable.List<ITerm>) (Object) Nil$.MODULE$;
+
+        // 2. Prepend the replacement term (this ends up at 'targetIndex')
+        substitutionList = substitutionList.$colon$colon(replacementTerm);
+
+        // 3. Prepend unmodified variables for all indices before the target.
+        // We use ISortedVariable and assign them their actual corresponding sort.
+        for (int i = targetIndex - 1; i >= 0; i--) {
+            // Look up the correct sort for the variable at De Bruijn index 'i'
+            Sort varSort = Sort.Integer$.MODULE$;
+
+            ITerm unchangedVar = new ISortedVariable(i, varSort);
+            substitutionList = substitutionList.$colon$colon(unchangedVar);
+        }
+
+        // 4. Create the Tuple2 argument with a binder depth offset of 0
+        Tuple2<scala.collection.immutable.List<ITerm>, Object> substArgs = new Tuple2<>(substitutionList, 0);
+
+        // 5. Apply the visitor and return the modified formula
+        return (IFormula) VariableSubstVisitor$.MODULE$.apply(formula, substArgs);
+    }
+
+
+    private String IFormula2String(IFormula formula){
+        return  SimpleAPI$.MODULE$.pp(formula);
     }
 
 

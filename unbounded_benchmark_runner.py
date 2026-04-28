@@ -11,17 +11,20 @@ NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'unbounded_benchmark_results.csv'
 
-TIMEOUT_SECONDS =  10*60
+
+TIMEOUT_SECONDS =  3*60
 MAX_WORKERS = 4
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
 ENCODINGS = [LOOP_BASED, LOOP_FREE]
+SOLVER = "eldarica"
+# SOLVER = "spacer"
 
 CEX_DIR_NAME = "counter examples or models"
 
 GET_CEX = True
-SKIP_TIMEOUTS = True
+SKIP_TIMEOUTS = False
 
 NUMBER_OF_REPETITION = 1
 AVERAGING = NUMBER_OF_REPETITION > 1
@@ -57,8 +60,8 @@ def run_benchmark(task_info):
         "-src", src_dir,
         "-rounding-encoding", rounding_enc,
         "-normalization-encoding", norm_enc,
-        "-solver", "spacer",
-        "-heap-mode", "bounded"
+        "-solver", SOLVER,
+        # "-heap-mode", "bounded"
     ]
 
     if GET_CEX:

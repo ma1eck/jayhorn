@@ -5,7 +5,7 @@ import ap.parser.IFormula;
 import ap.parser.ITerm;
 import jayhorn.solver.ProverExpr;
 
-abstract class PrincessProverExpr implements ProverExpr {
+public abstract class PrincessProverExpr implements ProverExpr {
 
     public abstract ITerm toTerm();
     public abstract IFormula toFormula();

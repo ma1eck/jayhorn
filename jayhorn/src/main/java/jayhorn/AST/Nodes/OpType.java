@@ -3,14 +3,28 @@ package jayhorn.AST.Nodes;
 public enum OpType {
     // Logic
     OR, AND, NOT,
+
+    ITE,
+
     // Relational
     EQ, LE, LT, GE, GT,
+
+    MUL, ADD,
+
     // Bit-Vector
     BIT2BOOL, BVADD, BVEXTRACT, BVCONCAT,
     BVULE, BVUGE, BVULT, BVUGT,
+    BVNEG, BVSUB,
     BVLSHR, BVSHL, BVUDIV, BVMUL,
+    ZERO_EXTEND,
 
     FP_SIGN, FP_EXPONENT, FP_MANTISSA,
-    EFP_SIGN, EFP_EXPONENT, EFP_MANTISSA
+    EFP_SIGN, EFP_EXPONENT, EFP_MANTISSA,
+
+    MOD_CAST, INT_CAST, // don't know what these are
+
+    EXISTS, FORALL,
+
+    FLOATING_POINT, DOUBLE_FLOATING_POINT, EXTENDED_FLOATING_POINT, EXTENDED_DOUBLE_FLOATING_POINT
 
 }

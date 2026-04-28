@@ -1,8 +1,11 @@
 package jayhorn.solver;
 
+import ap.parser.IFormula;
+
 import java.math.BigInteger;
 import java.util.Map;
 import java.util.List;
+import java.util.function.Predicate;
 
 public interface Prover {
 
@@ -13,7 +16,7 @@ public interface Prover {
 	 * @return
 	 */
 	Map<String, String> getLastSolution();  
-	
+
 	// Types
 	ProverType getBooleanType();
 
