@@ -1,5 +1,7 @@
 package jayhorn.AST.Nodes;
-public class VariableNode extends Node {
+public class VariableNode extends InvariantTree {
+    private static final long serialVersionUID = 1L;
+
     private final String name;
     private final VarType type;
 

@@ -14,8 +14,7 @@ import java.util.concurrent.TimeoutException;
 import com.google.common.base.Verify;
 import com.microsoft.z3.*;
 
-import jayhorn.AST.InvariantTree;
-import jayhorn.AST.Nodes.Node;
+import jayhorn.AST.Nodes.InvariantTree;
 import jayhorn.Options;
 import jayhorn.solver.*;
 
@@ -1612,7 +1611,7 @@ public class SpacerProver implements Prover {
 						Expr invariantMapped = exprReplaceIndexedArgs(finalInvariant, relationName, argNames, argSorts);
 //						InvariantTree invTree = exprToInvTree(invariantMapped);
 //						String invariantStr = invariantMapped.toString();
-						Node invTree = Parser.convertExpr(invariantMapped);
+						InvariantTree invTree = Parser.convertExpr(invariantMapped);
 						String invariantStr = invTree.toPrettyString();
 						result.append(invariantStr).append("\n");
 					}
@@ -1631,36 +1630,36 @@ public class SpacerProver implements Prover {
 		}
 	}
 
-	private InvariantTree exprToInvTree(Expr expr) {
-		FuncDecl.Parameter[] params = expr.getFuncDecl().getParameters();
-		Expr[] args = expr.getArgs();
-		InvariantTree[] argsTree = listExprToInvTree(args);
-		if (params.length != 0){
-			InvariantTree[] temp = argsTree.clone();
-			argsTree = new InvariantTree[args.length + params.length];
-			for (int i = 0; i < params.length; i++) {
-//				argsTree[i] = new InvariantTree(String.valueOf(params[i].getInt()), new InvariantTree[0]); // ???
-				argsTree[i] = new InvariantTree(params[i].toString(), new InvariantTree[0]); // ???
-			}
-			for (int j = 0; j < temp.length; j++){
-				argsTree[j + params.length] = temp[j];
-			}
-		}
-
-		String name = expr.getFuncDecl().getName().toString();
-		if (args.length == 0) {
-			name = expr.toString();
-		}
-		InvariantTree invTree = new InvariantTree(name, argsTree);
-		return invTree;
-	}
-	private InvariantTree[] listExprToInvTree(Expr[] exprs) {
-		InvariantTree[] exprsTree = new InvariantTree[exprs.length];
-		for (int i = 0; i < exprs.length; i++) {
-			exprsTree[i] = exprToInvTree(exprs[i]);
-		}
-		return exprsTree;
-	}
+//	private InvariantTree exprToInvTree(Expr expr) {
+//		FuncDecl.Parameter[] params = expr.getFuncDecl().getParameters();
+//		Expr[] args = expr.getArgs();
+//		InvariantTree[] argsTree = listExprToInvTree(args);
+//		if (params.length != 0){
+//			InvariantTree[] temp = argsTree.clone();
+//			argsTree = new InvariantTree[args.length + params.length];
+//			for (int i = 0; i < params.length; i++) {
+////				argsTree[i] = new InvariantTree(String.valueOf(params[i].getInt()), new InvariantTree[0]); // ???
+//				argsTree[i] = new InvariantTree(params[i].toString(), new InvariantTree[0]); // ???
+//			}
+//			for (int j = 0; j < temp.length; j++){
+//				argsTree[j + params.length] = temp[j];
+//			}
+//		}
+//
+//		String name = expr.getFuncDecl().getName().toString();
+//		if (args.length == 0) {
+//			name = expr.toString();
+//		}
+//		InvariantTree invTree = new InvariantTree(name, argsTree);
+//		return invTree;
+//	}
+//	private InvariantTree[] listExprToInvTree(Expr[] exprs) {
+//		InvariantTree[] exprsTree = new InvariantTree[exprs.length];
+//		for (int i = 0; i < exprs.length; i++) {
+//			exprsTree[i] = exprToInvTree(exprs[i]);
+//		}
+//		return exprsTree;
+//	}
 
 	private static class ClauseHeadInfo {
 		private final String funcName;

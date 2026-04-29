@@ -6,10 +6,11 @@ import ap.types.Sort;
 import ap.types.Sort$;
 import jayhorn.AST.Nodes.*;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class Parser {
-    static public Node convertExpr(IExpression expr) {
+    static public InvariantTree convertExpr(IExpression expr) {
 
         // Literals
         if (expr instanceof IBoolLit) {
@@ -17,8 +18,10 @@ public class Parser {
             return new LiteralNode(val, VarType.BOOLEAN);
         }
         if (expr instanceof IIntLit) {
-            int val = ((IIntLit) expr).value().intValue();
-            return new LiteralNode(val, VarType.INTEGER);
+            BigInteger valBI = ((IIntLit) expr).value().bigIntValue();
+
+            // Check if it fits in a 32-bit int
+            return LiteralNode.createNumericLiteralNode(valBI);
         }
         // Note: Princess handles BitVectors usually via specific sorts and function apps,
         // or wrappers depending on your API usage.
@@ -41,8 +44,8 @@ public class Parser {
         return convertOperation(expr);
     }
 
-    static private Node convertOperation(IExpression expr) {
-        List<Node> children = new ArrayList<>();
+    static private InvariantTree convertOperation(IExpression expr) {
+        List<InvariantTree> children = new ArrayList<>();
 
         // Extract children uniformly based on IExpression arity
         for (int i = 0; i < expr.length(); i++) {
@@ -65,10 +68,15 @@ public class Parser {
         // Princess normalizes inequalities to (expr >= 0).
         if (expr instanceof IIntFormula) {
             scala.Enumeration.Value rel = ((IIntFormula) expr).rel();
+
             if (rel.equals(IIntRelation.GeqZero())) {
-                return new OperationNode(OpType.GE, children); // Note: children will just be [expr] for expr >= 0
+                LiteralNode zero = LiteralNode.getIntLiteral(0);
+                children.add(zero);
+                return new OperationNode(OpType.GE, children);
             }
             if (rel.equals(IIntRelation.EqZero())) {
+                LiteralNode zero = LiteralNode.getIntLiteral(0);
+                children.add(zero);
                 return new OperationNode(OpType.EQ, children);
             }
         }
@@ -76,8 +84,8 @@ public class Parser {
         if (expr instanceof ITimes) {
             ITimes times = (ITimes) expr;
             int coeff = times.coeff().intValue(); // Get the IdealInt coefficient
-            Node coeffNode = new LiteralNode(coeff, VarType.INTEGER);
-            Node subtermNode = convertExpr(times.subterm());
+            InvariantTree coeffNode = new LiteralNode(coeff, VarType.INTEGER);
+            InvariantTree subtermNode = convertExpr(times.subterm());
             // Represent as multiplication: coeff * subterm
             return new OperationNode(OpType.MUL, Arrays.asList(coeffNode, subtermNode));
         }
@@ -147,7 +155,7 @@ public class Parser {
             ISortedQuantified quantified = (ISortedQuantified) expr;
 
             // 1. Get the subformula and convert it recursively
-            Node subFormulaNode = convertExpr(quantified.subformula());
+            InvariantTree subFormulaNode = convertExpr(quantified.subformula());
 
             // 2. Identify if it's EXISTS or FORALL
 //            boolean isExists = quantified.quan().equals(ap.parser.Quantifier.EX());

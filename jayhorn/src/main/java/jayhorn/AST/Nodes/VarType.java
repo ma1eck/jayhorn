@@ -1,6 +1,8 @@
 package jayhorn.AST.Nodes;
 
 public enum VarType {
-    BOOLEAN, INTEGER, BITVECTOR, FLOAT, DOUBLE, EFLOAT, EDOUBLE,
+    BOOLEAN,
+    INTEGER, LONG, BIGINT,
+    BITVECTOR, FLOAT, DOUBLE, EFLOAT, EDOUBLE,
     ANY
 }

@@ -3,23 +3,25 @@ package jayhorn.AST.Nodes;
 import java.util.List;
 import java.util.ArrayList;
 
-public class OperationNode extends Node {
+public class OperationNode extends InvariantTree {
+    private static final long serialVersionUID = 1L;
+
     private final OpType opType;
-    private final List<Node> children;
+    private final List<InvariantTree> children;
     private final List<Integer> params; // For operations like bvExtract(high, low)
 
-    public OperationNode(OpType opType, List<Node> children) {
+    public OperationNode(OpType opType, List<InvariantTree> children) {
         this(opType, children, new ArrayList<>());
     }
 
-    public OperationNode(OpType opType, List<Node> children, List<Integer> params) {
+    public OperationNode(OpType opType, List<InvariantTree> children, List<Integer> params) {
         this.opType = opType;
         this.children = children;
         this.params = params;
     }
 
     public OpType getOpType() { return opType; }
-    public List<Node> getChildren() { return children; }
+    public List<InvariantTree> getChildren() { return children; }
     public List<Integer> getParams() { return params; }
 
     @Override
@@ -91,7 +93,7 @@ public class OperationNode extends Node {
 //        }
 
         for (int i=0; i<children.size(); i++) {
-            Node child = children.get(i);
+            InvariantTree child = children.get(i);
             sb.append("\n")
                     .append(getIndent(indent + 1))
                     .append(child.toPrettyString(indent + 1));

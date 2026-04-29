@@ -1,8 +1,13 @@
 package jayhorn.AST.Nodes;
 
+import jayhorn.AST.ASTHelper;
+
+import java.math.BigInteger;
 import java.util.Map;
 
-public class LiteralNode extends Node {
+public class LiteralNode extends InvariantTree {
+    private static final long serialVersionUID = 1L;
+
     private final Object value;
     private final VarType type;
 
@@ -29,4 +34,23 @@ public class LiteralNode extends Node {
         }
         return String.valueOf(value);
     }
+
+    public static LiteralNode getIntLiteral(Long value){
+        return new LiteralNode(value, VarType.INTEGER);
+    }
+    public static LiteralNode getIntLiteral(Integer value){
+        return new LiteralNode(value, VarType.INTEGER);
+    }
+
+    public static LiteralNode createNumericLiteralNode(BigInteger valBI) {
+        Number num = ASTHelper.shrinkBigInteger(valBI);
+        if (num instanceof Integer) {
+            return new LiteralNode(num, VarType.INTEGER);
+        }
+        if (num instanceof Long) {
+            return new LiteralNode(num, VarType.LONG);
+        }
+        return new LiteralNode(num, VarType.BIGINT);
+    }
+
 }

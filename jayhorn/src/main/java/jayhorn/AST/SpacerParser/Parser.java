@@ -2,12 +2,14 @@ package jayhorn.AST.SpacerParser;
 
 import com.microsoft.z3.*;
 import com.microsoft.z3.enumerations.Z3_decl_kind;
+import jayhorn.AST.ASTHelper;
 import jayhorn.AST.Nodes.*;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class Parser {
-    static public Node convertExpr(Expr expr) {
+    static public InvariantTree convertExpr(Expr expr) {
 
         // Literals
         if (expr.isNumeral()){
@@ -77,12 +79,15 @@ public class Parser {
         if (expr.isTrue()) return true;
         if (expr.isFalse()) return false;
         if (expr.isIntNum()) return ((IntNum) expr).getInt();
-        if (expr.isBV()) return ((BitVecNum) expr).getLong();
+        if (expr.isBV()){
+            BigInteger val = ((BitVecNum) expr).getBigInteger();
+            return ASTHelper.shrinkBigInteger(val);
+        }
         return expr.toString();
     }
 
-    static private Node convertOperation(Expr expr) {
-        List<Node> children = new ArrayList<>();
+    static private InvariantTree convertOperation(Expr expr) {
+        List<InvariantTree> children = new ArrayList<>();
         for (Expr arg : expr.getArgs()) {
             children.add(convertExpr(arg));
         }

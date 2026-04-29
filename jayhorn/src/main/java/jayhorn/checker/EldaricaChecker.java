@@ -15,7 +15,8 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import com.google.common.base.Verify;
 
-import jayhorn.AST.Nodes.Node;
+import jayhorn.AST.ASTHelper;
+import jayhorn.AST.Nodes.InvariantTree;
 import jayhorn.Log;
 import jayhorn.Options;
 import jayhorn.hornify.HornEncoderContext;
@@ -38,7 +39,6 @@ import soottocfg.cfg.statement.Statement;
 import soottocfg.cfg.type.IntType;
 import soottocfg.cfg.variable.ClassVariable;
 import soottocfg.cfg.variable.Variable;
-import  lazabs.horn.Util.Dag;
 
 import static jayhorn.AST.PrincessParser.Parser.convertExpr;
 
@@ -484,7 +484,9 @@ public class EldaricaChecker extends Checker {
 //                String newLine = sb1.toString();
 //                String newLine = IFormula2String(currentInvariant);
 
-                Node tree = convertExpr(currentInvariant);
+
+                InvariantTree tree = convertExpr(currentInvariant);
+                tree = ASTHelper.cleaner(tree);
                 String newLine = tree.toPrettyString();
 
 

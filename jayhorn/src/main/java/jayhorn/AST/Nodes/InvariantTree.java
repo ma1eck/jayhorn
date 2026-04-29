@@ -1,6 +1,10 @@
 package jayhorn.AST.Nodes;
 
-public abstract class Node {
+import java.io.Serializable;
+
+public abstract class InvariantTree implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     public abstract <T> T accept(NodeVisitor<T> visitor);
     // Pretty print with indentation
     public String toPrettyString() {

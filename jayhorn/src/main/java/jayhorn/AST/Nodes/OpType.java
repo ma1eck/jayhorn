@@ -21,7 +21,7 @@ public enum OpType {
     FP_SIGN, FP_EXPONENT, FP_MANTISSA,
     EFP_SIGN, EFP_EXPONENT, EFP_MANTISSA,
 
-    MOD_CAST, INT_CAST, // don't know what these are
+    MOD_CAST, INT_CAST,
 
     EXISTS, FORALL,
 
