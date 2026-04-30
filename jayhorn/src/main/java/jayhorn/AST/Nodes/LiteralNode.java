@@ -36,10 +36,13 @@ public class LiteralNode extends InvariantTree {
     }
 
     public static LiteralNode getIntLiteral(Long value){
-        return new LiteralNode(value, VarType.INTEGER);
+        return new LiteralNode(value, VarType.LONG);
     }
     public static LiteralNode getIntLiteral(Integer value){
         return new LiteralNode(value, VarType.INTEGER);
+    }
+    public static LiteralNode getBVLiteral(String value){
+        return new LiteralNode(value, VarType.BITVECTOR);
     }
 
     public static LiteralNode createNumericLiteralNode(BigInteger valBI) {

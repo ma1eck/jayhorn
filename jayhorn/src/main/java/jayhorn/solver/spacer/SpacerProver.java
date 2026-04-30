@@ -1,6 +1,7 @@
 
 package jayhorn.solver.spacer;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.Map.Entry;
@@ -14,7 +15,9 @@ import java.util.concurrent.TimeoutException;
 import com.google.common.base.Verify;
 import com.microsoft.z3.*;
 
+import jayhorn.AST.ASTHelper;
 import jayhorn.AST.Nodes.InvariantTree;
+import jayhorn.AST.Nodes.ParentedInvariantTree;
 import jayhorn.Options;
 import jayhorn.solver.*;
 
@@ -1612,6 +1615,11 @@ public class SpacerProver implements Prover {
 //						InvariantTree invTree = exprToInvTree(invariantMapped);
 //						String invariantStr = invariantMapped.toString();
 						InvariantTree invTree = Parser.convertExpr(invariantMapped);
+						if (relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")){
+							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
+						}
+
+
 						String invariantStr = invTree.toPrettyString();
 						result.append(invariantStr).append("\n");
 					}
@@ -1628,7 +1636,7 @@ public class SpacerProver implements Prover {
 		} catch (Z3Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
-	}
+    }
 
 //	private InvariantTree exprToInvTree(Expr expr) {
 //		FuncDecl.Parameter[] params = expr.getFuncDecl().getParameters();

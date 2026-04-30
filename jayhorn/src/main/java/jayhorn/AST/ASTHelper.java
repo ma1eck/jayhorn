@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,6 +79,113 @@ public class ASTHelper {
     public static InvariantTree cleaner(InvariantTree tree){
         tree = clampModCast(tree);
         return tree;
+    }
+
+    public static List<VariableNode> getVariableNodes(InvariantTree tree) {
+        Map<String, VariableNode> variables = new LinkedHashMap<String, VariableNode>();
+        collectVariableNodes(tree, variables);
+        return new ArrayList<VariableNode>(variables.values());
+    }
+
+    private static void collectVariableNodes(InvariantTree tree, Map<String, VariableNode> variables) {
+        if (tree instanceof VariableNode) {
+            VariableNode node = (VariableNode) tree;
+            variables.put(node.getName() + "#" + node.getType().name(), node);
+            return;
+        }
+        if (tree instanceof OperationNode) {
+            for (InvariantTree child : ((OperationNode) tree).getChildren()) {
+                collectVariableNodes(child, variables);
+            }
+        }
+    }
+
+    public static ParentedInvariantTree toParentedInvariantTree(InvariantTree tree) {
+        return toParentedInvariantTree(tree, null, new IdentityHashMap<InvariantTree, ParentedInvariantTree>());
+    }
+
+    public static InvariantTree fromParentedInvariantTree(ParentedInvariantTree tree) {
+        return fromParentedInvariantTree(tree, new IdentityHashMap<ParentedInvariantTree, InvariantTree>());
+    }
+
+    public static InvariantTree toInvariantTree(ParentedInvariantTree tree) {
+        return fromParentedInvariantTree(tree);
+    }
+
+    private static ParentedInvariantTree toParentedInvariantTree(
+            InvariantTree tree,
+            ParentedInvariantTree parent,
+            Map<InvariantTree, ParentedInvariantTree> visited) {
+        ParentedInvariantTree existing = visited.get(tree);
+        if (existing != null) {
+            if (parent != null) {
+                existing.addParent(parent);
+            }
+            return existing;
+        }
+
+        ParentedInvariantTree converted;
+        if (tree instanceof OperationNode) {
+            OperationNode node = (OperationNode) tree;
+            converted = ParentedInvariantTree.operation(
+                    node.getOpType(),
+                    new ArrayList<ParentedInvariantTree>(),
+                    node.getParams());
+            visited.put(tree, converted);
+            if (parent != null) {
+                converted.addParent(parent);
+            }
+            for (InvariantTree child : node.getChildren()) {
+                converted.addChild(toParentedInvariantTree(child, converted, visited));
+            }
+            return converted;
+        }
+        if (tree instanceof VariableNode) {
+            VariableNode node = (VariableNode) tree;
+            converted = ParentedInvariantTree.variable(node.getName(), node.getType());
+        } else if (tree instanceof LiteralNode) {
+            LiteralNode node = (LiteralNode) tree;
+            converted = ParentedInvariantTree.literal(node.getValue(), node.getType());
+        } else {
+            throw new IllegalArgumentException("Unsupported InvariantTree type: " + tree.getClass().getName());
+        }
+
+        visited.put(tree, converted);
+        if (parent != null) {
+            converted.addParent(parent);
+        }
+        return converted;
+    }
+
+    private static InvariantTree fromParentedInvariantTree(
+            ParentedInvariantTree tree,
+            Map<ParentedInvariantTree, InvariantTree> visited) {
+        InvariantTree existing = visited.get(tree);
+        if (existing != null) {
+            return existing;
+        }
+
+        if (tree.getNodeType() == ParentedInvariantTree.NodeType.VARIABLE) {
+            InvariantTree converted = new VariableNode(tree.getName(), tree.getType());
+            visited.put(tree, converted);
+            return converted;
+        }
+        if (tree.getNodeType() == ParentedInvariantTree.NodeType.LITERAL) {
+            InvariantTree converted = new LiteralNode(tree.getValue(), tree.getType());
+            visited.put(tree, converted);
+            return converted;
+        }
+
+        List<InvariantTree> children = new ArrayList<InvariantTree>(tree.getChildren().size());
+        for (ParentedInvariantTree child : tree.getChildren()) {
+            children.add(fromParentedInvariantTree(child, visited));
+        }
+        InvariantTree converted = new OperationNode(
+                tree.getOpType(),
+                children,
+                new ArrayList<Integer>(tree.getParams()));
+        visited.put(tree, converted);
+        return converted;
     }
 
     public static Number shrinkBigInteger(BigInteger valBI) {

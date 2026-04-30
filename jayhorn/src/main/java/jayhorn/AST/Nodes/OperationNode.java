@@ -1,5 +1,7 @@
 package jayhorn.AST.Nodes;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -107,4 +109,206 @@ public class OperationNode extends InvariantTree {
 
         return sb.toString();
     }
+
+    public static OperationNode mkOr(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.OR, childes);
+    }
+    public static OperationNode mkAdd(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.ADD, childes);
+    }
+    public static OperationNode mkNot(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.NOT, child);
+    }
+    public static OperationNode mkEq(InvariantTree left, InvariantTree right){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.EQ, childes);
+    }
+    public static OperationNode mkFPExponent(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.FP_EXPONENT, child);
+    }
+    public static OperationNode mkFPMantissa(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.FP_MANTISSA, child);
+    }
+    public static OperationNode mkBvule(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVULE, childes);
+    }
+    public static OperationNode mkExtract(int left, int right, InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        ArrayList<Integer> params = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVEXTRACT, child, params);
+    }
+    public static OperationNode mkBVAdd(InvariantTree left, InvariantTree right){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVADD, childes);
+    }
+    public static OperationNode mkConcat(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.BVCONCAT, childes);
+    }
+
+    // --- Logic ---
+    public static OperationNode mkAnd(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.AND, childes);
+    }
+
+    public static OperationNode mkIte(InvariantTree cond, InvariantTree thenTree, InvariantTree elseTree){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(cond, thenTree, elseTree));
+        return new OperationNode(OpType.ITE, childes);
+    }
+
+    // --- Relational ---
+    public static OperationNode mkLe(InvariantTree left, InvariantTree right){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.LE, childes);
+    }
+
+    public static OperationNode mkLt(InvariantTree left, InvariantTree right){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.LT, childes);
+    }
+
+    public static OperationNode mkGe(InvariantTree left, InvariantTree right){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.GE, childes);
+    }
+
+    public static OperationNode mkGt(InvariantTree left, InvariantTree right){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.GT, childes);
+    }
+
+    // --- Arithmetic ---
+    public static OperationNode mkMul(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.MUL, childes);
+    }
+
+    // --- Bit-Vector ---
+    public static OperationNode mkBit2Bool(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.BIT2BOOL, child);
+    }
+
+    public static OperationNode mkBvuge(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVUGE, childes);
+    }
+
+    public static OperationNode mkBvult(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVULT, childes);
+    }
+
+    public static OperationNode mkBvugt(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVUGT, childes);
+    }
+
+    public static OperationNode mkBvneg(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.BVNEG, child);
+    }
+
+    public static OperationNode mkBvsub(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVSUB, childes);
+    }
+
+    public static OperationNode mkBvlshr(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVLSHR, childes);
+    }
+
+    public static OperationNode mkBvshl(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVSHL, childes);
+    }
+
+    public static OperationNode mkBvudiv(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVUDIV, childes);
+    }
+
+    public static OperationNode mkBvmul(InvariantTree left, InvariantTree right) {
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(left, right));
+        return new OperationNode(OpType.BVMUL, childes);
+    }
+
+    public static OperationNode mkZeroExtend(int extension, InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        ArrayList<Integer> params = new ArrayList<>(Collections.singletonList(extension));
+        return new OperationNode(OpType.ZERO_EXTEND, child, params);
+    }
+
+    // --- Floating Point ---
+    public static OperationNode mkFPSign(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.FP_SIGN, child);
+    }
+
+    public static OperationNode mkEFPSign(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.EFP_SIGN, child);
+    }
+
+    public static OperationNode mkEFPExponent(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.EFP_EXPONENT, child);
+    }
+
+    public static OperationNode mkEFPMantissa(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.EFP_MANTISSA, child);
+    }
+
+    // --- Casts ---
+    public static OperationNode mkModCast(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.MOD_CAST, child);
+    }
+
+    public static OperationNode mkIntCast(InvariantTree arg){
+        ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
+        return new OperationNode(OpType.INT_CAST, child);
+    }
+
+    // --- Quantifiers ---
+    public static OperationNode mkExists(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.EXISTS, childes);
+    }
+
+    public static OperationNode mkForall(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.FORALL, childes);
+    }
+
+    // --- Floating Point Types ---
+    public static OperationNode mkFloatingPoint(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.FLOATING_POINT, childes);
+    }
+
+    public static OperationNode mkDoubleFloatingPoint(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.DOUBLE_FLOATING_POINT, childes);
+    }
+
+    public static OperationNode mkExtendedFloatingPoint(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.EXTENDED_FLOATING_POINT, childes);
+    }
+
+    public static OperationNode mkExtendedDoubleFloatingPoint(InvariantTree ... args){
+        ArrayList<InvariantTree> childes = new ArrayList<>(Arrays.asList(args));
+        return new OperationNode(OpType.EXTENDED_DOUBLE_FLOATING_POINT, childes);
+    }
+
 }
