@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ParentedInvariantTree extends InvariantTree {
-    private static final long serialVersionUID = 1L;
 
     public enum NodeType {
         OPERATION,
