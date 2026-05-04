@@ -1,4 +1,4 @@
-package jayhorn.AST.Nodes.LiteralValues;
+package jayhorn.phaseOneParser.LiteralValues;
 
 public enum GBool {
     UNKNOWN, TRUE, FALSE

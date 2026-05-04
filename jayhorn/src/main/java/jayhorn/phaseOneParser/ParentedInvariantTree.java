@@ -1,10 +1,15 @@
-package jayhorn.AST.Nodes;
+package jayhorn.phaseOneParser;
+
+import jas.Var;
+import jayhorn.AST.Nodes.*;
+import jayhorn.phaseOneParser.LiteralValues.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class ParentedInvariantTree extends InvariantTree {
+    private static final long serialVersionUID = 1L;
 
     public enum NodeType {
         OPERATION,
@@ -22,6 +27,8 @@ public class ParentedInvariantTree extends InvariantTree {
     private String name;
     private VarType type;
     private Object value;
+
+    private StateValue stateValue;
 
     private ParentedInvariantTree(NodeType nodeType) {
         this.nodeType = nodeType;
@@ -48,21 +55,101 @@ public class ParentedInvariantTree extends InvariantTree {
                 node.addChild(child);
             }
         }
+        VarType resultType = opType.getResultVarType();
+        StateValue varState = getVariableStateByType(resultType);
+        if (varState != null){
+            node.setStateValue(varState);
+        }
         return node;
     }
 
+    public static ParentedInvariantTree variable(String name, VarType type, StateValue state) {
+        ParentedInvariantTree node = new ParentedInvariantTree(NodeType.VARIABLE);
+        node.name = name;
+        node.type = type;
+        node.setStateValue(state);
+        return node;
+    }
     public static ParentedInvariantTree variable(String name, VarType type) {
         ParentedInvariantTree node = new ParentedInvariantTree(NodeType.VARIABLE);
         node.name = name;
         node.type = type;
+        StateValue varState = getVariableStateByType(type);
+        if (varState != null){
+            node.setStateValue(varState);
+        }
         return node;
+    }
+    public static StateValue getVariableStateByType(VarType type){
+        switch (type){
+            case BOOLEAN:
+               return new BoolLiteralValue();
+            case INTEGER:
+                return new IntLiteralValue();
+            case FLOAT:
+                return new FloatingPointLiteralValue(8 ,11);
+            case DOUBLE:
+                return new FloatingPointLiteralValue(24 ,53);
+            case EFLOAT:
+                return new FloatingPointLiteralValue(9 ,12);
+            case EDOUBLE:
+                return new FloatingPointLiteralValue(72 ,159);
+            case BITVECTOR:
+                return new BVLiteralValue(200);
+                // ?? should store arity
+            default:
+                return null;
+        }
     }
 
     public static ParentedInvariantTree literal(Object value, VarType type) {
         ParentedInvariantTree node = new ParentedInvariantTree(NodeType.LITERAL);
         node.value = value;
         node.type = type;
+        StateValue stateByType = getLiteralStateByType(value, type);
+        if (stateByType != null){
+            node.setStateValue(stateByType);
+        }
         return node;
+    }
+
+    private static StateValue getLiteralStateByType(Object value, VarType type){
+        switch (type){
+            case BOOLEAN:
+                if (value instanceof Boolean){
+                    boolean b = (Boolean) value;
+                    return new BoolLiteralValue( b ? GBool.TRUE : GBool.FALSE);
+                }else return new BoolLiteralValue();
+            case INTEGER:
+                if (value instanceof Integer){
+                    int i = (Integer) value;
+                    return new IntLiteralValue(i);
+                }else return new IntLiteralValue();
+            case FLOAT:
+                return new FloatingPointLiteralValue(8 ,11);
+            case DOUBLE:
+                return new FloatingPointLiteralValue(24 ,53);
+            case EFLOAT:
+                return new FloatingPointLiteralValue(9 ,12);
+            case EDOUBLE:
+                return new FloatingPointLiteralValue(72 ,159);
+            case BITVECTOR:
+                if (value instanceof String){
+                    String valueStr = (String) value;
+                    ArrayList<BoolLiteralValue> state = new ArrayList<>();
+                    for (int i = 0; i < valueStr.length(); i++) {
+                        char c = valueStr.charAt(i);
+                        if (c == '1') {
+                            state.add(new BoolLiteralValue(true));
+                        } else if (c == '0') {
+                            state.add(new BoolLiteralValue(false));
+                        }
+                    }
+                    return new BVLiteralValue(state);
+                }
+            default:
+                return null;
+        }
     }
 
     public NodeType getNodeType() {
@@ -95,6 +182,13 @@ public class ParentedInvariantTree extends InvariantTree {
 
     public Object getValue() {
         return value;
+    }
+
+    public StateValue getStateValue(){
+        return this.stateValue;
+    }
+    public void setStateValue(StateValue stateValue){
+        this.stateValue = stateValue;
     }
 
     public void addChild(ParentedInvariantTree child) {

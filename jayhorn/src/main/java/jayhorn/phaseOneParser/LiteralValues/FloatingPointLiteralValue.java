@@ -1,6 +1,6 @@
-package jayhorn.AST.Nodes.LiteralValues;
+package jayhorn.phaseOneParser.LiteralValues;
 
-public class FloatingPointLiteralValue {
+public class FloatingPointLiteralValue implements StateValue {
     public BoolLiteralValue sign;
     public BVLiteralValue exponent;
     public BVLiteralValue mantissa;
@@ -15,5 +15,16 @@ public class FloatingPointLiteralValue {
         this.exponent = new BVLiteralValue(exponentArity);
         this.mantissa = new BVLiteralValue(mantissaArity);
     }
-    
+
+    public BoolLiteralValue getSign() {
+        return sign;
+    }
+
+    public BVLiteralValue getExponent() {
+        return exponent;
+    }
+
+    public BVLiteralValue getMantissa() {
+        return mantissa;
+    }
 }

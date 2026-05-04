@@ -1,8 +1,8 @@
-package jayhorn.AST.Nodes.LiteralValues;
+package jayhorn.phaseOneParser.LiteralValues;
 
 import java.util.ArrayList;
 
-public class BVLiteralValue {
+public class BVLiteralValue implements StateValue {
     public ArrayList<BoolLiteralValue> state;
 
     public BVLiteralValue(ArrayList<BoolLiteralValue> state){

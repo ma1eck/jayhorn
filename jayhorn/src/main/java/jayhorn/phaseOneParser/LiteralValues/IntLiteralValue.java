@@ -1,8 +1,6 @@
-package jayhorn.AST.Nodes.LiteralValues;
+package jayhorn.phaseOneParser.LiteralValues;
 
-import com.google.common.collect.Range;
-
-public class IntLiteralValue {
+public class IntLiteralValue implements StateValue {
     public ValidIntegerRange state;
 
     public IntLiteralValue(ValidIntegerRange state){

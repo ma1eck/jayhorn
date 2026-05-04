@@ -2,17 +2,15 @@ package jayhorn.AST;
 
 
 import jayhorn.AST.Nodes.*;
+import jayhorn.phaseOneParser.LiteralValues.StateValue;
+import jayhorn.phaseOneParser.ParentedInvariantTree;
 
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.IdentityHashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ASTHelper {
 
@@ -81,7 +79,7 @@ public class ASTHelper {
         return tree;
     }
 
-    public static List<VariableNode> getVariableNodes(InvariantTree tree) {
+    public static ArrayList<VariableNode> getVariableNodes(InvariantTree tree) {
         Map<String, VariableNode> variables = new LinkedHashMap<String, VariableNode>();
         collectVariableNodes(tree, variables);
         return new ArrayList<VariableNode>(variables.values());
@@ -102,6 +100,10 @@ public class ASTHelper {
 
     public static ParentedInvariantTree toParentedInvariantTree(InvariantTree tree) {
         return toParentedInvariantTree(tree, null, new IdentityHashMap<InvariantTree, ParentedInvariantTree>());
+    }
+    public static ParentedInvariantTree toParentedInvariantTree(InvariantTree tree, HashMap<String, StateValue> varStates) {
+        return toParentedInvariantTree(tree, null,
+                new IdentityHashMap<InvariantTree, ParentedInvariantTree>(), varStates);
     }
 
     public static InvariantTree fromParentedInvariantTree(ParentedInvariantTree tree) {
@@ -143,6 +145,52 @@ public class ASTHelper {
         if (tree instanceof VariableNode) {
             VariableNode node = (VariableNode) tree;
             converted = ParentedInvariantTree.variable(node.getName(), node.getType());
+        } else if (tree instanceof LiteralNode) {
+            LiteralNode node = (LiteralNode) tree;
+            converted = ParentedInvariantTree.literal(node.getValue(), node.getType());
+        } else {
+            throw new IllegalArgumentException("Unsupported InvariantTree type: " + tree.getClass().getName());
+        }
+
+        visited.put(tree, converted);
+        if (parent != null) {
+            converted.addParent(parent);
+        }
+        return converted;
+    }
+
+    private static ParentedInvariantTree toParentedInvariantTree(
+            InvariantTree tree,
+            ParentedInvariantTree parent,
+            Map<InvariantTree, ParentedInvariantTree> visited, HashMap<String, StateValue> varStates) {
+        ParentedInvariantTree existing = visited.get(tree);
+        if (existing != null) {
+            if (parent != null) {
+                existing.addParent(parent);
+            }
+            return existing;
+        }
+
+        ParentedInvariantTree converted;
+        if (tree instanceof OperationNode) {
+            OperationNode node = (OperationNode) tree;
+            converted = ParentedInvariantTree.operation(
+                    node.getOpType(),
+                    new ArrayList<ParentedInvariantTree>(),
+                    node.getParams());
+            visited.put(tree, converted);
+            if (parent != null) {
+                converted.addParent(parent);
+            }
+            for (InvariantTree child : node.getChildren()) {
+                converted.addChild(toParentedInvariantTree(child, converted, visited, varStates));
+            }
+            return converted;
+        }
+        if (tree instanceof VariableNode) {
+            VariableNode node = (VariableNode) tree;
+            StateValue state = varStates.get(node.getName());
+            converted = ParentedInvariantTree.variable(node.getName(), node.getType(), state);
         } else if (tree instanceof LiteralNode) {
             LiteralNode node = (LiteralNode) tree;
             converted = ParentedInvariantTree.literal(node.getValue(), node.getType());

@@ -1,7 +1,6 @@
 
 package jayhorn.solver.spacer;
 
-import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.Map.Entry;
@@ -17,7 +16,7 @@ import com.microsoft.z3.*;
 
 import jayhorn.AST.ASTHelper;
 import jayhorn.AST.Nodes.InvariantTree;
-import jayhorn.AST.Nodes.ParentedInvariantTree;
+import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.Options;
 import jayhorn.solver.*;
 

@@ -1,4 +1,4 @@
-package jayhorn.AST.Nodes.LiteralValues;
+package jayhorn.phaseOneParser.LiteralValues;
 
 import com.google.common.collect.Range;
 import com.google.common.collect.RangeSet;

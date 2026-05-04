@@ -1,6 +1,10 @@
 package jayhorn.AST;
 
 import jayhorn.AST.Nodes.*;
+import jayhorn.phaseOneParser.LiteralValues.FloatingPointLiteralValue;
+import jayhorn.phaseOneParser.LiteralValues.IntLiteralValue;
+import jayhorn.phaseOneParser.ParentedInvariantTree;
+import jayhorn.phaseOneParser.PhaseOne;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +35,7 @@ public class Main {
         VariableNode b2_99 = new VariableNode("b2_99", VarType.INTEGER);
         LiteralNode one = LiteralNode.getIntLiteral(1);
 
-        VariableNode d0_100_3 = new VariableNode("b2_99", VarType.DOUBLE);
+        VariableNode d0_100_3 = new VariableNode("d0_100_3", VarType.DOUBLE);
         LiteralNode b10000000001 = LiteralNode.getBVLiteral("#b10000000001");
 
         LiteralNode b10100000000000000000000000000000000000000000000000000 = LiteralNode.getBVLiteral(
@@ -62,6 +66,11 @@ public class Main {
     }
     public static void main(String[] args) throws IOException {
         InvariantTree t1 = test1();
+
+        ParentedInvariantTree pt1 = PhaseOne.parse(t1);
+
+        ((FloatingPointLiteralValue) pt1.getChildren().get(1).getChildren().get(0).getChildren().get(0).getChildren()
+                .get(0).getStateValue()).getSign().setState(true);
         System.out.println(t1.toPrettyString());
 //        ASTHelper.writeJsonToFile(t1, "t1");
 //        InvariantTree t1_ = ASTHelper.readJsonFromFile("t1");

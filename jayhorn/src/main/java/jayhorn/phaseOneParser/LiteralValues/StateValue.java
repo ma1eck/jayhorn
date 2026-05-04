@@ -1,2 +1,4 @@
-package jayhorn.phaseOneParser.LiteralValues;public interface StateValue {
+package jayhorn.phaseOneParser.LiteralValues;
+
+public interface StateValue {
 }

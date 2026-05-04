@@ -1,10 +1,16 @@
-package jayhorn.AST.Nodes.LiteralValues;
+package jayhorn.phaseOneParser.LiteralValues;
 
-public class BoolLiteralValue {
+public class BoolLiteralValue implements StateValue {
     public GBool state;
 
     public BoolLiteralValue(GBool state){
         this.state = state;
+    }
+    public BoolLiteralValue(boolean b){
+        if (b)
+            this.state = GBool.TRUE;
+        else
+            this.state = GBool.FALSE;
     }
     public BoolLiteralValue(){
         this.state = GBool.UNKNOWN;
@@ -35,6 +41,13 @@ public class BoolLiteralValue {
 
     public void setState(GBool state){
         this.state = state;
+    }
+
+    public void setState(boolean b){
+        if (b)
+            this.state = GBool.TRUE;
+        else
+            this.state = GBool.FALSE;
     }
 
     public void negate(){
