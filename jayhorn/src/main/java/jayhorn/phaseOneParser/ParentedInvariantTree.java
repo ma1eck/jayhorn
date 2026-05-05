@@ -56,6 +56,7 @@ public class ParentedInvariantTree extends InvariantTree {
             }
         }
         VarType resultType = opType.getResultVarType();
+        node.type = resultType;
         StateValue varState = getVariableStateByType(resultType);
         if (varState != null){
             node.setStateValue(varState);
@@ -137,7 +138,7 @@ public class ParentedInvariantTree extends InvariantTree {
                 if (value instanceof String){
                     String valueStr = (String) value;
                     ArrayList<BoolLiteralValue> state = new ArrayList<>();
-                    for (int i = 0; i < valueStr.length(); i++) {
+                    for (int i = valueStr.length()-1; i >= 0; i--) {
                         char c = valueStr.charAt(i);
                         if (c == '1') {
                             state.add(new BoolLiteralValue(true));

@@ -1,8 +1,6 @@
 package jayhorn.phaseOneParser.LiteralValues;
 
-import com.google.common.collect.Range;
-import com.google.common.collect.RangeSet;
-import com.google.common.collect.TreeRangeSet;
+import com.google.common.collect.*;
 
 public class ValidIntegerRange {
 
@@ -79,6 +77,35 @@ public class ValidIntegerRange {
         }
         return false;
     }
+
+    /**
+     * Checks if the valid range represents exactly one single integer value.
+     * Returns the integer value if true, or null otherwise.
+     */
+    public Integer getSingleValue() {
+        if (rangeSet.asRanges().size() == 1) {
+            Range<Integer> range = rangeSet.asRanges().iterator().next();
+
+            // The range must be bounded on both sides to represent a single finite value
+            if (range.hasLowerBound() && range.hasUpperBound()) {
+                // ContiguousSet evaluates the actual discrete integers in the range
+                ContiguousSet<Integer> discreteSet = ContiguousSet.create(range, DiscreteDomain.integers());
+
+                if (discreteSet.size() == 1) {
+                    return discreteSet.first();
+                }
+            }
+        }
+        return null; // Not a single value (either empty, multiple values, or unbounded)
+    }
+
+    /**
+     * Returns true if the valid range represents exactly one single integer value, false otherwise.
+     */
+    public boolean isSingleValue() {
+        return getSingleValue() != null;
+    }
+
 
     /**
      * Returns the underlying RangeSet.
