@@ -8,8 +8,11 @@ import jayhorn.phaseOneParser.LiteralValues.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+import com.microsoft.z3.*;
 
 public class PhaseOne { // todo: add lots of if for safe casting
     public static ParentedInvariantTree parse(InvariantTree tree){
@@ -229,7 +232,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
         return GBool.FALSE;
     }
 
-    public static String[] addGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
+    public static String[] addGBitVectorDirect(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
         int bitWidth = aValStr.length();
         BigInteger bitMask = BigInteger.ONE.shiftLeft(bitWidth).subtract(BigInteger.ONE);
 
@@ -238,12 +241,15 @@ public class PhaseOne { // todo: add lots of if for safe casting
         BigInteger bVal = new BigInteger(bValStr, 2);
         BigInteger bMask = new BigInteger(bMaskStr, 2);
 
-        // u: bits that are unknown in A and B are 1.
+        // u: bits that are unknown in A or B are 1.
         BigInteger u = aMask.not().or(bMask.not()).and(bitMask);
 
         BigInteger sumMin = aVal.and(aMask).add(bVal.and(bMask));
-        BigInteger sumMax = sumMin.add(u);
+        BigInteger sumMax = sumMin.add(aMask.not()).add(bMask.not());
 
+        // rMask:
+        //  sumMin.xor(sumMax).not() = mark bits that are different in sumMin and sumMax as 0
+        //  sumMin.xor(sumMax).not().and(u.not()) = b its that are different in min and max, and bits of u are unknown and marked as 0
         BigInteger rMask = sumMin.xor(sumMax).not().and(u.not()).and(bitMask);
         BigInteger rVal = sumMin.and(rMask).and(bitMask);
 
@@ -252,6 +258,83 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
         return new String[]{rValOut, rMaskOut};
     }
+
+
+
+        public static String[] addGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
+            int bitWidth = aValStr.length();
+
+            BigInteger aVal = new BigInteger(aValStr, 2);
+            BigInteger aMask = new BigInteger(aMaskStr, 2);
+            BigInteger bVal = new BigInteger(bValStr, 2);
+            BigInteger bMask = new BigInteger(bMaskStr, 2);
+
+            Context ctx = new Context();
+            // USE SOLVER INSTEAD OF OPTIMIZE
+            Solver solver = ctx.mkSolver();
+
+            BitVecExpr R_mask = ctx.mkBVConst("mask_R", bitWidth);
+            BitVecExpr R_val = ctx.mkBVConst("val_R", bitWidth);
+            BitVecExpr a = ctx.mkBVConst("A", bitWidth);
+            BitVecExpr b = ctx.mkBVConst("B", bitWidth);
+
+            BitVecExpr aValExpr = ctx.mkBV(aVal.toString(), bitWidth);
+            BitVecExpr aMaskExpr = ctx.mkBV(aMask.toString(), bitWidth);
+            BitVecExpr bValExpr = ctx.mkBV(bVal.toString(), bitWidth);
+            BitVecExpr bMaskExpr = ctx.mkBV(bMask.toString(), bitWidth);
+            BitVecExpr zero = ctx.mkBV(0, bitWidth);
+
+            // Force value bits to be 0 where mask is 0
+            solver.add(ctx.mkEq(ctx.mkBVAND(R_val, ctx.mkBVNot(R_mask)), zero));
+
+            // Setup premise and conclusion
+            BoolExpr aCond = ctx.mkEq(ctx.mkBVAND(a, aMaskExpr), aValExpr);
+            BoolExpr bCond = ctx.mkEq(ctx.mkBVAND(b, bMaskExpr), bValExpr);
+            BoolExpr premise = ctx.mkAnd(aCond, bCond);
+
+            BitVecExpr sum = ctx.mkBVAdd(a, b);
+            BoolExpr conclusion = ctx.mkEq(ctx.mkBVAND(sum, R_mask), R_val);
+
+            // Create ForAll
+            BoolExpr implication = ctx.mkImplies(premise, conclusion);
+            Expr[] boundVariables = new Expr[]{a, b};
+            BoolExpr forAll = ctx.mkForall(boundVariables, implication, 1, new Pattern[0], new Expr[0], null, null);
+
+            solver.add(forAll);
+
+            String bestMask = null;
+            String bestVal = null;
+
+            // ITERATIVE MAXIMIZATION
+            while (solver.check() == Status.SATISFIABLE) {
+                Model m = solver.getModel();
+
+                BitVecNum rMaskRes = (BitVecNum) m.eval(R_mask, false);
+                BitVecNum rValRes = (BitVecNum) m.eval(R_val, false);
+
+                bestMask = padLeft(rMaskRes.getBigInteger().toString(2), bitWidth);
+                bestVal = padLeft(rValRes.getBigInteger().toString(2), bitWidth);
+
+                // Add constraint to force the next R_mask to be STRICTLY GREATER (unsigned)
+                solver.add(ctx.mkBVUGT(R_mask, rMaskRes));
+            }
+
+            if (bestMask != null) {
+                return new String[]{bestMask, bestVal};
+            } else {
+                return null;
+            }
+        }
+
+        private static String padLeft(String s, int length) {
+            if (s.length() >= length) return s;
+            StringBuilder sb = new StringBuilder(length);
+            for (int i = 0; i < length - s.length(); i++) sb.append('0');
+            sb.append(s);
+            return sb.toString();
+        }
+
+
 
     public static GBool bvuleGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
         int bitWidth = aValStr.length();
@@ -282,19 +365,86 @@ public class PhaseOne { // todo: add lots of if for safe casting
     }
 
     public static void main(String[] args) {
-        // Example: A = 101000
-        String aValStr  = "011000";
-        String aMaskStr = "111111";
+//        // A = 010??00???101
+//
+//        // Example: A = 101000
+//        String aValStr  = "0100000000101";
+//        String aMaskStr = "1110011000111";
+//
+//        // Example: B = 01??????011???
+//        String bValStr  = "01??????011???";
+//        String bMaskStr = "11000000111000";
 
-        // Example: B = ??????
-        String bValStr  = "100000";
-        String bMaskStr = "110000";
-
-        GBool result = bvuleGBitVector(aValStr, aMaskStr, bValStr, bMaskStr);
-
-        System.out.println(result);
+//        String aValStr  = "0000000000101";
+//        String aMaskStr = "1011101111111";
+//
+//        String bValStr  = "0000000001100";
+//        String bMaskStr = "1011111111111";
+//
+//        String[] result = addGBitVector(aValStr, aMaskStr, bValStr, bMaskStr);
+//
+//        System.out.println(Arrays.toString(result));
+        testAadGBitVector();
     }
 
+
+    public static void testAadGBitVector() {
+        int passed = 0;
+        int total = 10;
+
+        System.out.println("Running " + total + " test cases...\n");
+
+        passed += runTest(1, "0101", "1111", "0011", "1111", "1111", "1000");
+
+        passed += runTest(2, "0000", "0000", "0000", "0000", "0000", "0000");
+
+        passed += runTest(3, "1010", "1111", "0000", "0000", "0000", "0000");
+
+        passed += runTest(4, "0101", "0111", "0010", "1111", "0111", "0111");
+
+        passed += runTest(5, "0000", "0001", "1111", "1111", "0001", "0001");
+
+        passed += runTest(6, "1000", "1101", "0000", "1111", "1101", "1000");
+
+        passed += runTest(7, "1111", "1111", "0001", "1111", "1111", "0000");
+
+        passed += runTest(8, "0010", "0011", "0001", "0011", "0011", "0011");
+
+        passed += runTest(9, "0111", "0111", "0001", "0111", "0111", "0000");
+
+        passed += runTest(10, "00101010", "11111111", "00010000", "11110000", "10000000", "00000000");
+
+        System.out.println("========================================");
+        System.out.println("Tests Passed: " + passed + " / " + total);
+    }
+
+    private static int runTest(int testNum, String aVal, String aMask, String bVal, String bMask, String expMask, String expVal) {
+        try {
+            String[] result = PhaseOne.addGBitVector(aVal, aMask, bVal, bMask);
+
+            if (result == null) {
+                System.err.println("Test " + testNum + " FAILED: Returned null");
+                return 0;
+            }
+
+            String actMask = result[0];
+            String actVal = result[1];
+
+            if (expMask.equals(actMask) && expVal.equals(actVal)) {
+                System.out.println("Test " + testNum + " PASSED.");
+                return 1;
+            } else {
+                System.err.println("Test " + testNum + " FAILED!");
+                System.err.println("  Expected: Mask=" + expMask + ", Val=" + expVal);
+                System.err.println("  Actual:   Mask=" + actMask + ", Val=" + actVal);
+                return 0;
+            }
+        } catch (Exception e) {
+            System.err.println("Test " + testNum + " FAILED with Exception: " + e.getMessage());
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
 
 
