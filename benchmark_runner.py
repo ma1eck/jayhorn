@@ -7,13 +7,14 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # --- CONFIGURATION ---
 BASE_DIRS = [r"examples2\JAVA-SVCOM", r"examples2\C-SVCOM"]
+BASE_DIRS = [r"examples2\sv-benchmarks-main-java-float_unboundedloop\float_unboundedloop"]
 NATIVE_LIB = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\native_lib"
 JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'benchmark_results.csv'
 SOLVER = "spacer"
 
-TIMEOUT_SECONDS =  8*60
-MAX_WORKERS = 4
+TIMEOUT_SECONDS =  1*60
+MAX_WORKERS = 1
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
@@ -35,20 +36,20 @@ AVERAGING = NUMBER_OF_REPETITION > 1
 #                        ,"filter2_alt", "filter2_iterated", "filter_iir", 
 #                        "float-to-double1", "float-to-double2", "float-zero-sum1",
 #                        "float_req_bl_1381", "inv_Newton-2", ]
-selected_benchmarks = []
+selected_benchmarks = ["Batch-Conveyor-Counter"]
 
 def run_benchmark(task_info):
     base_dir, folder_name, rounding_enc, norm_enc = task_info
     folder_path = os.path.join(base_dir, folder_name)
 
     classes_dir = os.path.join(folder_path, "classes")
-    src_dir = os.path.join(folder_path, "src")
+    # src_dir = os.path.join(folder_path, "src")
 
     output_filename = f"output_R_{rounding_enc}_N_{norm_enc}.txt"
     output_file_path = os.path.join(folder_path, output_filename)
 
-    if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
-        return None
+    # if not (os.path.isdir(classes_dir) and os.path.isdir(src_dir)):
+    #     return None
     if (len(selected_benchmarks) != 0 and not folder_name in selected_benchmarks):
         return None
 
@@ -57,7 +58,7 @@ def run_benchmark(task_info):
         f"-Djava.library.path={NATIVE_LIB}",
         "-jar", JAYHORN_JAR,
         "-j", classes_dir,
-        "-src", src_dir,
+        # "-src", src_dir,
         "-rounding-encoding", rounding_enc,
         "-normalization-encoding", norm_enc,
         "-solver", SOLVER,
@@ -103,14 +104,15 @@ def run_benchmark(task_info):
 
                 for line in run_stdout.splitlines():
 
-                    if "Spacer takes" in line:
-                        match = re.search(r'Spacer takes\s+([\d.]+)\s*(\S+)', line)
+                    if "takes" in line and solver_time_ms == None:
+                        match = re.search(r'takes\s+([\d.]+)\s*(\S+)', line)
                         if match:
                             val = float(match.group(1))
                             unit = match.group(2).lower()
 
                             # if unit == "ms":
                             solver_time_ms = val
+
                             # elif unit in ["s", "sec", "secs"]:
                                 # solver_time_ms = val * 1000
 
