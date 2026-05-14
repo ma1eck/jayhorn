@@ -27,42 +27,42 @@ public class SpacerTest {
         FuncDecl g = ctx.mkFuncDecl("g", new Sort[] { I, I }, I);
 
 
-        ctx.parseSMTLIBString(
-                "(benchmark tst :formula (forall (x Int) (y Int) (implies (= x y) (= (ggd x 0) (gg 0 y)))))",
-                null, null, new Symbol[] { ctx.mkSymbol("gg") },
-                new FuncDecl[] { g });
-
-        BoolExpr thm = ctx.getSMTLIBFormulas()[0];
-        System.out.println("formula: " + thm);
-        
-        FuncDecl a = ctx.mkConstDecl("a", ctx.mkBoolSort());
-        fp.registerRelation(a);
-        ctx.mkConst("x", ctx.mkBoolSort());
-        FuncDecl b = ctx.mkConstDecl("b", ctx.mkBoolSort());
-        fp.registerRelation(b);
-        FuncDecl c = ctx.mkConstDecl("c", ctx.mkBoolSort());
-        fp.registerRelation(c);
-        fp.addFact(b);
-        fp.addRule(
-                ctx.mkImplies(
-                        (BoolExpr) b.apply(),
-                        (BoolExpr) a.apply()
-                ),
-                null
-        );
-
-        fp.addRule(
-                ctx.mkImplies(
-                        (BoolExpr) c.apply(),
-                        (BoolExpr) b.apply()
-                ),
-                null
-        );
+//        ctx.parseSMTLIBString(
+//                "(benchmark tst :formula (forall (x Int) (y Int) (implies (= x y) (= (ggd x 0) (gg 0 y)))))",
+//                null, null, new Symbol[] { ctx.mkSymbol("gg") },
+//                new FuncDecl[] { g });
+//
+//        BoolExpr thm = ctx.getSMTLIBFormulas()[0];
+//        System.out.println("formula: " + thm);
+//
+//        FuncDecl a = ctx.mkConstDecl("a", ctx.mkBoolSort());
+//        fp.registerRelation(a);
+//        ctx.mkConst("x", ctx.mkBoolSort());
+//        FuncDecl b = ctx.mkConstDecl("b", ctx.mkBoolSort());
+//        fp.registerRelation(b);
+//        FuncDecl c = ctx.mkConstDecl("c", ctx.mkBoolSort());
+//        fp.registerRelation(c);
+//        fp.addFact(b);
+//        fp.addRule(
+//                ctx.mkImplies(
+//                        (BoolExpr) b.apply(),
+//                        (BoolExpr) a.apply()
+//                ),
+//                null
+//        );
+//
+//        fp.addRule(
+//                ctx.mkImplies(
+//                        (BoolExpr) c.apply(),
+//                        (BoolExpr) b.apply()
+//                ),
+//                null
+//        );
 
         System.out.println(fp);
 
-        Status ans = fp.query((BoolExpr) a.apply());
-        System.out.println(ans);
+//        Status ans = fp.query((BoolExpr) a.apply());
+//        System.out.println(ans);
 //
 //    System.out.println("====================");
 //

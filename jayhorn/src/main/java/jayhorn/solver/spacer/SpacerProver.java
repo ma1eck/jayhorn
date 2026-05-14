@@ -962,16 +962,16 @@ public class SpacerProver implements Prover {
 				BoolExpr asrt = (BoolExpr) unpack(assertion);
 				this.solver.add(asrt);
 
-				if (interpolationPartition >= 0
-						&& ctx instanceof InterpolationContext) {
-					if (!this.interpolationPattern
-							.containsKey(this.interpolationPartition)) {
-						this.interpolationPattern.put(this.interpolationPartition,
-								new LinkedList<BoolExpr>());
-					}
-					this.interpolationPattern.get(this.interpolationPartition).add(
-							asrt);
-				}
+//				if (interpolationPartition >= 0
+//						&& ctx instanceof InterpolationContext) {
+//					if (!this.interpolationPattern
+//							.containsKey(this.interpolationPartition)) {
+//						this.interpolationPattern.put(this.interpolationPartition,
+//								new LinkedList<BoolExpr>());
+//					}
+//					this.interpolationPattern.get(this.interpolationPartition).add(
+//							asrt);
+//				}
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
@@ -1069,18 +1069,34 @@ public class SpacerProver implements Prover {
 		return res;
 	}
 
+//	@Override
+//	public void setConstructProofs(boolean b) {
+//		try {
+//			killThread();
+//			if (b) {
+//				cfg.put("proof", "true");
+//				this.ctx = new InterpolationContext(this.cfg);
+//			} else {
+//				cfg.put("proof", "false");
+//				this.ctx = new Context(this.cfg);
+//
+//			}
+//			createSolver();
+//		} catch (Exception e) {
+//			throw new RuntimeException(e.getMessage());
+//		}
+//	}
 	@Override
 	public void setConstructProofs(boolean b) {
 		try {
-			killThread();
-			if (b) {
-				cfg.put("proof", "true");
-				this.ctx = new InterpolationContext(this.cfg);
-			} else {
+//			killThread();
+//			if (b) {
+//				cfg.put("proof", "true");
+//				this.ctx = new InterpolationContext(this.cfg);
+//			} else {
 				cfg.put("proof", "false");
 				this.ctx = new Context(this.cfg);
-
-			}
+//			}
 			createSolver();
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
@@ -1090,50 +1106,55 @@ public class SpacerProver implements Prover {
 	
 	@Override
 	public void setPartitionNumber(int num) {
-		if (!(ctx instanceof InterpolationContext)) {
-			throw new RuntimeException("call setConstructProofs(true) first");
-		}
+//		if (!(ctx instanceof InterpolationContext)) {
+//			throw new RuntimeException("call setConstructProofs(true) first");
+//		}
 		if (num < 0) {
 			throw new RuntimeException("only positive partition numbers please");
 		}
 		this.interpolationPartition = num;
 	}
 
+
+//	@Override
+//	public ProverExpr[] interpolate(int[][] partitionSeq) {
+//		if (!(ctx instanceof InterpolationContext)) {
+//			throw new RuntimeException("call setConstructProofs(true) first");
+//		}
+//		InterpolationContext ictx = (InterpolationContext) ctx;
+//		// BoolExpr iA = ictx.MkInterpolant(A);
+//		// BoolExpr AB = ictx.mkAnd(A, B);
+//		// BoolExpr pat = ictx.mkAnd(iA, B);
+//
+//		List<BoolExpr> patternList = new LinkedList<BoolExpr>();
+//		try {
+//			for (Entry<Integer, List<BoolExpr>> entry : this.interpolationPattern
+//					.entrySet()) {
+//				BoolExpr conj = ictx.mkAnd(entry.getValue().toArray(
+//						new BoolExpr[entry.getValue().size()]));
+//				patternList.add(ictx.MkInterpolant(conj));
+//			}
+//			patternList.add(ictx.mkTrue());
+//
+//			BoolExpr pat = ictx.mkAnd(patternList.toArray(new BoolExpr[patternList
+//					.size()]));
+//			Params params = ictx.mkParams();
+//			Expr proof = this.solver.getProof();
+//
+//			Expr[] interps = ictx.GetInterpolant(proof, pat, params);
+//
+//			List<SpacerBoolExpr> result = new LinkedList<SpacerBoolExpr>();
+//			for (int i = 0; i < interps.length; i++) {
+//				result.add(new SpacerBoolExpr((BoolExpr) interps[i]));
+//			}
+//			return result.toArray(new ProverExpr[result.size()]);
+//		} catch (Exception e) {
+//			throw new RuntimeException(e.getMessage());
+//		}
+//	}
 	@Override
 	public ProverExpr[] interpolate(int[][] partitionSeq) {
-		if (!(ctx instanceof InterpolationContext)) {
-			throw new RuntimeException("call setConstructProofs(true) first");
-		}
-		InterpolationContext ictx = (InterpolationContext) ctx;
-		// BoolExpr iA = ictx.MkInterpolant(A);
-		// BoolExpr AB = ictx.mkAnd(A, B);
-		// BoolExpr pat = ictx.mkAnd(iA, B);
-		
-		List<BoolExpr> patternList = new LinkedList<BoolExpr>();
-		try {
-			for (Entry<Integer, List<BoolExpr>> entry : this.interpolationPattern
-					.entrySet()) {
-				BoolExpr conj = ictx.mkAnd(entry.getValue().toArray(
-						new BoolExpr[entry.getValue().size()]));
-				patternList.add(ictx.MkInterpolant(conj));
-			}
-			patternList.add(ictx.mkTrue());
-
-			BoolExpr pat = ictx.mkAnd(patternList.toArray(new BoolExpr[patternList
-					.size()]));
-			Params params = ictx.mkParams();
-			Expr proof = this.solver.getProof();
-			
-			Expr[] interps = ictx.GetInterpolant(proof, pat, params);
-			
-			List<SpacerBoolExpr> result = new LinkedList<SpacerBoolExpr>();
-			for (int i = 0; i < interps.length; i++) {
-				result.add(new SpacerBoolExpr((BoolExpr) interps[i]));
-			}
-			return result.toArray(new ProverExpr[result.size()]);
-		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
-		}
+		return new ProverExpr[0];
 	}
 
 	@Override
@@ -1252,8 +1273,8 @@ public class SpacerProver implements Prover {
 		killThread();
 		try {
 			this.solver.reset();
-			this.solver.dispose();
-			ctx.dispose();
+//			this.solver.dispose();
+			ctx.close(); // was dispose
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
@@ -1840,29 +1861,29 @@ public class SpacerProver implements Prover {
      * 
      * TODO Change return type
      **/
-    public Expr getGroundSatAnswer()
-    {
-    	try {
-    		return this.fx.getGroundSatAnswer();
-    	} catch (Exception e) {
-    		throw new RuntimeException(e.getMessage());
-    	}
-
-    }
+//    public Expr getGroundSatAnswer()
+//    {
+//    	try {
+//    		return this.fx.getGroundSatAnswer();
+//    	} catch (Exception e) {
+//    		throw new RuntimeException(e.getMessage());
+//    	}
+//
+//    }
 
     /**
      * Get Rules Along Trace
      *
      * TODO Change return type
      **/
-    public Expr getRulesAlongTrace() 
-    {
-    	try {
-    		return this.fx.getRulesAlongTrace();
-    	} catch (Exception e) {
-    		throw new RuntimeException(e.getMessage());
-    	}    
-    }
+//    public Expr getRulesAlongTrace()
+//    {
+//    	try {
+//    		return this.fx.getRulesAlongTrace();
+//    	} catch (Exception e) {
+//    		throw new RuntimeException(e.getMessage());
+//    	}
+//    }
 
 
     /**
@@ -1870,14 +1891,14 @@ public class SpacerProver implements Prover {
      *
      * TODO Change return type
      **/
-    public Expr getRuleNamesAlongTrace() 
-    {
-    	try {
-    		return this.fx.getRuleNamesAlongTrace();
-    	} catch (Exception e) {
-    		throw new RuntimeException(e.getMessage());
-    	}    
-    }  
+//    public Expr getRuleNamesAlongTrace()
+//    {
+//    	try {
+//    		return this.fx.getRuleNamesAlongTrace();
+//    	} catch (Exception e) {
+//    		throw new RuntimeException(e.getMessage());
+//    	}
+//    }
     
 ////////////////////////////////////////////////////////////////////////////
 // Some functions for outputing SMT-LIB

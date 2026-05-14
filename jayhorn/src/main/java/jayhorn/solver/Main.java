@@ -154,34 +154,34 @@ public class Main {
 		System.out.println("-----");
 	}
 
-	public void test06(Prover p) {
-		p.setConstructProofs(true);
-		final ProverExpr a = p.mkVariable("a", p.getArrayType(new ProverType[]{p.getIntType()}, p.getIntType())  );
-		final ProverExpr b = p.mkVariable("b", p.getArrayType(new ProverType[]{p.getIntType()}, p.getIntType())  );
-
-		p.setPartitionNumber(0);
-		p.addAssertion(p.mkEq(
-				p.mkStore(a, new ProverExpr[] { p.mkLiteral(0) },
-						p.mkLiteral(1)), b));
-		p.setPartitionNumber(1);
-		p.addAssertion(p.mkEq(
-				p.mkSelect(b, new ProverExpr[] { p.mkLiteral(0) }),
-				p.mkLiteral(2)));
-
-		System.out.println(p.checkSat(true));
-
-		final ProverExpr interpolant = p.interpolate(new int[][] {
-				new int[] { 0 }, new int[] { 1 } })[0];
-		System.out.println(interpolant);
-		System.out.print("Variables: ");
-		final ProverExpr[] vars = p.freeVariables(interpolant);
-		for (int i = 0; i < vars.length; ++i)
-			System.out.print("" + vars[i] + " ");
-		System.out.println();
-
-		System.out.println(p.substitute(interpolant, new ProverExpr[] { b },
-				new ProverExpr[] { a }));
-	}
+//	public void test06(Prover p) {
+//		p.setConstructProofs(true);
+//		final ProverExpr a = p.mkVariable("a", p.getArrayType(new ProverType[]{p.getIntType()}, p.getIntType())  );
+//		final ProverExpr b = p.mkVariable("b", p.getArrayType(new ProverType[]{p.getIntType()}, p.getIntType())  );
+//
+//		p.setPartitionNumber(0);
+//		p.addAssertion(p.mkEq(
+//				p.mkStore(a, new ProverExpr[] { p.mkLiteral(0) },
+//						p.mkLiteral(1)), b));
+//		p.setPartitionNumber(1);
+//		p.addAssertion(p.mkEq(
+//				p.mkSelect(b, new ProverExpr[] { p.mkLiteral(0) }),
+//				p.mkLiteral(2)));
+//
+//		System.out.println(p.checkSat(true));
+//
+//		final ProverExpr interpolant = p.interpolate(new int[][] {
+//				new int[] { 0 }, new int[] { 1 } })[0];
+//		System.out.println(interpolant);
+//		System.out.print("Variables: ");
+//		final ProverExpr[] vars = p.freeVariables(interpolant);
+//		for (int i = 0; i < vars.length; ++i)
+//			System.out.print("" + vars[i] + " ");
+//		System.out.println();
+//
+//		System.out.println(p.substitute(interpolant, new ProverExpr[] { b },
+//				new ProverExpr[] { a }));
+//	}
 
 	public void testHorn(Prover p) {
             p.setHornLogic(true);
@@ -346,7 +346,7 @@ public class Main {
 		p.reset();
 		test05(p);
 		p.reset();
-		test06(p);
+//		test06(p);
 		p.reset();
 		testHorn(p);
 		p.reset();
@@ -424,7 +424,8 @@ public class Main {
             ProverResult result = p.query(e, false);
             System.out.println(result);
             if (result.toString().equals("Sat")){
-            	System.out.println(p.getGroundSatAnswer());
+				System.out.printf(p.getFXAnswer());
+//            	System.out.println(p.getGroundSatAnswer());
             }
 //            if pr.equals("unsat"){
 //               Expr pr = p.getGroundSatAnswer();

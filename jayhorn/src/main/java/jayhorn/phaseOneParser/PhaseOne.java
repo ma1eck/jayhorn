@@ -505,7 +505,74 @@ public class PhaseOne { // todo: add lots of if for safe casting
     }
 
 
+    public static String[] addGBitVector4(String AvalueStr, String AmaskStr,
+                                          String BvalueStr, String BmaskStr) throws Z3Exception {
+        int bitWidth = AvalueStr.length();
 
+        // Validate input length equality
+        if (AmaskStr.length() != bitWidth ||
+                BvalueStr.length() != bitWidth ||
+                BmaskStr.length() != bitWidth) {
+            throw new IllegalArgumentException("All inputs must have the same length.");
+        }
+
+        // We will build the result mask and value incrementally
+        StringBuilder resultMask = new StringBuilder();
+        StringBuilder resultValue = new StringBuilder();
+
+        try (Context ctx = new Context()) {
+            // Pre-build the input constraints once
+            BitVecExpr a = ctx.mkBVConst("a", bitWidth);
+            BitVecExpr b = ctx.mkBVConst("b", bitWidth);
+
+            BitVecExpr AvalueBV = ctx.mkBV(AvalueStr, bitWidth);
+            BitVecExpr AmaskBV  = ctx.mkBV(AmaskStr, bitWidth);
+            BitVecExpr BvalueBV = ctx.mkBV(BvalueStr, bitWidth);
+            BitVecExpr BmaskBV  = ctx.mkBV(BmaskStr, bitWidth);
+
+            BoolExpr aMatches = ctx.mkEq(ctx.mkBVAND(a, AmaskBV), AvalueBV);
+            BoolExpr bMatches = ctx.mkEq(ctx.mkBVAND(b, BmaskBV), BvalueBV);
+            BoolExpr inputMatch = ctx.mkAnd(aMatches, bMatches);
+
+            // Pre-compute (a + b) as a bit-vector expression
+            BitVecExpr sum = ctx.mkBVAdd(a, b);
+
+            // For each bit position (from MSB to LSB to build binary strings left-to-right)
+            for (int i = bitWidth - 1; i >= 0; i--) {
+                // Bit mask for position i
+                BitVecExpr bitMask = ctx.mkBV(1L << i, bitWidth);
+                BitVecExpr zero = ctx.mkBV(0, bitWidth);
+
+                // Check if bit i can be 1
+                Solver solver1 = ctx.mkSolver();
+                solver1.add(inputMatch);
+                solver1.add(ctx.mkNot(ctx.mkEq(ctx.mkBVAND(sum, bitMask), zero)));
+                boolean bitCanBeOne = (solver1.check() == Status.SATISFIABLE);
+
+                // Check if bit i can be 0
+                Solver solver0 = ctx.mkSolver();
+                solver0.add(inputMatch);
+                solver0.add(ctx.mkEq(ctx.mkBVAND(sum, bitMask), zero));
+                boolean bitCanBeZero = (solver0.check() == Status.SATISFIABLE);
+
+                if (!bitCanBeOne) {
+                    // Bit must be 0
+                    resultMask.append('1');
+                    resultValue.append('0');
+                } else if (!bitCanBeZero) {
+                    // Bit must be 1
+                    resultMask.append('1');
+                    resultValue.append('1');
+                } else {
+                    // Bit is unknown
+                    resultMask.append('0');
+                    resultValue.append('0');   // value bit irrelevant, we keep 0 for consistency
+                }
+            }
+        }
+
+        return new String[]{resultValue.toString(), resultMask.toString()};
+    }
     public static GBool bvuleGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
         int bitWidth = aValStr.length();
         BigInteger bitMask = BigInteger.ONE.shiftLeft(bitWidth).subtract(BigInteger.ONE);
@@ -590,7 +657,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
     private static int runTest(int testNum, String aVal, String aMask, String bVal, String bMask, String expMask, String expVal) {
         try {
-            String[] result = PhaseOne.addGBitVector3(aVal, aMask, bVal, bMask);
+            String[] result = PhaseOne.addGBitVector4(aVal, aMask, bVal, bMask);
 
             if (result == null) {
                 System.err.println("Test " + testNum + " FAILED: Returned null");
