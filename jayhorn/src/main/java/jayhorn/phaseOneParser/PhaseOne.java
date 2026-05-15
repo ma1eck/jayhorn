@@ -6,6 +6,9 @@ import jayhorn.AST.Nodes.VarType;
 import jayhorn.AST.Nodes.VariableNode;
 import jayhorn.phaseOneParser.LiteralValues.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -334,245 +337,38 @@ public class PhaseOne { // todo: add lots of if for safe casting
             return sb.toString();
         }
 
-    public static String[] addGBitVector2(
-            String AvalueStr, String AmaskStr,
-            String BvalueStr, String BmaskStr) {
+    public static String[] addGBitVector2(String aVal, String aMask,
+                                             String bVal, String bMask) throws IOException, InterruptedException {
 
-        int bitWidth = AmaskStr.length();
-        Context ctx = new Context();
-        Optimize opt = ctx.mkOptimize();
-
-        BigInteger Avalue = new BigInteger(AvalueStr, 2);
-        BigInteger Amask  = new BigInteger(AmaskStr,  2);
-        BigInteger Bvalue = new BigInteger(BvalueStr, 2);
-        BigInteger Bmask  = new BigInteger(BmaskStr,  2);
-
-        BitVecExpr R_mask = ctx.mkBVConst("mask_R", bitWidth);
-        BitVecExpr R_val  = ctx.mkBVConst("val_R",  bitWidth);
-        BitVecExpr a      = ctx.mkBVConst("A",      bitWidth);
-        BitVecExpr b      = ctx.mkBVConst("B",      bitWidth);
-
-        BitVecExpr AmaskBV  = bigIntegerToBitVec(ctx, Amask,  bitWidth);
-        BitVecExpr AvalueBV = bigIntegerToBitVec(ctx, Avalue, bitWidth);
-        BitVecExpr BmaskBV  = bigIntegerToBitVec(ctx, Bmask,  bitWidth);
-        BitVecExpr BvalueBV = bigIntegerToBitVec(ctx, Bvalue, bitWidth);
-
-        // (R_val & ~R_mask) == 0
-        opt.Add(ctx.mkEq(ctx.mkBVAND(R_val, ctx.mkBVNot(R_mask)),
-                ctx.mkBV(0, bitWidth)
-        ));
-
-        // ForAll a, b: (a & Amask == Avalue) && (b & Bmask == Bvalue) => (a+b) & R_mask == R_val
-        BoolExpr premise = ctx.mkAnd(
-                ctx.mkEq(ctx.mkBVAND(a, AmaskBV),  AvalueBV),
-                ctx.mkEq(ctx.mkBVAND(b, BmaskBV),  BvalueBV)
+        String pythonPath = "python";
+        String scriptPath = "jayhorn/src/main/java/jayhorn/phaseOneParser/pythonAPIs/addGBitVector.py";
+        ProcessBuilder processBuilder = new ProcessBuilder(
+                pythonPath, scriptPath, aVal, aMask, bVal, bMask
         );
-        BoolExpr conclusion = ctx.mkEq(
-                ctx.mkBVAND(ctx.mkBVAdd(a, b), R_mask),
-                R_val
-        );
-        opt.Add(ctx.mkForall(
-                new Expr[]{a, b},
-                ctx.mkImplies(premise, conclusion),
-                1, null, null, null, null
-        ));
 
-        opt.MkMaximize(ctx.mkBV2Int(R_mask, false));
+        // Redirect error stream so we can catch Python errors if they happen
+        processBuilder.redirectErrorStream(true);
+        Process process = processBuilder.start();
 
-        if (opt.Check() == Status.SATISFIABLE) {
-            Model m = opt.getModel();
-            BigInteger maskVal = ((BitVecNum) m.eval(R_mask, true)).getBigInteger();
-            BigInteger rVal    = ((BitVecNum) m.eval(R_val,  true)).getBigInteger();
-            return new String[]{
-                    String.format("%0" + bitWidth + "d", new BigInteger(maskVal.toString(2))),
-                    String.format("%0" + bitWidth + "d", new BigInteger(rVal.toString(2)))
-            };
-        }
-        return new String[]{"UNSAT", "UNSAT"};
-    }
+        // Read the output
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            String line = reader.readLine();
+            int exitCode = process.waitFor();
 
-
-
-    private static BitVecExpr bigIntegerToBitVec(Context ctx, BigInteger value, int bitWidth) {
-        if (bitWidth <= 64 && value.bitLength() <= 63) {
-            return ctx.mkBV(value.longValue(), bitWidth);
-        } else {
-            // For larger bit widths, convert to binary string
-            String binaryStr = value.toString(2);
-            return ctx.mkBV(binaryStr, bitWidth);
-        }
-    }
-
-    private static String padLeft2(String s, int length) {
-        return String.format("%" + length + "s", s).replace(' ', '0');
-    }
-
-
-    public static String[] addGBitVector3(String AvalueStr, String AmaskStr,
-                                               String BvalueStr, String BmaskStr) throws Z3Exception {
-
-        int bitWidth = AvalueStr.length();
-
-        // Validate input length equality
-        if (AmaskStr.length() != bitWidth ||
-                BvalueStr.length() != bitWidth ||
-                BmaskStr.length() != bitWidth) {
-            throw new IllegalArgumentException("All inputs must have the same length.");
-        }
-
-        // Parse inputs as BigInteger
-        java.math.BigInteger Avalue = new java.math.BigInteger(AvalueStr, 2);
-        java.math.BigInteger Amask  = new java.math.BigInteger(AmaskStr,  2);
-        java.math.BigInteger Bvalue = new java.math.BigInteger(BvalueStr, 2);
-        java.math.BigInteger Bmask  = new java.math.BigInteger(BmaskStr,  2);
-
-        // Create Z3 context (using default config)
-        Context ctx = new Context();
-
-        try {
-            Optimize opt = ctx.mkOptimize();
-
-            // BitVec sorts and constants
-            BitVecExpr R_mask = ctx.mkBVConst("R_mask", bitWidth);
-            BitVecExpr R_val  = ctx.mkBVConst("R_val",  bitWidth);
-
-            BitVecExpr a = ctx.mkBVConst("a", bitWidth);
-            BitVecExpr b = ctx.mkBVConst("b", bitWidth);
-
-            // Convert input constants to BitVecExpr
-            BitVecExpr AvalueBV = ctx.mkBV(AvalueStr, bitWidth);
-            BitVecExpr AmaskBV  = ctx.mkBV(AmaskStr, bitWidth);
-            BitVecExpr BvalueBV = ctx.mkBV(BvalueStr, bitWidth);
-            BitVecExpr BmaskBV  = ctx.mkBV(BmaskStr, bitWidth);
-
-            // Constraint: (R_val & ~R_mask) == 0
-            BitVecExpr negRmask = ctx.mkBVNot(R_mask);
-            BoolExpr maskValZero = ctx.mkEq(ctx.mkBVAND(R_val, negRmask), ctx.mkBV(0, bitWidth));
-            opt.Add(maskValZero);
-
-            // ForAll (a, b):
-            // if (a & Amask) == Avalue AND (b & Bmask) == Bvalue
-            // then ((a + b) & R_mask) == R_val
-
-            BoolExpr inputMatch = ctx.mkAnd(
-                    ctx.mkEq(ctx.mkBVAND(a, AmaskBV), AvalueBV),
-                    ctx.mkEq(ctx.mkBVAND(b, BmaskBV), BvalueBV)
-            );
-
-            BoolExpr resultMatch = ctx.mkEq(
-                    ctx.mkBVAND(ctx.mkBVAdd(a, b), R_mask),
-                    R_val);
-
-            BoolExpr implication = ctx.mkImplies(inputMatch, resultMatch);
-
-            Quantifier forall = ctx.mkForall(
-                    new Expr[]{a, b},
-                    implication,
-                    1,
-                    null,
-                    null,
-                    null,
-                    null);
-
-            opt.Add(forall);
-
-            // Maximize known bits in R_mask
-            ArithExpr R_mask_as_int = ctx.mkBV2Int(R_mask, false);  // false = unsigned
-            opt.MkMaximize(R_mask_as_int);
-
-            if (opt.Check() != Status.SATISFIABLE) {
-                throw new IllegalStateException("Constraints are unsatisfiable.");
+            if (line != null && line.startsWith("WARNING")){
+                line = reader.readLine();
+                exitCode = process.waitFor();
             }
 
-            Model model = opt.getModel();
-
-            BitVecNum val = (BitVecNum) model.evaluate(R_val, false);
-            BitVecNum mask = (BitVecNum) model.evaluate(R_mask, false);
-
-            // Format with leading zeros up to bitWidth
-            String resultValueBin = val.getBigInteger().toString(2);
-            String resultMaskBin = mask.getBigInteger().toString(2);
-
-            // Pad with leading zeros if needed
-            resultValueBin = String.format("%" + bitWidth + "s", resultValueBin).replace(' ', '0');
-            resultMaskBin = String.format("%" + bitWidth + "s", resultMaskBin).replace(' ', '0');
-
-            return new String[]{resultValueBin, resultMaskBin};
-        }catch (Exception e){
-            System.out.printf(e.toString());
-            return null;
-        }
-    }
-
-
-    public static String[] addGBitVector4(String AvalueStr, String AmaskStr,
-                                          String BvalueStr, String BmaskStr) throws Z3Exception {
-        int bitWidth = AvalueStr.length();
-
-        // Validate input length equality
-        if (AmaskStr.length() != bitWidth ||
-                BvalueStr.length() != bitWidth ||
-                BmaskStr.length() != bitWidth) {
-            throw new IllegalArgumentException("All inputs must have the same length.");
-        }
-
-        // We will build the result mask and value incrementally
-        StringBuilder resultMask = new StringBuilder();
-        StringBuilder resultValue = new StringBuilder();
-
-        try (Context ctx = new Context()) {
-            // Pre-build the input constraints once
-            BitVecExpr a = ctx.mkBVConst("a", bitWidth);
-            BitVecExpr b = ctx.mkBVConst("b", bitWidth);
-
-            BitVecExpr AvalueBV = ctx.mkBV(AvalueStr, bitWidth);
-            BitVecExpr AmaskBV  = ctx.mkBV(AmaskStr, bitWidth);
-            BitVecExpr BvalueBV = ctx.mkBV(BvalueStr, bitWidth);
-            BitVecExpr BmaskBV  = ctx.mkBV(BmaskStr, bitWidth);
-
-            BoolExpr aMatches = ctx.mkEq(ctx.mkBVAND(a, AmaskBV), AvalueBV);
-            BoolExpr bMatches = ctx.mkEq(ctx.mkBVAND(b, BmaskBV), BvalueBV);
-            BoolExpr inputMatch = ctx.mkAnd(aMatches, bMatches);
-
-            // Pre-compute (a + b) as a bit-vector expression
-            BitVecExpr sum = ctx.mkBVAdd(a, b);
-
-            // For each bit position (from MSB to LSB to build binary strings left-to-right)
-            for (int i = bitWidth - 1; i >= 0; i--) {
-                // Bit mask for position i
-                BitVecExpr bitMask = ctx.mkBV(1L << i, bitWidth);
-                BitVecExpr zero = ctx.mkBV(0, bitWidth);
-
-                // Check if bit i can be 1
-                Solver solver1 = ctx.mkSolver();
-                solver1.add(inputMatch);
-                solver1.add(ctx.mkNot(ctx.mkEq(ctx.mkBVAND(sum, bitMask), zero)));
-                boolean bitCanBeOne = (solver1.check() == Status.SATISFIABLE);
-
-                // Check if bit i can be 0
-                Solver solver0 = ctx.mkSolver();
-                solver0.add(inputMatch);
-                solver0.add(ctx.mkEq(ctx.mkBVAND(sum, bitMask), zero));
-                boolean bitCanBeZero = (solver0.check() == Status.SATISFIABLE);
-
-                if (!bitCanBeOne) {
-                    // Bit must be 0
-                    resultMask.append('1');
-                    resultValue.append('0');
-                } else if (!bitCanBeZero) {
-                    // Bit must be 1
-                    resultMask.append('1');
-                    resultValue.append('1');
-                } else {
-                    // Bit is unknown
-                    resultMask.append('0');
-                    resultValue.append('0');   // value bit irrelevant, we keep 0 for consistency
-                }
+            if (exitCode != 0 || line == null || line.startsWith("Error")) {
+                throw new RuntimeException("Python script failed: " + line);
             }
-        }
 
-        return new String[]{resultValue.toString(), resultMask.toString()};
+            // Split the "value,mask" string returned by Python
+            return line.trim().split(",");
+        }
     }
+
     public static GBool bvuleGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
         int bitWidth = aValStr.length();
         BigInteger bitMask = BigInteger.ONE.shiftLeft(bitWidth).subtract(BigInteger.ONE);
@@ -657,7 +453,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
     private static int runTest(int testNum, String aVal, String aMask, String bVal, String bMask, String expMask, String expVal) {
         try {
-            String[] result = PhaseOne.addGBitVector4(aVal, aMask, bVal, bMask);
+            String[] result = PhaseOne.addGBitVector2(aVal, aMask, bVal, bMask);
 
             if (result == null) {
                 System.err.println("Test " + testNum + " FAILED: Returned null");
