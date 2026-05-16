@@ -20,7 +20,6 @@ public class Parser {
         if (expr instanceof IIntLit) {
             BigInteger valBI = ((IIntLit) expr).value().bigIntValue();
 
-            // Check if it fits in a 32-bit int
             return LiteralNode.createNumericLiteralNode(valBI);
         }
         // Note: Princess handles BitVectors usually via specific sorts and function apps,

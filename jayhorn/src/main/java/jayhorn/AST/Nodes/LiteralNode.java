@@ -16,7 +16,22 @@ public class LiteralNode extends InvariantTree {
         this.type = type;
     }
 
-    public Object getValue() { return value; }
+    public Object getValue() {
+        if (getType() == VarType.BITVECTOR){
+            String value1 = bvValue2String();
+            if (value1 != null) return value1;
+        }
+        return value;
+    }
+
+    private String  bvValue2String() {
+        if (value instanceof  String) return (String) value;
+        if (value instanceof Integer) return int2bvString((Integer) value);
+        if (value instanceof Long) return long2bvString((Long) value);
+        if (value instanceof BigInteger) return bigInt2bvString((BigInteger) value);
+        return null;
+    }
+
     public VarType getType() { return type; }
 
     @Override
@@ -54,6 +69,17 @@ public class LiteralNode extends InvariantTree {
             return new LiteralNode(num, VarType.LONG);
         }
         return new LiteralNode(num, VarType.BIGINT);
+    }
+
+
+    private static String int2bvString(int value) {
+        return Integer.toBinaryString(value);
+    }
+    private static String long2bvString(long value) {
+        return Long.toBinaryString(value);
+    }
+    private static String bigInt2bvString(BigInteger value) {
+        return value.toString(2);
     }
 
 }

@@ -56,11 +56,23 @@ public class ASTHelper {
 
                 // mod = high - low + 1
                 BigInteger mod = high.subtract(low).add(BigInteger.ONE);
-
-                // res = (arg - low) % mod + low
                 BigInteger res = arg.subtract(low).remainder(mod).add(low);
 
-                return LiteralNode.createNumericLiteralNode(res);
+                int bitwidth = mod.bitLength();
+
+                String binary = res.toString(2);
+
+                if (binary.length() < bitwidth) {
+                    int zerosNeeded = bitwidth - binary.length();
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < zerosNeeded; i++) {
+                        sb.append('0');
+                    }
+                    binary = sb.toString() + binary;
+                }
+
+//                return LiteralNode.createNumericLiteralNode(res);
+                return LiteralNode.getBVLiteral(binary);
             }
         }
 

@@ -18,7 +18,7 @@ public class Parser {
             }
             if (expr.isBV()) {
                 BitVecNum bv = (BitVecNum) expr;
-                return new LiteralNode(bv.getSExpr(), VarType.BITVECTOR);
+                return new LiteralNode(bv.getSExpr(), VarType.BITVECTOR); // always storing as string
             }
             if (expr.isTrue()) {
                 return new LiteralNode(true, VarType.BOOLEAN);
