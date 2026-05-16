@@ -10,10 +10,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import com.microsoft.z3.*;
 
@@ -264,81 +271,81 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
 
 
-        public static String[] addGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
-            int bitWidth = aValStr.length();
+    public static String[] addGBitVector2(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
+        int bitWidth = aValStr.length();
 
-            BigInteger aVal = new BigInteger(aValStr, 2);
-            BigInteger aMask = new BigInteger(aMaskStr, 2);
-            BigInteger bVal = new BigInteger(bValStr, 2);
-            BigInteger bMask = new BigInteger(bMaskStr, 2);
+        BigInteger aVal = new BigInteger(aValStr, 2);
+        BigInteger aMask = new BigInteger(aMaskStr, 2);
+        BigInteger bVal = new BigInteger(bValStr, 2);
+        BigInteger bMask = new BigInteger(bMaskStr, 2);
 
-            Context ctx = new Context();
-            // USE SOLVER INSTEAD OF OPTIMIZE
-            Solver solver = ctx.mkSolver();
+        Context ctx = new Context();
+        // USE SOLVER INSTEAD OF OPTIMIZE
+        Solver solver = ctx.mkSolver();
 
-            BitVecExpr R_mask = ctx.mkBVConst("mask_R", bitWidth);
-            BitVecExpr R_val = ctx.mkBVConst("val_R", bitWidth);
-            BitVecExpr a = ctx.mkBVConst("A", bitWidth);
-            BitVecExpr b = ctx.mkBVConst("B", bitWidth);
+        BitVecExpr R_mask = ctx.mkBVConst("mask_R", bitWidth);
+        BitVecExpr R_val = ctx.mkBVConst("val_R", bitWidth);
+        BitVecExpr a = ctx.mkBVConst("A", bitWidth);
+        BitVecExpr b = ctx.mkBVConst("B", bitWidth);
 
-            BitVecExpr aValExpr = ctx.mkBV(aVal.toString(), bitWidth);
-            BitVecExpr aMaskExpr = ctx.mkBV(aMask.toString(), bitWidth);
-            BitVecExpr bValExpr = ctx.mkBV(bVal.toString(), bitWidth);
-            BitVecExpr bMaskExpr = ctx.mkBV(bMask.toString(), bitWidth);
-            BitVecExpr zero = ctx.mkBV(0, bitWidth);
+        BitVecExpr aValExpr = ctx.mkBV(aVal.toString(), bitWidth);
+        BitVecExpr aMaskExpr = ctx.mkBV(aMask.toString(), bitWidth);
+        BitVecExpr bValExpr = ctx.mkBV(bVal.toString(), bitWidth);
+        BitVecExpr bMaskExpr = ctx.mkBV(bMask.toString(), bitWidth);
+        BitVecExpr zero = ctx.mkBV(0, bitWidth);
 
-            // Force value bits to be 0 where mask is 0
-            solver.add(ctx.mkEq(ctx.mkBVAND(R_val, ctx.mkBVNot(R_mask)), zero));
+        // Force value bits to be 0 where mask is 0
+        solver.add(ctx.mkEq(ctx.mkBVAND(R_val, ctx.mkBVNot(R_mask)), zero));
 
-            // Setup premise and conclusion
-            BoolExpr aCond = ctx.mkEq(ctx.mkBVAND(a, aMaskExpr), aValExpr);
-            BoolExpr bCond = ctx.mkEq(ctx.mkBVAND(b, bMaskExpr), bValExpr);
-            BoolExpr premise = ctx.mkAnd(aCond, bCond);
+        // Setup premise and conclusion
+        BoolExpr aCond = ctx.mkEq(ctx.mkBVAND(a, aMaskExpr), aValExpr);
+        BoolExpr bCond = ctx.mkEq(ctx.mkBVAND(b, bMaskExpr), bValExpr);
+        BoolExpr premise = ctx.mkAnd(aCond, bCond);
 
-            BitVecExpr sum = ctx.mkBVAdd(a, b);
-            BoolExpr conclusion = ctx.mkEq(ctx.mkBVAND(sum, R_mask), R_val);
+        BitVecExpr sum = ctx.mkBVAdd(a, b);
+        BoolExpr conclusion = ctx.mkEq(ctx.mkBVAND(sum, R_mask), R_val);
 
-            // Create ForAll
-            BoolExpr implication = ctx.mkImplies(premise, conclusion);
-            Expr[] boundVariables = new Expr[]{a, b};
-            BoolExpr forAll = ctx.mkForall(boundVariables, implication, 1, new Pattern[0], new Expr[0], null, null);
+        // Create ForAll
+        BoolExpr implication = ctx.mkImplies(premise, conclusion);
+        Expr[] boundVariables = new Expr[]{a, b};
+        BoolExpr forAll = ctx.mkForall(boundVariables, implication, 1, new Pattern[0], new Expr[0], null, null);
 
-            solver.add(forAll);
+        solver.add(forAll);
 
-            String bestMask = null;
-            String bestVal = null;
+        String bestMask = null;
+        String bestVal = null;
 
-            // ITERATIVE MAXIMIZATION
-            while (solver.check() == Status.SATISFIABLE) {
-                Model m = solver.getModel();
+        // ITERATIVE MAXIMIZATION
+        while (solver.check() == Status.SATISFIABLE) {
+            Model m = solver.getModel();
 
-                BitVecNum rMaskRes = (BitVecNum) m.eval(R_mask, false);
-                BitVecNum rValRes = (BitVecNum) m.eval(R_val, false);
+            BitVecNum rMaskRes = (BitVecNum) m.eval(R_mask, false);
+            BitVecNum rValRes = (BitVecNum) m.eval(R_val, false);
 
-                bestMask = padLeft(rMaskRes.getBigInteger().toString(2), bitWidth);
-                bestVal = padLeft(rValRes.getBigInteger().toString(2), bitWidth);
+            bestMask = padLeft(rMaskRes.getBigInteger().toString(2), bitWidth);
+            bestVal = padLeft(rValRes.getBigInteger().toString(2), bitWidth);
 
-                // Add constraint to force the next R_mask to be STRICTLY GREATER (unsigned)
-                solver.add(ctx.mkBVUGT(R_mask, rMaskRes));
-            }
-
-            if (bestMask != null) {
-                return new String[]{bestMask, bestVal};
-            } else {
-                return null;
-            }
+            // Add constraint to force the next R_mask to be STRICTLY GREATER (unsigned)
+            solver.add(ctx.mkBVUGT(R_mask, rMaskRes));
         }
 
-        private static String padLeft(String s, int length) {
-            if (s.length() >= length) return s;
-            StringBuilder sb = new StringBuilder(length);
-            for (int i = 0; i < length - s.length(); i++) sb.append('0');
-            sb.append(s);
-            return sb.toString();
+        if (bestMask != null) {
+            return new String[]{bestMask, bestVal};
+        } else {
+            return null;
         }
+    }
 
-    public static String[] addGBitVector2(String aVal, String aMask,
-                                             String bVal, String bMask) throws IOException, InterruptedException {
+    private static String padLeft(String s, int length) {
+        if (s.length() >= length) return s;
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length - s.length(); i++) sb.append('0');
+        sb.append(s);
+        return sb.toString();
+    }
+
+    public static String[] addGBitVector(String aVal, String aMask,
+                                             String bVal, String bMask){
 
         String pythonPath = "python";
         String scriptPath = "jayhorn/src/main/java/jayhorn/phaseOneParser/pythonAPIs/addGBitVector.py";
@@ -348,10 +355,11 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
         // Redirect error stream so we can catch Python errors if they happen
         processBuilder.redirectErrorStream(true);
-        Process process = processBuilder.start();
 
         // Read the output
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line = reader.readLine();
             int exitCode = process.waitFor();
 
@@ -366,9 +374,21 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
             // Split the "value,mask" string returned by Python
             return line.trim().split(",");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new String[]{"0", "0"};
         }
     }
 
+    public static String[] addGBitVector3(String aVal, String aMask,
+                                         String bVal, String bMask){
+        try {
+            return PythonBitVectorBridge.addGBitVector(aVal, aMask, bVal, bMask);
+        } catch (IOException |  InterruptedException e) {
+            System.out.println(e.getMessage());
+            return new String[] {"0", "0"};
+        }
+    }
     public static GBool bvuleGBitVector(String aValStr, String aMaskStr, String bValStr, String bMaskStr) {
         int bitWidth = aValStr.length();
         BigInteger bitMask = BigInteger.ONE.shiftLeft(bitWidth).subtract(BigInteger.ONE);
@@ -427,33 +447,33 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
         System.out.println("Running " + total + " test cases...\n");
 
-        passed += runTest(1, "0101", "1111", "0011", "1111", "1111", "1000");
+        passed += runTestaddGBitVector(1, "0101", "1111", "0011", "1111", "1111", "1000");
 
-        passed += runTest(2, "0000", "0000", "0000", "0000", "0000", "0000");
+        passed += runTestaddGBitVector(2, "0000", "0000", "0000", "0000", "0000", "0000");
 
-        passed += runTest(3, "1010", "1111", "0000", "0000", "0000", "0000");
+        passed += runTestaddGBitVector(3, "1010", "1111", "0000", "0000", "0000", "0000");
 
-        passed += runTest(4, "0101", "0111", "0010", "1111", "0111", "0111");
+        passed += runTestaddGBitVector(4, "0101", "0111", "0010", "1111", "0111", "0111");
 
-        passed += runTest(5, "0000", "0001", "1111", "1111", "0001", "0001");
+        passed += runTestaddGBitVector(5, "0000", "0001", "1111", "1111", "0001", "0001");
 
-        passed += runTest(6, "1000", "1101", "0000", "1111", "1101", "1000");
+        passed += runTestaddGBitVector(6, "1000", "1101", "0000", "1111", "1101", "1000");
 
-        passed += runTest(7, "1111", "1111", "0001", "1111", "1111", "0000");
+        passed += runTestaddGBitVector(7, "1111", "1111", "0001", "1111", "1111", "0000");
 
-        passed += runTest(8, "0010", "0011", "0001", "0011", "0011", "0011");
+        passed += runTestaddGBitVector(8, "0010", "0011", "0001", "0011", "0011", "0011");
 
-        passed += runTest(9, "0111", "0111", "0001", "0111", "0111", "0000");
+        passed += runTestaddGBitVector(9, "0111", "0111", "0001", "0111", "0111", "0000");
 
-        passed += runTest(10, "00101010", "11111111", "00010000", "11110000", "10000000", "00000000");
+        passed += runTestaddGBitVector(10, "00101010", "11111111", "00010000", "11110000", "10000000", "00000000");
 
         System.out.println("========================================");
         System.out.println("Tests Passed: " + passed + " / " + total);
     }
 
-    private static int runTest(int testNum, String aVal, String aMask, String bVal, String bMask, String expMask, String expVal) {
+    private static int runTestaddGBitVector(int testNum, String aVal, String aMask, String bVal, String bMask, String expMask, String expVal) {
         try {
-            String[] result = PhaseOne.addGBitVector2(aVal, aMask, bVal, bMask);
+            String[] result = PhaseOne.addGBitVector3(aVal, aMask, bVal, bMask);
 
             if (result == null) {
                 System.err.println("Test " + testNum + " FAILED: Returned null");
@@ -481,4 +501,150 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
 
 
+}
+class PythonBitVectorBridge { // need python3 and z3 in python installed
+    private static final String PYTHON_EXECUTABLE = detectPythonExecutable();
+    private static final Path SCRIPT_PATH = resolveScriptPath();
+    private static final int TIMEOUT_SECONDS = 30;
+    private static String detectPythonExecutable() {
+        // Check system property first
+        String customPath = System.getProperty("jayhorn.python.path");
+        if (customPath != null && !customPath.isEmpty()) {
+            return customPath;
+        }
+
+        // Try common Python executables in order
+        String[] candidates = {"python3", "python", "py"};
+
+        for (String candidate : candidates) {
+            if (isPythonAvailable(candidate)) {
+                return candidate;
+            }
+        }
+
+        // Fallback to python3 (will fail later with clear error)
+        return "python3";
+    }
+    private static boolean isPythonAvailable(String executable) {
+        try {
+            ProcessBuilder pb = new ProcessBuilder(executable, "--version");
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+
+            boolean finished = process.waitFor(5, TimeUnit.SECONDS);
+            if (!finished) {
+                process.destroyForcibly();
+                return false;
+            }
+
+            return process.exitValue() == 0;
+        } catch (IOException | InterruptedException e) {
+            return false;
+        }
+    }
+    private static Path resolveScriptPath() {
+        // Try system property first
+        String customPath = System.getProperty("jayhorn.script.path");
+        if (customPath != null && !customPath.isEmpty()) {
+            return Paths.get(customPath);
+        }
+
+        // Try relative to working directory
+        Path relativePath = Paths.get("jayhorn/src/main/java/jayhorn/phaseOneParser/pythonAPIs/addGBitVector.py");
+        if (Files.exists(relativePath)) {
+            return relativePath;
+        }
+
+        // Try relative to classpath
+        try {
+            URL resource = PythonBitVectorBridge.class.getClassLoader()
+                    .getResource("jayhorn/phaseOneParser/pythonAPIs/addGBitVector.py");
+            if (resource != null) {
+                return Paths.get(resource.toURI());
+            }
+        } catch (URISyntaxException e) {
+            // Fall through
+        }
+
+        // Fallback to relative path (will fail later with clear error)
+        return relativePath;
+    }
+
+
+    public static String[] addGBitVector(String aVal, String aMask,
+                                         String bVal, String bMask)
+            throws IOException, InterruptedException {
+        validateInputs(aVal, aMask, bVal, bMask);
+
+        ProcessBuilder processBuilder = new ProcessBuilder(
+                PYTHON_EXECUTABLE,
+                SCRIPT_PATH.toString(),
+                aVal, aMask, bVal, bMask
+        );
+
+        processBuilder.redirectErrorStream(true);
+        Process process = processBuilder.start();
+
+        try {
+            return readResult(process);
+        } finally {
+            process.destroyForcibly(); // Clean up if still running
+        }
+    }
+
+    private static String[] readResult(Process process)
+            throws IOException, InterruptedException {
+        List<String> output = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.add(line);
+            }
+
+            boolean finished = process.waitFor(TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            if (!finished) {
+                process.destroyForcibly();
+                throw new RuntimeException("Python script timed out after " + TIMEOUT_SECONDS + "s");
+            }
+
+            int exitCode = process.exitValue();
+
+            // Filter out warnings
+            List<String> filtered = output.stream()
+                    .filter(l -> !l.startsWith("WARNING"))
+                    .collect(Collectors.toList());
+
+            if (exitCode != 0) {
+                String errorMsg = String.join("\n", output);
+                throw new RuntimeException("Python script failed with exit code " + exitCode + ": " + errorMsg);
+            }
+
+            if (filtered.isEmpty()) {
+                throw new RuntimeException("Python script produced no output");
+            }
+
+            String result = filtered.get(0);
+            if (result.startsWith("Error")) {
+                throw new RuntimeException("Python script error: " + result);
+            }
+
+            String[] parts = result.trim().split(",", -1);
+            if (parts.length != 2) {
+                throw new RuntimeException("Invalid output format: expected 'value,mask', got: " + result);
+            }
+
+            return parts;
+        }
+    }
+
+    private static void validateInputs(String... inputs) {
+        for (int i = 0; i < inputs.length; i++) {
+            if (inputs[i] == null) {
+                throw new IllegalArgumentException("Input parameter " + i + " cannot be null");
+            }
+        }
+    }
 }
