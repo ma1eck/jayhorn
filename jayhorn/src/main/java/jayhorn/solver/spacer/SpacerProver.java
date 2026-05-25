@@ -1635,9 +1635,9 @@ public class SpacerProver implements Prover {
 //						InvariantTree invTree = exprToInvTree(invariantMapped);
 //						String invariantStr = invariantMapped.toString();
 						InvariantTree invTree = Parser.convertExpr(invariantMapped);
-						if (relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")){
-							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
-						}
+//						if (relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")){
+//							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
+//						}
 
 
 						String invariantStr = invTree.toPrettyString();

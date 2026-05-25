@@ -36,6 +36,11 @@ public class Parser {
 //            symbolTable.put(name, type);
             return new VariableNode(name, type);
         }
+        if (expr.isVar() && !expr.isApp()) { // bounded variable I guess.
+            String name = "v" + expr.getIndex();
+            VarType type = inferType(expr);
+            return new VariableNode(name, type);
+        }
 
         // Datatype
         if (expr.isApp() && expr.getSort() instanceof DatatypeSort) {
@@ -88,6 +93,7 @@ public class Parser {
 
     static private InvariantTree convertOperation(Expr expr) {
         List<InvariantTree> children = new ArrayList<>();
+
         for (Expr arg : expr.getArgs()) {
             children.add(convertExpr(arg));
         }
@@ -96,19 +102,22 @@ public class Parser {
         if (expr.isOr()) return new OperationNode(OpType.OR, children);
         if (expr.isAnd()) return new OperationNode(OpType.AND, children);
         if (expr.isNot()) return new OperationNode(OpType.NOT, children);
+        if (expr.isITE()) return new OperationNode(OpType.ITE, children);
 
         // Relational operations
         if (expr.isEq()) return new OperationNode(OpType.EQ, children);
         if (expr.isLE()) return new OperationNode(OpType.LE, children);
         if (expr.isLT()) return new OperationNode(OpType.LT, children);
         if (expr.isGE()) return new OperationNode(OpType.GE, children);
-        if (expr.isGT()) return new OperationNode(OpType.GT, children);
+        if (expr.isGT()) return new OperationNode(OpType.ITE, children);
 
         // Bit-vector operations
         if (expr.isBVAdd()) return new OperationNode(OpType.BVADD, children);
         if (expr.isBVConcat()) return new OperationNode(OpType.BVCONCAT, children);
         if (expr.isBVULE()) return new OperationNode(OpType.BVULE, children);
+        if (expr.isBVSLE()) return new OperationNode(OpType.BVSLE, children);
         if (expr.isBVUGE()) return new OperationNode(OpType.BVUGE, children);
+        if (expr.isBVSGE()) return new OperationNode(OpType.BVSGE, children);
         if (expr.isBVULT()) return new OperationNode(OpType.BVULT, children);
         if (expr.isBVUGT()) return new OperationNode(OpType.BVUGT, children);
         if (expr.isBVShiftRightLogical()) return new OperationNode(OpType.BVLSHR, children);
@@ -131,7 +140,8 @@ public class Parser {
         // Handle datatype accessors (e.g., sign, exponent, mantissa)
         if (expr.isApp()) {
             FuncDecl funcDecl = expr.getFuncDecl();
-            if (funcDecl.getDeclKind() == Z3_decl_kind.Z3_OP_DT_UPDATE_FIELD) {
+            if (funcDecl.getDeclKind() == Z3_decl_kind.Z3_OP_DT_UPDATE_FIELD
+                    || funcDecl.getDeclKind() ==  Z3_decl_kind.Z3_OP_DT_ACCESSOR) {
                 String accessorName = funcDecl.getName().toString();
 
                 // Convert accessor name to operation type
@@ -162,6 +172,7 @@ public class Parser {
 
                 return new OperationNode(opType, children, null);
             }
+
         }
 
         throw new UnsupportedOperationException("Unsupported operation: " + expr);

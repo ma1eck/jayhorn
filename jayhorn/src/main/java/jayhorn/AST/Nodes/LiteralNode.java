@@ -59,6 +59,9 @@ public class LiteralNode extends InvariantTree {
     public static LiteralNode getBVLiteral(String value){
         return new LiteralNode(value, VarType.BITVECTOR);
     }
+    public static LiteralNode getBoolean(boolean value){
+        return new LiteralNode(value, VarType.BOOLEAN);
+    }
 
     public static LiteralNode createNumericLiteralNode(BigInteger valBI) {
         Number num = ASTHelper.shrinkBigInteger(valBI);

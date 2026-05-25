@@ -28,7 +28,8 @@ public class ASTHelper {
             for (InvariantTree child : children) {
                 newChildren.add(clampModCast(child));
             }
-            return new OperationNode(type, newChildren);
+
+            return new OperationNode(type, newChildren, ((OperationNode) tree).getParams());
         }
 
         if (children.size() != 3) {
@@ -197,6 +198,7 @@ public class ASTHelper {
             for (InvariantTree child : node.getChildren()) {
                 converted.addChild(toParentedInvariantTree(child, converted, visited, varStates));
             }
+//            converted.setParams(((OperationNode) tree).getParams());
             return converted;
         }
         if (tree instanceof VariableNode) {

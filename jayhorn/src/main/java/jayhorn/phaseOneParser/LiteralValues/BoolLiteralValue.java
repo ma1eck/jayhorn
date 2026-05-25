@@ -59,6 +59,24 @@ public class BoolLiteralValue implements StateValue {
                 this.state = GBool.FALSE;
         }
     }
+    public GBool getNegate(){
+        switch (state){
+            case FALSE:
+                return GBool.TRUE;
+            case TRUE:
+                return GBool.FALSE;
+        }
+        return GBool.UNKNOWN;
+    }
 
+    public boolean isTrue(){
+        return state.equals(GBool.TRUE);
+    }
+    public boolean isFalse(){
+        return state.equals(GBool.FALSE);
+    }
+    public boolean isUnknown(){
+        return state.equals(GBool.UNKNOWN);
+    }
 
 }

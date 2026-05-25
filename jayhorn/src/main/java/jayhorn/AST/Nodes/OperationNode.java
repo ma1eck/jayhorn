@@ -191,9 +191,9 @@ public class OperationNode extends InvariantTree {
     }
 
     // --- Bit-Vector ---
-    public static OperationNode mkBit2Bool(InvariantTree arg){
+    public static OperationNode mkBit2Bool(InvariantTree arg, int bitIndex){
         ArrayList<InvariantTree> child = new ArrayList<>(Collections.singletonList(arg));
-        return new OperationNode(OpType.BIT2BOOL, child);
+        return new OperationNode(OpType.BIT2BOOL, child, Arrays.asList(bitIndex));
     }
 
     public static OperationNode mkBvuge(InvariantTree left, InvariantTree right) {

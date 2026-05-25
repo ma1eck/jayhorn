@@ -4,11 +4,10 @@ import jas.Var;
 import jayhorn.AST.Nodes.*;
 import jayhorn.phaseOneParser.LiteralValues.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ParentedInvariantTree extends InvariantTree {
+    private static int currentBranchID = 0;
     private static final long serialVersionUID = 1L;
 
     public enum NodeType {
@@ -27,14 +26,24 @@ public class ParentedInvariantTree extends InvariantTree {
     private String name;
     private VarType type;
     private Object value;
-
+    private final int branchID;
     private StateValue stateValue;
+
+    private Map<Integer, StateValue> branchStateMap = new HashMap<>();
+
+
+    private static int newBranchID(){
+        int branchID = currentBranchID;
+        currentBranchID += 1;
+        return branchID;
+    }
 
     private ParentedInvariantTree(NodeType nodeType) {
         this.nodeType = nodeType;
         this.parents = new ArrayList<ParentedInvariantTree>();
         this.children = new ArrayList<ParentedInvariantTree>();
         this.params = new ArrayList<Integer>();
+        this.branchID = newBranchID();
     }
 
     public static ParentedInvariantTree operation(OpType opType, List<ParentedInvariantTree> children) {
@@ -188,9 +197,25 @@ public class ParentedInvariantTree extends InvariantTree {
     public StateValue getStateValue(){
         return this.stateValue;
     }
+    public int getBranchID(){
+        return branchID;
+    }
     public void setStateValue(StateValue stateValue){
         this.stateValue = stateValue;
     }
+    public void setParams(List<Integer> params){
+        this.params.clear();
+        this.params.addAll(params);
+    }
+
+    public void putStateForBranch(Integer branchId, StateValue state) {
+        this.branchStateMap.put(branchId, state);
+    }
+
+    public StateValue getStateForBranch(Integer branchId) {
+        return this.branchStateMap.get(branchId);
+    }
+
 
     public void addChild(ParentedInvariantTree child) {
         children.add(child);
@@ -200,6 +225,24 @@ public class ParentedInvariantTree extends InvariantTree {
     public void addParent(ParentedInvariantTree parent) {
         if (!parents.contains(parent)) {
             parents.add(parent);
+        }
+    }
+
+    public ArrayList<ParentedInvariantTree> getVariableNodes() {
+        Map<String, ParentedInvariantTree> variables = new LinkedHashMap<String, ParentedInvariantTree>();
+        collectVariableNodes(this, variables);
+        return new ArrayList<ParentedInvariantTree>(variables.values());
+
+    }
+    private static void collectVariableNodes(ParentedInvariantTree tree, Map<String, ParentedInvariantTree> variables) {
+        if (tree.getNodeType() == NodeType.VARIABLE) {
+            variables.put(tree.getName() + "#" + tree.getType().name(), tree);
+            return;
+        }
+        if (tree.getNodeType() == NodeType.OPERATION) {
+            for (ParentedInvariantTree child : tree.getChildren()) {
+                collectVariableNodes(child, variables);
+            }
         }
     }
 

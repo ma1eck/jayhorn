@@ -4,6 +4,7 @@ import jayhorn.AST.ASTHelper;
 import jayhorn.AST.Nodes.InvariantTree;
 import jayhorn.AST.Nodes.VarType;
 import jayhorn.AST.Nodes.VariableNode;
+import jayhorn.Log;
 import jayhorn.phaseOneParser.LiteralValues.*;
 
 import java.io.BufferedReader;
@@ -26,6 +27,8 @@ import com.microsoft.z3.*;
 
 public class PhaseOne { // todo: add lots of if for safe casting
     public static ParentedInvariantTree parse(InvariantTree tree){
+        Log.info("Starting the phase one");
+        tree = ASTHelper.cleaner(tree);
         ArrayList<VariableNode> variableNodes =  ASTHelper.getVariableNodes(tree);
         HashMap<String, StateValue> varStates = new HashMap<>();
         for (VariableNode var: variableNodes) {

@@ -167,7 +167,7 @@ public class SpacerChecker extends Checker{
 					}
 			    } else if (result == ProverResult.Sat){
 			    	Stats.stats().add(propLine, "UNSAFE");
-					((SpacerProver) prover).getReasonUnknown();
+//					((SpacerProver) prover).getReasonUnknown();
 //			    	if (Options.v().solution){
 //			    		cex();
 //			    	}
