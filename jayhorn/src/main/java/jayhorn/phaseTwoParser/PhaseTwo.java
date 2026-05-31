@@ -89,11 +89,11 @@ public class PhaseTwo {
             return;
         }
         if (tree.getNodeType() == ParentedInvariantTree.NodeType.OPERATION) {
-            switch (tree.getOpType()){
+            switch (tree.getOpType()) {
                 case OR:
                     if (enforcedState instanceof BoolLiteralValue) {
 //                      BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
-                        for (ParentedInvariantTree child : tree.getChildren()){
+                        for (ParentedInvariantTree child : tree.getChildren()) {
                             enforceState(child, enforcedState, seenBranches);
                         }
 
@@ -115,7 +115,7 @@ public class PhaseTwo {
                     if (enforcedState instanceof BoolLiteralValue) {
                         BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
                         BoolLiteralValue negatedEnforced = new BoolLiteralValue(enforcedBool.getNegate());
-                        for (ParentedInvariantTree child : tree.getChildren()){
+                        for (ParentedInvariantTree child : tree.getChildren()) {
                             enforceState(child, negatedEnforced, seenBranches);
                         }
                     }
@@ -123,6 +123,67 @@ public class PhaseTwo {
                 case ITE:
                     break;
                 case EQ:
+                    if (enforcedState instanceof BoolLiteralValue) {
+                        BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+                        boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+                        String enforcedStr = "true";
+                        if (!enforced) enforcedStr = "false";
+
+                        ParentedInvariantTree child1 = tree.getChildren().get(0);
+                        ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+                        if (child1.getType() == VarType.BITVECTOR
+                                && child2.getType() == VarType.BITVECTOR) {
+                            BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
+                            BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
+                            String value1 = bvValue1.getValueStr();
+                            String value2 = bvValue2.getValueStr();
+                            String mask1 = bvValue1.getMaskStr();
+                            String mask2 = bvValue2.getMaskStr();
+
+                            List<String> out = PythonBridge.run("Reverse_BVs_EQ",
+                                    String.valueOf(value1.length()),
+                                    String.valueOf(value1), String.valueOf(mask1),
+                                    String.valueOf(value2), String.valueOf(mask2),
+                                    String.valueOf(enforcedStr)
+                            );
+                            String A_v_r = out.get(0);
+                            String A_m_r = out.get(1);
+                            String B_v_r = out.get(2);
+                            String B_m_r = out.get(3);
+
+                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                            BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+                            enforceState(child1, enforcedBV1, seenBranches);
+                            enforceState(child2, enforcedBV2, seenBranches);
+                        } else if (child1.getType() == VarType.INTEGER
+                                && child2.getType() == VarType.INTEGER) {
+                            IntLiteralValue intValue1 = (IntLiteralValue) child1.getStateValue();
+                            IntLiteralValue intValue2 = (IntLiteralValue) child2.getStateValue();
+                            // assuming each state contains only one interval
+                            Integer child1_min = intValue1.getMinValue();
+                            Integer child1_max = intValue1.getMaxValue();
+                            Integer child2_min = intValue2.getMinValue();
+                            Integer child2_max = intValue2.getMaxValue();
+
+                            List<String> out = PythonBridge.run("Reverse_integers_EQ",
+                                    String.valueOf(child1_min), String.valueOf(child1_max),
+                                    String.valueOf(child2_min), String.valueOf(child2_max),
+                                    String.valueOf(enforcedStr)
+                            );
+                            // check this part
+                            Integer A_min_r = Integer.valueOf(out.get(0));
+                            Integer A_max_r = Integer.valueOf(out.get(1));
+                            Integer B_min_r = Integer.valueOf(out.get(2));
+                            Integer B_max_r = Integer.valueOf(out.get(3));
+
+                            IntLiteralValue enforcedInterval1 = new IntLiteralValue(A_min_r, A_max_r);
+                            IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
+                            enforceState(child1, enforcedInterval1, seenBranches);
+                            enforceState(child2, enforcedInterval2, seenBranches);
+                        }// fill it for integer
+
+                    }
                     break;
                 case LE:
                     break;
@@ -139,6 +200,39 @@ public class PhaseTwo {
                 case BIT2BOOL:
                     break;
                 case BVADD:
+                    if (enforcedState instanceof BVLiteralValue){
+                        BVLiteralValue enforcedBV = (BVLiteralValue) enforcedState;
+                        String enforcedValue = enforcedBV.getValueStr();
+                        String enforcedMask = enforcedBV.getMaskStr();
+
+                        ParentedInvariantTree child1 = tree.getChildren().get(0);
+                        ParentedInvariantTree child2 = tree.getChildren().get(1);
+                        if (child1.getType() == VarType.BITVECTOR
+                                && child2.getType() == VarType.BITVECTOR) {
+                            BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
+                            BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
+                            String value1 = bvValue1.getValueStr();
+                            String value2 = bvValue2.getValueStr();
+                            String mask1 = bvValue1.getMaskStr();
+                            String mask2 = bvValue2.getMaskStr();
+
+                            List<String> out = PythonBridge.run("Reverse_BVs_EQ",
+                                    String.valueOf(value1.length()),
+                                    String.valueOf(value1), String.valueOf(mask1),
+                                    String.valueOf(value2), String.valueOf(mask2),
+                                    String.valueOf(enforcedValue), String.valueOf(enforcedMask)
+                            );
+                            String A_v_r = out.get(0);
+                            String A_m_r = out.get(1);
+                            String B_v_r = out.get(2);
+                            String B_m_r = out.get(3);
+
+                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                            BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+                            enforceState(child1, enforcedBV1, seenBranches);
+                            enforceState(child2, enforcedBV2, seenBranches);
+                        }
+                    }
                     break;
                 case BVEXTRACT:
                     break;

@@ -351,7 +351,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
                                              String bVal, String bMask){
 
         String pythonPath = "python";
-        String scriptPath = "jayhorn/src/main/java/jayhorn/phaseOneParser/pythonAPIs/addGBitVector.py";
+        String scriptPath = "jayhorn/src/main/java/jayhorn/pythonAPIs/addGBitVector.py";
         ProcessBuilder processBuilder = new ProcessBuilder(
                 pythonPath, scriptPath, aVal, aMask, bVal, bMask
         );
@@ -476,7 +476,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
     private static int runTestaddGBitVector(int testNum, String aVal, String aMask, String bVal, String bMask, String expMask, String expVal) {
         try {
-            String[] result = PhaseOne.addGBitVector3(aVal, aMask, bVal, bMask);
+            String[] result = PhaseOne.addGBitVector(aVal, aMask, bVal, bMask);
 
             if (result == null) {
                 System.err.println("Test " + testNum + " FAILED: Returned null");

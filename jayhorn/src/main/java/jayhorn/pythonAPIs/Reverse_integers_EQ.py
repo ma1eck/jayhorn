@@ -50,6 +50,23 @@ def refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined: bool):
 # A is in [1, 10]
 # B is in [5, 15]
 # We learn A == B is True
-A_min, A_max, B_min, B_max = 1, 10, 5, 15
-print(refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined=True))
-# Output: (5, 10, 5, 10) -> Both are refined to [5, 10]
+# A_min, A_max, B_min, B_max = 1, 10, 5, 15
+# print(refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined=True))
+# # Output: (5, 10, 5, 10) -> Both are refined to [5, 10]
+
+
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 7:
+        print("Error: expected width A_v A_m B_v B_m eq_refined")
+        sys.exit(1)
+
+    A_min   = long(sys.argv[1])
+    A_max   = long(sys.argv[2])
+    B_min   = long(sys.argv[3])
+    B_max   = long(sys.argv[4])
+    eq_refined = sys.argv[5].lower() == "true"
+
+    result = refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined)
+    print(f"{result[0]},{result[1]},{result[2]},{result[3]}")

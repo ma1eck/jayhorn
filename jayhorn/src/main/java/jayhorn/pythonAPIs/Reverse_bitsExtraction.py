@@ -78,3 +78,5 @@ if s.check() == sat:
     print(f"Extracted B:          {ext_B_str}")
     print(f"Refined B:            {ref_B_str}")
     print(f"Refined A:        {ref_A_str}")
+
+

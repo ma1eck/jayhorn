@@ -20,6 +20,31 @@ public class ValidIntegerRange {
         this.rangeSet.add(Range.closed(start, end));
     }
 
+    public Integer getMinValue() {
+        if (rangeSet.isEmpty()) {
+            return null;
+        }
+        Range<Integer> span = rangeSet.span();
+        if (!span.hasLowerBound()) {
+            return Integer.MIN_VALUE;
+        }
+        return span.lowerBoundType() == com.google.common.collect.BoundType.CLOSED
+                ? span.lowerEndpoint()
+                : span.lowerEndpoint() + 1;
+    }
+
+    public Integer getMaxValue() {
+        if (rangeSet.isEmpty()) {
+            return null;
+        }
+        Range<Integer> span = rangeSet.span();
+        if (!span.hasUpperBound()) {
+            return Integer.MAX_VALUE;
+        }
+        return span.upperBoundType() == com.google.common.collect.BoundType.CLOSED
+                ? span.upperEndpoint()
+                : span.upperEndpoint() - 1;
+    }
 
 
     /**

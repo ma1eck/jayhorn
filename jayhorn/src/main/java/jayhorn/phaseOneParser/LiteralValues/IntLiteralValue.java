@@ -12,6 +12,16 @@ public class IntLiteralValue implements StateValue {
     public IntLiteralValue(){
         this.state = new ValidIntegerRange();
     }
+    public IntLiteralValue(int start, int end){
+        this.state = new ValidIntegerRange(start, end);
+    }
+
+    public Integer getMinValue(){
+        return this.state.getMinValue();
+    }
+    public Integer getMaxValue(){
+        return this.state.getMaxValue();
+    }
 
     public void union(int start, int end) {
         this.state.union(start, end);
