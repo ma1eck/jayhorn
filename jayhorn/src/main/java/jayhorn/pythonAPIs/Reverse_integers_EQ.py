@@ -58,7 +58,7 @@ def refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined: bool):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 7:
+    if len(sys.argv) != 6:
         print("Error: expected width A_v A_m B_v B_m eq_refined")
         sys.exit(1)
 

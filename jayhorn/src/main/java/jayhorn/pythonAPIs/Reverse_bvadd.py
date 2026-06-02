@@ -65,24 +65,24 @@ def to_ternary(val, msk, width):
     val_bin = format(val, f'0{width}b')
     msk_bin = format(msk, f'0{width}b')
     return "".join(v if m == '1' else '?' for v, m in zip(val_bin, msk_bin))
-#
+
 # # --- Example Run ---
 # width = 4
-#
+
 # # Original A is "0 0 ? ?"  -> value = 0x0, mask = 0xC
 # # Original B is "0 0 ? ?"  -> value = 0x0, mask = 0xC
 # # (They can each be 0, 1, 2, or 3)
 # A_v, A_m = 0x0, 0xC
 # B_v, B_m = 0x0, 0xC
-#
+
 # # We learn C is refined to exactly 5 ("0 1 0 1") -> value = 0x5, mask = 0xF
 # C_v_r, C_m_r = 0x5, 0xF
-#
+
 # # Get refined values
 # A_v_r, A_m_r, B_v_r, B_m_r = refine_operands_with_subtraction(
 #     width, A_v, A_m, B_v, B_m, C_v_r, C_m_r
 # )
-#
+
 # print(f"Original A:       {to_ternary(A_v, A_m, width)}")
 # print(f"Original B:       {to_ternary(B_v, B_m, width)}")
 # print(f"Refined C:        {to_ternary(C_v_r, C_m_r, width)}")
@@ -90,18 +90,21 @@ def to_ternary(val, msk, width):
 # print(f"Refined A (Out):  {to_ternary(A_v_r, A_m_r, width)}")
 # print(f"Refined B (Out):  {to_ternary(B_v_r, B_m_r, width)}")
 
+
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 8:
         print("Error: expected width A_v A_m B_v B_m C_v_r C_m_r")
         sys.exit(1)
 
     width  = int(sys.argv[1])
-    A_v    = int(sys.argv[2])
-    A_m    = int(sys.argv[3])
-    B_v    = int(sys.argv[4])
-    B_m    = int(sys.argv[5])
-    C_v_r  = int(sys.argv[6])
-    C_m_r  = int(sys.argv[7])
+    A_v    = long(sys.argv[2])
+    A_m    = long(sys.argv[3])
+    B_v    = long(sys.argv[4])
+    B_m    = long(sys.argv[5])
+    C_v_r  = long(sys.argv[6])
+    C_m_r  = long(sys.argv[7])
 
     result = refine_operands_with_subtraction(width, A_v, A_m, B_v, B_m, C_v_r, C_m_r)
     print(f"{result[0]},{result[1]},{result[2]},{result[3]}")

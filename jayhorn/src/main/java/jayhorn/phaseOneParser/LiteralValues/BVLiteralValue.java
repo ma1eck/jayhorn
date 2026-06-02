@@ -48,6 +48,14 @@ public class BVLiteralValue implements StateValue {
         return sb.toString();
     }
 
+    public boolean isConcrete(){
+        for (BoolLiteralValue bit:
+             state) {
+           if (bit.isUnknown()) return false;
+        }
+        return true;
+    }
+
     public void setBit(int index, GBool bit){
         state.get(index).setState(bit);
     }

@@ -134,28 +134,7 @@ public class PhaseTwo {
 
                         if (child1.getType() == VarType.BITVECTOR
                                 && child2.getType() == VarType.BITVECTOR) {
-                            BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
-                            BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
-                            String value1 = bvValue1.getValueStr();
-                            String value2 = bvValue2.getValueStr();
-                            String mask1 = bvValue1.getMaskStr();
-                            String mask2 = bvValue2.getMaskStr();
-
-                            List<String> out = PythonBridge.run("Reverse_BVs_EQ",
-                                    String.valueOf(value1.length()),
-                                    String.valueOf(value1), String.valueOf(mask1),
-                                    String.valueOf(value2), String.valueOf(mask2),
-                                    String.valueOf(enforcedStr)
-                            );
-                            String A_v_r = out.get(0);
-                            String A_m_r = out.get(1);
-                            String B_v_r = out.get(2);
-                            String B_m_r = out.get(3);
-
-                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
-                            BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
-                            enforceState(child1, enforcedBV1, seenBranches);
-                            enforceState(child2, enforcedBV2, seenBranches);
+                            bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_EQ");
                         } else if (child1.getType() == VarType.INTEGER
                                 && child2.getType() == VarType.INTEGER) {
                             IntLiteralValue intValue1 = (IntLiteralValue) child1.getStateValue();
@@ -181,7 +160,7 @@ public class PhaseTwo {
                             IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
                             enforceState(child1, enforcedInterval1, seenBranches);
                             enforceState(child2, enforcedInterval2, seenBranches);
-                        }// fill it for integer
+                        }
 
                     }
                     break;
@@ -216,7 +195,7 @@ public class PhaseTwo {
                             String mask1 = bvValue1.getMaskStr();
                             String mask2 = bvValue2.getMaskStr();
 
-                            List<String> out = PythonBridge.run("Reverse_BVs_EQ",
+                            List<String> out = PythonBridge.run("Reverse_bvadd",
                                     String.valueOf(value1.length()),
                                     String.valueOf(value1), String.valueOf(mask1),
                                     String.valueOf(value2), String.valueOf(mask2),
@@ -235,12 +214,82 @@ public class PhaseTwo {
                     }
                     break;
                 case BVEXTRACT:
+                    if (enforcedState instanceof BVLiteralValue){
+                        BVLiteralValue enforcedBV = (BVLiteralValue) enforcedState;
+                        String enforcedValue = enforcedBV.getValueStr();
+                        String enforcedMask = enforcedBV.getMaskStr();
+
+                        List<Integer> params =  tree.getParams();
+                        int high = params.get(0), low = params.get(1); // may need to swap
+
+                        ParentedInvariantTree child = tree.getChildren().get(0);
+                        if (child.getType() == VarType.BITVECTOR) {
+                            BVLiteralValue bvValue1 = (BVLiteralValue) child.getStateValue();
+                            String value1 = bvValue1.getValueStr();
+                            String mask1 = bvValue1.getMaskStr();
+                            List<String> out = PythonBridge.run("Reverse_bitsExtraction",
+                                    String.valueOf(value1), String.valueOf(mask1),
+                                    String.valueOf(enforcedValue), String.valueOf(enforcedMask),
+                                    String.valueOf(high), String.valueOf(low),
+                                    String.valueOf(value1.length())
+                                    );
+                            String A_v_r = out.get(0);
+                            String A_m_r = out.get(1);
+                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                            enforceState(child, enforcedBV1, seenBranches);
+                        }
+                    }
                     break;
-                case BVCONCAT:
+                case BVCONCAT: // assuming it's a binary operation. if not you should clean the tree first
+                    // we should find the unknown lengths and determine it
+                    if (enforcedState instanceof BVLiteralValue){
+                        BVLiteralValue enforcedBV = (BVLiteralValue) enforcedState;
+                        String enforcedValue = enforcedBV.getValueStr();
+                        String enforcedMask = enforcedBV.getMaskStr();
+                        int totalLength = enforcedValue.length();
+
+                        ParentedInvariantTree child1 = tree.getChildren().get(0);
+                        ParentedInvariantTree child2 = tree.getChildren().get(1);
+                        if (child1.getType() == VarType.BITVECTOR
+                                && child2.getType() == VarType.BITVECTOR) {
+                            BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
+                            BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
+                            String value1 = bvValue1.getValueStr();
+                            String value2 = bvValue2.getValueStr();
+                            String mask1 = bvValue1.getMaskStr();
+                            String mask2 = bvValue2.getMaskStr();
+                            int length1 = value1.length();
+                            int length2 = value2.length();
+                            if (totalLength != length1 + length2){
+                                if (bvValue1.isConcrete()) {
+                                    length2 = totalLength - length1;
+                                }else if (bvValue2.isConcrete()){
+                                    length1 = totalLength - length2;
+                                }else {
+                                    System.out.println("noooooooo");
+                                }
+                            }
+
+                            List<String> out = PythonBridge.run("Reverse_Concatenation",
+                                    String.valueOf(enforcedValue), String.valueOf(enforcedMask),
+                                    String.valueOf(length1), String.valueOf(length2)
+                            );
+                            String A_v_r = out.get(0);
+                            String A_m_r = out.get(1);
+                            String B_v_r = out.get(2);
+                            String B_m_r = out.get(3);
+
+                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                            BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+                            enforceState(child1, enforcedBV1, seenBranches);
+                            enforceState(child2, enforcedBV2, seenBranches);
+                        }
+                    }
                     break;
                 case BVSLE:
                     break;
                 case BVULE:
+                    bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_ULE");
                     break;
                 case BVUGE:
                     break;
@@ -295,6 +344,45 @@ public class PhaseTwo {
             }
         }
 
+    }
+
+    private static void bvBinaryLogicalReversing(ParentedInvariantTree tree, StateValue enforcedState,
+                                                 ArrayList<Integer> seenBranches, String pythonFileName) {
+        if (enforcedState instanceof BoolLiteralValue) {
+            BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+            String enforcedStr = "true";
+            if (!enforced) enforcedStr = "false";
+
+            ParentedInvariantTree child1 = tree.getChildren().get(0);
+            ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+            if (child1.getType() == VarType.BITVECTOR
+                    && child2.getType() == VarType.BITVECTOR) {
+                BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
+                BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
+                String value1 = bvValue1.getValueStr();
+                String value2 = bvValue2.getValueStr();
+                String mask1 = bvValue1.getMaskStr();
+                String mask2 = bvValue2.getMaskStr();
+
+                List<String> out = PythonBridge.run(pythonFileName,
+                        String.valueOf(value1.length()),
+                        String.valueOf(value1), String.valueOf(mask1),
+                        String.valueOf(value2), String.valueOf(mask2),
+                        String.valueOf(enforcedStr)
+                );
+                String A_v_r = out.get(0);
+                String A_m_r = out.get(1);
+                String B_v_r = out.get(2);
+                String B_m_r = out.get(3);
+
+                BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+                enforceState(child1, enforcedBV1, seenBranches);
+                enforceState(child2, enforcedBV2, seenBranches);
+            }
+        }
     }
 
 
