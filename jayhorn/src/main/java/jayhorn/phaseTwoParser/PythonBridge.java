@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -51,11 +52,12 @@ public class PythonBridge {
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(false); // keep stderr separate for better errors
             Process process = pb.start();
-            process.destroyForcibly();
+            String output = readOutput(process, scriptName).get(0); // we assume the output is in only one line
 
-            return readOutput(process, scriptName);
+
+            return new ArrayList<>(Arrays.asList(output.split(",")));
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null; // todo clean
         }
     }

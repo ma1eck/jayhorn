@@ -82,6 +82,27 @@ public class ValidIntegerRange {
     }
 
     /**
+     * EXCLUDE: Removes a closed interval [start, end] from the valid ranges.
+     */
+    public void exclude(int start, int end) {
+        rangeSet.remove(Range.closed(start, end));
+    }
+
+    /**
+     * EXCLUDE: Removes all ranges present in another ValidIntegerRange.
+     */
+    public void exclude(ValidIntegerRange other) {
+        rangeSet.removeAll(other.getRangeSet());
+    }
+
+    /**
+     * EXCLUDE: Removes all ranges present in the provided RangeSet.
+     */
+    public void exclude(RangeSet<Integer> otherRanges) {
+        rangeSet.removeAll(otherRanges);
+    }
+
+    /**
      * Checks if a specific integer is currently within the valid ranges.
      */
     public boolean contains(int value) {
@@ -139,6 +160,13 @@ public class ValidIntegerRange {
         return rangeSet;
     }
 
+    public ValidIntegerRange copy() {
+        ValidIntegerRange clone = new ValidIntegerRange();
+        // Clear the default [-inf, +inf] range added by the default constructor
+        clone.rangeSet.clear();
+        clone.rangeSet.addAll(this.rangeSet);
+        return clone;
+    }
     @Override
     public String toString() {
         return rangeSet.toString();

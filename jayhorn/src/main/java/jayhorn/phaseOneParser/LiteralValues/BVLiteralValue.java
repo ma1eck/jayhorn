@@ -2,6 +2,7 @@ package jayhorn.phaseOneParser.LiteralValues;
 
 import java.util.ArrayList;
 
+
 public class BVLiteralValue implements StateValue {
     public ArrayList<BoolLiteralValue> state;
 
@@ -77,4 +78,39 @@ public class BVLiteralValue implements StateValue {
         return new BVLiteralValue(boolLiteralList);
     }
 
+    @Override
+    public BVLiteralValue copy() {
+        return new BVLiteralValue((ArrayList<BoolLiteralValue>) (state.clone()));
+    }
+
+    @Override
+    public boolean union(StateValue other) {
+        if (other instanceof BVLiteralValue){
+            BVLiteralValue otherBV = (BVLiteralValue) other;
+            if (otherBV.state.size() != this.state.size()) return false;
+            int i = 0;
+            boolean wasAble = true;
+            for (BoolLiteralValue bit: state){
+                wasAble = wasAble && bit.union(otherBV.state.get(i));
+                i++;
+            }
+            return wasAble;
+
+        }return false;
+    }
+    @Override
+    public boolean intersect(StateValue other) {
+        if (other instanceof BVLiteralValue){
+            BVLiteralValue otherBV = (BVLiteralValue) other;
+            if (otherBV.state.size() != this.state.size()) return false;
+            int i = 0;
+            boolean wasAble = true;
+            for (BoolLiteralValue bit: state){
+                wasAble = wasAble && bit.intersect(otherBV.state.get(i));
+                i++;
+            }
+            return wasAble;
+
+        }return false;
+    }
 }

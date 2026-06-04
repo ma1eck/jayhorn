@@ -10,6 +10,7 @@ import jayhorn.phaseOneParser.LiteralValues.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -84,7 +85,7 @@ public class PhaseTwo {
         }
         if (tree.getNodeType() == ParentedInvariantTree.NodeType.VARIABLE){
             for (int branchID: seenBranches) {
-                tree.putStateForBranch(branchID, enforcedState);
+                tree.putStateForBranch(branchID, enforcedState.copy());
             } // todo recheck:
             return;
         }
@@ -93,8 +94,23 @@ public class PhaseTwo {
                 case OR:
                     if (enforcedState instanceof BoolLiteralValue) {
 //                      BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+                        ArrayList<Integer> branchIDs = new ArrayList<>();
                         for (ParentedInvariantTree child : tree.getChildren()) {
                             enforceState(child, enforcedState, seenBranches);
+                            branchIDs.add(child.getBranchID());
+                        }
+
+                        ArrayList<ParentedInvariantTree> variableNodes = tree.getVariableNodes();
+                        for (ParentedInvariantTree varNode: variableNodes) {
+                            StateValue currentState = varNode.getStateValue().copy();
+                            for (Integer branchID : branchIDs){
+                                StateValue stateForBranch = varNode.getStateForBranch(branchID);
+                                if (stateForBranch == null){continue;}
+                                boolean wasAble =  currentState.union(stateForBranch);
+                                if (!wasAble){
+                                    System.out.println("no answer here??");
+                                }
+                            }
                         }
 
                         // TODO: union states of variables
@@ -126,8 +142,8 @@ public class PhaseTwo {
                     if (enforcedState instanceof BoolLiteralValue) {
                         BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
                         boolean enforced = enforcedBool.getValue(); // assuming it's true or false
-                        String enforcedStr = "true";
-                        if (!enforced) enforcedStr = "false";
+//                        String enforcedStr = "true";
+//                        if (!enforced) enforcedStr = "false";
 
                         ParentedInvariantTree child1 = tree.getChildren().get(0);
                         ParentedInvariantTree child2 = tree.getChildren().get(1);
@@ -145,21 +161,40 @@ public class PhaseTwo {
                             Integer child2_min = intValue2.getMinValue();
                             Integer child2_max = intValue2.getMaxValue();
 
-                            List<String> out = PythonBridge.run("Reverse_integers_EQ",
-                                    String.valueOf(child1_min), String.valueOf(child1_max),
-                                    String.valueOf(child2_min), String.valueOf(child2_max),
-                                    String.valueOf(enforcedStr)
-                            );
-                            // check this part
-                            Integer A_min_r = Integer.valueOf(out.get(0));
-                            Integer A_max_r = Integer.valueOf(out.get(1));
-                            Integer B_min_r = Integer.valueOf(out.get(2));
-                            Integer B_max_r = Integer.valueOf(out.get(3));
+//                            List<String> out = PythonBridge.run("Reverse_integers_EQ",
+//                                    String.valueOf(child1_min), String.valueOf(child1_max),
+//                                    String.valueOf(child2_min), String.valueOf(child2_max),
+//                                    String.valueOf(enforcedStr)
+//                            );
+                            if (child1_min == child1_max){
+                                IntLiteralValue enforcedInterval1 = new IntLiteralValue(child1_min, child1_min);
+                                IntLiteralValue enforcedInterval2;
+                                if (enforced){
+                                    enforcedInterval2 = new IntLiteralValue(child1_min, child1_min);
+                                }else {
+                                    enforcedInterval2 = intValue2.copy();
+                                    enforcedInterval2.exclude(child1_min, child1_max);
+                                }
+                                enforceState(child1, enforcedInterval1, seenBranches);
+                                enforceState(child2, enforcedInterval2, seenBranches);
+                            }else if (child2_min == child2_max){
+                                IntLiteralValue enforcedInterval2 = new IntLiteralValue(child2_min, child2_min);
+                                IntLiteralValue enforcedInterval1;
+                                if (enforced){
+                                    enforcedInterval1 = new IntLiteralValue(child2_min, child2_min);
+                                }else {
+                                    enforcedInterval1 = intValue1.copy();
+                                    enforcedInterval1.exclude(child2_min, child1_max);
+                                }
+                                enforceState(child1, enforcedInterval1, seenBranches);
+                                enforceState(child2, enforcedInterval2, seenBranches);
+                            }else {
+                                System.out.println("noo");
+                            }
 
-                            IntLiteralValue enforcedInterval1 = new IntLiteralValue(A_min_r, A_max_r);
-                            IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
-                            enforceState(child1, enforcedInterval1, seenBranches);
-                            enforceState(child2, enforcedInterval2, seenBranches);
+//                            IntLiteralValue enforcedInterval1 = new IntLiteralValue(A_min_r, A_max_r);
+//                            IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
+
                         }
 
                     }
@@ -177,6 +212,32 @@ public class PhaseTwo {
                 case ADD:
                     break;
                 case BIT2BOOL:
+                    if (enforcedState instanceof BoolLiteralValue) {
+                        BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+                        boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+                        String enforcedStr = "true";
+                        if (!enforced) enforcedStr = "false";
+                        ParentedInvariantTree child = tree.getChildren().get(0);
+                        List<Integer> params =  tree.getParams();
+                        int index = params.get(0); // bit2bool should have its index as a parameter
+                        if (child.getType() == VarType.BITVECTOR) {
+                            BVLiteralValue bvValue1 = (BVLiteralValue) child.getStateValue();
+                            String value1 = bvValue1.getValueStr();
+                            String mask1 = bvValue1.getMaskStr();
+
+                            List<String> out = PythonBridge.run("Reverse_bitToBool",
+                                    String.valueOf(value1), String.valueOf(mask1),
+                                    String.valueOf(index),
+                                    String.valueOf(enforcedStr)
+                            );
+                            String A_v_r = out.get(0);
+                            String A_m_r = out.get(1);
+
+                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                            enforceState(child, enforcedBV1, seenBranches);
+                        }
+                    }
+
                     break;
                 case BVADD:
                     if (enforcedState instanceof BVLiteralValue){
@@ -314,6 +375,7 @@ public class PhaseTwo {
                 case ZERO_EXTEND:
                     break;
                 case FP_SIGN:
+
                     break;
                 case FP_EXPONENT:
                     break;

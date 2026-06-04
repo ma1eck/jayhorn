@@ -61,17 +61,7 @@ public class Main {
         );
         return or;
     }
-    public static void main(String[] args) throws IOException {
-        InvariantTree t1 = eg1_right_side();
 
-        ParentedInvariantTree pt1 = PhaseOne.parse(t1);
-        pt1 = PhaseTwo.parse(pt1);
-
-        System.out.println(pt1.getStateValue());
-//        ASTHelper.writeJsonToFile(t1, "t1");
-//        InvariantTree t1_ = ASTHelper.readJsonFromFile("t1");
-//        System.out.println(t1_.toString().equals(t1.toString()));
-    }
     private static InvariantTree test1_1(){
         VariableNode b2_99 = new VariableNode("b2_99", VarType.INTEGER);
         LiteralNode one = LiteralNode.getIntLiteral(1);
@@ -234,8 +224,28 @@ public class Main {
     private static InvariantTree eg1(){
         return mkAnd(eg1_left_side(), eg1_right_side());
     }
+    private static InvariantTree eg1_b11(){
+        LiteralNode one = LiteralNode.getIntLiteral(1);
+        VariableNode b2_99 = new VariableNode("b2_99", VarType.INTEGER);
+        return mkNot(mkEq(b2_99, one));
+    }
+    private static InvariantTree eg1_b12(){
+        VariableNode d0_100_3 = new VariableNode("d0_100_3", VarType.DOUBLE);
+        return mkBit2Bool(mkFPMantissa(d0_100_3), 50);
+    }
+
+    public static void main(String[] args) throws IOException {
+        InvariantTree t1 = eg1_b11();
+
+        ParentedInvariantTree pt1 = PhaseOne.parse(t1);
+        pt1 = PhaseTwo.parse(pt1);
 
 
+        System.out.println(pt1.getStateValue());
+//        ASTHelper.writeJsonToFile(t1, "t1");
+//        InvariantTree t1_ = ASTHelper.readJsonFromFile("t1");
+//        System.out.println(t1_.toString().equals(t1.toString()));
+    }
 
 
 

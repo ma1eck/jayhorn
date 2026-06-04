@@ -1,5 +1,7 @@
 package jayhorn.phaseOneParser.LiteralValues;
 
+import soottocfg.cfg.expression.literal.BooleanLiteral;
+
 public class BoolLiteralValue implements StateValue {
     public GBool state;
 
@@ -79,4 +81,35 @@ public class BoolLiteralValue implements StateValue {
         return state.equals(GBool.UNKNOWN);
     }
 
+    @Override
+    public BoolLiteralValue copy() {
+        return new BoolLiteralValue(state);
+    }
+
+//    @Override
+    public boolean intersect(StateValue other) {
+        if (other instanceof BoolLiteralValue){
+            BoolLiteralValue otherB = (BoolLiteralValue) other;
+            if (this.isUnknown()) {
+                setState(otherB.state);
+                return true;
+            }if (otherB.isUnknown()){
+                return true;
+            }if (this.state != otherB.state) return false;
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean union(StateValue other) {
+        if (other instanceof BoolLiteralValue){
+            BoolLiteralValue otherB = (BoolLiteralValue) other;
+            if (this.isUnknown() || otherB.isUnknown() || this.state != otherB.state) {
+                setState(GBool.UNKNOWN);
+                return true;
+            }
+            return true;
+        }
+        return false;
+    }
 }
