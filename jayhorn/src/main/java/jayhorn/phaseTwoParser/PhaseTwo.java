@@ -1,32 +1,13 @@
 package jayhorn.phaseTwoParser;
 
-import jayhorn.AST.ASTHelper;
-import jayhorn.AST.Nodes.InvariantTree;
 import jayhorn.AST.Nodes.OpType;
 import jayhorn.AST.Nodes.VarType;
-import jayhorn.AST.Nodes.VariableNode;
 import jayhorn.phaseOneParser.LiteralValues.*;
+import jayhorn.phaseOneParser.ParentedInvariantTree;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.math.BigInteger;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-
-import com.microsoft.z3.*;
-import jayhorn.phaseOneParser.ParentedInvariantTree;
 
 public class PhaseTwo {
 
@@ -374,18 +355,38 @@ public class PhaseTwo {
                     break;
                 case ZERO_EXTEND:
                     break;
+                case EFP_SIGN:
                 case FP_SIGN:
-
+                    if (enforcedState instanceof BoolLiteralValue) {
+                        BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+                        FloatingPointLiteralValue enforcedFP =
+                                FloatingPointLiteralValue.createSignOnly(enforcedBool);
+                        for (ParentedInvariantTree child : tree.getChildren()) {
+                            enforceState(child, enforcedFP, seenBranches);
+                        }
+                    }
                     break;
                 case FP_EXPONENT:
-                    break;
-                case FP_MANTISSA:
-                    break;
-                case EFP_SIGN:
-                    break;
                 case EFP_EXPONENT:
+                    if (enforcedState instanceof BVLiteralValue) {
+                        BVLiteralValue enforcedBV = (BVLiteralValue) enforcedState;
+                        FloatingPointLiteralValue enforcedFP =
+                                FloatingPointLiteralValue.createExponentOnly(enforcedBV);
+                        for (ParentedInvariantTree child : tree.getChildren()) {
+                            enforceState(child, enforcedFP, seenBranches);
+                        }
+                    }
                     break;
                 case EFP_MANTISSA:
+                case FP_MANTISSA:
+                    if (enforcedState instanceof BVLiteralValue) {
+                        BVLiteralValue enforcedBV = (BVLiteralValue) enforcedState;
+                        FloatingPointLiteralValue enforcedFP =
+                                FloatingPointLiteralValue.createMantissaOnly(enforcedBV);
+                        for (ParentedInvariantTree child : tree.getChildren()) {
+                            enforceState(child, enforcedFP, seenBranches);
+                        }
+                    }
                     break;
                 case MOD_CAST:
                     break;
