@@ -26,8 +26,9 @@ def refine_equality_bvs(width, A_v, A_m, B_v, B_m, eq_refined: bool):
 
     if s.check() == sat:
         m = s.model()
-        return (m[A_v_r].as_long(), m[A_m_r].as_long(),
-                m[B_v_r].as_long(), m[B_m_r].as_long())
+        fmt = f'0{width}b'
+        return (format(m[A_v_r].as_long(), fmt), format(m[A_m_r].as_long(), fmt),
+                format(m[B_v_r].as_long(), fmt), format(m[B_m_r].as_long(), fmt))
     else:
         raise Exception("Contradiction: Operands cannot satisfy this equality state.")
 
@@ -63,11 +64,11 @@ if __name__ == "__main__":
         print("Error: expected width A_v A_m B_v B_m eq_refined")
         sys.exit(1)
 
-    width    = int(sys.argv[1])
-    A_v      = (sys.argv[2])
-    A_m      = (sys.argv[3])
-    B_v      = (sys.argv[4])
-    B_m      = (sys.argv[5])
+    width = int(sys.argv[1])
+    A_v = int(sys.argv[2], 2)
+    A_m = int(sys.argv[3], 2)
+    B_v = int(sys.argv[4], 2)
+    B_m = int(sys.argv[5], 2)
     eq_refined = sys.argv[6].lower() == "true"
 
     result = refine_equality_bvs(width, A_v, A_m, B_v, B_m, eq_refined)

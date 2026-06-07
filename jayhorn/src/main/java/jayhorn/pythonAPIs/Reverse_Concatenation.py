@@ -108,6 +108,10 @@ def reverse_concat(X_v, X_m, n_A, n_B):
 
     if s.check() == sat:
         m = s.model()
+        fmt_a = f'0{n_A}b'
+        fmt_b = f'0{n_B}b'
+        return (format(m[val_A].as_long(), fmt_a), format(m[msk_A].as_long(), fmt_a),
+                format(m[val_B].as_long(), fmt_b), format(m[msk_B].as_long(), fmt_b))
         return (
             m[val_A].as_long(), m[msk_A].as_long(),
             m[val_B].as_long(), m[msk_B].as_long()

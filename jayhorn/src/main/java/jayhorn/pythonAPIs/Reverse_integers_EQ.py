@@ -73,16 +73,16 @@ def example():
 
 
 if __name__ == "__main__":
-    example()
-    # if len(sys.argv) != 6:
-    #     print("Error: expected A_min A_max B_min B_max eq_refined")
-    #     sys.exit(1)
+    # example()
+    if len(sys.argv) != 6:
+        print("Error: expected A_min A_max B_min B_max eq_refined")
+        sys.exit(1)
 
-    # A_min = parse_bound(sys.argv[1])
-    # A_max = parse_bound(sys.argv[2])
-    # B_min = parse_bound(sys.argv[3])
-    # B_max = parse_bound(sys.argv[4])
-    # eq_refined = sys.argv[5].lower() == "true"
+    A_min = parse_bound(sys.argv[1])
+    A_max = parse_bound(sys.argv[2])
+    B_min = parse_bound(sys.argv[3])
+    B_max = parse_bound(sys.argv[4])
+    eq_refined = sys.argv[5].lower() == "true"
 
-    # r = refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined)
-    # print(",".join(format_bound(v) for v in r))
+    r = refine_integer_equality(A_min, A_max, B_min, B_max, eq_refined)
+    print(",".join(format_bound(v) for v in r))

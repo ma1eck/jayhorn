@@ -440,6 +440,8 @@ public class PhaseTwo {
                 String B_v_r = out.get(2);
                 String B_m_r = out.get(3);
 
+
+                System.out.println(A_v_r + " " + A_m_r +", "+ B_v_r + " " + B_m_r +" "  );
                 BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
                 BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
                 enforceState(child1, enforcedBV1, seenBranches);

@@ -85,10 +85,10 @@ if __name__ == "__main__":
         print("Error: expected width A_v A_m B_v B_m C_v_r C_m_r")
         sys.exit(1)
 
-    A_v    = long(sys.argv[1]) # bigger one
-    A_m    = long(sys.argv[2])
-    B_v    = long(sys.argv[3]) # smaller one
-    B_m    = long(sys.argv[4])
+    A_v    = int(sys.argv[1]) # bigger one
+    A_m    = int(sys.argv[2])
+    B_v    = int(sys.argv[3]) # smaller one
+    B_m    = int(sys.argv[4])
     high   = int(sys.argv[5])
     low    = int(sys.argv[6])
     N_A    = int(sys.argv[7])

@@ -54,8 +54,8 @@ def refine_operands_with_subtraction(
     if s.check() == sat:
         m = s.model()
         return (
-            m[A_value_refined].as_long(), m[A_mask_refined].as_long(),
-            m[B_value_refined].as_long(), m[B_mask_refined].as_long()
+            m[A_value_refined].as_int(), m[A_mask_refined].as_int(),
+            m[B_value_refined].as_int(), m[B_mask_refined].as_int()
         )
     else:
         raise Exception("Contradictory constraints. No solution exists.")
@@ -99,12 +99,14 @@ if __name__ == "__main__":
         sys.exit(1)
 
     width  = int(sys.argv[1])
-    A_v    = long(sys.argv[2])
-    A_m    = long(sys.argv[3])
-    B_v    = long(sys.argv[4])
-    B_m    = long(sys.argv[5])
-    C_v_r  = long(sys.argv[6])
-    C_m_r  = long(sys.argv[7])
+    A_v    = int(sys.argv[2])
+    A_m    = int(sys.argv[3])
+    B_v    = int(sys.argv[4])
+    B_m    = int(sys.argv[5])
+    C_v_r  = int(sys.argv[6])
+    C_m_r  = int(sys.argv[7])
 
     result = refine_operands_with_subtraction(width, A_v, A_m, B_v, B_m, C_v_r, C_m_r)
-    print(f"{result[0]},{result[1]},{result[2]},{result[3]}")
+    A_v_r, A_m_r, B_v_r, B_m_r = result
+    fmt = f'0{width}b'
+    print(f"{format(A_v_r,fmt)},{format(A_m_r,fmt)},{format(B_v_r,fmt)},{format(B_m_r,fmt)}")

@@ -79,6 +79,45 @@ public class ASTHelper {
 
         return tree;
     }
+    public static InvariantTree simplifyConcat(InvariantTree tree){
+        if (!(tree instanceof OperationNode)) {
+            return tree;
+        }
+
+        OperationNode opNode = (OperationNode) tree;
+        OpType type = opNode.getOpType();
+        List<InvariantTree> children = opNode.getChildren();
+
+        if (type != OpType.BVCONCAT || children.size() == 2) {
+            List<InvariantTree> newChildren = new ArrayList<>(children.size());
+            for (InvariantTree child : children) {
+                newChildren.add(simplifyConcat(child));
+            }
+
+            return new OperationNode(type, newChildren, ((OperationNode) tree).getParams());
+        }
+
+        if (children.size() == 1) {
+            return simplifyConcat(children.get(0));
+        }
+        int size = children.size();
+        ArrayList<InvariantTree> simplifiedChildren = new ArrayList<>(size);
+        for (InvariantTree child : children) {
+            simplifiedChildren.add(simplifyConcat(child));
+        }
+
+        InvariantTree rightMost = simplifiedChildren.get(size - 1);
+
+        for (int i = size - 2; i >= 0; i--) {
+            ArrayList<InvariantTree> binaryChildren = new ArrayList<>();
+            binaryChildren.add(simplifiedChildren.get(i));
+            binaryChildren.add(rightMost);
+
+            rightMost = new OperationNode(type, binaryChildren, opNode.getParams());
+        }
+
+        return rightMost;
+    }
     private static BigInteger toBigInteger(Number num) {
         if (num instanceof BigInteger) {
             return (BigInteger) num;
@@ -89,6 +128,7 @@ public class ASTHelper {
 
     public static InvariantTree cleaner(InvariantTree tree){
         tree = clampModCast(tree);
+        tree = simplifyConcat(tree);
         return tree;
     }
 

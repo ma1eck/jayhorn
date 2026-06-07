@@ -235,8 +235,9 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        InvariantTree t1 = eg1_b11();
+        InvariantTree t1 = eg1();
 
+        t1 = ASTHelper.cleaner(t1);
         ParentedInvariantTree pt1 = PhaseOne.parse(t1);
         pt1 = PhaseTwo.parse(pt1);
 

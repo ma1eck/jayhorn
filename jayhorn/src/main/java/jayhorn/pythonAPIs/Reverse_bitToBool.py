@@ -19,10 +19,12 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Error: expected A_v A_m index bool_refined")
         sys.exit(1)
-    A_v    = long(sys.argv[1])
-    A_m    = long(sys.argv[2])
+    A_v    = int(sys.argv[1])
+    A_m    = int(sys.argv[2])
     index  = int(sys.argv[3])
     bool_refined = sys.argv[4].lower() == "true"
 
-    result = refine_bit_to_bool_direct(A_v, A_m, index, bool_refined)
-    print(f"{result[0]},{result[1]}")
+    A_v_r, A_m_r = refine_bit_to_bool_direct(A_v, A_m, index, bool_refined)
+    width = max(A_v.bit_length(), A_m.bit_length(), index + 1)
+    fmt = f'0{width}b'
+    print(f"{format(A_v_r, fmt)},{format(A_m_r, fmt)}")

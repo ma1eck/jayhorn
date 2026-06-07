@@ -43,7 +43,20 @@ public class FloatingPointLiteralValue implements StateValue {
 
     @Override
     public FloatingPointLiteralValue copy() {
-        return new FloatingPointLiteralValue(sign.copy(), exponent.copy(), mantissa.copy());
+        BoolLiteralValue sign_copy = null;
+        if (sign != null){
+            sign_copy = sign.copy();
+        }
+        BVLiteralValue exponent_copy = null;
+        if (exponent != null){
+            exponent_copy = exponent.copy();
+        }
+        BVLiteralValue mantissa_copy = null;
+        if (mantissa != null){
+            mantissa_copy = mantissa.copy();
+        }
+
+        return new FloatingPointLiteralValue(sign_copy, exponent_copy, mantissa_copy);
     }
 
     @Override
