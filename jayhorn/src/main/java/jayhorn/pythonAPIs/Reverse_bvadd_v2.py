@@ -123,24 +123,43 @@ def to_ternary(val, mask, width):
             bits.append("?")
     return "".join(bits)
 
+def test():
+    width = 4
 
-width = 4
+    # A = 0?0?
+    A_v, A_m = 0b0000, 0b1010
 
-# A = 0?0?
-A_v, A_m = 0b0000, 0b1010
+    # B = ??00
+    B_v, B_m = 0b0000, 0b0011
 
-# B = ??00
-B_v, B_m = 0b0000, 0b0011
+    # C refined to exactly 0101 (5)
+    C_v, C_m = 0b0101, 0b1111
 
-# C refined to exactly 0101 (5)
-C_v, C_m = 0b0101, 0b1111
+    A_v_r, A_m_r, B_v_r, B_m_r = refine_add_backward(
+        width,
+        A_v, A_m,
+        B_v, B_m,
+        C_v, C_m
+    )
 
-A_v_r, A_m_r, B_v_r, B_m_r = refine_add_backward(
-    width,
-    A_v, A_m,
-    B_v, B_m,
-    C_v, C_m
-)
+    print("Refined A:", to_ternary(A_v_r, A_m_r, width))
+    print("Refined B:", to_ternary(B_v_r, B_m_r, width))
 
-print("Refined A:", to_ternary(A_v_r, A_m_r, width))
-print("Refined B:", to_ternary(B_v_r, B_m_r, width))
+
+if __name__ == "__main__":
+    if len(sys.argv) != 8:
+        print("Error: expected width A_v A_m B_v B_m C_v_r C_m_r")
+        sys.exit(1)
+
+    width  = int(sys.argv[1])
+    A_v    = int(sys.argv[2], 2)
+    A_m    = int(sys.argv[3], 2)
+    B_v    = int(sys.argv[4], 2)
+    B_m    = int(sys.argv[5], 2)
+    C_v_r  = int(sys.argv[6], 2)
+    C_m_r  = int(sys.argv[7], 2)
+
+    result = refine_add_backward(width, A_v, A_m, B_v, B_m, C_v_r, C_m_r)
+    A_v_r, A_m_r, B_v_r, B_m_r = result
+    fmt = f'0{width}b'
+    print(f"{format(A_v_r,fmt)},{format(A_m_r,fmt)},{format(B_v_r,fmt)},{format(B_m_r,fmt)}")

@@ -2,6 +2,7 @@ package jayhorn.phaseTwoParser;
 
 import jayhorn.AST.Nodes.OpType;
 import jayhorn.AST.Nodes.VarType;
+import jayhorn.Log;
 import jayhorn.phaseOneParser.LiteralValues.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 
@@ -14,6 +15,7 @@ public class PhaseTwo {
 
     private static final List<OpType> logicalOps = Arrays.asList(OpType.AND, OpType.OR);
     public static ParentedInvariantTree parse(ParentedInvariantTree tree){
+        Log.info("Starting the phase two, backward");
         initializeBranchStates(tree);
         enforceState(tree, new BoolLiteralValue(true), new ArrayList<>());
         return tree;
@@ -27,7 +29,9 @@ public class PhaseTwo {
 
         boolean hasLogicalParent = hasLogicalParent(tree);
 
-        if (hasLogicalParent || logicalOps.contains(tree.getOpType())){ // is a branch of logic ops or is a logic op
+        if (hasLogicalParent
+//                || logicalOps.contains(tree.getOpType())
+        ){ // is a branch of logic ops or is a logic op
             int branchID = tree.getBranchID();
             ArrayList<ParentedInvariantTree> varNodes = tree.getVariableNodes();
             for (ParentedInvariantTree varNode: varNodes) {
@@ -53,6 +57,7 @@ public class PhaseTwo {
 
     private static void enforceState(ParentedInvariantTree tree, StateValue enforcedState,
                                                       ArrayList<Integer> seenBranches){
+
         boolean hasLogicalParent  = hasLogicalParent(tree);
         if (hasLogicalParent){
             seenBranches  = (ArrayList<Integer>) seenBranches.clone();
@@ -71,6 +76,7 @@ public class PhaseTwo {
             return;
         }
         if (tree.getNodeType() == ParentedInvariantTree.NodeType.OPERATION) {
+            Log.info("Starting to enforce " + enforcedState.toString() + " to " + tree.getOpType() + "operation.");
             switch (tree.getOpType()) {
                 case OR:
                     if (enforcedState instanceof BoolLiteralValue) {
@@ -83,15 +89,21 @@ public class PhaseTwo {
 
                         ArrayList<ParentedInvariantTree> variableNodes = tree.getVariableNodes();
                         for (ParentedInvariantTree varNode: variableNodes) {
-                            StateValue currentState = varNode.getStateValue().copy();
+                            StateValue currentState = null;
                             for (Integer branchID : branchIDs){
+
                                 StateValue stateForBranch = varNode.getStateForBranch(branchID);
                                 if (stateForBranch == null){continue;}
-                                boolean wasAble =  currentState.union(stateForBranch);
-                                if (!wasAble){
-                                    System.out.println("no answer here??");
+                                if (currentState == null) currentState = stateForBranch.copy();
+                                else {
+                                    boolean wasAble =  currentState.union(stateForBranch);
+                                    if (!wasAble){
+                                        System.out.println("no answer here??");
+                                    }
                                 }
                             }
+                            Log.info("we got " + currentState + "state for " + varNode.getName() + " variable");
+                            varNode.putStateForBranch(tree.getBranchID(), currentState);
                         }
 
                         // TODO: union states of variables
@@ -165,7 +177,7 @@ public class PhaseTwo {
                                     enforcedInterval1 = new IntLiteralValue(child2_min, child2_min);
                                 }else {
                                     enforcedInterval1 = intValue1.copy();
-                                    enforcedInterval1.exclude(child2_min, child1_max);
+                                    enforcedInterval1.exclude(child2_min, child2_max);
                                 }
                                 enforceState(child1, enforcedInterval1, seenBranches);
                                 enforceState(child2, enforcedInterval2, seenBranches);
@@ -441,7 +453,7 @@ public class PhaseTwo {
                 String B_m_r = out.get(3);
 
 
-                System.out.println(A_v_r + " " + A_m_r +", "+ B_v_r + " " + B_m_r +" "  );
+//                System.out.println(A_v_r + " " + A_m_r +", "+ B_v_r + " " + B_m_r +" "  );
                 BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
                 BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
                 enforceState(child1, enforcedBV1, seenBranches);

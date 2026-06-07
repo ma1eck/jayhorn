@@ -108,4 +108,13 @@ public class FloatingPointLiteralValue implements StateValue {
         }
         return wasAble;
     }
+
+    @Override
+    public String toString() {
+        return "FloatingPointLiteralValue{" +
+                "sign=" + sign +
+                ", exponent=" + exponent +
+                ", mantissa=" + mantissa +
+                '}';
+    }
 }

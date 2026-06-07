@@ -112,4 +112,11 @@ public class BoolLiteralValue implements StateValue {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        if (state == GBool.TRUE) return "1";
+        else if (state == GBool.FALSE) return "0";
+        else return "?";
+    }
 }

@@ -62,4 +62,9 @@ public class IntLiteralValue implements StateValue {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return state.toString();
+    }
 }

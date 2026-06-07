@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 
 import com.microsoft.z3.*;
 
+// TODO: add log for forward phase
 public class PhaseOne { // todo: add lots of if for safe casting
     public static ParentedInvariantTree parse(InvariantTree tree){
         Log.info("Starting the phase one");

@@ -113,4 +113,13 @@ public class BVLiteralValue implements StateValue {
 
         }return false;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder st = new StringBuilder();
+        for (BoolLiteralValue bit : state){
+            st.append(bit.toString());
+        }
+        return st.reverse().toString();
+    }
 }
