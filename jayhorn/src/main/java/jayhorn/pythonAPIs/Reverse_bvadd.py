@@ -99,12 +99,12 @@ if __name__ == "__main__":
         sys.exit(1)
 
     width  = int(sys.argv[1])
-    A_v    = int(sys.argv[2])
-    A_m    = int(sys.argv[3])
-    B_v    = int(sys.argv[4])
-    B_m    = int(sys.argv[5])
-    C_v_r  = int(sys.argv[6])
-    C_m_r  = int(sys.argv[7])
+    A_v    = int(sys.argv[2], 2)
+    A_m    = int(sys.argv[3], 2)
+    B_v    = int(sys.argv[4], 2)
+    B_m    = int(sys.argv[5], 2)
+    C_v_r  = int(sys.argv[6], 2)
+    C_m_r  = int(sys.argv[7], 2)
 
     result = refine_operands_with_subtraction(width, A_v, A_m, B_v, B_m, C_v_r, C_m_r)
     A_v_r, A_m_r, B_v_r, B_m_r = result

@@ -19,8 +19,8 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Error: expected A_v A_m index bool_refined")
         sys.exit(1)
-    A_v    = int(sys.argv[1])
-    A_m    = int(sys.argv[2])
+    A_v    = int(sys.argv[1], 2)
+    A_m    = int(sys.argv[2], 2)
     index  = int(sys.argv[3])
     bool_refined = sys.argv[4].lower() == "true"
 

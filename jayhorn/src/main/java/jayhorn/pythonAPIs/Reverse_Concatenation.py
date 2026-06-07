@@ -124,8 +124,8 @@ if __name__ == "__main__":
         print("Error: expected X_v X_m n_A n_B")
         sys.exit(1)
 
-    X_v = int(sys.argv[1])
-    X_m = int(sys.argv[2])
+    X_v = int(sys.argv[1], 2)
+    X_m = int(sys.argv[2], 2)
     n_A = int(sys.argv[3])
     n_B = int(sys.argv[4])
 
