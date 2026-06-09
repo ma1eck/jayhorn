@@ -1,5 +1,6 @@
 package jayhorn.AST;
 
+import com.microsoft.z3.AST;
 import jayhorn.AST.Nodes.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.phaseOneParser.PhaseOne;
@@ -233,9 +234,20 @@ public class Main {
         VariableNode d0_100_3 = new VariableNode("d0_100_3", VarType.DOUBLE);
         return mkBit2Bool(mkFPMantissa(d0_100_3), 50);
     }
+    private static InvariantTree loadAlternating_Step_schedule_loop_invariant(){
+        try {
+            InvariantTree tree = ASTHelper.readJsonFromFile("invariantTreeJsons/Alternating-Step-ScheduleMain_void_mainJayArray_java_lang_String_Block2");
+            return tree;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     public static void main(String[] args) throws IOException {
-        InvariantTree t1 = eg1();
+//        InvariantTree t1 = eg1();
+        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
 
         t1 = ASTHelper.cleaner(t1);
         ParentedInvariantTree pt1 = PhaseOne.parse(t1);

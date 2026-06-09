@@ -167,6 +167,26 @@ public class ValidIntegerRange {
         clone.rangeSet.addAll(this.rangeSet);
         return clone;
     }
+
+    public void add(int offset) {
+        RangeSet<Integer> shifted = TreeRangeSet.create();
+        for (Range<Integer> r : rangeSet.asRanges()) {
+            Integer lo = r.hasLowerBound() ? r.lowerEndpoint() + offset : null;
+            Integer hi = r.hasUpperBound() ? r.upperEndpoint() + offset : null;
+            BoundType loType = r.hasLowerBound() ? r.lowerBoundType() : null;
+            BoundType hiType = r.hasUpperBound() ? r.upperBoundType() : null;
+
+            Range<Integer> newRange;
+            if (lo == null && hi == null) newRange = Range.all();
+            else if (lo == null)newRange = Range.upTo(hi, hiType);
+            else if (hi == null)          newRange = Range.downTo(lo, loType);
+            else                          newRange = Range.range(lo, loType, hi, hiType);
+
+            shifted.add(newRange);
+        }
+        rangeSet.clear();
+        rangeSet.addAll(shifted);
+    }
     @Override
     public String toString() {
         return rangeSet.toString();

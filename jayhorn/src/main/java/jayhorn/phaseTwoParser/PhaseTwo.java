@@ -5,6 +5,8 @@ import jayhorn.AST.Nodes.VarType;
 import jayhorn.Log;
 import jayhorn.phaseOneParser.LiteralValues.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
+import org.scalactic.Bool;
+import soottocfg.cfg.expression.literal.BooleanLiteral;
 
 import javax.swing.plaf.nimbus.State;
 import java.lang.reflect.Array;
@@ -499,7 +501,7 @@ public class PhaseTwo {
                     String enforcedValue = enforcedBV.getValueStr();
                     String enforcedMask = enforcedBV.getMaskStr();
     
-                        List<String> out = PythonBridge.run("Reverse_bvadd",
+                        List<String> out = PythonBridge.run("Reverse_bvadd_v2",
                                 String.valueOf(value1.length()),
                                 String.valueOf(value1), String.valueOf(mask1),
                                 String.valueOf(value2), String.valueOf(mask2),
@@ -731,11 +733,22 @@ public class PhaseTwo {
                      newEnforceStates2.add(result.get(1));
                 } else if (child1.getType() == VarType.INTEGER
                         && child2.getType() == VarType.INTEGER) {
-                    List<StateValue> result =  getIntegerEQResults(seenBranches, child1, child2, enforced);
+                    List<StateValue> result =  getIntegerEQResults(child1, child2, enforced);
                     newEnforceStates1.add(result.get(0));
                     newEnforceStates2.add(result.get(1));
-                } else {
-                    System.out.println("this eq is not between two bv or int");
+                } else if (child1.getType() == VarType.BOOLEAN
+                        && child2.getType() == VarType.BOOLEAN) {
+                    List<StateValue> result =  getBooleanEQResults(child1, child2, enforced);
+                    newEnforceStates1.add(result.get(0));
+                    newEnforceStates2.add(result.get(1));
+                } else if (child1.getType() == VarType.DOUBLE
+                        && child2.getType() == VarType.DOUBLE){
+                    List<StateValue> result =  getDoubleEQResults(child1, child2, enforced);
+                    newEnforceStates1.add(result.get(0));
+                    newEnforceStates2.add(result.get(1));
+                }
+                else {
+                    System.out.println("this eq is not between two bv or int or bool or FP");
                 }
 
             }
@@ -788,7 +801,7 @@ public class PhaseTwo {
 //                            IntLiteralValue enforcedInterval1 = new IntLiteralValue(A_min_r, A_max_r);
 //                            IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
     }
-    private static List<StateValue> getIntegerEQResults(ArrayList<Integer> seenBranches, ParentedInvariantTree child1, ParentedInvariantTree child2, boolean enforced) {
+    private static List<StateValue> getIntegerEQResults(ParentedInvariantTree child1, ParentedInvariantTree child2, boolean enforced) {
         IntLiteralValue intValue1 = (IntLiteralValue) child1.getStateValue();
         IntLiteralValue intValue2 = (IntLiteralValue) child2.getStateValue();
         // assuming each state contains only one interval
@@ -827,6 +840,54 @@ public class PhaseTwo {
             return null;
         }
 
+    }
+    private static List<StateValue> getBooleanEQResults(ParentedInvariantTree child1, ParentedInvariantTree child2, boolean enforced) {
+        BoolLiteralValue boolValue1 = (BoolLiteralValue) child1.getStateValue();
+        BoolLiteralValue boolValue2 = (BoolLiteralValue) child2.getStateValue();
+
+        if (!boolValue1.isUnknown()){
+            boolean b1 = boolValue1.getValue();
+            BoolLiteralValue enf1 = new BoolLiteralValue(b1);
+            if (enforced){
+                BoolLiteralValue enf2 = new BoolLiteralValue(b1);
+                return Arrays.asList(enf1, enf2);
+            }else {
+                BoolLiteralValue enf2 = new BoolLiteralValue(!b1);
+                return Arrays.asList(enf1, enf2);
+            }
+        }if (!boolValue2.isUnknown()){
+            boolean b2 = boolValue2.getValue();
+            BoolLiteralValue enf2 = new BoolLiteralValue(b2);
+            if (enforced){
+                BoolLiteralValue enf1 = new BoolLiteralValue(b2);
+                return Arrays.asList(enf1, enf2);
+            }else {
+                BoolLiteralValue enf1 = new BoolLiteralValue(!b2);
+                return Arrays.asList(enf1, enf2);
+            }
+        }
+        System.out.println("noo eq between two unknown booleans is not easy");
+        return null;
+
+    }
+    private static List<StateValue> getDoubleEQResults(ParentedInvariantTree child1, ParentedInvariantTree child2, boolean enforced) {
+        FloatingPointLiteralValue fp1 = (FloatingPointLiteralValue) child1.getStateValue();
+        FloatingPointLiteralValue fp2 = (FloatingPointLiteralValue) child2.getStateValue();
+
+        // I hope enforced is true always :_(
+
+        if (!enforced){
+            System.out.println("noo eq between two unknown booleans is not easy");
+            return null;
+        }
+        if (!fp1.isUnknown()){
+            return Arrays.asList(fp1.copy(), fp1.copy());
+        }
+        if (!fp2.isUnknown()){
+            return Arrays.asList(fp2.copy(), fp2.copy());
+        }
+        System.out.println("comparing two unknown fp is not implemented");
+        return null;
     }
 
     private static void handleNOT(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {

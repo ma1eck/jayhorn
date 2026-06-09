@@ -5,4 +5,5 @@ public interface StateValue {
 
     boolean union(StateValue other);
     boolean intersect(StateValue other);
+    boolean isUnknown();
 }

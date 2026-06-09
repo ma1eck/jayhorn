@@ -1,6 +1,7 @@
 
 package jayhorn.solver.spacer;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.Map.Entry;
@@ -1636,8 +1637,14 @@ public class SpacerProver implements Prover {
 //						String invariantStr = invariantMapped.toString();
 						InvariantTree invTree = Parser.convertExpr(invariantMapped);
 //						if (relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")){
-//							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
+////							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
+//							try {
+//								ASTHelper.writeJsonToFile(invTree, "./invariantTreeJsons/" + "Alternating-Step-Schedule" + relationName );
+//							} catch (IOException e) {
+//								throw new RuntimeException(e);
+//							}
 //						}
+
 
 
 						String invariantStr = invTree.toPrettyString();

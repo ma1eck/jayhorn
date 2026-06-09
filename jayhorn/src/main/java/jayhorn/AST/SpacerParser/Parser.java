@@ -111,6 +111,10 @@ public class Parser {
         if (expr.isGE()) return new OperationNode(OpType.GE, children);
         if (expr.isGT()) return new OperationNode(OpType.ITE, children);
 
+        // Numerical operations
+        if (expr.isMul()) return new OperationNode(OpType.MUL, children);
+        if (expr.isAdd()) return new OperationNode(OpType.ADD, children);
+
         // Bit-vector operations
         if (expr.isBVAdd()) return new OperationNode(OpType.BVADD, children);
         if (expr.isBVConcat()) return new OperationNode(OpType.BVCONCAT, children);

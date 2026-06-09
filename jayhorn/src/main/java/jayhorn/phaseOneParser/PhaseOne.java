@@ -63,6 +63,12 @@ public class PhaseOne { // todo: add lots of if for safe casting
             case EQ:
                 handleEq(tree);
                 break;
+            case GE:
+                handleGE(tree);
+                break;
+            case LE:
+                handleLE(tree);
+                break;
             case BIT2BOOL:
                 handleBit2Bool(tree);
                 break;
@@ -77,6 +83,12 @@ public class PhaseOne { // todo: add lots of if for safe casting
                 break;
             case BVEXTRACT:
                 handleExtract(tree);
+                break;
+            case ADD: //TODO
+                handleAdd(tree);
+                break;
+            case FP_SIGN:
+                handleSign(tree);
                 break;
             case FP_EXPONENT:
                 handleExponent(tree);
@@ -128,6 +140,14 @@ public class PhaseOne { // todo: add lots of if for safe casting
         FloatingPointLiteralValue fpv = ((FloatingPointLiteralValue) child.getStateValue());
         BVLiteralValue exponent = fpv.getExponent();
         tree.setStateValue(exponent);
+    }
+
+    private static void handleSign(ParentedInvariantTree tree) {
+        ParentedInvariantTree child = tree.getChildren().get(0);
+        phase1(child);
+        FloatingPointLiteralValue fpv = ((FloatingPointLiteralValue) child.getStateValue());
+        BoolLiteralValue sign = fpv.getSign();
+        tree.setStateValue(sign);
     }
 
     private static void handleBVAdd(ParentedInvariantTree tree) {
@@ -224,6 +244,22 @@ public class PhaseOne { // todo: add lots of if for safe casting
             blv.setState(GBool.UNKNOWN);
         }
     }
+    private static void handleAdd(ParentedInvariantTree tree){
+        ParentedInvariantTree leftChild = tree.getChildren().get(0);
+        ParentedInvariantTree rightChild = tree.getChildren().get(1);
+        phase1(leftChild); phase1(rightChild);
+        IntLiteralValue ilvLeft =  (IntLiteralValue) leftChild.getStateValue();
+        IntLiteralValue ilvRight =  (IntLiteralValue) rightChild.getStateValue();
+        if (!ilvLeft.isUnknown()){
+            IntLiteralValue ilv = ilvRight.copy();
+            ilv.add(ilvLeft.getMinValue());
+            tree.setStateValue(ilv);
+        }else if (!ilvRight.isUnknown()){
+            IntLiteralValue ilv = ilvLeft.copy();
+            ilv.add(ilvRight.getMinValue());
+            tree.setStateValue(ilv);
+        }
+    }
     private static void handleEq(ParentedInvariantTree tree){
         ParentedInvariantTree leftChild = tree.getChildren().get(0);
         ParentedInvariantTree rightChild = tree.getChildren().get(1);
@@ -247,6 +283,62 @@ public class PhaseOne { // todo: add lots of if for safe casting
         BoolLiteralValue blv = ((BoolLiteralValue) tree.getStateValue());
         blv.setState(eqResult);
     }
+    private static void handleGE(ParentedInvariantTree tree){
+        ParentedInvariantTree leftChild = tree.getChildren().get(0);
+        ParentedInvariantTree rightChild = tree.getChildren().get(1);
+        phase1(leftChild); phase1(rightChild);
+        GBool eqResult = GBool.UNKNOWN;
+        if (leftChild.getType() == VarType.INTEGER){
+                eqResult = handleGEInt(leftChild, rightChild);
+        }
+
+        BoolLiteralValue blv = ((BoolLiteralValue) tree.getStateValue());
+        blv.setState(eqResult);
+    }
+    private static void handleLE(ParentedInvariantTree tree){
+        ParentedInvariantTree leftChild = tree.getChildren().get(0);
+        ParentedInvariantTree rightChild = tree.getChildren().get(1);
+        phase1(leftChild); phase1(rightChild);
+        GBool eqResult = GBool.UNKNOWN;
+        if (leftChild.getType() == VarType.INTEGER){
+                eqResult = handleLEInt(leftChild, rightChild);
+        }
+
+        BoolLiteralValue blv = ((BoolLiteralValue) tree.getStateValue());
+        blv.setState(eqResult);
+    }
+
+    private static GBool handleGEInt(ParentedInvariantTree leftChild, ParentedInvariantTree rightChild) {
+        if (rightChild.getType() != VarType.INTEGER) return GBool.FALSE;
+
+        int min_left = ((IntLiteralValue) leftChild.getStateValue()).getMinValue();
+        int max_left = ((IntLiteralValue) leftChild.getStateValue()).getMaxValue();
+        int min_right = ((IntLiteralValue) rightChild.getStateValue()).getMinValue();
+        int max_right = ((IntLiteralValue) rightChild.getStateValue()).getMaxValue();
+        if (min_left <= max_right) {
+            return GBool.TRUE;
+        }if (max_left < min_right){
+            return GBool.FALSE;
+        }
+        return GBool.UNKNOWN;
+    }
+
+
+    private static GBool handleLEInt(ParentedInvariantTree leftChild, ParentedInvariantTree rightChild) {
+        if (rightChild.getType() != VarType.INTEGER) return GBool.FALSE;
+
+        int min_left = ((IntLiteralValue) leftChild.getStateValue()).getMinValue();
+        int max_left = ((IntLiteralValue) leftChild.getStateValue()).getMaxValue();
+        int min_right = ((IntLiteralValue) rightChild.getStateValue()).getMinValue();
+        int max_right = ((IntLiteralValue) rightChild.getStateValue()).getMaxValue();
+        if (min_left > max_right) {
+            return GBool.FALSE;
+        }if (max_left <= min_right){
+            return GBool.TRUE;
+        }
+        return GBool.UNKNOWN;
+    }
+
 
     private static GBool handleEqBV(ParentedInvariantTree leftChild, ParentedInvariantTree rightChild) {
         if (rightChild.getType() != VarType.BITVECTOR) return GBool.FALSE;

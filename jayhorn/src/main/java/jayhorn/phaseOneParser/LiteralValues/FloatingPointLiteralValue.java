@@ -41,6 +41,10 @@ public class FloatingPointLiteralValue implements StateValue {
         return mantissa;
     }
 
+    public boolean isUnknown(){
+        return sign.isUnknown() || exponent.isUnknown() || mantissa.isUnknown();
+    }
+
     @Override
     public FloatingPointLiteralValue copy() {
         BoolLiteralValue sign_copy = null;

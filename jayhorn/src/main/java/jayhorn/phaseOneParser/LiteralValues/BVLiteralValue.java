@@ -115,6 +115,15 @@ public class BVLiteralValue implements StateValue {
     }
 
     @Override
+    public boolean isUnknown() {
+        boolean r = false;
+        for (BoolLiteralValue bit: state){
+            r = r || bit.isUnknown();
+        }
+        return r;
+    }
+
+    @Override
     public String toString() {
         StringBuilder st = new StringBuilder();
         for (BoolLiteralValue bit : state){

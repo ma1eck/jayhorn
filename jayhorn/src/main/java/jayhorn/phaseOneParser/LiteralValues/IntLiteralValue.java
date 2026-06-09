@@ -36,6 +36,11 @@ public class IntLiteralValue implements StateValue {
         this.state.exclude(start, end);
     }
 
+    public void add(int offset) {
+        this.state.add(offset);
+    }
+
+
     public Boolean hasOverlap(IntLiteralValue other){
         return this.state.hasOverlap(other.state);
     }
@@ -61,6 +66,11 @@ public class IntLiteralValue implements StateValue {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean isUnknown() {
+        return !state.isSingleValue();
     }
 
     @Override

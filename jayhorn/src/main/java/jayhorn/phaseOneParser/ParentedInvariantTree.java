@@ -136,9 +136,30 @@ public class ParentedInvariantTree extends InvariantTree {
                     int i = (Integer) value;
                     return new IntLiteralValue(i);
                 }else return new IntLiteralValue();
-            case FLOAT:
+            case FLOAT: // TODO: do the same as the double one
                 return new FloatingPointLiteralValue(8 ,11);
             case DOUBLE:
+                if (value instanceof Map) {
+                    Map mValue = (Map) value;
+                    Boolean sign = (Boolean) mValue.get("sign");
+                    Object mantissaObj = mValue.get("mantissa");
+                    Object exponentObj = mValue.get("exponent");
+                    if (sign != null && mantissaObj != null && exponentObj != null) {
+                        long mantissa = ((Number) mantissaObj).longValue();
+                        long exponent = ((Number) exponentObj).longValue();
+                        String mantissaStr =
+                                String.format("%53s", Long.toBinaryString(mantissa)).replace(' ', '0');
+                        String exponentStr =
+                                String.format("%24s", Long.toBinaryString(exponent)).replace(' ', '0');
+                        return new FloatingPointLiteralValue(
+                                new BoolLiteralValue(sign),
+                                BVLiteralValue.mkBVLiteralValue(exponentStr,
+                                        new String(new char[24]).replace("\0", "1")),
+                                BVLiteralValue.mkBVLiteralValue(mantissaStr,
+                                        new String(new char[53]).replace("\0", "1")));
+                    }
+                }
+
                 return new FloatingPointLiteralValue(24 ,53);
             case EFLOAT:
                 return new FloatingPointLiteralValue(9 ,12);
