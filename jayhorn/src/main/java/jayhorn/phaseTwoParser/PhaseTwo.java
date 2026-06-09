@@ -6,6 +6,7 @@ import jayhorn.Log;
 import jayhorn.phaseOneParser.LiteralValues.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 
+import javax.swing.plaf.nimbus.State;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -894,8 +895,9 @@ public class PhaseTwo {
             StateValue currentState = null;
             for (Integer branchID : branchIDs){
 
-                StateValue stateForBranch = varNode.getStatesForBranch(branchID).get(0);
-                if (stateForBranch == null){continue;}
+                ArrayList<StateValue> statesForBranch = varNode.getStatesForBranch(branchID);
+                if (statesForBranch == null){continue;}
+                StateValue stateForBranch = statesForBranch.get(0);
                 if (currentState == null) currentState = stateForBranch.copy();
                 else {
                     boolean wasAble =  currentState.intersect(stateForBranch);
@@ -955,8 +957,9 @@ public class PhaseTwo {
             StateValue currentState = null;
             for (Integer branchID : branchIDs){
 
-                StateValue stateForBranch = varNode.getStatesForBranch(branchID).get(0);
-                if (stateForBranch == null){continue;}
+                ArrayList<StateValue> statesForBranch = varNode.getStatesForBranch(branchID);
+                if (statesForBranch == null){continue;}
+                StateValue stateForBranch = statesForBranch.get(0);
                 if (currentState == null) currentState = stateForBranch.copy();
                 else {
                     boolean wasAble =  currentState.union(stateForBranch);
