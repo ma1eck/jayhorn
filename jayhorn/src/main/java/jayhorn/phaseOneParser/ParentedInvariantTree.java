@@ -30,6 +30,7 @@ public class ParentedInvariantTree extends InvariantTree {
     private StateValue stateValue;
 
     private Map<Integer, StateValue> branchStateMap = new HashMap<>();
+    private Map<Integer, ArrayList<StateValue>> branchStatesMap = new HashMap<>();
 
 
     private static int newBranchID(){
@@ -206,6 +207,14 @@ public class ParentedInvariantTree extends InvariantTree {
     public void setParams(List<Integer> params){
         this.params.clear();
         this.params.addAll(params);
+    }
+
+    public void putStatesForBranch(Integer branchId, ArrayList<StateValue> states) {
+        this.branchStatesMap.put(branchId, states);
+    }
+
+    public ArrayList <StateValue> getStatesForBranch(Integer branchId) {
+        return this.branchStatesMap.get(branchId);
     }
 
     public void putStateForBranch(Integer branchId, StateValue state) {
