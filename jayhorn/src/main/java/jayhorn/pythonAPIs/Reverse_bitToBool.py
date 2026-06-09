@@ -1,3 +1,4 @@
+import sys
 #reverse bitToBool
 
 def refine_bit_to_bool_direct(A_v, A_m, index, bool_refined):
@@ -16,15 +17,15 @@ def refine_bit_to_bool_direct(A_v, A_m, index, bool_refined):
     return A_v_r, A_m_r
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 6:
         print("Error: expected A_v A_m index bool_refined")
         sys.exit(1)
-    A_v    = int(sys.argv[1], 2)
-    A_m    = int(sys.argv[2], 2)
-    index  = int(sys.argv[3])
-    bool_refined = sys.argv[4].lower() == "true"
+    width  = int(sys.argv[1])
+    A_v    = int(sys.argv[2], 2)
+    A_m    = int(sys.argv[3], 2)
+    index  = int(sys.argv[4])
+    bool_refined = sys.argv[5].lower() == "true"
 
     A_v_r, A_m_r = refine_bit_to_bool_direct(A_v, A_m, index, bool_refined)
-    width = max(A_v.bit_length(), A_m.bit_length(), index + 1)
     fmt = f'0{width}b'
     print(f"{format(A_v_r, fmt)},{format(A_m_r, fmt)}")

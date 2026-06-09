@@ -79,59 +79,25 @@ public class PhaseTwo {
             Log.info("Starting to enforce " + enforcedState.toString() + " to " + tree.getOpType() + "operation.");
             switch (tree.getOpType()) {
                 case OR:
-                    if (enforcedState instanceof BoolLiteralValue) {
-//                      BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
-                        ArrayList<Integer> branchIDs = new ArrayList<>();
-                        for (ParentedInvariantTree child : tree.getChildren()) {
-                            enforceState(child, enforcedState, seenBranches);
-                            branchIDs.add(child.getBranchID());
-                        }
-
-                        ArrayList<ParentedInvariantTree> variableNodes = tree.getVariableNodes();
-                        for (ParentedInvariantTree varNode: variableNodes) {
-                            StateValue currentState = null;
-                            for (Integer branchID : branchIDs){
-
-                                StateValue stateForBranch = varNode.getStateForBranch(branchID);
-                                if (stateForBranch == null){continue;}
-                                if (currentState == null) currentState = stateForBranch.copy();
-                                else {
-                                    boolean wasAble =  currentState.union(stateForBranch);
-                                    if (!wasAble){
-                                        System.out.println("no answer here??");
-                                    }
-                                }
-                            }
-                            Log.info("we got " + currentState + "state for " + varNode.getName() + " variable");
-                            varNode.putStateForBranch(tree.getBranchID(), currentState);
-                        }
-
-                        // TODO: union states of variables
-                    }
+                    handleOR(tree, enforcedState, seenBranches);
                     break;
                 case AND:
-                    if (enforcedState instanceof BoolLiteralValue) {
-//                        BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
-                        for (ParentedInvariantTree child : tree.getChildren()) {
-                            enforceState(child, enforcedState, seenBranches);
-                        }
-
-                        // TODO: Intersect states of variables
-                    }
+                    handleAND(tree, enforcedState, seenBranches);
 
                     break;
                 case NOT:
-                    if (enforcedState instanceof BoolLiteralValue) {
-                        BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
-                        BoolLiteralValue negatedEnforced = new BoolLiteralValue(enforcedBool.getNegate());
-                        for (ParentedInvariantTree child : tree.getChildren()) {
-                            enforceState(child, negatedEnforced, seenBranches);
-                        }
-                    }
+                    handleNOT(tree, enforcedState, seenBranches);
                     break;
                 case ITE:
                     break;
                 case EQ:
+                    handleEQ(tree, enforcedState, seenBranches);
+                    break;
+                case LE:
+                    break;
+                case LT:
+                    break;
+                case GE:
                     if (enforcedState instanceof BoolLiteralValue) {
                         BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
                         boolean enforced = enforcedBool.getValue(); // assuming it's true or false
@@ -141,62 +107,45 @@ public class PhaseTwo {
                         ParentedInvariantTree child1 = tree.getChildren().get(0);
                         ParentedInvariantTree child2 = tree.getChildren().get(1);
 
-                        if (child1.getType() == VarType.BITVECTOR
-                                && child2.getType() == VarType.BITVECTOR) {
-                            bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_EQ");
-                        } else if (child1.getType() == VarType.INTEGER
+                        if (child1.getType() == VarType.INTEGER
                                 && child2.getType() == VarType.INTEGER) {
                             IntLiteralValue intValue1 = (IntLiteralValue) child1.getStateValue();
                             IntLiteralValue intValue2 = (IntLiteralValue) child2.getStateValue();
-                            // assuming each state contains only one interval
+
                             Integer child1_min = intValue1.getMinValue();
                             Integer child1_max = intValue1.getMaxValue();
                             Integer child2_min = intValue2.getMinValue();
                             Integer child2_max = intValue2.getMaxValue();
 
-//                            List<String> out = PythonBridge.run("Reverse_integers_EQ",
-//                                    String.valueOf(child1_min), String.valueOf(child1_max),
-//                                    String.valueOf(child2_min), String.valueOf(child2_max),
-//                                    String.valueOf(enforcedStr)
-//                            );
-                            if (child1_min == child1_max){
+                            if (child1_min == child1_max) {
                                 IntLiteralValue enforcedInterval1 = new IntLiteralValue(child1_min, child1_min);
-                                IntLiteralValue enforcedInterval2;
-                                if (enforced){
-                                    enforcedInterval2 = new IntLiteralValue(child1_min, child1_min);
-                                }else {
-                                    enforcedInterval2 = intValue2.copy();
-                                    enforcedInterval2.exclude(child1_min, child1_max);
+                                IntLiteralValue enforcedInterval2 = intValue2.copy();
+                                if (enforced) {
+                                    // child1 >= child2  =>  child2 <= child1_min
+                                    enforcedInterval2.intersect(Integer.MIN_VALUE, child1_min);
+                                } else {
+                                    // child1 < child2  =>  child2 > child1_min  =>  child2 >= child1_min + 1
+                                    enforcedInterval2.intersect(child1_min + 1, Integer.MAX_VALUE);
                                 }
                                 enforceState(child1, enforcedInterval1, seenBranches);
                                 enforceState(child2, enforcedInterval2, seenBranches);
-                            }else if (child2_min == child2_max){
+                            } else if (child2_min == child2_max) {
                                 IntLiteralValue enforcedInterval2 = new IntLiteralValue(child2_min, child2_min);
-                                IntLiteralValue enforcedInterval1;
-                                if (enforced){
-                                    enforcedInterval1 = new IntLiteralValue(child2_min, child2_min);
-                                }else {
-                                    enforcedInterval1 = intValue1.copy();
-                                    enforcedInterval1.exclude(child2_min, child2_max);
+                                IntLiteralValue enforcedInterval1 = intValue1.copy();
+                                if (enforced) {
+                                    // child1 >= child2_min
+                                    enforcedInterval1.intersect(child2_min, Integer.MAX_VALUE);
+                                } else {
+                                    // child1 < child2_min  =>  child1 <= child2_min - 1
+                                    enforcedInterval1.intersect(Integer.MIN_VALUE, child2_min - 1);
                                 }
                                 enforceState(child1, enforcedInterval1, seenBranches);
                                 enforceState(child2, enforcedInterval2, seenBranches);
                             }else {
                                 System.out.println("noo");
                             }
-
-//                            IntLiteralValue enforcedInterval1 = new IntLiteralValue(A_min_r, A_max_r);
-//                            IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
-
                         }
-
                     }
-                    break;
-                case LE:
-                    break;
-                case LT:
-                    break;
-                case GE:
                     break;
                 case GT:
                     break;
@@ -219,6 +168,7 @@ public class PhaseTwo {
                             String mask1 = bvValue1.getMaskStr();
 
                             List<String> out = PythonBridge.run("Reverse_bitToBool",
+                                    String.valueOf(value1.length()),
                                     String.valueOf(value1), String.valueOf(mask1),
                                     String.valueOf(index),
                                     String.valueOf(enforcedStr)
@@ -421,6 +371,148 @@ public class PhaseTwo {
 
     }
 
+    private static void handleEQ(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
+        if (enforcedState instanceof BoolLiteralValue) {
+            BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+//                        String enforcedStr = "true";
+//                        if (!enforced) enforcedStr = "false";
+
+            ParentedInvariantTree child1 = tree.getChildren().get(0);
+            ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+            if (child1.getType() == VarType.BITVECTOR
+                    && child2.getType() == VarType.BITVECTOR) {
+                bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_EQ");
+            } else if (child1.getType() == VarType.INTEGER
+                    && child2.getType() == VarType.INTEGER) {
+                handleIntegerEQ(seenBranches, child1, child2, enforced);
+
+            }
+
+        }
+    }
+
+    private static void handleIntegerEQ(ArrayList<Integer> seenBranches, ParentedInvariantTree child1, ParentedInvariantTree child2, boolean enforced) {
+        IntLiteralValue intValue1 = (IntLiteralValue) child1.getStateValue();
+        IntLiteralValue intValue2 = (IntLiteralValue) child2.getStateValue();
+        // assuming each state contains only one interval
+        Integer child1_min = intValue1.getMinValue();
+        Integer child1_max = intValue1.getMaxValue();
+        Integer child2_min = intValue2.getMinValue();
+        Integer child2_max = intValue2.getMaxValue();
+
+//                            List<String> out = PythonBridge.run("Reverse_integers_EQ",
+//                                    String.valueOf(child1_min), String.valueOf(child1_max),
+//                                    String.valueOf(child2_min), String.valueOf(child2_max),
+//                                    String.valueOf(enforcedStr)
+//                            );
+        if (child1_min == child1_max){
+            IntLiteralValue enforcedInterval1 = new IntLiteralValue(child1_min, child1_min);
+            IntLiteralValue enforcedInterval2;
+            if (enforced){
+                enforcedInterval2 = new IntLiteralValue(child1_min, child1_min);
+            }else {
+                enforcedInterval2 = intValue2.copy();
+                enforcedInterval2.exclude(child1_min, child1_max);
+            }
+            enforceState(child1, enforcedInterval1, seenBranches);
+            enforceState(child2, enforcedInterval2, seenBranches);
+        }else if (child2_min == child2_max){
+            IntLiteralValue enforcedInterval2 = new IntLiteralValue(child2_min, child2_min);
+            IntLiteralValue enforcedInterval1;
+            if (enforced){
+                enforcedInterval1 = new IntLiteralValue(child2_min, child2_min);
+            }else {
+                enforcedInterval1 = intValue1.copy();
+                enforcedInterval1.exclude(child2_min, child2_max);
+            }
+            enforceState(child1, enforcedInterval1, seenBranches);
+            enforceState(child2, enforcedInterval2, seenBranches);
+        }else {
+            System.out.println("noo");
+        }
+
+//                            IntLiteralValue enforcedInterval1 = new IntLiteralValue(A_min_r, A_max_r);
+//                            IntLiteralValue enforcedInterval2 = new IntLiteralValue(B_min_r, B_max_r);
+    }
+
+    private static void handleNOT(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
+        if (enforcedState instanceof BoolLiteralValue) {
+            BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            BoolLiteralValue negatedEnforced = new BoolLiteralValue(enforcedBool.getNegate());
+            for (ParentedInvariantTree child : tree.getChildren()) {
+                enforceState(child, negatedEnforced, seenBranches);
+            }
+        }
+    }
+
+    private static void handleAND(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
+        if (enforcedState instanceof BoolLiteralValue) {
+//                      BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            ArrayList<Integer> branchIDs = new ArrayList<>();
+            for (ParentedInvariantTree child : tree.getChildren()) {
+                enforceState(child, enforcedState, seenBranches);
+                branchIDs.add(child.getBranchID());
+            }
+
+            ArrayList<ParentedInvariantTree> variableNodes = tree.getVariableNodes();
+            for (ParentedInvariantTree varNode: variableNodes) {
+                StateValue currentState = null;
+                for (Integer branchID : branchIDs){
+
+                    StateValue stateForBranch = varNode.getStateForBranch(branchID);
+                    if (stateForBranch == null){continue;}
+                    if (currentState == null) currentState = stateForBranch.copy();
+                    else {
+                        boolean wasAble =  currentState.intersect(stateForBranch);
+                        if (!wasAble){
+                            System.out.println("phase2: intersect of " + varNode.getName() + " was not possible");
+                        }
+                    }
+                }
+                Log.info("we got " + currentState + "state for " + varNode.getName() + " variable");
+                varNode.putStateForBranch(tree.getBranchID(), currentState);
+            }
+        }
+    }
+
+    private static void handleOR(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
+        if (enforcedState instanceof BoolLiteralValue) {
+//                      BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            ArrayList<Integer> branchIDs = new ArrayList<>();
+            for (ParentedInvariantTree child : tree.getChildren()) {
+                enforceState(child, enforcedState, seenBranches);
+                branchIDs.add(child.getBranchID());
+            }
+
+            ArrayList<ParentedInvariantTree> variableNodes = tree.getVariableNodes();
+            for (ParentedInvariantTree varNode: variableNodes) {
+                StateValue currentState = null;
+                for (Integer branchID : branchIDs){
+
+                    StateValue stateForBranch = varNode.getStateForBranch(branchID);
+                    if (stateForBranch == null){continue;}
+                    if (currentState == null) currentState = stateForBranch.copy();
+                    else {
+                        boolean wasAble =  currentState.union(stateForBranch);
+                        if (!wasAble){
+                            System.out.println("phase2: union of " + varNode.getName() + " was not possible");
+                        }
+                    }
+                }
+                Log.info("we got " + currentState + "state for " + varNode.getName() + " variable");
+                varNode.putStateForBranch(tree.getBranchID(), currentState);
+            }
+        }
+    }
+
+
+    private static void enforceState(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates,
+                                     ArrayList<Integer> seenBranches){
+
+
+    }
     private static void bvBinaryLogicalReversing(ParentedInvariantTree tree, StateValue enforcedState,
                                                  ArrayList<Integer> seenBranches, String pythonFileName) {
         if (enforcedState instanceof BoolLiteralValue) {

@@ -54,11 +54,17 @@ public class PhaseOne { // todo: add lots of if for safe casting
             case OR:
                 handleOr(tree);
                 break;
+            case AND:
+                handleAnd(tree);
+                break;
             case NOT:
                 handleNot(tree);
                 break;
             case EQ:
                 handleEq(tree);
+                break;
+            case BIT2BOOL:
+                handleBit2Bool(tree);
                 break;
             case BVULE:
                 handleBVULE(tree);
@@ -79,6 +85,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
                 handleMantissa(tree);
                 break;
             default:
+                System.out.println("phase 1: unsupported case:" + tree.getOpType());
         }
         return tree;
 
@@ -94,6 +101,16 @@ public class PhaseOne { // todo: add lots of if for safe casting
         String rightValue = rightBLV.getValueStr(); String rightMask = rightBLV.getMaskStr();
 
         GBool result = bvuleGBitVector(leftValue, leftMask, rightValue, rightMask);
+        ((BoolLiteralValue) tree.getStateValue()).setState(result);
+    }
+
+    private static void handleBit2Bool(ParentedInvariantTree tree) {
+        ParentedInvariantTree child = tree.getChildren().get(0);
+        int index = tree.getParams().get(0);
+        phase1(child);
+        BVLiteralValue blv = ((BVLiteralValue) child.getStateValue());
+
+        GBool result = blv.state.get(index).state;
         ((BoolLiteralValue) tree.getStateValue()).setState(result);
     }
 
@@ -175,6 +192,26 @@ public class PhaseOne { // todo: add lots of if for safe casting
         }
 
     }
+    private static void handleAnd(ParentedInvariantTree tree){
+        List<ParentedInvariantTree> children = tree.getChildren();
+        boolean allTrue = true;
+        boolean isThereFalse = false;
+        for (ParentedInvariantTree child: children) {
+            phase1(child);
+            if (((BoolLiteralValue) child.getStateValue()).state != GBool.TRUE) allTrue = false;
+            if (((BoolLiteralValue) child.getStateValue()).state == GBool.FALSE) isThereFalse = true;
+        }
+        BoolLiteralValue blv = ((BoolLiteralValue) tree.getStateValue());
+        if (allTrue) {
+            blv.setState(true);
+        } else if (isThereFalse){
+            blv.setState(false);
+        }else {
+            blv.setState(GBool.UNKNOWN);
+        }
+
+    }
+
     private static void handleNot(ParentedInvariantTree tree){
         ParentedInvariantTree child = tree.getChildren().get(0);
         phase1(child);
