@@ -52,10 +52,13 @@ public class PythonBridge {
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(false); // keep stderr separate for better errors
             Process process = pb.start();
-            String output = readOutput(process, scriptName).get(0); // we assume the output is in only one line
+            List<String> output = readOutput(process, scriptName);
 
-
-            return new ArrayList<>(Arrays.asList(output.split(",")));
+            ArrayList<String> result = new ArrayList<>();
+            for (String line : output){
+                result.addAll(Arrays.asList(line.split(",")));
+            }
+            return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null; // todo clean

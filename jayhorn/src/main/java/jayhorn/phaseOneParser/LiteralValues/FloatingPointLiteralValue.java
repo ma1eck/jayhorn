@@ -1,5 +1,9 @@
 package jayhorn.phaseOneParser.LiteralValues;
 
+import jayhorn.AST.ASTHelper;
+
+import java.util.List;
+
 public class FloatingPointLiteralValue implements StateValue {
     // If a field is null, it means this object doesn't hold that piece of data yet.
 
@@ -119,6 +123,41 @@ public class FloatingPointLiteralValue implements StateValue {
                 "sign=" + sign +
                 ", exponent=" + exponent +
                 ", mantissa=" + mantissa +
-                '}';
+                "} (" + getRangeFormat() + ")";
+
+    }
+
+    public void setSign(BoolLiteralValue sign) {
+        this.sign = sign;
+    }
+
+    public void setExponent(BVLiteralValue exponent) {
+        this.exponent = exponent;
+    }
+
+    public void setMantissa(BVLiteralValue mantissa) {
+        this.mantissa = mantissa;
+    }
+
+    public String getRangeFormat(){
+        FloatingPointLiteralValue copy = this.copy();
+        if (copy.sign == null) copy.setSign(new BoolLiteralValue());
+        if (copy.exponent == null) copy.setExponent(new BVLiteralValue(53));
+        if (copy.mantissa == null) copy.setMantissa(new BVLiteralValue(24));
+        List<String> outputs = ASTHelper.convertFloatBitmaskToIntervals(copy);
+
+        String message = outputs.get(outputs.size()-1);
+        StringBuilder sb = new StringBuilder();
+        sb.append(message).append(": ");
+        for (int i=0; i<outputs.size()-1; i++){
+            if (i % 2 == 0){
+                sb.append("["); sb.append(outputs.get(i)); sb.append(", ");
+            }else {
+                sb.append(outputs.get(i)); sb.append("]");
+                if (i!=outputs.size()-2) sb.append(" + ");
+            }
+        }
+
+        return sb.toString();
     }
 }

@@ -101,7 +101,7 @@ public class PhaseOne { // todo: add lots of if for safe casting
                 for(ParentedInvariantTree child : children){
                     phase1(child);
                 }
-                System.out.println("phase 1: unsupported case:" + tree.getOpType());
+                Log.info("phase 1: unsupported case:" + tree.getOpType());
         }
         return tree;
 

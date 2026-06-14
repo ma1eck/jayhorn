@@ -7,11 +7,13 @@ import jayhorn.phaseOneParser.LiteralValues.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 import org.scalactic.Bool;
 import soottocfg.cfg.expression.literal.BooleanLiteral;
+import soottocfg.cfg.expression.literal.IntegerLiteral;
 
 import javax.swing.plaf.nimbus.State;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class PhaseTwo {
@@ -33,7 +35,7 @@ public class PhaseTwo {
             initializeBranchStates(child);
         }
 
-        boolean hasLogicalParent = hasLogicalParent(tree);
+        boolean hasLogicalParent = tree.hasLogicalParent();
 
         if (hasLogicalParent
 //                || logicalOps.contains(tree.getOpType())
@@ -47,25 +49,12 @@ public class PhaseTwo {
         }
     }
 
-    private static boolean hasLogicalParent(ParentedInvariantTree tree) {
-        List<ParentedInvariantTree> parents = tree.getParents();
-
-        boolean hasLogicalParent = false;
-        for (ParentedInvariantTree parent: parents) {
-            if (parent.getNodeType() == ParentedInvariantTree.NodeType.OPERATION
-                && logicalOps.contains(parent.getOpType())){
-                hasLogicalParent = true;
-                break;
-            }
-        }
-        return hasLogicalParent;
-    }
 
     private static void enforceState(ParentedInvariantTree tree, StateValue enforcedState,
                                                       ArrayList<Integer> seenBranches)
     {
 
-        boolean hasLogicalParent  = hasLogicalParent(tree);
+        boolean hasLogicalParent  = tree.hasLogicalParent();
         if (hasLogicalParent){
             seenBranches  = (ArrayList<Integer>) seenBranches.clone();
             seenBranches.add(tree.getBranchID());
@@ -95,22 +84,28 @@ public class PhaseTwo {
                     handleNOT(tree, enforcedState, seenBranches);
                     break;
                 case ITE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EQ:
                     handleEQ(tree, enforcedState, seenBranches);
                     break;
                 case LE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case LT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case GE:
                     handleGE(tree, enforcedState, seenBranches);
                     break;
                 case GT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case MUL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case ADD:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BIT2BOOL:
                     handleBIT2BOOL(tree, enforcedState, seenBranches);
@@ -126,31 +121,43 @@ public class PhaseTwo {
                     handleBVCONCAT(tree, enforcedState, seenBranches);
                     break;
                 case BVSLE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVULE:
                     handleBVULE(tree, enforcedState, seenBranches);
                     break;
                 case BVUGE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVSGE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVULT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVUGT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVNEG:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVSUB:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVLSHR:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVSHL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVUDIV:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVMUL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case ZERO_EXTEND:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EFP_SIGN:
                 case FP_SIGN:
@@ -165,24 +172,37 @@ public class PhaseTwo {
                     handleMANTISSA(tree, enforcedState, seenBranches);
                     break;
                 case MOD_CAST:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case INT_CAST:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EXISTS:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case FORALL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case DOUBLE_FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EXTENDED_FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EXTENDED_DOUBLE_FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
             }
         }
 
+
+    }
+
+    private static void logUnsupportedOperationMessage(OpType opType) {
+        Log.error("Phase2. the "+ opType.toString() +"operation is not suppoerted yet.");
     }
 
     private static void handleMANTISSA(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
@@ -524,6 +544,112 @@ public class PhaseTwo {
 
     }
 
+    private static void handleADD(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
+        ArrayList<StateValue> newEnforce1 = new ArrayList<>();
+        ArrayList<StateValue> newEnforce2 = new ArrayList<>();
+
+        ParentedInvariantTree child1 = tree.getChildren().get(0);
+        ParentedInvariantTree child2 = tree.getChildren().get(1);
+        if (child1.getType() == VarType.INTEGER
+                && child2.getType() == VarType.INTEGER) {
+            IntLiteralValue val1 = (IntLiteralValue) child1.getStateValue();
+            IntLiteralValue val2 = (IntLiteralValue) child2.getStateValue();
+
+            Integer min1 = val1.getMinValue();
+            Integer max1 = val1.getMaxValue();
+            Integer min2 = val2.getMinValue();
+            Integer max2 = val2.getMaxValue();
+
+
+            for (StateValue enforcedState: enforcedStates){
+                if (enforcedState instanceof IntLiteralValue) {
+                    IntLiteralValue enforcedInt = (IntLiteralValue) enforcedState;
+                    Integer minEnforce = enforcedInt.getMinValue();
+                    Integer maxEnforce = enforcedInt.getMaxValue();
+
+
+                    Integer enforced1_Min = minEnforce - max2;
+                    Integer enforced1_Max = maxEnforce - min2;
+                    Integer enforced2_Min = minEnforce - max1;
+                    Integer enforced2_Max = maxEnforce - min1;
+
+                    newEnforce1.add(new IntLiteralValue(enforced1_Min, enforced1_Max));
+                    newEnforce2.add(new IntLiteralValue(enforced2_Min, enforced2_Max));
+                }
+            }
+            enforceState(child1, newEnforce1, seenBranches);
+            enforceState(child2, newEnforce2, seenBranches);
+        }
+
+    }
+
+    private static void handleMUL(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
+        ArrayList<StateValue> newEnforce1 = new ArrayList<>();
+        ArrayList<StateValue> newEnforce2 = new ArrayList<>();
+
+        ParentedInvariantTree child1 = tree.getChildren().get(0);
+        ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+        if (child1.getType() == VarType.INTEGER && child2.getType() == VarType.INTEGER) {
+            IntLiteralValue val1 = (IntLiteralValue) child1.getStateValue();
+            IntLiteralValue val2 = (IntLiteralValue) child2.getStateValue();
+
+            Integer min1 = val1.getMinValue();
+            Integer max1 = val1.getMaxValue();
+            Integer min2 = val2.getMinValue();
+            Integer max2 = val2.getMaxValue();
+
+            for (StateValue enforcedState : enforcedStates) {
+                if (enforcedState instanceof IntLiteralValue) {
+                    IntLiteralValue enforcedInt = (IntLiteralValue) enforcedState;
+                    Integer minE = enforcedInt.getMinValue();
+                    Integer maxE = enforcedInt.getMaxValue();
+
+                    // --- Constrain child1: child1 = enforcedRange / child2's range ---
+                    // If child2's range spans zero, child1 is unconstrained (skip)
+                    if (!(min2 <= 0 && max2 >= 0)) {
+                        // Divisor range doesn't include zero: safe to divide all combinations
+                        List<Integer> candidates1 = Arrays.asList(
+                                divFloor(minE, min2), divFloor(minE, max2),
+                                divCeil(maxE, min2),  divCeil(maxE, max2)
+                        );
+                        Integer new1Min = Collections.min(candidates1);
+                        Integer new1Max = Collections.max(candidates1);
+                        newEnforce1.add(new IntLiteralValue(new1Min, new1Max));
+                    } else {
+                        // child2 can be zero: child1 is unconstrained, propagate existing bounds
+                        newEnforce1.add(new IntLiteralValue(min1, max1));
+                    }
+
+                    // --- Constrain child2: child2 = enforcedRange / child1's range ---
+                    if (!(min1 <= 0 && max1 >= 0)) {
+                        List<Integer> candidates2 = Arrays.asList(
+                                divFloor(minE, min1), divFloor(minE, max1),
+                                divCeil(maxE, min1),  divCeil(maxE, max1)
+                        );
+                        Integer new2Min = Collections.min(candidates2);
+                        Integer new2Max = Collections.max(candidates2);
+                        newEnforce2.add(new IntLiteralValue(new2Min, new2Max));
+                    } else {
+                        newEnforce2.add(new IntLiteralValue(min2, max2));
+                    }
+                }
+            }
+
+            enforceState(child1, newEnforce1, seenBranches);
+            enforceState(child2, newEnforce2, seenBranches);
+        }
+    }
+
+    // Floor division (rounds toward negative infinity, unlike Java's truncation toward zero)
+    private static int divFloor(int a, int b) {
+        return Math.floorDiv(a, b);
+    }
+
+    private static int divCeil(int a, int b) {
+        return Math.floorDiv(a, b) + (a % b != 0 ? 1 : 0);
+    }
+
     private static void handleBIT2BOOL(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
         if (enforcedState instanceof BoolLiteralValue) {
             BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
@@ -681,6 +807,61 @@ public class PhaseTwo {
                         } else {
                             // child1 < child2_min  =>  child1 <= child2_min - 1
                             enforcedInterval1.intersect(Integer.MIN_VALUE, child2_min - 1);
+                        }
+                        newEnforce1.add(enforcedInterval1);
+                        newEnforce2.add(enforcedInterval2);
+                    } else {
+                        System.out.println("noo");
+                    }
+                }
+            }
+        }
+        enforceState(child1, newEnforce1, seenBranches);
+        enforceState(child2, newEnforce2, seenBranches);
+    }
+
+    private static void handleLE(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
+        ArrayList<StateValue> newEnforce1 = new ArrayList<>();
+        ArrayList<StateValue> newEnforce2 = new ArrayList<>();
+        ParentedInvariantTree child1 = tree.getChildren().get(0);
+        ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+        for (StateValue enforcedState: enforcedStates) {
+            if (enforcedState instanceof BoolLiteralValue) {
+                BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+                boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+
+                if (child1.getType() == VarType.INTEGER
+                        && child2.getType() == VarType.INTEGER) {
+                    IntLiteralValue intValue1 = (IntLiteralValue) child1.getStateValue();
+                    IntLiteralValue intValue2 = (IntLiteralValue) child2.getStateValue();
+
+                    Integer child1_min = intValue1.getMinValue();
+                    Integer child1_max = intValue1.getMaxValue();
+                    Integer child2_min = intValue2.getMinValue();
+                    Integer child2_max = intValue2.getMaxValue();
+
+                    if (child1_min == child1_max) {
+                        IntLiteralValue enforcedInterval1 = new IntLiteralValue(child1_min, child1_min);
+                        IntLiteralValue enforcedInterval2 = intValue2.copy();
+                        if (enforced) {
+                            // child1 <= child2  =>  child2 >= child1_min
+                            enforcedInterval2.intersect(child1_min, Integer.MAX_VALUE);
+                        } else {
+                            // !(child1 <= child2)  =>  child2 < child1_min  =>  child2 <= child1_min - 1
+                            enforcedInterval2.intersect(Integer.MIN_VALUE, child1_min - 1);
+                        }
+                        newEnforce1.add(enforcedInterval1);
+                        newEnforce2.add(enforcedInterval2);
+                    } else if (child2_min == child2_max) {
+                        IntLiteralValue enforcedInterval2 = new IntLiteralValue(child2_min, child2_min);
+                        IntLiteralValue enforcedInterval1 = intValue1.copy();
+                        if (enforced) {
+                            // child1 <= child2_min
+                            enforcedInterval1.intersect(Integer.MIN_VALUE, child2_min);
+                        } else {
+                            // child1 > child2_min  =>  child1 >= child2_min + 1
+                            enforcedInterval1.intersect(child2_min + 1, Integer.MAX_VALUE);
                         }
                         newEnforce1.add(enforcedInterval1);
                         newEnforce2.add(enforcedInterval2);
@@ -968,7 +1149,7 @@ public class PhaseTwo {
                 }
             }
             Log.info("we got " + currentState + "state for " + varNode.getName() + " variable");
-            varNode.putStateForBranch(tree.getBranchID(), currentState);
+            varNode.putStatesForBranch(tree.getBranchID(), new ArrayList<StateValue>(Collections.singletonList(currentState)));
         }
     }
 
@@ -997,7 +1178,7 @@ public class PhaseTwo {
                     }
                 }
                 Log.info("we got " + currentState + "state for " + varNode.getName() + " variable");
-                varNode.putStateForBranch(tree.getBranchID(), currentState);
+                varNode.putStatesForBranch(tree.getBranchID(), new ArrayList<StateValue>(Collections.singletonList(currentState)));
             }
         }
     }
@@ -1040,7 +1221,7 @@ public class PhaseTwo {
                                      ArrayList<Integer> seenBranches)
     {
 
-        boolean hasLogicalParent  = hasLogicalParent(tree);
+        boolean hasLogicalParent  = tree.hasLogicalParent();
         if (hasLogicalParent){
             seenBranches  = (ArrayList<Integer>) seenBranches.clone();
             seenBranches.add(tree.getBranchID());
@@ -1074,22 +1255,28 @@ public class PhaseTwo {
                     handleNOT(tree, enforcedStates, seenBranches);
                     break;
                 case ITE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EQ:
                     handleEQ(tree, enforcedStates, seenBranches);
                     break;
                 case LE:
+                    handleLE(tree, enforcedStates, seenBranches);
                     break;
                 case LT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case GE:
                     handleGE(tree, enforcedStates, seenBranches);
                     break;
                 case GT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case MUL:
+                    handleMUL(tree, enforcedStates, seenBranches);
                     break;
                 case ADD:
+                    handleADD(tree, enforcedStates, seenBranches);
                     break;
                 case BIT2BOOL:
                     handleBIT2BOOL(tree, enforcedStates, seenBranches);
@@ -1105,31 +1292,43 @@ public class PhaseTwo {
                     handleBVCONCAT(tree, enforcedStates, seenBranches);
                     break;
                 case BVSLE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVULE:
                     handleBVULE(tree, enforcedStates, seenBranches);
                     break;
                 case BVUGE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVSGE:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVULT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVUGT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVNEG:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVSUB:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVLSHR:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVSHL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVUDIV:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVMUL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case ZERO_EXTEND:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EFP_SIGN:
                 case FP_SIGN:
@@ -1144,20 +1343,28 @@ public class PhaseTwo {
                     handleMANTISSA(tree, enforcedStates, seenBranches);
                     break;
                 case MOD_CAST:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case INT_CAST:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EXISTS:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case FORALL:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case DOUBLE_FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EXTENDED_FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case EXTENDED_DOUBLE_FLOATING_POINT:
+                    logUnsupportedOperationMessage(tree.getOpType());
                     break;
             }
         }

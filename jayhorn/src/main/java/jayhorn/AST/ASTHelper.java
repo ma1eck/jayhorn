@@ -2,8 +2,10 @@ package jayhorn.AST;
 
 
 import jayhorn.AST.Nodes.*;
+import jayhorn.phaseOneParser.LiteralValues.FloatingPointLiteralValue;
 import jayhorn.phaseOneParser.LiteralValues.StateValue;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
+import jayhorn.phaseTwoParser.PythonBridge;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -817,5 +819,19 @@ public class ASTHelper {
                 index++;
             }
         }
+    }
+
+    public static List<String> convertFloatBitmaskToIntervals(FloatingPointLiteralValue fp){
+
+        List<String> out = PythonBridge.run("BitmasksToExactDoubleIntervals_v2",
+                String.valueOf(fp.getExponent().getValueStr()),
+                String.valueOf(fp.getExponent().getMaskStr()),
+                String.valueOf(fp.getMantissa().getValueStr()),
+                String.valueOf(fp.getMantissa().getMaskStr()),
+                String.valueOf(fp.getSign().getValue()),
+                String.valueOf(fp.getSign().getMask())
+        );
+        return out;
+
     }
 }

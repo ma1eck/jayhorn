@@ -2,6 +2,7 @@ package jayhorn.AST;
 
 import com.microsoft.z3.AST;
 import jayhorn.AST.Nodes.*;
+import jayhorn.phaseOneParser.LiteralValues.FloatingPointLiteralValue;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.phaseOneParser.PhaseOne;
 import jayhorn.phaseTwoParser.PhaseTwo;
@@ -246,18 +247,15 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-//        InvariantTree t1 = eg1();
+//        ASTHelper.convertFloatBitmaskToIntervals(new FloatingPointLiteralValue(53, 11));
+
         InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
 
         t1 = ASTHelper.cleaner(t1);
         ParentedInvariantTree pt1 = PhaseOne.parse(t1);
         pt1 = PhaseTwo.parse(pt1);
 
-
-        System.out.println(pt1.getStateValue());
-//        ASTHelper.writeJsonToFile(t1, "t1");
-//        InvariantTree t1_ = ASTHelper.readJsonFromFile("t1");
-//        System.out.println(t1_.toString().equals(t1.toString()));
+        System.out.println(pt1.toRangedString());
     }
 
 

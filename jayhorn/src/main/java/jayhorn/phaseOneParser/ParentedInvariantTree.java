@@ -98,13 +98,13 @@ public class ParentedInvariantTree extends InvariantTree {
             case INTEGER:
                 return new IntLiteralValue();
             case FLOAT:
-                return new FloatingPointLiteralValue(8 ,11);
+                return new FloatingPointLiteralValue(8 ,24);
             case DOUBLE:
-                return new FloatingPointLiteralValue(24 ,53);
+                return new FloatingPointLiteralValue(11 ,53);
             case EFLOAT:
-                return new FloatingPointLiteralValue(9 ,12);
+                return new FloatingPointLiteralValue(9 ,72);
             case EDOUBLE:
-                return new FloatingPointLiteralValue(72 ,159);
+                return new FloatingPointLiteralValue(12 ,159);
             case BITVECTOR:
                 return new BVLiteralValue(200);
                 // ?? should store arity
@@ -366,4 +366,80 @@ public class ParentedInvariantTree extends InvariantTree {
         }
         return new OperationNode(opType, invariantChildren, new ArrayList<Integer>(params));
     }
+
+    public String toRangedString(){
+        return this.toRangedString(0);
+    }
+    protected String toRangedString(int indent) {
+        boolean printVariables =  hasLogicalParent() || isLogical();
+        if (nodeType != NodeType.OPERATION) {
+            return toString();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(opType.name());
+        sb.append("(");
+
+        if (params != null && !params.isEmpty()) {
+            sb.append("[");
+            sb.append(String.join(", ", params.stream()
+                    .map(Object::toString)
+                    .toArray(String[]::new)));
+            sb.append("]");
+        }
+
+        if (printVariables) {
+            ArrayList<ParentedInvariantTree> variableNodes = this.getVariableNodes();
+            sb.append("{");
+            for (ParentedInvariantTree varNode : variableNodes) {
+                sb.append(varNode.getName());
+                sb.append(": ");
+                sb.append(varNode.getStatesForBranch(this.getBranchID()));
+                sb.append(" ");
+            }
+            sb.append("}");
+        }
+
+        if (children.isEmpty()) {
+            return sb.append("()").toString();
+        }
+
+
+        for (int i = 0; i < children.size(); i++) {
+            ParentedInvariantTree child = children.get(i);
+            sb.append("\n")
+                    .append(getIndent(indent + 1))
+                    .append(child.toRangedString(indent + 1));
+            if (i < children.size() - 1) {
+                sb.append(",");
+            }
+        }
+        sb.append("\n").append(getIndent(indent));
+        sb.append(getIndent(indent)).append(")");
+
+        return sb.toString();
+    }
+    private static final List<OpType> logicalOps = Arrays.asList(OpType.AND, OpType.OR);
+
+    public boolean hasLogicalParent() {
+
+        List<ParentedInvariantTree> parents = this.getParents();
+
+        boolean hasLogicalParent = false;
+        for (ParentedInvariantTree parent: parents) {
+            if (parent.getNodeType() == ParentedInvariantTree.NodeType.OPERATION
+                    && logicalOps.contains(parent.getOpType())){
+                hasLogicalParent = true;
+                break;
+            }
+        }
+        return hasLogicalParent;
+    }
+    public boolean isLogical(){
+        return  (this.getNodeType() == ParentedInvariantTree.NodeType.OPERATION
+                && logicalOps.contains(this.getOpType()));
+    }
+
+
+
 }

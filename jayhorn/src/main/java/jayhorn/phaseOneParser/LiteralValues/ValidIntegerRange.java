@@ -189,8 +189,31 @@ public class ValidIntegerRange {
     }
     @Override
     public String toString() {
-        return rangeSet.toString();
+        return rangeSet.asRanges().stream()
+                .map(this::formatRangeAscii)
+                .collect(java.util.stream.Collectors.joining(", ", "{", "}"));
     }
+
+    private String formatRangeAscii(Range<Integer> range) {
+        String left = range.hasLowerBound()
+                ? (range.lowerBoundType() == BoundType.CLOSED ? "[" : "(")
+                : "(";
+
+        String right = range.hasUpperBound()
+                ? (range.upperBoundType() == BoundType.CLOSED ? "]" : ")")
+                : ")";
+
+        String lower = range.hasLowerBound()
+                ? String.valueOf(range.lowerEndpoint())
+                : "-INF";
+
+        String upper = range.hasUpperBound()
+                ? String.valueOf(range.upperEndpoint())
+                : "+INF";
+
+        return left + lower + "," + upper + right;
+    }
+
 
     // --- Example Usage ---
     public static void main(String[] args) {
