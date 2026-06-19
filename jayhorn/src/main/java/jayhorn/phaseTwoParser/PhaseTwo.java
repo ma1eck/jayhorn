@@ -5,12 +5,7 @@ import jayhorn.AST.Nodes.VarType;
 import jayhorn.Log;
 import jayhorn.phaseOneParser.LiteralValues.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
-import org.scalactic.Bool;
-import soottocfg.cfg.expression.literal.BooleanLiteral;
-import soottocfg.cfg.expression.literal.IntegerLiteral;
 
-import javax.swing.plaf.nimbus.State;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -283,7 +278,7 @@ public class PhaseTwo {
     }
 
     private static void handleBVULE(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
-        bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_ULE");
+        bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_ULE_v2");
     }
 
     private static void handleBVULE(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
@@ -295,9 +290,10 @@ public class PhaseTwo {
         if (child1.getType() == VarType.BITVECTOR
                 && child2.getType() == VarType.BITVECTOR) {
             for (StateValue enforcedState: enforcedStates){
-                List<StateValue> result = getBVBinaryLogicalReversingResults(tree, enforcedState, seenBranches, "Reverse_BVs_ULE");
-                newEnforceStates1.add(result.get(0));
-                newEnforceStates2.add(result.get(1));
+                List<BVLiteralValue>[] result = getBVULEReversingResults(tree, enforcedState);
+//                List<StateValue> result = getBVBinaryLogicalReversingResults(tree, enforcedState, seenBranches, "Reverse_BVs_ULE");
+                newEnforceStates1.addAll(result[0]);
+                newEnforceStates2.addAll(result[1]);
             }
         }
         enforceState(child1, newEnforceStates1, seenBranches);
@@ -1220,6 +1216,22 @@ public class PhaseTwo {
     private static void enforceState(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates,
                                      ArrayList<Integer> seenBranches)
     {
+        if (enforcedStates.size() > 1){
+            boolean areAllBv = true;
+            ArrayList<BVLiteralValue> temp = new ArrayList<>();
+            for (StateValue s : enforcedStates){
+                
+                if (!(s instanceof BVLiteralValue)) {areAllBv = false;}
+                else{temp.add((BVLiteralValue) s);}
+            }
+            if (areAllBv){
+                ArrayList<BVLiteralValue> tempResult = mergeBVStates(temp);
+                if (tempResult.size() < enforcedStates.size()){
+                    enforcedStates.clear();
+                    enforcedStates.addAll(tempResult);
+                }
+            }
+        }
 
         boolean hasLogicalParent  = tree.hasLogicalParent();
         if (hasLogicalParent){
@@ -1451,6 +1463,160 @@ public class PhaseTwo {
             }
         }
         return null;
+    }
+
+    private static List<BVLiteralValue>[] getBVULEReversingResults(ParentedInvariantTree tree, StateValue enforcedState) {
+        List<BVLiteralValue>[] outs = new List[2];
+        outs[0] = new ArrayList<BVLiteralValue>();
+        outs[1] = new ArrayList<BVLiteralValue>();
+        if (enforcedState instanceof BoolLiteralValue) {
+            BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+            String enforcedStr = "true";
+            if (!enforced) enforcedStr = "false";
+
+            ParentedInvariantTree child1 = tree.getChildren().get(0);
+            ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+            if (child1.getType() == VarType.BITVECTOR
+                    && child2.getType() == VarType.BITVECTOR) {
+                BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
+                BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
+                String value1 = bvValue1.getValueStr();
+                String value2 = bvValue2.getValueStr();
+                String mask1 = bvValue1.getMaskStr();
+                String mask2 = bvValue2.getMaskStr();
+
+                List<String> out = outBVULEFirstAnswer(String.valueOf(value1), String.valueOf(mask1),
+                        String.valueOf(value2), String.valueOf(mask2),
+                        enforcedStr
+                );
+                saveToOut(out, outs);
+
+                out = outBVULESecondAnswer(String.valueOf(value1), String.valueOf(mask1),
+                        String.valueOf(value2), String.valueOf(mask2),
+                        enforcedStr
+                );
+                saveToOut(out, outs);
+
+                outs[0] = mergeBVStates(outs[0]);
+                outs[1] = mergeBVStates(outs[1]);
+
+
+                return  outs;
+            }
+        }
+        return null;
+    }
+    private static int countDifferences(String a, String b) {
+        int minLength = Math.min(a.length(), b.length());
+        int diffCount = 0;
+
+        for (int i = 0; i < minLength; i++) {
+            if (a.charAt(i) != b.charAt(i)) {
+                diffCount++;
+            }
+        }
+
+        diffCount += Math.abs(a.length() - b.length());
+
+        return diffCount;
+    }
+
+    private static ArrayList<BVLiteralValue> mergeBVStates(List<BVLiteralValue> BVs) {
+        if (BVs.size() <= 1){
+            return (ArrayList<BVLiteralValue>) BVs;
+        }
+        BVLiteralValue bv1 = BVs.get(0);
+        BVLiteralValue bv2 = BVs.get(1);
+        if (bv1.getMaskStr().equals(bv2.getMaskStr())
+                && countDifferences(bv1.getValueStr(), bv2.getValueStr()) <= 1){
+            ArrayList<BVLiteralValue> result = new ArrayList<>();
+            BVLiteralValue copy = bv1.copy();
+            copy.union(bv2);
+            result.add(copy);
+            return result;
+        }else {
+            return (ArrayList<BVLiteralValue>) BVs;
+        }
+
+    }
+
+    private static void saveToOut(List<String> out, List<BVLiteralValue>[] outs) {
+        if (out != null){
+            String A_v_r = out.get(0);
+            String A_m_r = out.get(1);
+            String B_v_r = out.get(2);
+            String B_m_r = out.get(3);
+
+            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+            BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+
+            outs[0].add(enforcedBV1);
+            outs[1].add(enforcedBV2);
+        }
+    }
+
+    private static final String BVULE_FILE_NAME = "Reverse_BVs_ULE_v2";
+    private static List<String> outBVULEFirstAnswer(String value1, String mask1,
+                                                    String value2, String mask2, String enforcedStr) {
+
+        // todo: find which of these two is fixed
+        // todo: find the most significant unknown bit and set it to one
+
+        if (!mask1.contains("0")){
+//            first one is fixed
+            int msm = mask2.indexOf('0');// most significant mask
+            mask2 = mask2.substring(0, msm) + '1' + mask2.substring(msm + 1);
+            value2 = value2.substring(0, msm) + '1' + value2.substring(msm + 1);
+
+        }else if (!mask2.contains("0")) {
+//            second one is fixed
+            int msm = mask1.indexOf('0');// most significant mask
+            mask1 = mask1.substring(0, msm) + '1' + mask1.substring(msm + 1);
+            value1 = value1.substring(0, msm) + '1' + value1.substring(msm + 1);
+
+        } else {
+            System.out.println("can not reverse bvule two flexible fp"); return null;
+        }
+
+        List<String> out = PythonBridge.run(BVULE_FILE_NAME,
+                String.valueOf(value1.length()),
+                String.valueOf(value1), String.valueOf(mask1),
+                String.valueOf(value2), String.valueOf(mask2),
+                (enforcedStr)
+        );
+        return out;
+    }
+    private static List<String> outBVULESecondAnswer(String value1, String mask1,
+                                                    String value2, String mask2, String enforcedStr) {
+
+        // todo: find which of these two is fixed
+        // todo: find the most significant unknown bit and set it to one
+
+        if (!mask1.contains("0")){
+//            first one is fixed
+            int msm = mask2.indexOf('0');// most significant mask
+            mask2 = mask2.substring(0, msm) + '1' + mask2.substring(msm + 1);
+            value2 = value2.substring(0, msm) + '0' + value2.substring(msm + 1);
+
+        }else if (!mask2.contains("0")) {
+//            second one is fixed
+            int msm = mask1.indexOf('0');// most significant mask
+            mask1 = mask1.substring(0, msm) + '1' + mask1.substring(msm + 1);
+            value1 = value1.substring(0, msm) + '0' + value1.substring(msm + 1);
+
+        } else {
+            System.out.println("can not reverse bvule two flexible fp"); return null;
+        }
+
+        List<String> out = PythonBridge.run(BVULE_FILE_NAME,
+                String.valueOf(value1.length()),
+                String.valueOf(value1), String.valueOf(mask1),
+                String.valueOf(value2), String.valueOf(mask2),
+                (enforcedStr)
+        );
+        return out;
     }
 
 

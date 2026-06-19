@@ -556,7 +556,8 @@ def bitmask_range_to_intervals_explicit(E_val, E_mask, M_val_53, M_mask_53,
                          normal_value(e, m_end, s))
                     )
 
-    return merge_intervals(intervals)
+    # return merge_intervals(intervals)
+    return (intervals)
 
 
 # ----------------------------------------------------------------------
@@ -583,13 +584,23 @@ def min_max_for_mask_explicit(E_val, E_mask, M_val_53, M_mask_53, S_val=0, S_mas
     return result
 
 
-# def test2():
-#     intervals = bitmask_to_intervals_explicit(0, (1<<11)-1, 0b11100000000000000000000000000000000000000000000000000, 1, 0, 1)
-#     print("All positive normals:")
-#     for lo, hi in intervals: print(f"  [{lo:.17g}, {hi:.17g}]")
+def test2():
+    intervals = bitmask_to_intervals_explicit(0, (1<<11)-1, 0b11100000000000000000000000000000000000000000000000000, 1, 0, 1)
+    print("All positive normals:")
+    for lo, hi in intervals: print(f"  [{lo:.17g}, {hi:.17g}]")
+
+def test3():
+    intervals = bitmask_to_intervals_explicit(0b00000000000, (1<<10)-1, 0, (1<<53) - 1, 0, 1)
+    print("All positive normals:")
+    for lo, hi in intervals: print(f"  [{lo:.17g}, {hi:.17g}]")
+
+def test4():
+    intervals = bitmask_to_intervals(0, (1<<11)-1, 3<<51, 0)
+    print("All positive normals:")
+    for lo, hi in intervals[2000:2100]: print(f"  [{lo:.37g}, {hi:.37g}]")
 
 if __name__ == "__main__":
-    # test2()
+    # test4()
     if len(sys.argv) != 7:
         print("Error: expected E_val E_mask M_val M_mask S_val S_mask")
         sys.exit(1)

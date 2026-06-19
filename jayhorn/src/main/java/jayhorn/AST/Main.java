@@ -242,20 +242,32 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+    }
+    private static InvariantTree load(String fileName){
+        try {
+            InvariantTree tree = ASTHelper.readJsonFromFile("invariantTreeJsons/" + fileName);
+            return tree;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
     public static void main(String[] args) throws IOException {
 //        ASTHelper.convertFloatBitmaskToIntervals(new FloatingPointLiteralValue(53, 11));
 
-        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
+//        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
+//        InvariantTree t1 = load("Batch-Conveyor-CounterMain_void_mainJayArray_java_lang_String_Block2_1");
+//        InvariantTree t1 = load("Bounded-Proportional-UpdateMain_void_mainJayArray_java_lang_String_Block2_1");
+//        InvariantTree t1 = load("Bounded-Reset-Linear-GrowthMain_void_mainJayArray_java_lang_String_Block2_1");
+        InvariantTree t1 = load("Clamped-Triangular-DriftMain_void_mainJayArray_java_lang_String_Block2_1");
 
         t1 = ASTHelper.cleaner(t1);
         ParentedInvariantTree pt1 = PhaseOne.parse(t1);
         pt1 = PhaseTwo.parse(pt1);
 
         System.out.println(pt1.toRangedString());
+        System.out.println(pt1.toRangedCNF());
     }
 
 

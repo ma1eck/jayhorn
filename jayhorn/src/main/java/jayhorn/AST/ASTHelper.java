@@ -823,7 +823,7 @@ public class ASTHelper {
 
     public static List<String> convertFloatBitmaskToIntervals(FloatingPointLiteralValue fp){
 
-        List<String> out = PythonBridge.run("BitmasksToExactDoubleIntervals_v2",
+        List<String> out = PythonBridge.run("BitmasksToExactDoubleIntervals_v2_mine",
                 String.valueOf(fp.getExponent().getValueStr()),
                 String.valueOf(fp.getExponent().getMaskStr()),
                 String.valueOf(fp.getMantissa().getValueStr()),

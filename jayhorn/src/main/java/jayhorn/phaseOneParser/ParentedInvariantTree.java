@@ -440,6 +440,100 @@ public class ParentedInvariantTree extends InvariantTree {
                 && logicalOps.contains(this.getOpType()));
     }
 
+    public String toRangedCNF(){
+        return this.toRangedCNF(0);
+    }
+    protected String toRangedCNF(int indent) {
+        if (this.getNodeType() == NodeType.OPERATION && this.getOpType() == OpType.AND) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(opType.name());
+            sb.append("(");
+
+            if (params != null && !params.isEmpty()) {
+                sb.append("[");
+                sb.append(String.join(", ", params.stream()
+                        .map(Object::toString)
+                        .toArray(String[]::new)));
+                sb.append("]");
+            }
+
+            if (children.isEmpty()) {
+                return sb.append("()").toString();
+            }
+
+
+            for (int i = 0; i < children.size(); i++) {
+                ParentedInvariantTree child = children.get(i);
+                sb.append("\n")
+                        .append(getIndent(indent + 1))
+                        .append(child.toRangedCNF(indent + 1));
+                if (i < children.size() - 1) {
+                    sb.append(",");
+                }
+            }
+            sb.append("\n").append(getIndent(indent));
+            sb.append(getIndent(indent)).append(")");
+            return sb.toString();
+        } else if (this.getNodeType() == NodeType.OPERATION && this.getOpType() == OpType.OR) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(opType.name());
+            sb.append("(");
+
+            if (params != null && !params.isEmpty()) {
+                sb.append("[");
+                sb.append(String.join(", ", params.stream()
+                        .map(Object::toString)
+                        .toArray(String[]::new)));
+                sb.append("]");
+            }
+
+            ArrayList<ParentedInvariantTree> variableNodes = this.getVariableNodes();
+            sb.append("{");
+            for (ParentedInvariantTree varNode : variableNodes) {
+                sb.append(varNode.getName());
+                sb.append(": ");
+                sb.append(varNode.getStatesForBranch(this.getBranchID()));
+                sb.append(" ");
+            }
+            sb.append("}");
+
+
+            if (children.isEmpty()) {
+                return sb.append("()").toString();
+            }
+
+
+            for (int i = 0; i < children.size(); i++) {
+                ParentedInvariantTree child = children.get(i);
+                sb.append("\n")
+                        .append(getIndent(indent + 1))
+                        .append(child.toRangedCNF(indent + 1));
+                if (i < children.size() - 1) {
+                    sb.append(",");
+                }
+            }
+            sb.append("\n").append(getIndent(indent));
+            sb.append(getIndent(indent)).append(")");
+
+            return sb.toString();
+        } else if (this.hasLogicalParent()) {
+            StringBuilder sb = new StringBuilder();
+
+            ArrayList<ParentedInvariantTree> variableNodes = this.getVariableNodes();
+            sb.append("{");
+            for (ParentedInvariantTree varNode : variableNodes) {
+                sb.append(varNode.getName());
+                sb.append(": ");
+                sb.append(varNode.getStatesForBranch(this.getBranchID()));
+                sb.append(" ");
+            }
+            sb.append("}");
+
+            return sb.toString();
+        } else {
+            return "";
+        }
+    }
 
 
 }

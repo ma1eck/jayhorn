@@ -91,30 +91,33 @@ public class SpacerProver implements Prover {
 //				params.add(":spacer.use_inductive_generalizer", false);
 //				params.add(":spacer.weak_abs", false);
 //				params.add(":validate", true);
-//				params.add(":engine", "spacer");
+				params.add(":engine", "spacer");
 //				params.add (":use_heavy_mev", true);
-//				params.add(":spacer.native_mbp", true);
-//				params.add (":reset_obligation_queue", true);
-//				params.add(":spacer.reset_pob_queue", true);
-//				params.add(":spacer.lemma_generalization", true);
-
-			params.add("engine", "spacer");
 			params.add("spacer.native_mbp", true);
+//			params.add("spacer.lemma_generalization", true);
 			params.add("spacer.reset_pob_queue", true);
+//			params.add(":reset_obligation_queue", true);
 
-//				params.add (":pdr.flexible_trace", false);
 				if (Options.v().solution){
-					// No pre-processing
-					params.add("xform.slice", false);
+					params.add("xform.slice", false); // very important
 //					params.add("xform.inline_linear", false);
 //					params.add("xform.inline_eager", false);
-//					params.add("xform.tail_simplifier_pve", false);
+
+					// Stronger, more informative invariants
+//					params.add(":spacer.use_inductive_generalizer", true);
+//					params.add(":spacer.weak_abs", false);
+//					params.add(":validate", true);
+//					params.add(":pdr.flexible_trace", true);
+				}else {
+					// Performance mode: let Spacer use fast defaults
+					params.add(":spacer.weak_abs", true);   // faster, less precise
+					params.add(":pdr.flexible_trace", false);
 				}
 //				params.add (":pdr.utvpi", false);
 			    //params.set (":pdr.flexible_trace", FlexTrace);
 
 			    // -- disable propagate_variable_equivalences in tail_simplifier
-			    params.add (":xform.tail_simplifier_pve", false);
+//			    params.add (":xform.tail_simplifier_pve", false);
 			    //params.set (":xform.subsumption_checker", Subsumption);
 //			    params.add (":order_children", HornChildren ? 1U : 0U);
 //			    params.add (":pdr.max_num_contexts", PdrContexts);
@@ -1633,22 +1636,21 @@ public class SpacerProver implements Prover {
 				if (finalInvariant != null) {
 					if (argNames != null && argNames.length > 0) {
 						Expr invariantMapped = exprReplaceIndexedArgs(finalInvariant, relationName, argNames, argSorts);
-//						InvariantTree invTree = exprToInvTree(invariantMapped);
-//						String invariantStr = invariantMapped.toString();
 						InvariantTree invTree = Parser.convertExpr(invariantMapped);
-//						if (relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")){
-////							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
-//							try {
-//								ASTHelper.writeJsonToFile(invTree, "./invariantTreeJsons/" + "Alternating-Step-Schedule" + relationName );
-//							} catch (IOException e) {
-//								throw new RuntimeException(e);
-//							}
-//						}
+						if (relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_1")){
+							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
+							try {
+								ASTHelper.writeJsonToFile(invTree, "./invariantTreeJsons/" + "Clamped-Triangular-Drift" + relationName );
+							} catch (IOException e) {
+								throw new RuntimeException(e);
+							}
+						}
 
 
 
 						String invariantStr = invTree.toPrettyString();
 						result.append(invariantStr).append("\n");
+//						result.append(finalInvariant).append("\n");
 					}
 				}
 
