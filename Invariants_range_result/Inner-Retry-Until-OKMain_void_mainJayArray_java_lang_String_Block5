@@ -1,3 +1,33 @@
+================== input tree ==================
+
+AND(
+  NOT(
+    FP_SIGN(
+      v17:DOUBLE
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([51, 0]
+        FP_MANTISSA(
+          v17:DOUBLE
+                )
+            ),
+      #x0000000000000
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          v17:DOUBLE
+                ),
+        #b11111111111
+            )
+        )
+    )
+)
+================== output ==================
+============================================
+
 ================== tree format ==================
 
 AND({v17: [FloatingPointLiteralValue{sign=null, exponent=00001000010, mantissa=null} (The result is exact: [-1.6418147205193503e-288, -8.209073602596753e-289] + [8.209073602596753e-289, 1.6418147205193503e-288])] }

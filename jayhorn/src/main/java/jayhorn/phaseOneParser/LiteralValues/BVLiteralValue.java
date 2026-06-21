@@ -80,7 +80,11 @@ public class BVLiteralValue implements StateValue {
 
     @Override
     public BVLiteralValue copy() {
-        return new BVLiteralValue((ArrayList<BoolLiteralValue>) (state.clone()));
+        ArrayList<BoolLiteralValue> newList = new ArrayList<>(state.size());
+        for (BoolLiteralValue bit : state) {
+            newList.add(bit.copy());
+        }
+        return new BVLiteralValue(newList);
     }
 
     @Override

@@ -1,3 +1,96 @@
+================== input tree ==================
+
+AND(
+  NOT(
+    FP_SIGN(
+      v14:DOUBLE
+        )
+    ),
+  NOT(
+    GE(
+      v15:INTEGER,
+      3
+        )
+    ),
+  NOT(
+    LE(
+      v15:INTEGER,
+      -1
+        )
+    ),
+  OR(
+    EQ(
+      v14:DOUBLE,
+      DOUBLE{s=false, e=0, m=0}
+        ),
+    NOT(
+      LE(
+        v15:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([10]
+        FP_EXPONENT(
+          v14:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        v14:DOUBLE
+            ),
+      #b10000000000
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([10]
+        FP_EXPONENT(
+          v14:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          v14:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          v14:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      v14:DOUBLE,
+      DOUBLE{s=false, e=1024, m=6755399441055744}
+        )
+    ),
+  OR(
+    NOT(
+      LE(
+        v15:INTEGER,
+        1
+            )
+        ),
+    NOT(
+      BIT2BOOL([10]
+        FP_EXPONENT(
+          v14:DOUBLE
+                )
+            )
+        )
+    )
+)
+================== output ==================
+============================================
+
 ================== tree format ==================
 
 AND({v14: [FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998])] v15: [{[2,2147483647]}] }

@@ -582,7 +582,7 @@ AND({v16: [FloatingPointLiteralValue{sign=0, exponent=000000000000010000000010, 
         )
     ),
   OR({v16: [FloatingPointLiteralValue{sign=null, exponent=10000000010, mantissa=null} (The result is exact: [-15.999999999999998, -8.0] + [8.0, 15.999999999999998])] }
-    NOT({v16: [FloatingPointLiteralValue{sign=null, exponent=1000000000?, mantissa=null} (The result is exact: [-7.999999999999999, -2.0] + [2.0, 7.999999999999999]), FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998])] }
+    NOT({v16: [FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998]), FloatingPointLiteralValue{sign=null, exponent=1000000000?, mantissa=null} (The result is exact: [-7.999999999999999, -2.0] + [2.0, 7.999999999999999])] }
       BVULE(
         #b10000000010,
         FP_EXPONENT(
@@ -1151,7 +1151,7 @@ AND({v16: [FloatingPointLiteralValue{sign=0, exponent=000000000000010000000010, 
 AND(
   {v16: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] },
   OR(
-    {v16: [FloatingPointLiteralValue{sign=null, exponent=1000000000?, mantissa=null} (The result is exact: [-7.999999999999999, -2.0] + [2.0, 7.999999999999999]), FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998])] },
+    {v16: [FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998]), FloatingPointLiteralValue{sign=null, exponent=1000000000?, mantissa=null} (The result is exact: [-7.999999999999999, -2.0] + [2.0, 7.999999999999999])] },
     {v16: [FloatingPointLiteralValue{sign=null, exponent=10000000010, mantissa=null} (The result is exact: [-15.999999999999998, -8.0] + [8.0, 15.999999999999998])] }
     ),
   OR(

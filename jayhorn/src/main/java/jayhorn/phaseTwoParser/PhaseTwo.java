@@ -197,7 +197,7 @@ public class PhaseTwo {
     }
 
     private static void logUnsupportedOperationMessage(OpType opType) {
-        Log.error("Phase2. the "+ opType.toString() +"operation is not suppoerted yet.");
+        Log.error("Phase2. the "+ opType.toString() +"operation is not supported yet.");
     }
 
     private static void handleMANTISSA(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
@@ -290,7 +290,7 @@ public class PhaseTwo {
         if (child1.getType() == VarType.BITVECTOR
                 && child2.getType() == VarType.BITVECTOR) {
             for (StateValue enforcedState: enforcedStates){
-                List<BVLiteralValue>[] result = getBVULEReversingResults(tree, enforcedState);
+                List<StateValue>[] result = getBVULEReversingResults(tree, enforcedState);
 //                List<StateValue> result = getBVBinaryLogicalReversingResults(tree, enforcedState, seenBranches, "Reverse_BVs_ULE");
                 newEnforceStates1.addAll(result[0]);
                 newEnforceStates2.addAll(result[1]);
@@ -1465,15 +1465,13 @@ public class PhaseTwo {
         return null;
     }
 
-    private static List<BVLiteralValue>[] getBVULEReversingResults(ParentedInvariantTree tree, StateValue enforcedState) {
+    private static ArrayList<StateValue>[] getBVULEReversingResults(ParentedInvariantTree tree, StateValue enforcedState) {
         List<BVLiteralValue>[] outs = new List[2];
         outs[0] = new ArrayList<BVLiteralValue>();
         outs[1] = new ArrayList<BVLiteralValue>();
         if (enforcedState instanceof BoolLiteralValue) {
             BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
             boolean enforced = enforcedBool.getValue(); // assuming it's true or false
-            String enforcedStr = "true";
-            if (!enforced) enforcedStr = "false";
 
             ParentedInvariantTree child1 = tree.getChildren().get(0);
             ParentedInvariantTree child2 = tree.getChildren().get(1);
@@ -1482,28 +1480,11 @@ public class PhaseTwo {
                     && child2.getType() == VarType.BITVECTOR) {
                 BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
                 BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
-                String value1 = bvValue1.getValueStr();
-                String value2 = bvValue2.getValueStr();
-                String mask1 = bvValue1.getMaskStr();
-                String mask2 = bvValue2.getMaskStr();
 
-                List<String> out = outBVULEFirstAnswer(String.valueOf(value1), String.valueOf(mask1),
-                        String.valueOf(value2), String.valueOf(mask2),
-                        enforcedStr
-                );
-                saveToOut(out, outs);
-
-                out = outBVULESecondAnswer(String.valueOf(value1), String.valueOf(mask1),
-                        String.valueOf(value2), String.valueOf(mask2),
-                        enforcedStr
-                );
-                saveToOut(out, outs);
-
-                outs[0] = mergeBVStates(outs[0]);
-                outs[1] = mergeBVStates(outs[1]);
+                ArrayList<StateValue>[] outBVULEAnswers = outBVULEAllAnswers(bvValue1, bvValue2, enforced);
 
 
-                return  outs;
+                return  outBVULEAnswers;
             }
         }
         return null;
@@ -1556,6 +1537,166 @@ public class PhaseTwo {
             outs[1].add(enforcedBV2);
         }
     }
+
+    private static ArrayList<StateValue>[] outBVULEAllAnswers(
+            BVLiteralValue left, BVLiteralValue right, Boolean enforce) {
+
+        String value1 = left.getValueStr();
+        String mask1  = left.getMaskStr();
+        String value2 = right.getValueStr();
+        String mask2  = right.getMaskStr();
+
+        boolean leftFixed  = !mask1.contains("0");
+        boolean rightFixed = !mask2.contains("0");
+
+        if (!leftFixed && !rightFixed) {
+            throw new RuntimeException("At least one side must be fixed.");
+        }
+
+        ArrayList<StateValue> lhsAnswers = new ArrayList<>();
+        ArrayList<StateValue> rhsAnswers = new ArrayList<>();
+
+        if (leftFixed) {
+            lhsAnswers.add(left.copy());
+            rhsAnswers = computeFlexibleSide(value1, value2, mask2, enforce, true);
+            if (enforce) rhsAnswers.add(left.copy()); // equality case
+        } else {
+            rhsAnswers.add(right.copy());
+            lhsAnswers = computeFlexibleSide(value2, value1, mask1, enforce, false);
+            if (enforce) lhsAnswers.add(right.copy()); // equality case
+        }
+
+        ArrayList<StateValue>[] result = new ArrayList[2];
+        result[0] = lhsAnswers;
+        result[1] = rhsAnswers;
+        return result;
+    }
+
+    /**
+     * Computes valid assignments for the flexible (unknown) side of a BVULE constraint.
+     *
+     * @param fixed      bit-string of the fixed side
+     * @param flexValue  value bits of the flexible side
+     * @param flexMask   mask bits of the flexible side (0 = unknown, 1 = known)
+     * @param enforce    true  => fixed <= flexible (flexible must be >= fixed)
+     *                   false => fixed >  flexible (flexible must be <  fixed)
+     * @param fixedIsLHS true when fixed side is LHS of the original BVULE expression
+     */
+    private static ArrayList<StateValue> computeFlexibleSide(
+            String fixed, String flexValue, String flexMask,
+            boolean enforce, boolean fixedIsLHS) {
+
+        ArrayList<StateValue> answers = new ArrayList<>();
+        int n = fixed.length();
+
+        // When fixedIsLHS:  enforce => fixed <= flex  => flex >= fixed
+        //                  !enforce => fixed >  flex  => flex <  fixed
+        // When !fixedIsLHS: enforce => flex <= fixed  => flex <= fixed  (flex is LHS)
+        //                  !enforce => flex >  fixed  => flex >  fixed
+        // In both cases, after normalising, we want:
+        //   enforce  => flex should be made >= fixed
+        //   !enforce => flex should be made <  fixed
+        boolean flexShouldBeGreater = enforce == fixedIsLHS;
+
+        for (int i = 0; i < n; i++) {
+            char f  = fixed.charAt(i);
+            char fv = flexValue.charAt(i);
+            char fm = flexMask.charAt(i);
+
+            if (fm == '1') {
+                // This bit is already known
+                if (fv == f) continue; // still equal, keep scanning
+
+                if (flexShouldBeGreater) {
+                    // flex > fixed at this bit: done (remaining bits can be anything)
+                    if (fv == '1' && f == '0') { answers.add(bvuleCopyPrefix(fixed, flexValue, flexMask, i)); }
+                    // flex < fixed at this bit: impossible to satisfy
+                    break;
+                } else {
+                    // flex < fixed at this bit: done
+                    if (fv == '0' && f == '1') { answers.add(bvuleCopyPrefix(fixed, flexValue, flexMask, i)); }
+                    // flex > fixed at this bit: impossible to satisfy
+                    break;
+                }
+            } else {
+                // This bit is unknown — set it to make the comparison go the right way
+                char targetBit = flexShouldBeGreater ? '1' : '0';
+                // Only useful if fixed bit agrees with the direction we need
+                if (flexShouldBeGreater && f == '0') {
+                    // Setting flex[i] = 1 makes flex > fixed here; remaining bits free
+                    answers.add(bvuleSetBit(fixed, flexValue, flexMask, i, targetBit));
+                } else if (!flexShouldBeGreater && f == '1') {
+                    // Setting flex[i] = 0 makes flex < fixed here; remaining bits free
+                    answers.add(bvuleSetBit(fixed, flexValue, flexMask, i, targetBit));
+                }
+                // If f == targetBit, setting flex[i] = targetBit keeps them equal — continue scanning
+            }
+        }
+
+        return answers;
+    }
+
+    private static BVLiteralValue bvuleCopyPrefix(
+            String fixed,
+            String value,
+            String mask,
+            int index
+    ) {
+
+        char[] v = value.toCharArray();
+        char[] m = mask.toCharArray();
+
+        for (int i = 0; i <= index; i++) {
+            v[i] = fixed.charAt(i);
+            m[i] = '1';
+        }
+
+        return BVLiteralValue.mkBVLiteralValue(
+                new String(v),
+                new String(m)
+        );
+    }
+    private static BVLiteralValue bvuleSetBit(
+            String fixed,
+            String value,
+            String mask,
+            int index,
+            char bit
+    ) {
+
+        char[] v = value.toCharArray();
+        char[] m = mask.toCharArray();
+
+        for (int i = 0; i < index; i++) {
+            v[i] = fixed.charAt(i);
+            m[i] = '1';
+        }
+
+        v[index] = bit;
+        m[index] = '1';
+
+        return BVLiteralValue.mkBVLiteralValue(
+                new String(v),
+                new String(m)
+        );
+    }
+
+
+
+    private static BVLiteralValue bvuleCopyPrefix(String value1, String value2, int i) { // return value1[:i-1]1?????
+        ArrayList<BoolLiteralValue> booleanLiterals = new ArrayList<>();
+        for (int j = 0; j < i; j++) {
+            booleanLiterals.add(new BoolLiteralValue(value1.charAt(j) == '1'));
+        }
+        booleanLiterals.add(new BoolLiteralValue(true));
+        for (int j = i +1; j< value2.length(); j++) {
+            booleanLiterals.add(new BoolLiteralValue(GBool.UNKNOWN));
+        }
+        Collections.reverse(booleanLiterals);
+        BVLiteralValue answer = new BVLiteralValue(booleanLiterals);
+        return answer;
+    }
+
 
     private static final String BVULE_FILE_NAME = "Reverse_BVs_ULE_v2";
     private static List<String> outBVULEFirstAnswer(String value1, String mask1,
