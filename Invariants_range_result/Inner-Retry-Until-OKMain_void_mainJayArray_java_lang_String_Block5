@@ -1,0 +1,37 @@
+================== tree format ==================
+
+AND({v17: [FloatingPointLiteralValue{sign=null, exponent=00001000010, mantissa=null} (The result is exact: [-1.6418147205193503e-288, -8.209073602596753e-289] + [8.209073602596753e-289, 1.6418147205193503e-288])] }
+  NOT({v17: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] }
+    FP_SIGN(
+      v17:DOUBLE
+        )
+    ),
+  OR({v17: [FloatingPointLiteralValue{sign=null, exponent=00001000010, mantissa=null} (The result is exact: [-1.6418147205193503e-288, -8.209073602596753e-289] + [8.209073602596753e-289, 1.6418147205193503e-288])] }
+    EQ({v17: [FloatingPointLiteralValue{sign=null, exponent=null, mantissa=?0000000000000000000000000000000000000000000000000000} (The result is not exact: [-inf, inf])] }
+      BVEXTRACT([51, 0]
+        FP_MANTISSA(
+          v17:DOUBLE
+                )
+            ),
+      #x0000000000000
+        ),
+    NOT({v17: [FloatingPointLiteralValue{sign=null, exponent=00001000010, mantissa=null} (The result is exact: [-1.6418147205193503e-288, -8.209073602596753e-289] + [8.209073602596753e-289, 1.6418147205193503e-288])] }
+      EQ(
+        FP_EXPONENT(
+          v17:DOUBLE
+                ),
+        #b11111111111
+            )
+        )
+    )
+)
+
+================== CNF format ==================
+
+AND(
+  {v17: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] },
+  OR(
+    {v17: [FloatingPointLiteralValue{sign=null, exponent=null, mantissa=?0000000000000000000000000000000000000000000000000000} (The result is not exact: [-inf, inf])] },
+    {v17: [FloatingPointLiteralValue{sign=null, exponent=00001000010, mantissa=null} (The result is exact: [-1.6418147205193503e-288, -8.209073602596753e-289] + [8.209073602596753e-289, 1.6418147205193503e-288])] }
+    )
+)

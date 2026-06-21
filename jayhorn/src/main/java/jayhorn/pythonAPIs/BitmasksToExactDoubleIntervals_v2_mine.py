@@ -77,15 +77,15 @@ def bitmask_range_to_intervals(E_val, E_mask, M_val, M_mask,
                         zero = -0.0 if s else 0.0
                         intervals.append((zero, zero))
                         if m_end > 0:
-                            intervals.append(
-                                (subnormal_value(1, s),
-                                 subnormal_value(m_end, s))
-                            )
+                            sv1 = subnormal_value(1,     s)
+                            sve = subnormal_value(m_end, s)
+                            lo, hi = (sve, sv1) if s == 1 else (sv1, sve)
+                            intervals.append((lo, hi))
                     else:
-                        intervals.append(
-                            (subnormal_value(m_start, s),
-                             subnormal_value(m_end, s))
-                        )
+                        sv_s = subnormal_value(m_start, s)
+                        sv_e = subnormal_value(m_end,   s)
+                        lo, hi = (sv_e, sv_s) if s == 1 else (sv_s, sv_e)
+                        intervals.append((lo, hi))
                 elif e == EXP_MAX:
                     # Infinities / NaNs
                     if m_start == 0 and m_end == 0:
@@ -94,10 +94,11 @@ def bitmask_range_to_intervals(E_val, E_mask, M_val, M_mask,
                     else:
                         intervals.append((float('nan'), float('nan')))
                 else:
-                    intervals.append(
-                        (normal_value(e, m_start, s),
-                         normal_value(e, m_end, s))
-                    )
+                    lo = normal_value(e, m_start, s)
+                    hi = normal_value(e, m_end,   s)
+                    if s == 1:
+                        lo, hi = hi, lo
+                    intervals.append((lo, hi))
 
     return merge_intervals(intervals)
 
@@ -432,6 +433,8 @@ def is_exact_mantissa_case(M_mask):
     free_bits = M_mask & ((1 << 52) - 1)
     n_free = popcount(free_bits)
     return is_suffix_mask(M_mask)
+def is_exact_exponent_case(E_mask):
+    return E_mask == 0
 
 def min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val=0, S_mask=-1):
     if EXPLICIT_BITS: 
@@ -534,15 +537,15 @@ def bitmask_range_to_intervals_explicit(E_val, E_mask, M_val_53, M_mask_53,
                         zero = -0.0 if s else 0.0
                         intervals.append((zero, zero))
                         if m_end > 0:
-                            intervals.append(
-                                (subnormal_value(1, s),
-                                 subnormal_value(m_end, s))
-                            )
+                            sv1 = subnormal_value(1,     s)
+                            sve = subnormal_value(m_end, s)
+                            lo, hi = (sve, sv1) if s == 1 else (sv1, sve)
+                            intervals.append((lo, hi))
                     else:
-                        intervals.append(
-                            (subnormal_value(m_start, s),
-                             subnormal_value(m_end, s))
-                        )
+                        sv_s = subnormal_value(m_start, s)
+                        sv_e = subnormal_value(m_end,   s)
+                        lo, hi = (sv_e, sv_s) if s == 1 else (sv_s, sv_e)
+                        intervals.append((lo, hi))
                 elif e == EXP_MAX:
                     # Infinities / NaNs
                     if m_start == 0 and m_end == 0:
@@ -551,10 +554,11 @@ def bitmask_range_to_intervals_explicit(E_val, E_mask, M_val_53, M_mask_53,
                     else:
                         intervals.append((float('nan'), float('nan')))
                 else:
-                    intervals.append(
-                        (normal_value(e, m_start, s),
-                         normal_value(e, m_end, s))
-                    )
+                    lo = normal_value(e, m_start, s)
+                    hi = normal_value(e, m_end,   s)
+                    if s == 1:
+                        lo, hi = hi, lo
+                    intervals.append((lo, hi))
 
     # return merge_intervals(intervals)
     return (intervals)
@@ -565,7 +569,9 @@ def bitmask_range_to_intervals_explicit(E_val, E_mask, M_val_53, M_mask_53,
 # ----------------------------------------------------------------------
 def min_max_for_mask_explicit(E_val, E_mask, M_val_53, M_mask_53, S_val=0, S_mask=-1):
     """
-    Compute only the overall min and max value obtainable using explicit bits.
+    Compute the overall min and max value obtainable using explicit bits.
+    Returns up to two numeric intervals if both negative and positive values exist,
+    plus a NaN interval if NaNs are possible.
     """
     intervals = bitmask_to_intervals_explicit(E_val, E_mask, M_val_53, M_mask_53, S_val, S_mask)
     if not intervals:
@@ -576,12 +582,33 @@ def min_max_for_mask_explicit(E_val, E_mask, M_val_53, M_mask_53, S_val=0, S_mas
 
     result = []
     if numeric:
-        lo = min(iv[0] for iv in numeric)
-        hi = max(iv[1] for iv in numeric)
-        result.append((lo, hi))
+        negative = [iv for iv in numeric if iv[1] < 0]
+        positive = [iv for iv in numeric if iv[0] > 0]
+        mixed    = [iv for iv in numeric if iv[0] <= 0 <= iv[1]]
+
+        if mixed:
+            # At least one interval spans zero — merge everything into one
+            lo = min(iv[0] for iv in numeric)
+            hi = max(iv[1] for iv in numeric)
+            result.append((lo, hi))
+        else:
+            if negative:
+                lo = min(iv[0] for iv in negative)
+                hi = max(iv[1] for iv in negative)
+                result.append((lo, hi))
+            if positive:
+                lo = min(iv[0] for iv in positive)
+                hi = max(iv[1] for iv in positive)
+                result.append((lo, hi))
+
     if has_nan:
         result.append((float('nan'), float('nan')))
+
     return result
+
+
+def is_mantissa_all_free(M_mask):
+    return M_mask == (1 << 53) - 1
 
 
 def test2():
@@ -630,7 +657,10 @@ if __name__ == "__main__":
     # print(E_val, E_mask, M_val, M_mask, S_val, S_mask)
     S_mask = 1 - S_mask # invert mask to get free bits
 
-    if not is_exact_mantissa_case(M_mask):
+    if (is_mantissa_all_free(M_mask) and is_suffix_mask(E_mask)) or is_exact_exponent_case(E_mask):
+        is_exact_flag = True
+        intervals = min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val, S_mask)
+    elif not is_exact_mantissa_case(M_mask):
         is_exact_flag = False
         intervals = min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val, S_mask)
     else:

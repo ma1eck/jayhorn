@@ -251,31 +251,41 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+        String fileName = "Nested-Saturation-Then-ResetMain_void_mainJayArray_java_lang_String_Block2_1";
+
 //        ASTHelper.convertFloatBitmaskToIntervals(new FloatingPointLiteralValue(53, 11));
 
-        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
+//        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
 //        InvariantTree t1 = load("Batch-Conveyor-CounterMain_void_mainJayArray_java_lang_String_Block2_1");
 //        InvariantTree t1 = load("Bounded-Proportional-UpdateMain_void_mainJayArray_java_lang_String_Block2_1");
 //        InvariantTree t1 = load("Bounded-Reset-Linear-GrowthMain_void_mainJayArray_java_lang_String_Block2_1");
 //        InvariantTree t1 = load("Clamped-Triangular-DriftMain_void_mainJayArray_java_lang_String_Block2_1");
 //        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block5");
 //        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block2");
+//        InvariantTree t1 = load("Nested-PingPong-with-CapsMain_void_mainJayArray_java_lang_String_Block2_1");
+
+        StringBuilder result = new StringBuilder();
+
+        InvariantTree t1 = load(fileName);
+        result.append("================== input tree ==================\n\n");
+        result.append(t1.toPrettyString()).append('\n');
+
 
         t1 = ASTHelper.cleaner(t1);
         ParentedInvariantTree pt1 = PhaseOne.parse(t1);
         pt1 = PhaseTwo.parse(pt1);
-
-        StringBuilder result = new StringBuilder();
+        result.append("================== output ==================\n");
+        result.append("============================================\n\n");
         result.append("================== tree format ==================\n\n");
         result.append(pt1.toRangedString()).append('\n');
         result.append("\n================== CNF format ==================\n\n");
         result.append(pt1.toRangedCNF());
 
-        saveResults(result);
+        saveResults(result, fileName);
     }
 
-    private static void saveResults(StringBuilder result) throws IOException {
-        String path = "variable ranges";
+    private static void saveResults(StringBuilder result, String file_name) throws IOException {
+        String path = "Invariants_range_result\\" + file_name;
         FileWriter myWriter = new FileWriter(path);
         myWriter.write(result.toString());
         myWriter.close();
