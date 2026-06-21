@@ -601,7 +601,7 @@ def test4():
 
 if __name__ == "__main__":
     # test4()
-    if len(sys.argv) != 7:
+    if len(sys.argv) != 7 and len(sys.argv) != 8:
         print("Error: expected E_val E_mask M_val M_mask S_val S_mask")
         sys.exit(1)
 
@@ -621,6 +621,11 @@ if __name__ == "__main__":
         S_mask = 1
     else:
         S_mask = int(sys.argv[6], 2)
+
+    if (len(sys.argv) == 8):
+        too_many_interval = int(sys.argv[7])
+        too_many_interval = 2049 if too_many_interval == -1 else too_many_interval
+        TOO_MANY_INTERVAL = too_many_interval
 
     # print(E_val, E_mask, M_val, M_mask, S_val, S_mask)
     S_mask = 1 - S_mask # invert mask to get free bits

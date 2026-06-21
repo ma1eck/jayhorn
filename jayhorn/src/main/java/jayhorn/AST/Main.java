@@ -2,11 +2,13 @@ package jayhorn.AST;
 
 import com.microsoft.z3.AST;
 import jayhorn.AST.Nodes.*;
+import jayhorn.Options;
 import jayhorn.phaseOneParser.LiteralValues.FloatingPointLiteralValue;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.phaseOneParser.PhaseOne;
 import jayhorn.phaseTwoParser.PhaseTwo;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 import static jayhorn.AST.Nodes.OperationNode.*;
@@ -236,12 +238,7 @@ public class Main {
         return mkBit2Bool(mkFPMantissa(d0_100_3), 50);
     }
     private static InvariantTree loadAlternating_Step_schedule_loop_invariant(){
-        try {
-            InvariantTree tree = ASTHelper.readJsonFromFile("invariantTreeJsons/Alternating-Step-ScheduleMain_void_mainJayArray_java_lang_String_Block2");
-            return tree;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return load("Alternating-Step-ScheduleMain_void_mainJayArray_java_lang_String_Block2");
     }
     private static InvariantTree load(String fileName){
         try {
@@ -256,20 +253,33 @@ public class Main {
     public static void main(String[] args) throws IOException {
 //        ASTHelper.convertFloatBitmaskToIntervals(new FloatingPointLiteralValue(53, 11));
 
-//        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
+        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
 //        InvariantTree t1 = load("Batch-Conveyor-CounterMain_void_mainJayArray_java_lang_String_Block2_1");
 //        InvariantTree t1 = load("Bounded-Proportional-UpdateMain_void_mainJayArray_java_lang_String_Block2_1");
 //        InvariantTree t1 = load("Bounded-Reset-Linear-GrowthMain_void_mainJayArray_java_lang_String_Block2_1");
-        InvariantTree t1 = load("Clamped-Triangular-DriftMain_void_mainJayArray_java_lang_String_Block2_1");
+//        InvariantTree t1 = load("Clamped-Triangular-DriftMain_void_mainJayArray_java_lang_String_Block2_1");
+//        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block5");
+//        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block2");
 
         t1 = ASTHelper.cleaner(t1);
         ParentedInvariantTree pt1 = PhaseOne.parse(t1);
         pt1 = PhaseTwo.parse(pt1);
 
-        System.out.println(pt1.toRangedString());
-        System.out.println(pt1.toRangedCNF());
+        StringBuilder result = new StringBuilder();
+        result.append("================== tree format ==================\n\n");
+        result.append(pt1.toRangedString()).append('\n');
+        result.append("\n================== CNF format ==================\n\n");
+        result.append(pt1.toRangedCNF());
+
+        saveResults(result);
+    }
+
+    private static void saveResults(StringBuilder result) throws IOException {
+        String path = "variable ranges";
+        FileWriter myWriter = new FileWriter(path);
+        myWriter.write(result.toString());
+        myWriter.close();
     }
 
 
-
-    }
+}

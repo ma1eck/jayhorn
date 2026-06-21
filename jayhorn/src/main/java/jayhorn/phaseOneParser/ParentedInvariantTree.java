@@ -487,15 +487,15 @@ public class ParentedInvariantTree extends InvariantTree {
                 sb.append("]");
             }
 
-            ArrayList<ParentedInvariantTree> variableNodes = this.getVariableNodes();
-            sb.append("{");
-            for (ParentedInvariantTree varNode : variableNodes) {
-                sb.append(varNode.getName());
-                sb.append(": ");
-                sb.append(varNode.getStatesForBranch(this.getBranchID()));
-                sb.append(" ");
-            }
-            sb.append("}");
+//            ArrayList<ParentedInvariantTree> variableNodes = this.getVariableNodes();
+//            sb.append("{");
+//            for (ParentedInvariantTree varNode : variableNodes) {
+//                sb.append(varNode.getName());
+//                sb.append(": ");
+//                sb.append(varNode.getStatesForBranch(this.getBranchID()));
+//                sb.append(" ");
+//            }
+//            sb.append("}");
 
 
             if (children.isEmpty()) {
