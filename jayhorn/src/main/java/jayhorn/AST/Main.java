@@ -252,7 +252,6 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        String fileName;
 //                = "Nested-Saturation-Then-ResetMain_void_mainJayArray_java_lang_String_Block2_1";
 
 //        ASTHelper.convertFloatBitmaskToIntervals(new FloatingPointLiteralValue(53, 11));
@@ -265,8 +264,14 @@ public class Main {
 //        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block5");
 //        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block2");
 //        InvariantTree t1 = load("Nested-PingPong-with-CapsMain_void_mainJayArray_java_lang_String_Block2_1");
+//            read_parse_save("Leak-and-RefillMain_void_mainJayArray_java_lang_String_Block2_1");
 
-        File folder = new File("Invariants_range_result");
+        runAllJsonTrees();
+    }
+
+    private static void runAllJsonTrees() throws IOException {
+        String fileName;
+        File folder = new File("invariantTreeJsons");
 
         File[] files = folder.listFiles();
 
