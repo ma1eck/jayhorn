@@ -2,8 +2,7 @@ package jayhorn.AST;
 
 
 import jayhorn.AST.Nodes.*;
-import jayhorn.phaseOneParser.LiteralValues.FloatingPointLiteralValue;
-import jayhorn.phaseOneParser.LiteralValues.StateValue;
+import jayhorn.phaseOneParser.LiteralValues.*;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.phaseTwoParser.PythonBridge;
 
@@ -835,4 +834,22 @@ public class ASTHelper {
         return out;
 
     }
+
+//    public static void main(String[] args) {
+//        BVLiteralValue bvl = new BVLiteralValue(53);
+////        for (int i=0; i<50; i++){
+////            bvl.setBit(i, GBool.FALSE);
+////        }
+//        bvl.setBit(52, GBool.TRUE);
+//        bvl.setBit(51, GBool.TRUE);
+//        bvl.setBit(50, GBool.TRUE);
+//        System.out.println(bvl.getMaskStr());
+//
+//
+//        FloatingPointLiteralValue copy = FloatingPointLiteralValue.createMantissaOnly(bvl);
+//        if (copy.sign == null) copy.setSign(new BoolLiteralValue());
+//        if (copy.exponent == null) copy.setExponent(new BVLiteralValue(11));
+//        if (copy.mantissa == null) copy.setMantissa(new BVLiteralValue(53));
+//        System.out.println(convertFloatBitmaskToIntervals(copy));
+//    }
 }

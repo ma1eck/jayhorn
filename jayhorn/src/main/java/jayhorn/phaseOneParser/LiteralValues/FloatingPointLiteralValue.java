@@ -142,8 +142,8 @@ public class FloatingPointLiteralValue implements StateValue {
     public String getRangeFormat(){
         FloatingPointLiteralValue copy = this.copy();
         if (copy.sign == null) copy.setSign(new BoolLiteralValue());
-        if (copy.exponent == null) copy.setExponent(new BVLiteralValue(53));
-        if (copy.mantissa == null) copy.setMantissa(new BVLiteralValue(24));
+        if (copy.exponent == null) copy.setExponent(new BVLiteralValue(11));
+        if (copy.mantissa == null) copy.setMantissa(new BVLiteralValue(53));
         List<String> outputs = ASTHelper.convertFloatBitmaskToIntervals(copy);
 
         String message = outputs.get(outputs.size()-1);

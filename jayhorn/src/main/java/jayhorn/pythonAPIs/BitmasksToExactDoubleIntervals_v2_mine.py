@@ -651,24 +651,25 @@ if __name__ == "__main__":
 
     if (len(sys.argv) == 8):
         too_many_interval = int(sys.argv[7])
-        too_many_interval = 2049 if too_many_interval == -1 else too_many_interval
+        too_many_interval = (2**11 * 2 + 5) if too_many_interval == -1 else too_many_interval
         TOO_MANY_INTERVAL = too_many_interval
 
     # print(E_val, E_mask, M_val, M_mask, S_val, S_mask)
     S_mask = 1 - S_mask # invert mask to get free bits
 
+    is_suffix_mask(M_mask)
     if (is_mantissa_all_free(M_mask) and is_suffix_mask(E_mask)) or is_exact_exponent_case(E_mask):
         is_exact_flag = True
         intervals = min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val, S_mask)
-    elif not is_exact_mantissa_case(M_mask):
-        is_exact_flag = False
-        intervals = min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val, S_mask)
-    else:
+    elif is_suffix_mask(M_mask):
         intervals = bitmask_to_intervals(E_val, E_mask, M_val, M_mask, S_val, S_mask)
         is_exact_flag = True
         if len(intervals) >= TOO_MANY_INTERVAL:
             is_exact_flag = False
             intervals = min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val, S_mask)
+    else:
+        is_exact_flag = False
+        intervals = min_max_for_mask(E_val, E_mask, M_val, M_mask, S_val, S_mask)
 
 
     for lo, hi in intervals:

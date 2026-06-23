@@ -278,7 +278,7 @@ public class PhaseTwo {
     }
 
     private static void handleBVULE(ParentedInvariantTree tree, StateValue enforcedState, ArrayList<Integer> seenBranches) {
-        bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_ULE_v2");
+        bvBinaryLogicalReversing(tree, enforcedState, seenBranches, "Reverse_BVs_ULE_v2"); // this is old version
     }
 
     private static void handleBVULE(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
