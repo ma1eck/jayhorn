@@ -540,6 +540,51 @@ public class PhaseTwo {
 
     }
 
+    private static void handleBVLSHR(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
+        ArrayList<StateValue> newEnforce1 = new ArrayList<>();
+        ArrayList<StateValue> newEnforce2 = new ArrayList<>();
+
+        ParentedInvariantTree child1 = tree.getChildren().get(0);
+        ParentedInvariantTree child2 = tree.getChildren().get(1);
+        if (child1.getType() == VarType.BITVECTOR
+                && child2.getType() == VarType.BITVECTOR) {
+            BVLiteralValue bvValue1 = (BVLiteralValue) child1.getStateValue();
+            BVLiteralValue bvValue2 = (BVLiteralValue) child2.getStateValue();
+            String value1 = bvValue1.getValueStr();
+            String value2 = bvValue2.getValueStr();
+            String mask1 = bvValue1.getMaskStr();
+            String mask2 = bvValue2.getMaskStr();
+
+
+            for (StateValue enforcedState: enforcedStates){
+                if (enforcedState instanceof BVLiteralValue) {
+                    BVLiteralValue enforcedBV = (BVLiteralValue) enforcedState;
+                    String enforcedValue = enforcedBV.getValueStr();
+                    String enforcedMask = enforcedBV.getMaskStr();
+
+                        List<String> out = PythonBridge.run("Reverse_shR",
+                                String.valueOf(value1.length()),
+                                String.valueOf(value1), String.valueOf(mask1),
+                                String.valueOf(value2), String.valueOf(mask2),
+                                String.valueOf(enforcedValue), String.valueOf(enforcedMask)
+                        );
+                        String A_v_r = out.get(0);
+                        String A_m_r = out.get(1);
+                        String B_v_r = out.get(2);
+                        String B_m_r = out.get(3);
+
+                        BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                        BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+                        newEnforce1.add(enforcedBV1);
+                        newEnforce2.add(enforcedBV2);
+                }
+            }
+            enforceState(child1, newEnforce1, seenBranches);
+            enforceState(child2, newEnforce2, seenBranches);
+        }
+
+    }
+
     private static void handleADD(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
         ArrayList<StateValue> newEnforce1 = new ArrayList<>();
         ArrayList<StateValue> newEnforce2 = new ArrayList<>();
@@ -1328,7 +1373,7 @@ public class PhaseTwo {
                     logUnsupportedOperationMessage(tree.getOpType());
                     break;
                 case BVLSHR:
-                    logUnsupportedOperationMessage(tree.getOpType());
+                    handleBVLSHR(tree, enforcedStates, seenBranches);
                     break;
                 case BVSHL:
                     logUnsupportedOperationMessage(tree.getOpType());

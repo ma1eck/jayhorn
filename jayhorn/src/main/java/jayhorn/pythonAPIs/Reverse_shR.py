@@ -1,3 +1,6 @@
+import sys
+from z3 import *
+
 def to_ternary(val, mask, width):
     bits = []
     for i in reversed(range(width)):
@@ -34,7 +37,7 @@ def refine_lshr_general(width, A_v, A_m, B_v, B_m, C_v, C_m):
             # For C[i] = A[i + k]
             val_a = get_bit(A_v, A_m, i + k) if (i + k < width) else 0
             val_c = get_bit(C_v, C_m, i)
-            
+
             # If both are known and don't match, this k is impossible
             if val_a is not None and val_c is not None and val_a != val_c:
                 consistent = False
@@ -69,7 +72,7 @@ def refine_lshr_general(width, A_v, A_m, B_v, B_m, C_v, C_m):
                 else:
                     # A[j] is shifted out, it could be 0 or 1
                     forced_vals.update([0, 1])
-            
+
             if len(forced_vals) == 1:
                 v = forced_vals.pop()
                 ref_A_m |= (1 << j)
@@ -92,18 +95,27 @@ def refine_lshr_general(width, A_v, A_m, B_v, B_m, C_v, C_m):
                 if v: ref_C_v |= (1 << i)
                 else: ref_C_v &= ~(1 << i)
 
-    return (ref_A_v, ref_A_m), (ref_B_v, ref_B_m), (ref_C_v, ref_C_m)
+    return ref_A_v, ref_A_m, ref_B_v, ref_B_m, ref_C_v, ref_C_m
 
+if __name__ == "__main__":
+    if len(sys.argv) != 8:
+        print("Error: expected width A_v A_m B_v B_m C_v_r C_m_r")
+        sys.exit(1)
 
-width = 4
-A = (0b0110, 0b1111) # 0?10
-B = (0b0000, 0b0000) # ????
-C = (0b0001, 0b0001) # ???1
+    width  = int(sys.argv[1])
+    A_v    = int(sys.argv[2], 2)
+    A_m    = int(sys.argv[3], 2)
+    B_v    = int(sys.argv[4], 2)
+    B_m    = int(sys.argv[5], 2)
+    C_v    = int(sys.argv[6], 2)
+    C_m    = int(sys.argv[7], 2)
 
-res = refine_lshr_general(width, A[0], A[1], B[0], B[1], C[0], C[1])
+    result = refine_lshr_general(width, A_v, A_m, B_v, B_m, C_v, C_m)
 
-if res:
-    (ra_v, ra_m), (rb_v, rb_m), (rc_v, rc_m) = res
-    print(f"Refined A: {to_ternary(ra_v, ra_m, width)}")
-    print(f"Refined B: {to_ternary(rb_v, rb_m, width)}")
-    print(f"Refined C: {to_ternary(rc_v, rc_m, width)}")
+    if result is None:
+        print("Error: Contradiction found, no valid shift fits the data.")
+        sys.exit(1)
+
+    A_v_r, A_m_r, B_v_r, B_m_r, C_v_r, C_m_r = result
+    fmt = f'0{width}b'
+    print(f"{format(A_v_r,fmt)},{format(A_m_r,fmt)},{format(B_v_r,fmt)},{format(B_m_r,fmt)}")
