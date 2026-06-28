@@ -419,7 +419,7 @@ public class ParentedInvariantTree extends InvariantTree {
 
         return sb.toString();
     }
-    private static final List<OpType> logicalOps = Arrays.asList(OpType.AND, OpType.OR);
+    private static final List<OpType> logicalOps = Arrays.asList(OpType.AND, OpType.OR /*, OpType.NOT */);
 
     public boolean hasLogicalParent() {
 
@@ -429,6 +429,20 @@ public class ParentedInvariantTree extends InvariantTree {
         for (ParentedInvariantTree parent: parents) {
             if (parent.getNodeType() == ParentedInvariantTree.NodeType.OPERATION
                     && logicalOps.contains(parent.getOpType())){
+                hasLogicalParent = true;
+                break;
+            }
+        }
+        return hasLogicalParent;
+    }
+    public boolean hasAndParent() {
+
+        List<ParentedInvariantTree> parents = this.getParents();
+
+        boolean hasLogicalParent = false;
+        for (ParentedInvariantTree parent: parents) {
+            if (parent.getNodeType() == ParentedInvariantTree.NodeType.OPERATION
+                    && parent.getOpType() == OpType.AND ){
                 hasLogicalParent = true;
                 break;
             }
@@ -474,7 +488,9 @@ public class ParentedInvariantTree extends InvariantTree {
             sb.append("\n").append(getIndent(indent));
             sb.append(getIndent(indent)).append(")");
             return sb.toString();
-        } else if (this.getNodeType() == NodeType.OPERATION && this.getOpType() == OpType.OR) {
+        } else if (this.getNodeType() == NodeType.OPERATION && this.getOpType() == OpType.OR
+//                || this.hasAndParent()
+        ) {
             StringBuilder sb = new StringBuilder();
             sb.append(opType.name());
             sb.append("(");

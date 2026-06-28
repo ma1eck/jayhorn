@@ -78,6 +78,12 @@ public class PhaseOne { // todo: add lots of if for safe casting
             case BVADD:
                 handleBVAdd(tree);
                 break;
+            case BVLSHR:
+                handleBVLSHR(tree);
+                break;
+            case BVMUL:
+                handleBVMul(tree);
+                break;
             case BVCONCAT:
                 handleConcat(tree);
                 break;
@@ -164,6 +170,35 @@ public class PhaseOne { // todo: add lots of if for safe casting
         String rightValue = rightBLV.getValueStr(); String rightMask = rightBLV.getMaskStr();
 
         String[] addResult = addGBitVector(leftValue, leftMask, rightValue, rightMask);
+        String resultValue = addResult[0]; String resultMask = addResult[1];
+        BVLiteralValue result = BVLiteralValue.mkBVLiteralValue(resultValue, resultMask);
+        tree.setStateValue(result);
+    }
+    private static void handleBVMul(ParentedInvariantTree tree) {
+        ParentedInvariantTree leftChild = tree.getChildren().get(0);
+        ParentedInvariantTree rightChild = tree.getChildren().get(1);
+        phase1(leftChild); phase1(rightChild);
+        BVLiteralValue leftBLV = ((BVLiteralValue) leftChild.getStateValue());
+        BVLiteralValue rightBLV = ((BVLiteralValue) rightChild.getStateValue());
+        String leftValue = leftBLV.getValueStr(); String leftMask = leftBLV.getMaskStr();
+        String rightValue = rightBLV.getValueStr(); String rightMask = rightBLV.getMaskStr();
+
+        String[] addResult = mulGBitVector(leftValue, leftMask, rightValue, rightMask);
+        String resultValue = addResult[0]; String resultMask = addResult[1];
+        BVLiteralValue result = BVLiteralValue.mkBVLiteralValue(resultValue, resultMask);
+        tree.setStateValue(result);
+    }
+
+    private static void handleBVLSHR(ParentedInvariantTree tree) {
+        ParentedInvariantTree leftChild = tree.getChildren().get(0);
+        ParentedInvariantTree rightChild = tree.getChildren().get(1);
+        phase1(leftChild); phase1(rightChild);
+        BVLiteralValue leftBLV = ((BVLiteralValue) leftChild.getStateValue());
+        BVLiteralValue rightBLV = ((BVLiteralValue) rightChild.getStateValue());
+        String leftValue = leftBLV.getValueStr(); String leftMask = leftBLV.getMaskStr();
+        String rightValue = rightBLV.getValueStr(); String rightMask = rightBLV.getMaskStr();
+
+        String[] addResult = lshrGBitVector(leftValue, leftMask, rightValue, rightMask);
         String resultValue = addResult[0]; String resultMask = addResult[1];
         BVLiteralValue result = BVLiteralValue.mkBVLiteralValue(resultValue, resultMask);
         tree.setStateValue(result);
@@ -486,6 +521,78 @@ public class PhaseOne { // todo: add lots of if for safe casting
 
         String pythonPath = "python";
         String scriptPath = "jayhorn/src/main/java/jayhorn/pythonAPIs/addGBitVector.py";
+        ProcessBuilder processBuilder = new ProcessBuilder(
+                pythonPath, scriptPath, aVal, aMask, bVal, bMask
+        );
+
+        // Redirect error stream so we can catch Python errors if they happen
+        processBuilder.redirectErrorStream(true);
+
+        // Read the output
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line = reader.readLine();
+            int exitCode = process.waitFor();
+
+            if (line != null && line.startsWith("WARNING")){
+                line = reader.readLine();
+                exitCode = process.waitFor();
+            }
+
+            if (exitCode != 0 || line == null || line.startsWith("Error")) {
+                throw new RuntimeException("Python script failed: " + line);
+            }
+
+            // Split the "value,mask" string returned by Python
+            return line.trim().split(",");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new String[]{"0", "0"};
+        }
+    }
+
+    public static String[] mulGBitVector(String aVal, String aMask,
+                                             String bVal, String bMask){
+
+        String pythonPath = "python";
+        String scriptPath = "jayhorn/src/main/java/jayhorn/pythonAPIs/mulGBitVector.py";
+        ProcessBuilder processBuilder = new ProcessBuilder(
+                pythonPath, scriptPath, aVal, aMask, bVal, bMask
+        );
+
+        // Redirect error stream so we can catch Python errors if they happen
+        processBuilder.redirectErrorStream(true);
+
+        // Read the output
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line = reader.readLine();
+            int exitCode = process.waitFor();
+
+            if (line != null && line.startsWith("WARNING")){
+                line = reader.readLine();
+                exitCode = process.waitFor();
+            }
+
+            if (exitCode != 0 || line == null || line.startsWith("Error")) {
+                throw new RuntimeException("Python script failed: " + line);
+            }
+
+            // Split the "value,mask" string returned by Python
+            return line.trim().split(",");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new String[]{"0", "0"};
+        }
+    }
+
+    public static String[] lshrGBitVector(String aVal, String aMask,
+                                             String bVal, String bMask){
+
+        String pythonPath = "python";
+        String scriptPath = "jayhorn/src/main/java/jayhorn/pythonAPIs/lshrGBitVector.py";
         ProcessBuilder processBuilder = new ProcessBuilder(
                 pythonPath, scriptPath, aVal, aMask, bVal, bMask
         );

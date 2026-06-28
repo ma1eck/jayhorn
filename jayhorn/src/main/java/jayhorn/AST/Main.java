@@ -226,6 +226,363 @@ public class Main {
 
         return result;
     }
+
+//NOT(
+//    EQ(
+//      BVEXTRACT([97, 97]
+//        BVLSHR(
+//          BVCONCAT(
+//            #b0,
+//            FP_MANTISSA(
+//              v52:DOUBLE
+//                        ),
+//            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                    ),
+//          BVCONCAT(
+//            #x0000000000000000000000000000000000000,
+//            BVADD(
+//              FP_EXPONENT(
+//                v56:DOUBLE
+//                            ),
+//              BVMUL(
+//                #b11111111111,
+//                FP_EXPONENT(
+//                  v52:DOUBLE
+//                                )
+//                            )
+//                        )
+//                    )
+//                )
+//            ),
+//      #b1
+//        )
+//    ),
+//  NOT(
+//    EQ(
+//      BVEXTRACT([97, 97]
+//        BVADD(
+//          BVCONCAT(
+//            BVEXTRACT([45, 0]
+//              FP_MANTISSA(
+//                v52:DOUBLE
+//                            )
+//                        ),
+//            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                    ),
+//          BVMUL(
+//            #b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111,
+//            BVEXTRACT([150, 0]
+//              BVLSHR(
+//                BVCONCAT(
+//                  #b0,
+//                  FP_MANTISSA(
+//                    v56:DOUBLE
+//                                    ),
+//                  #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                                ),
+//                BVCONCAT(
+//                  #x0000000000000000000000000000000000000,
+//                  BVADD(
+//                    BVMUL(
+//                      #b11111111111,
+//                      FP_EXPONENT(
+//                        v56:DOUBLE
+//                                            )
+//                                        ),
+//                    FP_EXPONENT(
+//                      v52:DOUBLE
+//                                        )
+//                                    )
+//                                )
+//                            )
+//                        )
+//                    )
+//                )
+//            ),
+//      #b1
+//        )
+//    ),
+//  NOT(
+//    EQ(
+//      BVEXTRACT([85, 85]
+//        BVADD(
+//          BVMUL(
+//            #b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111,
+//            BVEXTRACT([138, 0]
+//              BVLSHR(
+//                BVCONCAT(
+//                  #b0,
+//                  FP_MANTISSA(
+//                    v56:DOUBLE
+//                                    ),
+//                  #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                                ),
+//                BVCONCAT(
+//                  #x0000000000000000000000000000000000000,
+//                  BVADD(
+//                    BVMUL(
+//                      #b11111111111,
+//                      FP_EXPONENT(
+//                        v56:DOUBLE
+//                                            )
+//                                        ),
+//                    FP_EXPONENT(
+//                      v52:DOUBLE
+//                                        )
+//                                    )
+//                                )
+//                            )
+//                        )
+//                    ),
+//          BVCONCAT(
+//            BVEXTRACT([33, 0]
+//              FP_MANTISSA(
+//                v52:DOUBLE
+//                            )
+//                        ),
+//            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                    )
+//                )
+//            ),
+//      #b1
+//        )
+//    ),
+    private static InvariantTree eg2(){
+        return mkAnd(eg2_branch1(), eg2_branch2(), eg2_branch3());
+    }
+
+//    NOT(
+//    EQ(
+//      BVEXTRACT([97, 97]
+//        BVLSHR(
+//          BVCONCAT(
+//            #b0,
+//            FP_MANTISSA(
+//              v52:DOUBLE
+//                        ),
+//            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                    ),
+//          BVCONCAT(
+//            #x0000000000000000000000000000000000000,
+//            BVADD(
+//              FP_EXPONENT(
+//                v56:DOUBLE
+//                            ),
+//              BVMUL(
+//                #b11111111111,
+//                FP_EXPONENT(
+//                  v52:DOUBLE
+//                                )
+//                            )
+//                        )
+//                    )
+//                )
+//            ),
+//      #b1
+//        )
+//    ),
+    private static InvariantTree eg2_branch1(){
+        VariableNode v52 = new VariableNode("v52", VarType.DOUBLE);
+        VariableNode v56 = new VariableNode("v56", VarType.DOUBLE);
+        LiteralNode b0 = LiteralNode.getBVLiteral("#b0");
+        LiteralNode b1 = LiteralNode.getBVLiteral("#b1");
+        LiteralNode b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 = LiteralNode.getBVLiteral(
+                "#b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+        LiteralNode b11111111111 =
+                LiteralNode.getBVLiteral("#b11111111111");
+        LiteralNode x0000000000000000000000000000000000000 =
+                LiteralNode.getBVLiteral("#b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+
+        InvariantTree result =
+                mkNot(
+                        mkEq(
+                                mkExtract(97,97,
+                                        mkBvlshr(
+                                                mkConcat(b0, mkFPMantissa(v52), b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000),
+                                                mkConcat(x0000000000000000000000000000000000000,
+                                                        mkBVAdd(mkFPExponent(v56),
+                                                                mkBvmul(b11111111111, mkFPExponent(v52)))))),
+                                b1));
+
+        return result;
+    }
+
+//    NOT(
+//    EQ(
+//      BVEXTRACT([97, 97]
+//        BVADD(
+//          BVCONCAT(
+//            BVEXTRACT([45, 0]
+//              FP_MANTISSA(
+//                v52:DOUBLE
+//                            )
+//                        ),
+//            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                    ),
+//          BVMUL(
+//            #b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111,
+//            BVEXTRACT([150, 0]
+//              BVLSHR(
+//                BVCONCAT(
+//                  #b0,
+//                  FP_MANTISSA(
+//                    v56:DOUBLE
+//                                    ),
+//                  #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                                ),
+//                BVCONCAT(
+//                  #x0000000000000000000000000000000000000,
+//                  BVADD(
+//                    BVMUL(
+//                      #b11111111111,
+//                      FP_EXPONENT(
+//                        v56:DOUBLE
+//                                            )
+//                                        ),
+//                    FP_EXPONENT(
+//                      v52:DOUBLE
+//                                        )
+//                                    )
+//                                )
+//                            )
+//                        )
+//                    )
+//                )
+//            ),
+//      #b1
+//        )
+//    ),
+    private static InvariantTree eg2_branch2(){
+        VariableNode v52 = new VariableNode("v52", VarType.DOUBLE);
+        VariableNode v56 = new VariableNode("v56", VarType.DOUBLE);
+        LiteralNode b0 = LiteralNode.getBVLiteral("#b0");
+        LiteralNode b1 = LiteralNode.getBVLiteral("#b1");
+        LiteralNode b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 = LiteralNode.getBVLiteral(
+                "#b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+        LiteralNode b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 = LiteralNode.getBVLiteral(
+                "#b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+        LiteralNode b11111111111 =
+                LiteralNode.getBVLiteral("#b11111111111");
+        LiteralNode x0000000000000000000000000000000000000 =
+                LiteralNode.getBVLiteral("#b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+
+        InvariantTree result =
+                mkNot(
+                        mkEq(
+                                mkExtract(97,97,
+                                        mkBVAdd(
+                                                mkConcat(
+                                                        mkExtract(45, 0,
+                                                                mkFPMantissa(v52)),
+                                                        b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000),
+                                                mkBvmul(b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111,
+                                                        mkExtract(150, 0,
+                                                                mkBvlshr(
+                                                                        mkConcat(b0, mkFPMantissa(v56),b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000),
+                                                                        mkConcat(x0000000000000000000000000000000000000,
+                                                                                mkBVAdd(
+                                                                                        mkBvmul(b11111111111,
+                                                                                                mkFPExponent(v56)),
+                                                                                        mkFPExponent(v52))))))
+                                                )),
+                                b1));
+        return result;
+    }
+
+//  NOT(
+//    EQ(
+//      BVEXTRACT([85, 85]
+//        BVADD(
+//          BVMUL(
+//            #b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111,
+//            BVEXTRACT([138, 0]
+//              BVLSHR(
+//                BVCONCAT(
+//                  #b0,
+//                  FP_MANTISSA(
+//                    v56:DOUBLE
+//                                    ),
+//                  #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                                ),
+//                BVCONCAT(
+//                  #x0000000000000000000000000000000000000,
+//                  BVADD(
+//                    BVMUL(
+//                      #b11111111111,
+//                      FP_EXPONENT(
+//                        v56:DOUBLE
+//                                            )
+//                                        ),
+//                    FP_EXPONENT(
+//                      v52:DOUBLE
+//                                        )
+//                                    )
+//                                )
+//                            )
+//                        )
+//                    ),
+//          BVCONCAT(
+//            BVEXTRACT([33, 0]
+//              FP_MANTISSA(
+//                v52:DOUBLE
+//                            )
+//                        ),
+//            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//                    )
+//                )
+//            ),
+//      #b1
+//        )
+//    )
+    private static InvariantTree eg2_branch3(){
+        VariableNode v52 = new VariableNode("v52", VarType.DOUBLE);
+        VariableNode v56 = new VariableNode("v56", VarType.DOUBLE);
+        LiteralNode b0 = LiteralNode.getBVLiteral("#b0");
+        LiteralNode b1 = LiteralNode.getBVLiteral("#b1");
+        LiteralNode b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 = LiteralNode.getBVLiteral(
+                "#b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+        LiteralNode b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 = LiteralNode.getBVLiteral(
+                "#b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+        LiteralNode b11111111111 =
+                LiteralNode.getBVLiteral("#b11111111111");
+        LiteralNode x0000000000000000000000000000000000000 =
+                LiteralNode.getBVLiteral("#b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+
+        InvariantTree result =
+                mkNot(
+                        mkEq(
+                                mkExtract(85,85,
+                                        mkBVAdd(
+                                                mkBvmul(
+                                                        b1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111,
+                                                        mkExtract(138, 0,
+                                                                mkBvlshr(
+                                                                        mkConcat(
+                                                                                b0,
+                                                                                mkFPMantissa(v56),
+                                                                                b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                                                        ),
+                                                                        mkConcat(
+                                                                                x0000000000000000000000000000000000000,
+                                                                                mkBVAdd(
+                                                                                        mkBvmul(b11111111111,
+                                                                                                mkFPExponent(
+                                                                                                        v56
+                                                                                                )),
+                                                                                        mkFPExponent(v52)
+                                                                                )
+                                                                        )))),
+                                                mkConcat(
+                                                        mkExtract(33,0,
+                                                                mkFPMantissa(v52)),
+                                                        b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))),
+                                b1));
+        return result;
+    }
+
     private static InvariantTree eg1(){
         return mkAnd(eg1_left_side(), eg1_right_side());
     }
@@ -252,21 +609,9 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-//                = "Nested-Saturation-Then-ResetMain_void_mainJayArray_java_lang_String_Block2_1";
-
-//        ASTHelper.convertFloatBitmaskToIntervals(new FloatingPointLiteralValue(53, 11));
-
-//        InvariantTree t1 = loadAlternating_Step_schedule_loop_invariant();
-//        InvariantTree t1 = load("Batch-Conveyor-CounterMain_void_mainJayArray_java_lang_String_Block2_1");
-//        InvariantTree t1 = load("Bounded-Proportional-UpdateMain_void_mainJayArray_java_lang_String_Block2_1");
-//        InvariantTree t1 = load("Bounded-Reset-Linear-GrowthMain_void_mainJayArray_java_lang_String_Block2_1");
-//        InvariantTree t1 = load("Clamped-Triangular-DriftMain_void_mainJayArray_java_lang_String_Block2_1");
-//        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block5");
-//        InvariantTree t1 = load("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block2");
-//        InvariantTree t1 = load("Nested-PingPong-with-CapsMain_void_mainJayArray_java_lang_String_Block2_1");
-//            read_parse_save("Inner-Retry-Until-OKMain_void_mainJayArray_java_lang_String_Block5");
-
-        runAllJsonTrees();
+//        runAllJsonTrees();
+        InvariantTree t1 = eg2();
+        parse_print(t1);
     }
 
     private static void runAllJsonTrees() throws IOException {
@@ -285,10 +630,13 @@ public class Main {
         }
     }
 
-    private static void read_parse_save(String fileName) throws IOException {
+    private static void parse_print(InvariantTree t1){
         StringBuilder result = new StringBuilder();
+        parse_fillResult(t1, result);
+        System.out.println(result);
+    }
 
-        InvariantTree t1 = load(fileName);
+    private static void parse_fillResult(InvariantTree t1, StringBuilder result) {
         result.append("================== input tree ==================\n\n");
         result.append(t1.toPrettyString()).append('\n');
 
@@ -302,6 +650,13 @@ public class Main {
         result.append(pt1.toRangedString()).append('\n');
         result.append("\n================== CNF format ==================\n\n");
         result.append(pt1.toRangedCNF());
+    }
+
+    private static void read_parse_save(String fileName) throws IOException {
+        StringBuilder result = new StringBuilder();
+
+        InvariantTree t1 = load(fileName);
+        parse_fillResult(t1, result);
 
         saveResults(result, fileName);
     }

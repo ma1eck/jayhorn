@@ -2,9 +2,9 @@ from z3 import *
 import sys
 
 
-def infer_addition_result_mask(Avalue_str, Amask_str, Bvalue_str, Bmask_str):
+def infer_lshr_result_mask(Avalue_str, Amask_str, Bvalue_str, Bmask_str):
     """
-    Infer the most precise masked result of adding two masked bit-vectors.
+    Infer the most precise masked result of logical shift right of two masked bit-vectors.
 
     A bit is considered "known" if its corresponding mask bit is 1.
 
@@ -53,7 +53,7 @@ def infer_addition_result_mask(Avalue_str, Amask_str, Bvalue_str, Bmask_str):
             (a & Amask) == Avalue,
             (b & Bmask) == Bvalue
         ),
-        ((a + b) & R_mask) == R_val
+        ((a >> b) & R_mask) == R_val
     )
 
     opt.add(ForAll([a, b], implication))
@@ -73,6 +73,7 @@ def infer_addition_result_mask(Avalue_str, Amask_str, Bvalue_str, Bmask_str):
     return (
         f"{result_value:0{bit_width}b}",
         f"{result_mask:0{bit_width}b}"
+
     )
 
 
@@ -80,14 +81,12 @@ def infer_addition_result_mask(Avalue_str, Amask_str, Bvalue_str, Bmask_str):
 def test():
     example_input = [
         ("1010", "1111", "0000", "0000"),  # A=10 (known), B=0 (unknown)
-        ("1010", "1111", "0001", "1111")  # A=10 (known), B=1 (known)
-        # ("1010", "1111", "001?", "1110"),  # A=10 (known), B=0 or 1 (partially known)
-        # ("????", "0000", "????", "0000"),  # A and B completely unknown
+        ("1010", "1111", "0001", "1111"),  # A=10 (known), B=1 (known)
+        ("1010", "1111", "0000", "1110"),  # A=10 (known), B=0 or 1 (partially known)
+        ("0010", "1111", "0000", "1110")  
         ]
     for Avalue_str, Amask_str, Bvalue_str, Bmask_str in example_input:
-        result_value, result_mask = infer_addition_result_mask(
-            Avalue_str, Amask_str, Bvalue_str, Bmask_str
-        )
+        result_value, result_mask = infer_lshr_result_mask(Avalue_str, Amask_str, Bvalue_str, Bmask_str)
         print(f"A: {Avalue_str} (mask: {Amask_str}), "
               f"B: {Bvalue_str} (mask: {Bmask_str}) -> "
               f"Result: {result_value} (mask: {result_mask})")
@@ -98,5 +97,5 @@ if __name__ == "__main__":
         print("Error: Expected 4 arguments")
         sys.exit(1)
 
-    val, mask = infer_addition_result_mask(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    val, mask = infer_lshr_result_mask(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     print(f"{val},{mask}")
