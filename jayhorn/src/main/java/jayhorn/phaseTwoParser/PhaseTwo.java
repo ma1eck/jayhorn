@@ -887,10 +887,9 @@ public class PhaseTwo {
             } else if (child1.getType() == VarType.INTEGER
                     && child2.getType() == VarType.INTEGER) {
                 handleIntegerEQ(seenBranches, child1, child2, enforced);
-
             }
 
-        }
+        } // old code
     }
     private static void handleEQ(ParentedInvariantTree tree, ArrayList<StateValue> enforcedStates, ArrayList<Integer> seenBranches) {
         ArrayList<StateValue> newEnforceStates1 = new ArrayList<>();
@@ -905,9 +904,10 @@ public class PhaseTwo {
 
                 if (child1.getType() == VarType.BITVECTOR
                         && child2.getType() == VarType.BITVECTOR) {
-                     List<StateValue> result = getBVBinaryLogicalReversingResults(tree, enforcedState, seenBranches, "Reverse_BVs_EQ");
-                     newEnforceStates1.add(result.get(0));
-                     newEnforceStates2.add(result.get(1));
+                     List<StateValue>[] results = getBVEQReversingResults(tree, enforcedState,
+                             seenBranches);
+                     newEnforceStates1.addAll(results[0]);
+                     newEnforceStates2.addAll(results[1]);
                 } else if (child1.getType() == VarType.INTEGER
                         && child2.getType() == VarType.INTEGER) {
                     List<StateValue> result =  getIntegerEQResults(child1, child2, enforced);
@@ -1464,6 +1464,111 @@ public class PhaseTwo {
         }
         return null;
     }
+    private static ArrayList<StateValue>[] getBVEQReversingResults(ParentedInvariantTree tree, StateValue enforcedState,
+                                                 ArrayList<Integer> seenBranches) {
+        if (enforcedState instanceof BoolLiteralValue) {
+            BoolLiteralValue enforcedBool = (BoolLiteralValue) enforcedState;
+            boolean enforced = enforcedBool.getValue(); // assuming it's true or false
+            if (enforced) {
+                List<StateValue> reverseBVsEq = getBVBinaryLogicalReversingResults(tree, enforcedState,
+                        seenBranches, "Reverse_BVs_EQ");
+                ArrayList<StateValue>[] result = new ArrayList[2];
+                ArrayList<StateValue> lhsAnswers = new ArrayList<>();
+                lhsAnswers.add(reverseBVsEq.get(0));
+                ArrayList<StateValue> rhsAnswers = new ArrayList<>();
+                rhsAnswers.add(reverseBVsEq.get(1));
+                result[0] = lhsAnswers;
+                result[1] = rhsAnswers;
+                return result;
+            }
+
+            String enforcedStr = "false";
+
+            ParentedInvariantTree child1 = tree.getChildren().get(0);
+            ParentedInvariantTree child2 = tree.getChildren().get(1);
+
+            if (child1.getType() == VarType.BITVECTOR
+                    && child2.getType() == VarType.BITVECTOR) {
+                BVLiteralValue left = (BVLiteralValue) child1.getStateValue();
+                BVLiteralValue right = (BVLiteralValue) child2.getStateValue();
+                String value1 = left.getValueStr();
+                String value2 = right.getValueStr();
+                String mask1 = left.getMaskStr();
+                String mask2 = right.getMaskStr();
+
+
+                boolean leftFixed  = !mask1.contains("0");
+                boolean rightFixed = !mask2.contains("0");
+
+
+                if (!leftFixed && !rightFixed) {
+                    throw new RuntimeException("At least one side must be fixed."); // TODO: we actually can handle two flexible sides. implement it
+                }
+
+                ArrayList<StateValue> lhsAnswers = new ArrayList<>();
+                ArrayList<StateValue> rhsAnswers = new ArrayList<>();
+
+                if (leftFixed) {
+                    lhsAnswers.add(left.copy());
+                    rhsAnswers = reverseBVNEQComputeFlexibleSide(value2, value1, mask2, right);
+                } else {
+                    rhsAnswers.add(right.copy());
+                    lhsAnswers = reverseBVNEQComputeFlexibleSide(value1, value2, mask1, left);
+                }
+
+                ArrayList<StateValue>[] result = new ArrayList[2];
+                result[0] = lhsAnswers;
+                result[1] = rhsAnswers;
+                return result;
+            }
+        }
+        return null;
+    }
+
+    private static ArrayList<StateValue> reverseBVNEQComputeFlexibleSide(String flexValue, String fixed,
+                                                                         String flexMask, BVLiteralValue flexBV) {
+        ArrayList<StateValue> answers = new ArrayList<>();
+        int n = fixed.length();
+        for (int i=0; i<n; i++){
+            char f  = fixed.charAt(i);
+            char fv = flexValue.charAt(i);
+            char fm = flexMask.charAt(i);
+
+            if (fm == '1') {
+                if (fv == f) continue; // still equal, keep scanning
+                else{
+                    answers.clear();
+                    answers.add(flexBV.copy());
+                    return answers;
+                }
+
+            } else {
+                char targetBit = f == '0' ? '1' : '0';
+                answers.add(bvSetBit(flexValue, flexMask, i, targetBit));
+            }
+        }
+
+        return answers;
+    }
+    private static BVLiteralValue bvSetBit(
+            String value,
+            String mask,
+            int index,
+            char bit
+    ) {
+
+        char[] v = value.toCharArray();
+        char[] m = mask.toCharArray();
+
+        v[index] = bit;
+        m[index] = '1';
+
+        return BVLiteralValue.mkBVLiteralValue(
+                new String(v),
+                new String(m)
+        );
+    }
+
 
     private static ArrayList<StateValue>[] getBVULEReversingResults(ParentedInvariantTree tree, StateValue enforcedState) {
         List<BVLiteralValue>[] outs = new List[2];
@@ -1558,11 +1663,11 @@ public class PhaseTwo {
 
         if (leftFixed) {
             lhsAnswers.add(left.copy());
-            rhsAnswers = computeFlexibleSide(value1, value2, mask2, enforce, true);
+            rhsAnswers = reveserBVULEComputeFlexibleSide(value1, value2, mask2, enforce, true);
             if (enforce) rhsAnswers.add(left.copy()); // equality case
         } else {
             rhsAnswers.add(right.copy());
-            lhsAnswers = computeFlexibleSide(value2, value1, mask1, enforce, false);
+            lhsAnswers = reveserBVULEComputeFlexibleSide(value2, value1, mask1, enforce, false);
             if (enforce) lhsAnswers.add(right.copy()); // equality case
         }
 
@@ -1582,7 +1687,7 @@ public class PhaseTwo {
      *                   false => fixed >  flexible (flexible must be <  fixed)
      * @param fixedIsLHS true when fixed side is LHS of the original BVULE expression
      */
-    private static ArrayList<StateValue> computeFlexibleSide(
+    private static ArrayList<StateValue> reveserBVULEComputeFlexibleSide(
             String fixed, String flexValue, String flexMask,
             boolean enforce, boolean fixedIsLHS) {
 

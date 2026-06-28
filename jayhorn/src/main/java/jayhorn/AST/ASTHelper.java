@@ -829,6 +829,7 @@ public class ASTHelper {
                 String.valueOf(fp.getMantissa().getMaskStr()),
                 String.valueOf(fp.getSign().getValue()),
                 String.valueOf(fp.getSign().getMask()),
+//                String.valueOf(10) // TODO: make it an argument
                 String.valueOf(-1) // TODO: make it an argument
         );
         return out;
