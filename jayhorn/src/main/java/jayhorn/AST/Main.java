@@ -610,7 +610,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 //        runAllJsonTrees();
-        InvariantTree t1 = eg2();
+        InvariantTree t1 = mkAnd(mkOr( eg2_branch1()));
         parse_print(t1);
     }
 

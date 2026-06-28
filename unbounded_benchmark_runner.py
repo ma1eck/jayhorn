@@ -12,18 +12,20 @@ JAYHORN_JAR = r"C:\am21\Float_Z3_jayhorn\jayhorn\jayhorn\build\libs\jayhorn.jar"
 CSV_FILE_PATH = 'unbounded_benchmark_results.csv'
 
 
-TIMEOUT_SECONDS =  3*60
-MAX_WORKERS = 4
+TIMEOUT_SECONDS =  10*60
+MAX_WORKERS = 2
 
 LOOP_BASED = "loop-based"
 LOOP_FREE = "loop-free"
-ENCODINGS = [LOOP_BASED, LOOP_FREE]
-SOLVER = "eldarica"
-# SOLVER = "spacer"
+ENCODINGS = [LOOP_BASED
+            #  , LOOP_FREE
+             ]
+# SOLVER = "eldarica"
+SOLVER = "spacer"
 
 CEX_DIR_NAME = "counter examples or models"
 
-GET_CEX = True
+GET_CEX = False
 SKIP_TIMEOUTS = False
 
 NUMBER_OF_REPETITION = 1

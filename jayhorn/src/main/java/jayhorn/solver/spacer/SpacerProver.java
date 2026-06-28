@@ -1639,7 +1639,7 @@ public class SpacerProver implements Prover {
 						if (
 //								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_1")
 								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")
-								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block5")
+//								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block5")
 //								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block8")
 						){
 							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
