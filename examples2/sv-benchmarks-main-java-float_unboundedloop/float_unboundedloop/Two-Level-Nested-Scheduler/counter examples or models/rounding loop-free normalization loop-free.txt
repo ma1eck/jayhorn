@@ -143,24 +143,24 @@
                V)
              (and (not (>= T 3))
                   (or (sign S)
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
                       (not (<= I 0))
                       (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (sign S)
-                      (not (<= I 0))
-                      (= (exponent S) #b11111111111)
                       (not (bvule #b10000000010 (exponent S)))
-                      (= (exponent S) #b10000000010))
-                  (or (sign S)
                       (not (<= I 0))
+                      (= (exponent S) #b10000000010)
+                      (= (exponent S) #b11111111111))
+                  (or (sign S)
                       (not (= ((_ extract 51 0) (mantissa S)) #x0000000000000))
                       (not (bvule #b10000000010 (exponent S)))
+                      (not (<= I 0))
                       (= (exponent S) #b10000000010))
                   (>= T 0)
                   (>= U 0)
@@ -364,47 +364,48 @@
                V)
              (and (not (>= T 3))
                   (or (sign S)
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
                       (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (sign S)
-                      (= (exponent S) #b11111111111)
                       (not (bvule #b10000000010 (exponent S)))
-                      (= (exponent S) #b10000000010))
+                      (= (exponent S) #b10000000010)
+                      (= (exponent S) #b11111111111))
                   (or (sign S)
-                      ((_ bit2bool 6) (mantissa S))
-                      ((_ bit2bool 41) (mantissa S))
-                      ((_ bit2bool 10) (mantissa S))
-                      ((_ bit2bool 49) (mantissa S))
-                      ((_ bit2bool 8) (mantissa S))
-                      ((_ bit2bool 20) (mantissa S))
-                      ((_ bit2bool 50) (mantissa S))
-                      ((_ bit2bool 0) (mantissa S))
                       ((_ bit2bool 1) (mantissa S))
-                      ((_ bit2bool 38) (mantissa S))
-                      ((_ bit2bool 45) (mantissa S))
+                      ((_ bit2bool 37) (mantissa S))
                       ((_ bit2bool 51) (mantissa S))
-                      ((_ bit2bool 44) (mantissa S))
-                      ((_ bit2bool 35) (mantissa S))
-                      ((_ bit2bool 19) (mantissa S))
-                      ((_ bit2bool 14) (mantissa S))
-                      ((_ bit2bool 22) (mantissa S))
-                      ((_ bit2bool 24) (mantissa S))
-                      ((_ bit2bool 11) (mantissa S))
-                      ((_ bit2bool 48) (mantissa S))
-                      ((_ bit2bool 3) (mantissa S))
-                      ((_ bit2bool 5) (mantissa S))
-                      ((_ bit2bool 4) (mantissa S))
-                      ((_ bit2bool 2) (mantissa S))
-                      ((_ bit2bool 16) (mantissa S))
-                      ((_ bit2bool 7) (mantissa S))
+                      ((_ bit2bool 45) (mantissa S))
+                      ((_ bit2bool 10) (mantissa S))
+                      ((_ bit2bool 12) (mantissa S))
+                      ((_ bit2bool 21) (mantissa S))
+                      ((_ bit2bool 46) (mantissa S))
+                      ((_ bit2bool 49) (mantissa S))
+                      ((_ bit2bool 18) (mantissa S))
                       (not (bvule #b10000000010 (exponent S)))
                       ((_ bit2bool 23) (mantissa S))
+                      ((_ bit2bool 14) (mantissa S))
+                      ((_ bit2bool 24) (mantissa S))
+                      ((_ bit2bool 19) (mantissa S))
+                      ((_ bit2bool 41) (mantissa S))
+                      ((_ bit2bool 47) (mantissa S))
+                      (= (exponent S) #b10000000010)
+                      ((_ bit2bool 35) (mantissa S))
+                      ((_ bit2bool 15) (mantissa S))
+                      ((_ bit2bool 2) (mantissa S))
+                      ((_ bit2bool 48) (mantissa S))
+                      ((_ bit2bool 0) (mantissa S))
+                      ((_ bit2bool 38) (mantissa S))
+                      ((_ bit2bool 22) (mantissa S))
+                      ((_ bit2bool 36) (mantissa S))
+                      ((_ bit2bool 20) (mantissa S))
+                      ((_ bit2bool 3) (mantissa S))
+                      ((_ bit2bool 9) (mantissa S))
                       ((_ bit2bool 17) (mantissa S))
                       ((_ bit2bool 32) (mantissa S))
                       ((_ bit2bool 31) (mantissa S))
@@ -414,23 +415,22 @@
                       ((_ bit2bool 30) (mantissa S))
                       ((_ bit2bool 29) (mantissa S))
                       ((_ bit2bool 26) (mantissa S))
+                      ((_ bit2bool 16) (mantissa S))
                       ((_ bit2bool 25) (mantissa S))
-                      ((_ bit2bool 21) (mantissa S))
-                      (= (exponent S) #b10000000010)
+                      ((_ bit2bool 8) (mantissa S))
+                      ((_ bit2bool 44) (mantissa S))
                       ((_ bit2bool 13) (mantissa S))
-                      ((_ bit2bool 15) (mantissa S))
-                      ((_ bit2bool 46) (mantissa S))
-                      ((_ bit2bool 12) (mantissa S))
-                      ((_ bit2bool 43) (mantissa S))
-                      ((_ bit2bool 37) (mantissa S))
-                      ((_ bit2bool 18) (mantissa S))
                       ((_ bit2bool 40) (mantissa S))
+                      ((_ bit2bool 50) (mantissa S))
                       ((_ bit2bool 27) (mantissa S))
-                      ((_ bit2bool 9) (mantissa S))
-                      ((_ bit2bool 47) (mantissa S))
+                      ((_ bit2bool 11) (mantissa S))
+                      ((_ bit2bool 43) (mantissa S))
+                      ((_ bit2bool 6) (mantissa S))
+                      ((_ bit2bool 4) (mantissa S))
+                      ((_ bit2bool 5) (mantissa S))
                       ((_ bit2bool 42) (mantissa S))
                       ((_ bit2bool 39) (mantissa S))
-                      ((_ bit2bool 36) (mantissa S)))
+                      ((_ bit2bool 7) (mantissa S)))
                   (>= U 0)
                   (>= T 0)
                   (not (>= U 2))))
@@ -492,18 +492,18 @@
                       (not (= (exponent S) #b11111111111))
                       (= ((_ extract 51 0) (mantissa S)) #x0000000000000))
                   (or (sign S)
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
                       (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (sign S)
-                      (= (exponent S) #b11111111111)
                       (not (bvule #b10000000010 (exponent S)))
-                      (= (exponent S) #b10000000010))
+                      (= (exponent S) #b10000000010)
+                      (= (exponent S) #b11111111111))
                   (or (sign S)
                       (not (= ((_ extract 51 0) (mantissa S)) #x0000000000000))
                       (not (bvule #b10000000010 (exponent S)))
@@ -805,17 +805,17 @@
              (and (not (>= O 3))
                   (>= F 0)
                   (>= O 0)
-                  (or (= N
+                  (or (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa N)))
+                      (= N
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa N)))
                       (not (= (exponent N) #b10000000010)))
                   (or (not (bvule #b10000000010 (exponent N)))
                       (= (exponent N) #b10000000010))
-                  (or (not (>= O 0)) (>= P 0))
+                  (or (>= P 0) (not (>= O 0)))
                   (not (>= P 2))))
           :weight 0))
      (forall ((A Int)
@@ -920,13 +920,13 @@
                       (= (mantissa S)
                          #b00000000000000000000000000000000000000000000000000000))
                   (or (not (sign S)) (= (exponent S) #b00000000000))
-                  (or (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
-                      (= S
+                  (or (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (not (bvule #b10000000010 (exponent S)))
                       (= (exponent S) #b10000000010))
@@ -1298,47 +1298,48 @@
                V)
              (and (not (>= T 3))
                   (or (sign S)
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
                       (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (sign S)
-                      (= (exponent S) #b11111111111)
                       (not (bvule #b10000000010 (exponent S)))
-                      (= (exponent S) #b10000000010))
+                      (= (exponent S) #b10000000010)
+                      (= (exponent S) #b11111111111))
                   (or (sign S)
-                      ((_ bit2bool 6) (mantissa S))
-                      ((_ bit2bool 41) (mantissa S))
-                      ((_ bit2bool 10) (mantissa S))
-                      ((_ bit2bool 49) (mantissa S))
-                      ((_ bit2bool 8) (mantissa S))
-                      ((_ bit2bool 20) (mantissa S))
-                      ((_ bit2bool 50) (mantissa S))
-                      ((_ bit2bool 0) (mantissa S))
                       ((_ bit2bool 1) (mantissa S))
-                      ((_ bit2bool 38) (mantissa S))
-                      ((_ bit2bool 45) (mantissa S))
+                      ((_ bit2bool 37) (mantissa S))
                       ((_ bit2bool 51) (mantissa S))
-                      ((_ bit2bool 44) (mantissa S))
-                      ((_ bit2bool 35) (mantissa S))
-                      ((_ bit2bool 19) (mantissa S))
-                      ((_ bit2bool 14) (mantissa S))
-                      ((_ bit2bool 22) (mantissa S))
-                      ((_ bit2bool 24) (mantissa S))
-                      ((_ bit2bool 11) (mantissa S))
-                      ((_ bit2bool 48) (mantissa S))
-                      ((_ bit2bool 3) (mantissa S))
-                      ((_ bit2bool 5) (mantissa S))
-                      ((_ bit2bool 4) (mantissa S))
-                      ((_ bit2bool 2) (mantissa S))
-                      ((_ bit2bool 16) (mantissa S))
-                      ((_ bit2bool 7) (mantissa S))
+                      ((_ bit2bool 45) (mantissa S))
+                      ((_ bit2bool 10) (mantissa S))
+                      ((_ bit2bool 12) (mantissa S))
+                      ((_ bit2bool 21) (mantissa S))
+                      ((_ bit2bool 46) (mantissa S))
+                      ((_ bit2bool 49) (mantissa S))
+                      ((_ bit2bool 18) (mantissa S))
                       (not (bvule #b10000000010 (exponent S)))
                       ((_ bit2bool 23) (mantissa S))
+                      ((_ bit2bool 14) (mantissa S))
+                      ((_ bit2bool 24) (mantissa S))
+                      ((_ bit2bool 19) (mantissa S))
+                      ((_ bit2bool 41) (mantissa S))
+                      ((_ bit2bool 47) (mantissa S))
+                      (= (exponent S) #b10000000010)
+                      ((_ bit2bool 35) (mantissa S))
+                      ((_ bit2bool 15) (mantissa S))
+                      ((_ bit2bool 2) (mantissa S))
+                      ((_ bit2bool 48) (mantissa S))
+                      ((_ bit2bool 0) (mantissa S))
+                      ((_ bit2bool 38) (mantissa S))
+                      ((_ bit2bool 22) (mantissa S))
+                      ((_ bit2bool 36) (mantissa S))
+                      ((_ bit2bool 20) (mantissa S))
+                      ((_ bit2bool 3) (mantissa S))
+                      ((_ bit2bool 9) (mantissa S))
                       ((_ bit2bool 17) (mantissa S))
                       ((_ bit2bool 32) (mantissa S))
                       ((_ bit2bool 31) (mantissa S))
@@ -1348,23 +1349,22 @@
                       ((_ bit2bool 30) (mantissa S))
                       ((_ bit2bool 29) (mantissa S))
                       ((_ bit2bool 26) (mantissa S))
+                      ((_ bit2bool 16) (mantissa S))
                       ((_ bit2bool 25) (mantissa S))
-                      ((_ bit2bool 21) (mantissa S))
-                      (= (exponent S) #b10000000010)
+                      ((_ bit2bool 8) (mantissa S))
+                      ((_ bit2bool 44) (mantissa S))
                       ((_ bit2bool 13) (mantissa S))
-                      ((_ bit2bool 15) (mantissa S))
-                      ((_ bit2bool 46) (mantissa S))
-                      ((_ bit2bool 12) (mantissa S))
-                      ((_ bit2bool 43) (mantissa S))
-                      ((_ bit2bool 37) (mantissa S))
-                      ((_ bit2bool 18) (mantissa S))
                       ((_ bit2bool 40) (mantissa S))
+                      ((_ bit2bool 50) (mantissa S))
                       ((_ bit2bool 27) (mantissa S))
-                      ((_ bit2bool 9) (mantissa S))
-                      ((_ bit2bool 47) (mantissa S))
+                      ((_ bit2bool 11) (mantissa S))
+                      ((_ bit2bool 43) (mantissa S))
+                      ((_ bit2bool 6) (mantissa S))
+                      ((_ bit2bool 4) (mantissa S))
+                      ((_ bit2bool 5) (mantissa S))
                       ((_ bit2bool 42) (mantissa S))
                       ((_ bit2bool 39) (mantissa S))
-                      ((_ bit2bool 36) (mantissa S)))
+                      ((_ bit2bool 7) (mantissa S)))
                   (>= U 0)
                   (>= T 0)
                   (not (>= U 2))
@@ -1914,14 +1914,14 @@
              (and (not (>= O 3))
                   (>= F 0)
                   (>= O 0)
-                  (or (= N
+                  (or (not (= (exponent N) #b10000000010))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa N)))
+                      (= N
                          (DoubleFloatingPoint
                            false
                            #b10000000010
-                           #b10010000000000000000000000000000000000000000000000000))
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa N)))
-                      (not (= (exponent N) #b10000000010)))
+                           #b10010000000000000000000000000000000000000000000000000)))
                   (or (not (bvule #b10000000010 (exponent N)))
                       (= (exponent N) #b10000000010))
                   (or (not (>= O 0)) (>= P 0))
@@ -3219,17 +3219,17 @@
              (and (not (>= O 3))
                   (>= F 0)
                   (>= O 0)
-                  (or (= N
+                  (or (not (= (exponent N) #b10000000010))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa N)))
+                      (= N
                          (DoubleFloatingPoint
                            false
                            #b10000000010
-                           #b10010000000000000000000000000000000000000000000000000))
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa N)))
-                      (not (= (exponent N) #b10000000010)))
+                           #b10010000000000000000000000000000000000000000000000000)))
                   (or (not (bvule #b10000000010 (exponent N)))
                       (= (exponent N) #b10000000010))
-                  (or (not (>= O 0)) (>= P 0))
+                  (or (>= P 0) (not (>= O 0)))
                   (not (>= P 2))
                   (not (sign N))
                   (<= 0 F)
@@ -3280,13 +3280,13 @@
              (and (not (>= O 3))
                   (>= F 0)
                   (>= O 0)
-                  (or (= N
+                  (or (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa N)))
+                      (= N
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa N)))
                       (not (= (exponent N) #b10000000010)))
                   (or (not (bvule #b10000000010 (exponent N)))
                       (= (exponent N) #b10000000010))
@@ -3344,18 +3344,18 @@
                            (not (= (exponent x!1) #b11111111111))
                            (= ((_ extract 51 0) (mantissa x!1)) #x0000000000000))
                        (or (sign x!1)
-                           (not (= (exponent x!1) #b10000000010))
+                           (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                       (mantissa x!1)))
                            (= x!1
                               (DoubleFloatingPoint
                                 false
                                 #b10000000010
                                 #b10010000000000000000000000000000000000000000000000000))
-                           (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                       (mantissa x!1))))
+                           (not (= (exponent x!1) #b10000000010)))
                        (or (sign x!1)
-                           (= (exponent x!1) #b11111111111)
                            (not (bvule #b10000000010 (exponent x!1)))
-                           (= (exponent x!1) #b10000000010))
+                           (= (exponent x!1) #b10000000010)
+                           (= (exponent x!1) #b11111111111))
                        (or (sign x!1)
                            (not (= ((_ extract 51 0) (mantissa x!1))
                                    #x0000000000000))
@@ -3505,18 +3505,18 @@
                                    (= ((_ extract 51 0) (mantissa x!1))
                                       #x0000000000000))
                                (or (sign x!1)
-                                   (not (= (exponent x!1) #b10000000010))
+                                   (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                               (mantissa x!1)))
                                    (= x!1
                                       (DoubleFloatingPoint
                                         false
                                         #b10000000010
                                         #b10010000000000000000000000000000000000000000000000000))
-                                   (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                               (mantissa x!1))))
+                                   (not (= (exponent x!1) #b10000000010)))
                                (or (sign x!1)
-                                   (= (exponent x!1) #b11111111111)
                                    (not (bvule #b10000000010 (exponent x!1)))
-                                   (= (exponent x!1) #b10000000010))
+                                   (= (exponent x!1) #b10000000010)
+                                   (= (exponent x!1) #b11111111111))
                                (or (sign x!1)
                                    (not (= ((_ extract 51 0) (mantissa x!1))
                                            #x0000000000000))
@@ -3573,7 +3573,6 @@
                         (= T 0)
                         (= U 0)
                         (= V 1))
-                   a!1
                    (and (not (>= T 3))
                         (or (not (sign S))
                             (not (>= J 0))
@@ -3586,27 +3585,28 @@
                             (not (= (exponent S) #b11111111111))
                             (= ((_ extract 51 0) (mantissa S)) #x0000000000000))
                         (or (sign S)
-                            (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                        (mantissa S)))
                             (= S
                                (DoubleFloatingPoint
                                  false
                                  #b10000000010
                                  #b10010000000000000000000000000000000000000000000000000))
+                            (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                        (mantissa S)))
                             (not (= (exponent S) #b10000000010)))
                         (or (sign S)
-                            (= (exponent S) #b11111111111)
                             (not (bvule #b10000000010 (exponent S)))
-                            (= (exponent S) #b10000000010))
+                            (= (exponent S) #b10000000010)
+                            (= (exponent S) #b11111111111))
                         (or (sign S)
+                            (not (bvule #b10000000010 (exponent S)))
                             (not (= ((_ extract 51 0) (mantissa S))
                                     #x0000000000000))
-                            (not (bvule #b10000000010 (exponent S)))
                             (= (exponent S) #b10000000010))
                         (>= T 0)
                         (>= U 0)
                         (not (>= U 2))
-                        (>= J 0)))))
+                        (>= J 0))
+                   a!1)))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -3655,47 +3655,48 @@
                V)
              (and (not (>= T 3))
                   (or (sign S)
-                      (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
                       (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (sign S)
-                      (= (exponent S) #b11111111111)
                       (not (bvule #b10000000010 (exponent S)))
-                      (= (exponent S) #b10000000010))
+                      (= (exponent S) #b10000000010)
+                      (= (exponent S) #b11111111111))
                   (or (sign S)
-                      ((_ bit2bool 6) (mantissa S))
-                      ((_ bit2bool 41) (mantissa S))
-                      ((_ bit2bool 10) (mantissa S))
-                      ((_ bit2bool 49) (mantissa S))
-                      ((_ bit2bool 8) (mantissa S))
-                      ((_ bit2bool 20) (mantissa S))
-                      ((_ bit2bool 50) (mantissa S))
-                      ((_ bit2bool 0) (mantissa S))
                       ((_ bit2bool 1) (mantissa S))
-                      ((_ bit2bool 38) (mantissa S))
-                      ((_ bit2bool 45) (mantissa S))
+                      ((_ bit2bool 37) (mantissa S))
                       ((_ bit2bool 51) (mantissa S))
-                      ((_ bit2bool 44) (mantissa S))
-                      ((_ bit2bool 35) (mantissa S))
-                      ((_ bit2bool 19) (mantissa S))
-                      ((_ bit2bool 14) (mantissa S))
-                      ((_ bit2bool 22) (mantissa S))
-                      ((_ bit2bool 24) (mantissa S))
-                      ((_ bit2bool 11) (mantissa S))
-                      ((_ bit2bool 48) (mantissa S))
-                      ((_ bit2bool 3) (mantissa S))
-                      ((_ bit2bool 5) (mantissa S))
-                      ((_ bit2bool 4) (mantissa S))
-                      ((_ bit2bool 2) (mantissa S))
-                      ((_ bit2bool 16) (mantissa S))
-                      ((_ bit2bool 7) (mantissa S))
+                      ((_ bit2bool 45) (mantissa S))
+                      ((_ bit2bool 10) (mantissa S))
+                      ((_ bit2bool 12) (mantissa S))
+                      ((_ bit2bool 21) (mantissa S))
+                      ((_ bit2bool 46) (mantissa S))
+                      ((_ bit2bool 49) (mantissa S))
+                      ((_ bit2bool 18) (mantissa S))
                       (not (bvule #b10000000010 (exponent S)))
                       ((_ bit2bool 23) (mantissa S))
+                      ((_ bit2bool 14) (mantissa S))
+                      ((_ bit2bool 24) (mantissa S))
+                      ((_ bit2bool 19) (mantissa S))
+                      ((_ bit2bool 41) (mantissa S))
+                      ((_ bit2bool 47) (mantissa S))
+                      (= (exponent S) #b10000000010)
+                      ((_ bit2bool 35) (mantissa S))
+                      ((_ bit2bool 15) (mantissa S))
+                      ((_ bit2bool 2) (mantissa S))
+                      ((_ bit2bool 48) (mantissa S))
+                      ((_ bit2bool 0) (mantissa S))
+                      ((_ bit2bool 38) (mantissa S))
+                      ((_ bit2bool 22) (mantissa S))
+                      ((_ bit2bool 36) (mantissa S))
+                      ((_ bit2bool 20) (mantissa S))
+                      ((_ bit2bool 3) (mantissa S))
+                      ((_ bit2bool 9) (mantissa S))
                       ((_ bit2bool 17) (mantissa S))
                       ((_ bit2bool 32) (mantissa S))
                       ((_ bit2bool 31) (mantissa S))
@@ -3705,23 +3706,22 @@
                       ((_ bit2bool 30) (mantissa S))
                       ((_ bit2bool 29) (mantissa S))
                       ((_ bit2bool 26) (mantissa S))
+                      ((_ bit2bool 16) (mantissa S))
                       ((_ bit2bool 25) (mantissa S))
-                      ((_ bit2bool 21) (mantissa S))
-                      (= (exponent S) #b10000000010)
+                      ((_ bit2bool 8) (mantissa S))
+                      ((_ bit2bool 44) (mantissa S))
                       ((_ bit2bool 13) (mantissa S))
-                      ((_ bit2bool 15) (mantissa S))
-                      ((_ bit2bool 46) (mantissa S))
-                      ((_ bit2bool 12) (mantissa S))
-                      ((_ bit2bool 43) (mantissa S))
-                      ((_ bit2bool 37) (mantissa S))
-                      ((_ bit2bool 18) (mantissa S))
                       ((_ bit2bool 40) (mantissa S))
+                      ((_ bit2bool 50) (mantissa S))
                       ((_ bit2bool 27) (mantissa S))
-                      ((_ bit2bool 9) (mantissa S))
-                      ((_ bit2bool 47) (mantissa S))
+                      ((_ bit2bool 11) (mantissa S))
+                      ((_ bit2bool 43) (mantissa S))
+                      ((_ bit2bool 6) (mantissa S))
+                      ((_ bit2bool 4) (mantissa S))
+                      ((_ bit2bool 5) (mantissa S))
                       ((_ bit2bool 42) (mantissa S))
                       ((_ bit2bool 39) (mantissa S))
-                      ((_ bit2bool 36) (mantissa S)))
+                      ((_ bit2bool 7) (mantissa S)))
                   (>= U 0)
                   (>= T 0)
                   (not (>= U 2))
@@ -3789,13 +3789,13 @@
                       (= (mantissa S)
                          #b00000000000000000000000000000000000000000000000000000))
                   (or (not (sign S)) (= (exponent S) #b00000000000))
-                  (or (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
-                      (= S
+                  (or (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (not (bvule #b10000000010 (exponent S)))
                       (= (exponent S) #b10000000010))
@@ -3964,14 +3964,14 @@
              (exists ((x!1 DoubleFloatingPoint))
                (! (and (not (>= P 3))
                        (or (sign x!1)
-                           (not (= (exponent x!1) #b10000000010))
+                           (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                       (mantissa x!1)))
                            (= x!1
                               (DoubleFloatingPoint
                                 false
                                 #b10000000010
                                 #b10010000000000000000000000000000000000000000000000000))
-                           (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                       (mantissa x!1)))
+                           (not (= (exponent x!1) #b10000000010))
                            (not (<= I 0)))
                        (or (sign x!1)
                            (= (exponent x!1) #b11111111111)
@@ -4218,13 +4218,13 @@
                       (= (mantissa S)
                          #b00000000000000000000000000000000000000000000000000000))
                   (or (not (sign S)) (= (exponent S) #b00000000000))
-                  (or (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
-                      (= S
+                  (or (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (not (bvule #b10000000010 (exponent S)))
                       (= (exponent S) #b10000000010))
@@ -4381,14 +4381,14 @@
              (exists ((x!1 DoubleFloatingPoint))
                (! (and (not (>= T 3))
                        (or (sign x!1)
-                           (not (= (exponent x!1) #b10000000010))
+                           (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                       (mantissa x!1)))
                            (= x!1
                               (DoubleFloatingPoint
                                 false
                                 #b10000000010
                                 #b10010000000000000000000000000000000000000000000000000))
-                           (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                       (mantissa x!1)))
+                           (not (= (exponent x!1) #b10000000010))
                            (not (<= I 0)))
                        (or (sign x!1)
                            (= (exponent x!1) #b11111111111)
@@ -4450,18 +4450,18 @@
                                    (= ((_ extract 51 0) (mantissa x!1))
                                       #x0000000000000))
                                (or (sign x!1)
-                                   (not (= (exponent x!1) #b10000000010))
+                                   (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                               (mantissa x!1)))
                                    (= x!1
                                       (DoubleFloatingPoint
                                         false
                                         #b10000000010
                                         #b10010000000000000000000000000000000000000000000000000))
-                                   (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                               (mantissa x!1))))
+                                   (not (= (exponent x!1) #b10000000010)))
                                (or (sign x!1)
-                                   (= (exponent x!1) #b11111111111)
                                    (not (bvule #b10000000010 (exponent x!1)))
-                                   (= (exponent x!1) #b10000000010))
+                                   (= (exponent x!1) #b10000000010)
+                                   (= (exponent x!1) #b11111111111))
                                (or (sign x!1)
                                    (not (= ((_ extract 51 0) (mantissa x!1))
                                            #x0000000000000))
@@ -4558,13 +4558,13 @@
                       (= (mantissa S)
                          #b00000000000000000000000000000000000000000000000000000))
                   (or (not (sign S)) (= (exponent S) #b00000000000))
-                  (or (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                  (mantissa S)))
-                      (= S
+                  (or (= S
                          (DoubleFloatingPoint
                            false
                            #b10000000010
                            #b10010000000000000000000000000000000000000000000000000))
+                      (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                  (mantissa S)))
                       (not (= (exponent S) #b10000000010)))
                   (or (not (bvule #b10000000010 (exponent S)))
                       (= (exponent S) #b10000000010))
@@ -4647,18 +4647,18 @@
                                (= ((_ extract 51 0) (mantissa x!1))
                                   #x0000000000000))
                            (or (sign x!1)
-                               (not (= (exponent x!1) #b10000000010))
+                               (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                           (mantissa x!1)))
                                (= x!1
                                   (DoubleFloatingPoint
                                     false
                                     #b10000000010
                                     #b10010000000000000000000000000000000000000000000000000))
-                               (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                           (mantissa x!1))))
+                               (not (= (exponent x!1) #b10000000010)))
                            (or (sign x!1)
-                               (= (exponent x!1) #b11111111111)
                                (not (bvule #b10000000010 (exponent x!1)))
-                               (= (exponent x!1) #b10000000010))
+                               (= (exponent x!1) #b10000000010)
+                               (= (exponent x!1) #b11111111111))
                            (or (sign x!1)
                                (not (= ((_ extract 51 0) (mantissa x!1))
                                        #x0000000000000))
@@ -4688,18 +4688,18 @@
                           (not (= (exponent R) #b11111111111))
                           (= ((_ extract 51 0) (mantissa R)) #x0000000000000))
                       (or (sign R)
-                          (not (bvule #b10010000000000000000000000000000000000000000000000000
-                                      (mantissa R)))
                           (= R
                              (DoubleFloatingPoint
                                false
                                #b10000000010
                                #b10010000000000000000000000000000000000000000000000000))
+                          (not (bvule #b10010000000000000000000000000000000000000000000000000
+                                      (mantissa R)))
                           (not (= (exponent R) #b10000000010)))
                       (or (sign R)
-                          (= (exponent R) #b11111111111)
+                          (not (bvule #b10000000010 (exponent R)))
                           (= (exponent R) #b10000000010)
-                          (not (bvule #b10000000010 (exponent R))))
+                          (= (exponent R) #b11111111111))
                       (or (sign R)
                           (= (exponent R) #b10000000010)
                           (not (bvule #b10000000010 (exponent R)))
@@ -5125,43 +5125,462 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block0:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block3:
+Main_void_mainJayArray_java_lang_String_Block2:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block21:
+Main_void_mainJayArray_java_lang_String_Block5:
+AND(
+  GE(
+    i6_236:INTEGER,
+    0
+    ),
+  GE(
+    i5_235:INTEGER,
+    0
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block13:
+AND(
+  GE(
+    $i9_1172:INTEGER,
+    0
+    ),
+  GE(
+    i6_1175:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      $i9_1172:INTEGER,
+      3
+        )
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block25:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block2:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block10:
+Main_void_mainJayArray_java_lang_String_Block22:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block12:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block18:
+Main_void_mainJayArray_java_lang_String_Block19:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block26:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block23:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block21:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block16:
+AND(
+  GE(
+    i5_1262:INTEGER,
+    0
+    ),
+  GE(
+    $i10_1258:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      $i10_1258:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_1262:INTEGER,
+      3
+        )
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block1:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block3:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block11:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block17:
+AND(
+  OR(
+    FP_SIGN(
+      d0_1333_3:DOUBLE
+        ),
+    EQ(
+      d0_1333_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5066549580791808}
+        ),
+    NOT(
+      BVULE(
+        #b10010000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_1333_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_1333_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1333_3:DOUBLE
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1333_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1333_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1333_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1333_3:DOUBLE
+        ),
+    BIT2BOOL([0]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([1]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([2]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([3]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([4]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([5]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([6]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([7]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([8]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([9]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([10]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([11]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([12]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([13]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([14]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([15]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([16]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([17]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([18]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([19]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([20]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([21]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([22]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([23]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([24]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([25]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([26]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([27]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([28]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([29]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([30]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([31]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([32]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([33]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([34]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([35]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([36]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([37]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([38]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([39]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([40]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([41]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([42]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([43]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([44]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([45]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([46]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([47]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([48]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([49]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([50]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([51]
+      FP_MANTISSA(
+        d0_1333_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1333_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1333_3:DOUBLE
+                )
+            )
+        )
+    ),
+  GE(
+    i6_1335:INTEGER,
+    0
+    ),
+  GE(
+    i5_1334:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      i6_1335:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_1334:INTEGER,
+      3
+        )
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block14:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block6:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block0:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block16:
-AND(GE(i5_1262:INTEGER, 0), GE($i10_1258:INTEGER, 0), NOT(GE($i10_1258:INTEGER, 2)), NOT(GE(i5_1262:INTEGER, 3)))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block13:
-AND(GE($i9_1172:INTEGER, 0), GE(i6_1175:INTEGER, 0), NOT(GE($i9_1172:INTEGER, 3)))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block25:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block23:
+Main_void_mainJayArray_java_lang_String_Block10:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block20:
@@ -5170,41 +5589,28 @@ false
 Main_void_mainJayArray_java_lang_String_Block15:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block22:
-true
+Main_void_mainJayArray_java_lang_String_Block8:
+AND(
+  GE(
+    i6_341:INTEGER,
+    0
+    ),
+  NOT(
+    LE(
+      i5_340:INTEGER,
+      -2
+        )
+    )
+)
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block5:
-AND(GE(i6_236:INTEGER, 0), GE(i5_235:INTEGER, 0))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block6:
+Main_void_mainJayArray_java_lang_String_Block24:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block9:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block26:
+Main_void_mainJayArray_java_lang_String_Block18:
 true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block19:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block14:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block24:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block11:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block8:
-AND(GE(i6_341:INTEGER, 0), NOT(LE(i5_340:INTEGER, -2)))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block17:
-AND(OR(FP_SIGN(d0_1333_3:DOUBLE), EQ(d0_1333_3:DOUBLE, DOUBLE{s=false, e=1026, m=5066549580791808}), NOT(BVULE(#b10010000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_1333_3:DOUBLE))), NOT(EQ(FP_EXPONENT(d0_1333_3:DOUBLE), #b10000000010))), OR(FP_SIGN(d0_1333_3:DOUBLE), EQ(FP_EXPONENT(d0_1333_3:DOUBLE), #b11111111111), EQ(FP_EXPONENT(d0_1333_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1333_3:DOUBLE)))), OR(FP_SIGN(d0_1333_3:DOUBLE), BIT2BOOL[0](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[1](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[2](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[3](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[4](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[5](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[6](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[7](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[8](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[9](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[10](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[11](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[12](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[13](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[14](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[15](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[16](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[17](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[18](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[19](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[20](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[21](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[22](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[23](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[24](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[25](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[26](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[27](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[28](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[29](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[30](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[31](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[32](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[33](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[34](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[35](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[36](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[37](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[38](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[39](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[40](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[41](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[42](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[43](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[44](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[45](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[46](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[47](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[48](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[49](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[50](FP_MANTISSA(d0_1333_3:DOUBLE)), BIT2BOOL[51](FP_MANTISSA(d0_1333_3:DOUBLE)), EQ(FP_EXPONENT(d0_1333_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1333_3:DOUBLE)))), GE(i6_1335:INTEGER, 0), GE(i5_1334:INTEGER, 0), NOT(GE(i6_1335:INTEGER, 2)), NOT(GE(i5_1334:INTEGER, 3)))
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
 true
@@ -5237,7 +5643,100 @@ Main_void_mainJayArray_java_lang_String_Block2_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_2:
-AND(GE(i5_157:INTEGER, 0), OR(NOT(FP_SIGN(d0_156_3:DOUBLE)), EQ(FP_MANTISSA(d0_156_3:DOUBLE), #b00000000000000000000000000000000000000000000000000000)), OR(EQ(FP_EXPONENT(d0_156_3:DOUBLE), #b00000000000), NOT(FP_SIGN(d0_156_3:DOUBLE))), OR(EQ(d0_156_3:DOUBLE, DOUBLE{s=false, e=1026, m=5066549580791808}), NOT(EQ(FP_EXPONENT(d0_156_3:DOUBLE), #b10000000010)), NOT(BVULE(#b10010000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_156_3:DOUBLE)))), OR(EQ(FP_EXPONENT(d0_156_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_156_3:DOUBLE)))), OR(NOT(GE(i5_157:INTEGER, 0)), GE(i6_158:INTEGER, 0)), NOT(GE(i6_158:INTEGER, 2)), NOT(GE(i5_157:INTEGER, 3)))
+AND(
+  GE(
+    i5_157:INTEGER,
+    0
+    ),
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_156_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_MANTISSA(
+        d0_156_3:DOUBLE
+            ),
+      #b00000000000000000000000000000000000000000000000000000
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_156_3:DOUBLE
+            ),
+      #b00000000000
+        ),
+    NOT(
+      FP_SIGN(
+        d0_156_3:DOUBLE
+            )
+        )
+    ),
+  OR(
+    EQ(
+      d0_156_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5066549580791808}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_156_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10010000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_156_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_156_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_156_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      GE(
+        i5_157:INTEGER,
+        0
+            )
+        ),
+    GE(
+      i6_158:INTEGER,
+      0
+        )
+    ),
+  NOT(
+    GE(
+      i6_158:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_157:INTEGER,
+      3
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_3:
 true
@@ -5245,7 +5744,78 @@ true
 Assert_#0_Main.java,_line_29:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult:
-AND(GE(-1:INTEGER, 0), GE(i5_196:INTEGER, 0), OR(EQ(d0_195_3:DOUBLE, DOUBLE{s=false, e=1026, m=5066549580791808}), NOT(EQ(FP_EXPONENT(d0_195_3:DOUBLE), #b10000000010)), NOT(BVULE(#b10010000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_195_3:DOUBLE)))), OR(EQ(FP_EXPONENT(d0_195_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_195_3:DOUBLE)))), OR(GE(i6_197:INTEGER, 0), NOT(GE(i5_196:INTEGER, 0))), NOT(GE(i6_197:INTEGER, 2)), NOT(GE(i5_196:INTEGER, 3)))
+AND(
+  GE(
+    -1:INTEGER,
+    0
+    ),
+  GE(
+    i5_196:INTEGER,
+    0
+    ),
+  OR(
+    EQ(
+      d0_195_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5066549580791808}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_195_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10010000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_195_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_195_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_195_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      GE(
+        i5_196:INTEGER,
+        0
+            )
+        ),
+    GE(
+      i6_197:INTEGER,
+      0
+        )
+    ),
+  NOT(
+    GE(
+      i6_197:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_196:INTEGER,
+      3
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_11:
 true
@@ -5262,7 +5832,40 @@ true
 Assert_#1_Main.java,_line_37:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block21_1-FCmpResult:
-AND(LE(-1:INTEGER, 0), GE(i5_258:INTEGER, 0), OR(NOT(GE(i5_258:INTEGER, 0)), GE(i6_259:INTEGER, 0)), NOT(GE(i6_259:INTEGER, 2)), NOT(GE(i5_258:INTEGER, 3)))
+AND(
+  LE(
+    -1:INTEGER,
+    0
+    ),
+  GE(
+    i5_258:INTEGER,
+    0
+    ),
+  OR(
+    NOT(
+      GE(
+        i5_258:INTEGER,
+        0
+            )
+        ),
+    GE(
+      i6_259:INTEGER,
+      0
+        )
+    ),
+  NOT(
+    GE(
+      i6_259:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_258:INTEGER,
+      3
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block21_11:
 true
@@ -5277,13 +5880,31 @@ Main_void_mainJayArray_java_lang_String_Block6_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_1-FAddResult:
-AND(GE(i6_356:INTEGER, 0), GE(i5_355:INTEGER, 0))
+AND(
+  GE(
+    i6_356:INTEGER,
+    0
+    ),
+  GE(
+    i5_355:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_12:
-AND(GE(i6_372:INTEGER, 0), GE(i5_371:INTEGER, 0))
+AND(
+  GE(
+    i6_372:INTEGER,
+    0
+    ),
+  GE(
+    i5_371:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13:
 true
@@ -5292,10 +5913,28 @@ Main_void_mainJayArray_java_lang_String_Block7_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_16:
-AND(GE(i6_443:INTEGER, 0), GE(i5_442:INTEGER, 0))
+AND(
+  GE(
+    i6_443:INTEGER,
+    0
+    ),
+  GE(
+    i5_442:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13_15:
-AND(GE(i6_459:INTEGER, 0), GE(i5_458:INTEGER, 0))
+AND(
+  GE(
+    i6_459:INTEGER,
+    0
+    ),
+  GE(
+    i5_458:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13_15_17:
 true
@@ -5313,13 +5952,35 @@ Main_void_mainJayArray_java_lang_String_Block7_2:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_1:
-AND(GE(i6_779:INTEGER, 0), NOT(LE(i5_778:INTEGER, -2)))
+AND(
+  GE(
+    i6_779:INTEGER,
+    0
+    ),
+  NOT(
+    LE(
+      i5_778:INTEGER,
+      -2
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_12:
-AND(GE(i6_795:INTEGER, 0), NOT(LE(i5_794:INTEGER, -2)))
+AND(
+  GE(
+    i6_795:INTEGER,
+    0
+    ),
+  NOT(
+    LE(
+      i5_794:INTEGER,
+      -2
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_13:
 true
@@ -5328,10 +5989,32 @@ Main_void_mainJayArray_java_lang_String_Block10_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_16:
-AND(GE(i6_866:INTEGER, 0), NOT(LE(i5_865:INTEGER, -2)))
+AND(
+  GE(
+    i6_866:INTEGER,
+    0
+    ),
+  NOT(
+    LE(
+      i5_865:INTEGER,
+      -2
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_13_15:
-AND(GE(i6_882:INTEGER, 0), NOT(LE(i5_881:INTEGER, -2)))
+AND(
+  GE(
+    i6_882:INTEGER,
+    0
+    ),
+  NOT(
+    LE(
+      i5_881:INTEGER,
+      -2
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_13_15_17:
 true
@@ -5367,7 +6050,125 @@ Main_void_mainJayArray_java_lang_String_Block16_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block16_2-FCmpResult:
-AND(OR(FP_SIGN(d0_1317_3:DOUBLE), NOT(EQ(FP_EXPONENT(d0_1317_3:DOUBLE), #b10000000010)), EQ(d0_1317_3:DOUBLE, DOUBLE{s=false, e=1026, m=5066549580791808}), NOT(BVULE(#b10010000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_1317_3:DOUBLE))), NOT(LE(-1:INTEGER, 0))), OR(FP_SIGN(d0_1317_3:DOUBLE), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1317_3:DOUBLE))), EQ(FP_EXPONENT(d0_1317_3:DOUBLE), #b10000000010), EQ(FP_EXPONENT(d0_1317_3:DOUBLE), #b11111111111), NOT(LE(-1:INTEGER, 0))), OR(FP_SIGN(d0_1317_3:DOUBLE), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1317_3:DOUBLE))), NOT(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_1317_3:DOUBLE)), #x0000000000000)), EQ(FP_EXPONENT(d0_1317_3:DOUBLE), #b10000000010), NOT(LE(-1:INTEGER, 0))), GE(i5_1318:INTEGER, 0), GE(i6_1319:INTEGER, 0), NOT(GE(i6_1319:INTEGER, 2)), NOT(GE(i5_1318:INTEGER, 3)))
+AND(
+  OR(
+    FP_SIGN(
+      d0_1317_3:DOUBLE
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_1317_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    EQ(
+      d0_1317_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5066549580791808}
+        ),
+    NOT(
+      BVULE(
+        #b10010000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_1317_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1317_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1317_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1317_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1317_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1317_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1317_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([51, 0]
+          FP_MANTISSA(
+            d0_1317_3:DOUBLE
+                    )
+                ),
+        #x0000000000000
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1317_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  GE(
+    i5_1318:INTEGER,
+    0
+    ),
+  GE(
+    i6_1319:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      i6_1319:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_1318:INTEGER,
+      3
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block16_1_11:
 true
@@ -5376,7 +6177,169 @@ Main_void_mainJayArray_java_lang_String_Block16_1_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block17_1-FCmpResult:
-AND(OR(EQ(FP_MANTISSA(d0_1347_3:DOUBLE), #b00000000000000000000000000000000000000000000000000000), NOT(FP_SIGN(d0_1347_3:DOUBLE)), NOT(GE(-1:INTEGER, 0))), OR(EQ(FP_EXPONENT(d0_1347_3:DOUBLE), #b00000000000), NOT(FP_SIGN(d0_1347_3:DOUBLE)), NOT(GE(-1:INTEGER, 0))), OR(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_1347_3:DOUBLE)), #x0000000000000), NOT(EQ(FP_EXPONENT(d0_1347_3:DOUBLE), #b11111111111)), NOT(GE(-1:INTEGER, 0))), OR(FP_SIGN(d0_1347_3:DOUBLE), EQ(d0_1347_3:DOUBLE, DOUBLE{s=false, e=1026, m=5066549580791808}), NOT(EQ(FP_EXPONENT(d0_1347_3:DOUBLE), #b10000000010)), NOT(BVULE(#b10010000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_1347_3:DOUBLE)))), OR(EQ(FP_EXPONENT(d0_1347_3:DOUBLE), #b11111111111), FP_SIGN(d0_1347_3:DOUBLE), EQ(FP_EXPONENT(d0_1347_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1347_3:DOUBLE)))), OR(NOT(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_1347_3:DOUBLE)), #x0000000000000)), FP_SIGN(d0_1347_3:DOUBLE), EQ(FP_EXPONENT(d0_1347_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1347_3:DOUBLE)))), GE(i5_1348:INTEGER, 0), GE(i6_1349:INTEGER, 0), NOT(GE(i6_1349:INTEGER, 2)), NOT(GE(i5_1348:INTEGER, 3)))
+AND(
+  OR(
+    EQ(
+      FP_MANTISSA(
+        d0_1347_3:DOUBLE
+            ),
+      #b00000000000000000000000000000000000000000000000000000
+        ),
+    NOT(
+      FP_SIGN(
+        d0_1347_3:DOUBLE
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_1347_3:DOUBLE
+            ),
+      #b00000000000
+        ),
+    NOT(
+      FP_SIGN(
+        d0_1347_3:DOUBLE
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([51, 0]
+        FP_MANTISSA(
+          d0_1347_3:DOUBLE
+                )
+            ),
+      #x0000000000000
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_1347_3:DOUBLE
+                ),
+        #b11111111111
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1347_3:DOUBLE
+        ),
+    EQ(
+      d0_1347_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5066549580791808}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_1347_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10010000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_1347_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_1347_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    FP_SIGN(
+      d0_1347_3:DOUBLE
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1347_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1347_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        BVEXTRACT([51, 0]
+          FP_MANTISSA(
+            d0_1347_3:DOUBLE
+                    )
+                ),
+        #x0000000000000
+            )
+        ),
+    FP_SIGN(
+      d0_1347_3:DOUBLE
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1347_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1347_3:DOUBLE
+                )
+            )
+        )
+    ),
+  GE(
+    i5_1348:INTEGER,
+    0
+    ),
+  GE(
+    i6_1349:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      i6_1349:INTEGER,
+      2
+        )
+    ),
+  NOT(
+    GE(
+      i5_1348:INTEGER,
+      3
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block17_11:
 true
@@ -5408,10 +6371,10 @@ true
 inv_$StaticFields_Main_2:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block0:
+JayHornAssertions_void_clinit_Block1:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block1:
+JayHornAssertions_void_clinit_Block0:
 true
 ---------------------------------- 
 JayHornAssertions_void_clinit_Block1_1:

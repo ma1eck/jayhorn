@@ -149,60 +149,60 @@
                       (= (exponent Q) #b10000000010)
                       (not (bvule #b10000000010 (exponent Q))))
                   (or (sign Q)
-                      ((_ bit2bool 17) (mantissa Q))
-                      ((_ bit2bool 32) (mantissa Q))
-                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 16) (mantissa Q))
                       ((_ bit2bool 42) (mantissa Q))
+                      ((_ bit2bool 46) (mantissa Q))
+                      ((_ bit2bool 41) (mantissa Q))
+                      ((_ bit2bool 47) (mantissa Q))
                       ((_ bit2bool 37) (mantissa Q))
-                      ((_ bit2bool 12) (mantissa Q))
-                      ((_ bit2bool 33) (mantissa Q))
-                      ((_ bit2bool 27) (mantissa Q))
-                      ((_ bit2bool 49) (mantissa Q))
-                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 22) (mantissa Q))
+                      ((_ bit2bool 45) (mantissa Q))
+                      ((_ bit2bool 40) (mantissa Q))
+                      ((_ bit2bool 44) (mantissa Q))
                       ((_ bit2bool 43) (mantissa Q))
                       (= (exponent Q) #b10000000010)
-                      ((_ bit2bool 34) (mantissa Q))
-                      ((_ bit2bool 7) (mantissa Q))
-                      ((_ bit2bool 45) (mantissa Q))
-                      ((_ bit2bool 13) (mantissa Q))
-                      ((_ bit2bool 16) (mantissa Q))
-                      ((_ bit2bool 28) (mantissa Q))
-                      (not (bvule #b10000000010 (exponent Q)))
-                      ((_ bit2bool 18) (mantissa Q))
-                      ((_ bit2bool 6) (mantissa Q))
+                      ((_ bit2bool 29) (mantissa Q))
+                      ((_ bit2bool 33) (mantissa Q))
+                      ((_ bit2bool 38) (mantissa Q))
                       ((_ bit2bool 9) (mantissa Q))
                       ((_ bit2bool 8) (mantissa Q))
-                      ((_ bit2bool 36) (mantissa Q))
-                      ((_ bit2bool 26) (mantissa Q))
-                      ((_ bit2bool 41) (mantissa Q))
-                      ((_ bit2bool 10) (mantissa Q))
-                      ((_ bit2bool 47) (mantissa Q))
-                      ((_ bit2bool 40) (mantissa Q))
-                      ((_ bit2bool 39) (mantissa Q))
-                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 13) (mantissa Q))
+                      (not (bvule #b10000000010 (exponent Q)))
+                      ((_ bit2bool 2) (mantissa Q))
+                      ((_ bit2bool 32) (mantissa Q))
+                      ((_ bit2bool 31) (mantissa Q))
                       ((_ bit2bool 24) (mantissa Q))
-                      ((_ bit2bool 23) (mantissa Q))
-                      ((_ bit2bool 22) (mantissa Q))
-                      ((_ bit2bool 21) (mantissa Q))
-                      ((_ bit2bool 20) (mantissa Q))
                       ((_ bit2bool 19) (mantissa Q))
-                      ((_ bit2bool 29) (mantissa Q))
-                      ((_ bit2bool 38) (mantissa Q))
-                      ((_ bit2bool 35) (mantissa Q))
-                      ((_ bit2bool 15) (mantissa Q))
-                      ((_ bit2bool 46) (mantissa Q))
-                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 27) (mantissa Q))
                       ((_ bit2bool 48) (mantissa Q))
+                      ((_ bit2bool 28) (mantissa Q))
+                      ((_ bit2bool 49) (mantissa Q))
+                      ((_ bit2bool 15) (mantissa Q))
+                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 7) (mantissa Q))
+                      ((_ bit2bool 6) (mantissa Q))
                       ((_ bit2bool 5) (mantissa Q))
                       ((_ bit2bool 4) (mantissa Q))
                       ((_ bit2bool 3) (mantissa Q))
-                      ((_ bit2bool 44) (mantissa Q))
-                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 10) (mantissa Q))
+                      ((_ bit2bool 39) (mantissa Q))
+                      ((_ bit2bool 17) (mantissa Q))
                       ((_ bit2bool 1) (mantissa Q))
-                      ((_ bit2bool 2) (mantissa Q))
-                      ((_ bit2bool 31) (mantissa Q))
+                      ((_ bit2bool 20) (mantissa Q))
+                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 21) (mantissa Q))
+                      ((_ bit2bool 23) (mantissa Q))
                       ((_ bit2bool 30) (mantissa Q))
-                      ((_ bit2bool 11) (mantissa Q)))))
+                      ((_ bit2bool 34) (mantissa Q))
+                      ((_ bit2bool 35) (mantissa Q))
+                      ((_ bit2bool 36) (mantissa Q))
+                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 12) (mantissa Q))
+                      ((_ bit2bool 11) (mantissa Q))
+                      ((_ bit2bool 18) (mantissa Q))
+                      ((_ bit2bool 26) (mantissa Q)))))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -1453,59 +1453,59 @@
                            (= (exponent M) #b10000000010))
                        (or (sign M)
                            (not (bvule #b10000000010 (exponent M)))
-                           ((_ bit2bool 17) (mantissa M))
-                           ((_ bit2bool 3) (mantissa M))
-                           ((_ bit2bool 4) (mantissa M))
-                           ((_ bit2bool 5) (mantissa M))
-                           ((_ bit2bool 38) (mantissa M))
-                           ((_ bit2bool 48) (mantissa M))
-                           ((_ bit2bool 14) (mantissa M))
-                           ((_ bit2bool 46) (mantissa M))
-                           ((_ bit2bool 15) (mantissa M))
-                           ((_ bit2bool 35) (mantissa M))
-                           ((_ bit2bool 50) (mantissa M))
-                           ((_ bit2bool 42) (mantissa M))
-                           ((_ bit2bool 23) (mantissa M))
-                           ((_ bit2bool 22) (mantissa M))
-                           ((_ bit2bool 33) (mantissa M))
-                           ((_ bit2bool 29) (mantissa M))
-                           ((_ bit2bool 9) (mantissa M))
-                           ((_ bit2bool 36) (mantissa M))
-                           ((_ bit2bool 28) (mantissa M))
-                           ((_ bit2bool 32) (mantissa M))
-                           ((_ bit2bool 37) (mantissa M))
-                           ((_ bit2bool 27) (mantissa M))
-                           ((_ bit2bool 45) (mantissa M))
-                           ((_ bit2bool 8) (mantissa M))
-                           ((_ bit2bool 2) (mantissa M))
-                           ((_ bit2bool 1) (mantissa M))
-                           ((_ bit2bool 26) (mantissa M))
-                           ((_ bit2bool 10) (mantissa M))
-                           ((_ bit2bool 41) (mantissa M))
-                           ((_ bit2bool 7) (mantissa M))
-                           ((_ bit2bool 24) (mantissa M))
-                           ((_ bit2bool 40) (mantissa M))
-                           ((_ bit2bool 39) (mantissa M))
-                           ((_ bit2bool 20) (mantissa M))
-                           ((_ bit2bool 19) (mantissa M))
-                           (= (exponent M) #b10000000010)
                            ((_ bit2bool 16) (mantissa M))
+                           ((_ bit2bool 34) (mantissa M))
+                           ((_ bit2bool 30) (mantissa M))
+                           ((_ bit2bool 23) (mantissa M))
+                           ((_ bit2bool 39) (mantissa M))
                            ((_ bit2bool 21) (mantissa M))
                            ((_ bit2bool 0) (mantissa M))
-                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 20) (mantissa M))
+                           ((_ bit2bool 1) (mantissa M))
+                           ((_ bit2bool 17) (mantissa M))
+                           ((_ bit2bool 46) (mantissa M))
+                           ((_ bit2bool 41) (mantissa M))
+                           ((_ bit2bool 7) (mantissa M))
                            ((_ bit2bool 6) (mantissa M))
+                           ((_ bit2bool 22) (mantissa M))
+                           ((_ bit2bool 10) (mantissa M))
+                           ((_ bit2bool 32) (mantissa M))
+                           ((_ bit2bool 24) (mantissa M))
+                           ((_ bit2bool 8) (mantissa M))
+                           ((_ bit2bool 42) (mantissa M))
                            ((_ bit2bool 47) (mantissa M))
-                           ((_ bit2bool 51) (mantissa M))
-                           ((_ bit2bool 18) (mantissa M))
-                           ((_ bit2bool 49) (mantissa M))
-                           ((_ bit2bool 44) (mantissa M))
+                           ((_ bit2bool 45) (mantissa M))
+                           ((_ bit2bool 33) (mantissa M))
+                           ((_ bit2bool 31) (mantissa M))
                            ((_ bit2bool 12) (mantissa M))
                            ((_ bit2bool 25) (mantissa M))
+                           ((_ bit2bool 19) (mantissa M))
+                           ((_ bit2bool 27) (mantissa M))
+                           ((_ bit2bool 50) (mantissa M))
+                           ((_ bit2bool 29) (mantissa M))
+                           ((_ bit2bool 14) (mantissa M))
+                           ((_ bit2bool 28) (mantissa M))
+                           ((_ bit2bool 49) (mantissa M))
+                           ((_ bit2bool 4) (mantissa M))
+                           ((_ bit2bool 3) (mantissa M))
+                           (= (exponent M) #b10000000010)
+                           ((_ bit2bool 9) (mantissa M))
+                           ((_ bit2bool 5) (mantissa M))
+                           ((_ bit2bool 36) (mantissa M))
+                           ((_ bit2bool 38) (mantissa M))
+                           ((_ bit2bool 2) (mantissa M))
+                           ((_ bit2bool 48) (mantissa M))
+                           ((_ bit2bool 51) (mantissa M))
+                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 40) (mantissa M))
+                           ((_ bit2bool 35) (mantissa M))
+                           ((_ bit2bool 37) (mantissa M))
+                           ((_ bit2bool 15) (mantissa M))
+                           ((_ bit2bool 44) (mantissa M))
                            ((_ bit2bool 43) (mantissa M))
-                           ((_ bit2bool 34) (mantissa M))
-                           ((_ bit2bool 31) (mantissa M))
-                           ((_ bit2bool 30) (mantissa M))
-                           ((_ bit2bool 11) (mantissa M)))
+                           ((_ bit2bool 11) (mantissa M))
+                           ((_ bit2bool 18) (mantissa M))
+                           ((_ bit2bool 26) (mantissa M)))
                        (<= 0 N)
                        (<= 0 O)
                        (<= N 2)
@@ -2489,60 +2489,60 @@
                       (= (exponent Q) #b10000000010)
                       (not (bvule #b10000000010 (exponent Q))))
                   (or (sign Q)
-                      ((_ bit2bool 17) (mantissa Q))
-                      ((_ bit2bool 32) (mantissa Q))
-                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 16) (mantissa Q))
                       ((_ bit2bool 42) (mantissa Q))
+                      ((_ bit2bool 46) (mantissa Q))
+                      ((_ bit2bool 41) (mantissa Q))
+                      ((_ bit2bool 47) (mantissa Q))
                       ((_ bit2bool 37) (mantissa Q))
-                      ((_ bit2bool 12) (mantissa Q))
-                      ((_ bit2bool 33) (mantissa Q))
-                      ((_ bit2bool 27) (mantissa Q))
-                      ((_ bit2bool 49) (mantissa Q))
-                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 22) (mantissa Q))
+                      ((_ bit2bool 45) (mantissa Q))
+                      ((_ bit2bool 40) (mantissa Q))
+                      ((_ bit2bool 44) (mantissa Q))
                       ((_ bit2bool 43) (mantissa Q))
                       (= (exponent Q) #b10000000010)
-                      ((_ bit2bool 34) (mantissa Q))
-                      ((_ bit2bool 7) (mantissa Q))
-                      ((_ bit2bool 45) (mantissa Q))
-                      ((_ bit2bool 13) (mantissa Q))
-                      ((_ bit2bool 16) (mantissa Q))
-                      ((_ bit2bool 28) (mantissa Q))
-                      (not (bvule #b10000000010 (exponent Q)))
-                      ((_ bit2bool 18) (mantissa Q))
-                      ((_ bit2bool 6) (mantissa Q))
+                      ((_ bit2bool 29) (mantissa Q))
+                      ((_ bit2bool 33) (mantissa Q))
+                      ((_ bit2bool 38) (mantissa Q))
                       ((_ bit2bool 9) (mantissa Q))
                       ((_ bit2bool 8) (mantissa Q))
-                      ((_ bit2bool 36) (mantissa Q))
-                      ((_ bit2bool 26) (mantissa Q))
-                      ((_ bit2bool 41) (mantissa Q))
-                      ((_ bit2bool 10) (mantissa Q))
-                      ((_ bit2bool 47) (mantissa Q))
-                      ((_ bit2bool 40) (mantissa Q))
-                      ((_ bit2bool 39) (mantissa Q))
-                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 13) (mantissa Q))
+                      (not (bvule #b10000000010 (exponent Q)))
+                      ((_ bit2bool 2) (mantissa Q))
+                      ((_ bit2bool 32) (mantissa Q))
+                      ((_ bit2bool 31) (mantissa Q))
                       ((_ bit2bool 24) (mantissa Q))
-                      ((_ bit2bool 23) (mantissa Q))
-                      ((_ bit2bool 22) (mantissa Q))
-                      ((_ bit2bool 21) (mantissa Q))
-                      ((_ bit2bool 20) (mantissa Q))
                       ((_ bit2bool 19) (mantissa Q))
-                      ((_ bit2bool 29) (mantissa Q))
-                      ((_ bit2bool 38) (mantissa Q))
-                      ((_ bit2bool 35) (mantissa Q))
-                      ((_ bit2bool 15) (mantissa Q))
-                      ((_ bit2bool 46) (mantissa Q))
-                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 27) (mantissa Q))
                       ((_ bit2bool 48) (mantissa Q))
+                      ((_ bit2bool 28) (mantissa Q))
+                      ((_ bit2bool 49) (mantissa Q))
+                      ((_ bit2bool 15) (mantissa Q))
+                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 7) (mantissa Q))
+                      ((_ bit2bool 6) (mantissa Q))
                       ((_ bit2bool 5) (mantissa Q))
                       ((_ bit2bool 4) (mantissa Q))
                       ((_ bit2bool 3) (mantissa Q))
-                      ((_ bit2bool 44) (mantissa Q))
-                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 10) (mantissa Q))
+                      ((_ bit2bool 39) (mantissa Q))
+                      ((_ bit2bool 17) (mantissa Q))
                       ((_ bit2bool 1) (mantissa Q))
-                      ((_ bit2bool 2) (mantissa Q))
-                      ((_ bit2bool 31) (mantissa Q))
+                      ((_ bit2bool 20) (mantissa Q))
+                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 21) (mantissa Q))
+                      ((_ bit2bool 23) (mantissa Q))
                       ((_ bit2bool 30) (mantissa Q))
-                      ((_ bit2bool 11) (mantissa Q)))
+                      ((_ bit2bool 34) (mantissa Q))
+                      ((_ bit2bool 35) (mantissa Q))
+                      ((_ bit2bool 36) (mantissa Q))
+                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 12) (mantissa Q))
+                      ((_ bit2bool 11) (mantissa Q))
+                      ((_ bit2bool 18) (mantissa Q))
+                      ((_ bit2bool 26) (mantissa Q)))
                   M))
           :weight 0))
      (forall ((A Int)
@@ -2598,59 +2598,59 @@
                            (= (exponent M) #b10000000010))
                        (or (sign M)
                            (not (bvule #b10000000010 (exponent M)))
-                           ((_ bit2bool 17) (mantissa M))
-                           ((_ bit2bool 3) (mantissa M))
-                           ((_ bit2bool 4) (mantissa M))
-                           ((_ bit2bool 5) (mantissa M))
-                           ((_ bit2bool 38) (mantissa M))
-                           ((_ bit2bool 48) (mantissa M))
-                           ((_ bit2bool 14) (mantissa M))
-                           ((_ bit2bool 46) (mantissa M))
-                           ((_ bit2bool 15) (mantissa M))
-                           ((_ bit2bool 35) (mantissa M))
-                           ((_ bit2bool 50) (mantissa M))
-                           ((_ bit2bool 42) (mantissa M))
-                           ((_ bit2bool 23) (mantissa M))
-                           ((_ bit2bool 22) (mantissa M))
-                           ((_ bit2bool 33) (mantissa M))
-                           ((_ bit2bool 29) (mantissa M))
-                           ((_ bit2bool 9) (mantissa M))
-                           ((_ bit2bool 36) (mantissa M))
-                           ((_ bit2bool 28) (mantissa M))
-                           ((_ bit2bool 32) (mantissa M))
-                           ((_ bit2bool 37) (mantissa M))
-                           ((_ bit2bool 27) (mantissa M))
-                           ((_ bit2bool 45) (mantissa M))
-                           ((_ bit2bool 8) (mantissa M))
-                           ((_ bit2bool 2) (mantissa M))
-                           ((_ bit2bool 1) (mantissa M))
-                           ((_ bit2bool 26) (mantissa M))
-                           ((_ bit2bool 10) (mantissa M))
-                           ((_ bit2bool 41) (mantissa M))
-                           ((_ bit2bool 7) (mantissa M))
-                           ((_ bit2bool 24) (mantissa M))
-                           ((_ bit2bool 40) (mantissa M))
-                           ((_ bit2bool 39) (mantissa M))
-                           ((_ bit2bool 20) (mantissa M))
-                           ((_ bit2bool 19) (mantissa M))
-                           (= (exponent M) #b10000000010)
                            ((_ bit2bool 16) (mantissa M))
+                           ((_ bit2bool 34) (mantissa M))
+                           ((_ bit2bool 30) (mantissa M))
+                           ((_ bit2bool 23) (mantissa M))
+                           ((_ bit2bool 39) (mantissa M))
                            ((_ bit2bool 21) (mantissa M))
                            ((_ bit2bool 0) (mantissa M))
-                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 20) (mantissa M))
+                           ((_ bit2bool 1) (mantissa M))
+                           ((_ bit2bool 17) (mantissa M))
+                           ((_ bit2bool 46) (mantissa M))
+                           ((_ bit2bool 41) (mantissa M))
+                           ((_ bit2bool 7) (mantissa M))
                            ((_ bit2bool 6) (mantissa M))
+                           ((_ bit2bool 22) (mantissa M))
+                           ((_ bit2bool 10) (mantissa M))
+                           ((_ bit2bool 32) (mantissa M))
+                           ((_ bit2bool 24) (mantissa M))
+                           ((_ bit2bool 8) (mantissa M))
+                           ((_ bit2bool 42) (mantissa M))
                            ((_ bit2bool 47) (mantissa M))
-                           ((_ bit2bool 51) (mantissa M))
-                           ((_ bit2bool 18) (mantissa M))
-                           ((_ bit2bool 49) (mantissa M))
-                           ((_ bit2bool 44) (mantissa M))
+                           ((_ bit2bool 45) (mantissa M))
+                           ((_ bit2bool 33) (mantissa M))
+                           ((_ bit2bool 31) (mantissa M))
                            ((_ bit2bool 12) (mantissa M))
                            ((_ bit2bool 25) (mantissa M))
+                           ((_ bit2bool 19) (mantissa M))
+                           ((_ bit2bool 27) (mantissa M))
+                           ((_ bit2bool 50) (mantissa M))
+                           ((_ bit2bool 29) (mantissa M))
+                           ((_ bit2bool 14) (mantissa M))
+                           ((_ bit2bool 28) (mantissa M))
+                           ((_ bit2bool 49) (mantissa M))
+                           ((_ bit2bool 4) (mantissa M))
+                           ((_ bit2bool 3) (mantissa M))
+                           (= (exponent M) #b10000000010)
+                           ((_ bit2bool 9) (mantissa M))
+                           ((_ bit2bool 5) (mantissa M))
+                           ((_ bit2bool 36) (mantissa M))
+                           ((_ bit2bool 38) (mantissa M))
+                           ((_ bit2bool 2) (mantissa M))
+                           ((_ bit2bool 48) (mantissa M))
+                           ((_ bit2bool 51) (mantissa M))
+                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 40) (mantissa M))
+                           ((_ bit2bool 35) (mantissa M))
+                           ((_ bit2bool 37) (mantissa M))
+                           ((_ bit2bool 15) (mantissa M))
+                           ((_ bit2bool 44) (mantissa M))
                            ((_ bit2bool 43) (mantissa M))
-                           ((_ bit2bool 34) (mantissa M))
-                           ((_ bit2bool 31) (mantissa M))
-                           ((_ bit2bool 30) (mantissa M))
-                           ((_ bit2bool 11) (mantissa M)))
+                           ((_ bit2bool 11) (mantissa M))
+                           ((_ bit2bool 18) (mantissa M))
+                           ((_ bit2bool 26) (mantissa M)))
                        (not (sign M))
                        (<= 0 N)
                        (<= 0 O)
@@ -2810,59 +2810,59 @@
                            (= (exponent M) #b10000000010))
                        (or (sign M)
                            (not (bvule #b10000000010 (exponent M)))
-                           ((_ bit2bool 17) (mantissa M))
-                           ((_ bit2bool 3) (mantissa M))
-                           ((_ bit2bool 4) (mantissa M))
-                           ((_ bit2bool 5) (mantissa M))
-                           ((_ bit2bool 38) (mantissa M))
-                           ((_ bit2bool 48) (mantissa M))
-                           ((_ bit2bool 14) (mantissa M))
-                           ((_ bit2bool 46) (mantissa M))
-                           ((_ bit2bool 15) (mantissa M))
-                           ((_ bit2bool 35) (mantissa M))
-                           ((_ bit2bool 50) (mantissa M))
-                           ((_ bit2bool 42) (mantissa M))
-                           ((_ bit2bool 23) (mantissa M))
-                           ((_ bit2bool 22) (mantissa M))
-                           ((_ bit2bool 33) (mantissa M))
-                           ((_ bit2bool 29) (mantissa M))
-                           ((_ bit2bool 9) (mantissa M))
-                           ((_ bit2bool 36) (mantissa M))
-                           ((_ bit2bool 28) (mantissa M))
-                           ((_ bit2bool 32) (mantissa M))
-                           ((_ bit2bool 37) (mantissa M))
-                           ((_ bit2bool 27) (mantissa M))
-                           ((_ bit2bool 45) (mantissa M))
-                           ((_ bit2bool 8) (mantissa M))
-                           ((_ bit2bool 2) (mantissa M))
-                           ((_ bit2bool 1) (mantissa M))
-                           ((_ bit2bool 26) (mantissa M))
-                           ((_ bit2bool 10) (mantissa M))
-                           ((_ bit2bool 41) (mantissa M))
-                           ((_ bit2bool 7) (mantissa M))
-                           ((_ bit2bool 24) (mantissa M))
-                           ((_ bit2bool 40) (mantissa M))
-                           ((_ bit2bool 39) (mantissa M))
-                           ((_ bit2bool 20) (mantissa M))
-                           ((_ bit2bool 19) (mantissa M))
-                           (= (exponent M) #b10000000010)
                            ((_ bit2bool 16) (mantissa M))
+                           ((_ bit2bool 34) (mantissa M))
+                           ((_ bit2bool 30) (mantissa M))
+                           ((_ bit2bool 23) (mantissa M))
+                           ((_ bit2bool 39) (mantissa M))
                            ((_ bit2bool 21) (mantissa M))
                            ((_ bit2bool 0) (mantissa M))
-                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 20) (mantissa M))
+                           ((_ bit2bool 1) (mantissa M))
+                           ((_ bit2bool 17) (mantissa M))
+                           ((_ bit2bool 46) (mantissa M))
+                           ((_ bit2bool 41) (mantissa M))
+                           ((_ bit2bool 7) (mantissa M))
                            ((_ bit2bool 6) (mantissa M))
+                           ((_ bit2bool 22) (mantissa M))
+                           ((_ bit2bool 10) (mantissa M))
+                           ((_ bit2bool 32) (mantissa M))
+                           ((_ bit2bool 24) (mantissa M))
+                           ((_ bit2bool 8) (mantissa M))
+                           ((_ bit2bool 42) (mantissa M))
                            ((_ bit2bool 47) (mantissa M))
-                           ((_ bit2bool 51) (mantissa M))
-                           ((_ bit2bool 18) (mantissa M))
-                           ((_ bit2bool 49) (mantissa M))
-                           ((_ bit2bool 44) (mantissa M))
+                           ((_ bit2bool 45) (mantissa M))
+                           ((_ bit2bool 33) (mantissa M))
+                           ((_ bit2bool 31) (mantissa M))
                            ((_ bit2bool 12) (mantissa M))
                            ((_ bit2bool 25) (mantissa M))
+                           ((_ bit2bool 19) (mantissa M))
+                           ((_ bit2bool 27) (mantissa M))
+                           ((_ bit2bool 50) (mantissa M))
+                           ((_ bit2bool 29) (mantissa M))
+                           ((_ bit2bool 14) (mantissa M))
+                           ((_ bit2bool 28) (mantissa M))
+                           ((_ bit2bool 49) (mantissa M))
+                           ((_ bit2bool 4) (mantissa M))
+                           ((_ bit2bool 3) (mantissa M))
+                           (= (exponent M) #b10000000010)
+                           ((_ bit2bool 9) (mantissa M))
+                           ((_ bit2bool 5) (mantissa M))
+                           ((_ bit2bool 36) (mantissa M))
+                           ((_ bit2bool 38) (mantissa M))
+                           ((_ bit2bool 2) (mantissa M))
+                           ((_ bit2bool 48) (mantissa M))
+                           ((_ bit2bool 51) (mantissa M))
+                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 40) (mantissa M))
+                           ((_ bit2bool 35) (mantissa M))
+                           ((_ bit2bool 37) (mantissa M))
+                           ((_ bit2bool 15) (mantissa M))
+                           ((_ bit2bool 44) (mantissa M))
                            ((_ bit2bool 43) (mantissa M))
-                           ((_ bit2bool 34) (mantissa M))
-                           ((_ bit2bool 31) (mantissa M))
-                           ((_ bit2bool 30) (mantissa M))
-                           ((_ bit2bool 11) (mantissa M)))
+                           ((_ bit2bool 11) (mantissa M))
+                           ((_ bit2bool 18) (mantissa M))
+                           ((_ bit2bool 26) (mantissa M)))
                        (<= 0 O)
                        (<= N 2)
                        (<= O 3)
@@ -3037,59 +3037,59 @@
                            (= (exponent M) #b10000000010))
                        (or (sign M)
                            (not (bvule #b10000000010 (exponent M)))
-                           ((_ bit2bool 17) (mantissa M))
-                           ((_ bit2bool 3) (mantissa M))
-                           ((_ bit2bool 4) (mantissa M))
-                           ((_ bit2bool 5) (mantissa M))
-                           ((_ bit2bool 38) (mantissa M))
-                           ((_ bit2bool 48) (mantissa M))
-                           ((_ bit2bool 14) (mantissa M))
-                           ((_ bit2bool 46) (mantissa M))
-                           ((_ bit2bool 15) (mantissa M))
-                           ((_ bit2bool 35) (mantissa M))
-                           ((_ bit2bool 50) (mantissa M))
-                           ((_ bit2bool 42) (mantissa M))
-                           ((_ bit2bool 23) (mantissa M))
-                           ((_ bit2bool 22) (mantissa M))
-                           ((_ bit2bool 33) (mantissa M))
-                           ((_ bit2bool 29) (mantissa M))
-                           ((_ bit2bool 9) (mantissa M))
-                           ((_ bit2bool 36) (mantissa M))
-                           ((_ bit2bool 28) (mantissa M))
-                           ((_ bit2bool 32) (mantissa M))
-                           ((_ bit2bool 37) (mantissa M))
-                           ((_ bit2bool 27) (mantissa M))
-                           ((_ bit2bool 45) (mantissa M))
-                           ((_ bit2bool 8) (mantissa M))
-                           ((_ bit2bool 2) (mantissa M))
-                           ((_ bit2bool 1) (mantissa M))
-                           ((_ bit2bool 26) (mantissa M))
-                           ((_ bit2bool 10) (mantissa M))
-                           ((_ bit2bool 41) (mantissa M))
-                           ((_ bit2bool 7) (mantissa M))
-                           ((_ bit2bool 24) (mantissa M))
-                           ((_ bit2bool 40) (mantissa M))
-                           ((_ bit2bool 39) (mantissa M))
-                           ((_ bit2bool 20) (mantissa M))
-                           ((_ bit2bool 19) (mantissa M))
-                           (= (exponent M) #b10000000010)
                            ((_ bit2bool 16) (mantissa M))
+                           ((_ bit2bool 34) (mantissa M))
+                           ((_ bit2bool 30) (mantissa M))
+                           ((_ bit2bool 23) (mantissa M))
+                           ((_ bit2bool 39) (mantissa M))
                            ((_ bit2bool 21) (mantissa M))
                            ((_ bit2bool 0) (mantissa M))
-                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 20) (mantissa M))
+                           ((_ bit2bool 1) (mantissa M))
+                           ((_ bit2bool 17) (mantissa M))
+                           ((_ bit2bool 46) (mantissa M))
+                           ((_ bit2bool 41) (mantissa M))
+                           ((_ bit2bool 7) (mantissa M))
                            ((_ bit2bool 6) (mantissa M))
+                           ((_ bit2bool 22) (mantissa M))
+                           ((_ bit2bool 10) (mantissa M))
+                           ((_ bit2bool 32) (mantissa M))
+                           ((_ bit2bool 24) (mantissa M))
+                           ((_ bit2bool 8) (mantissa M))
+                           ((_ bit2bool 42) (mantissa M))
                            ((_ bit2bool 47) (mantissa M))
-                           ((_ bit2bool 51) (mantissa M))
-                           ((_ bit2bool 18) (mantissa M))
-                           ((_ bit2bool 49) (mantissa M))
-                           ((_ bit2bool 44) (mantissa M))
+                           ((_ bit2bool 45) (mantissa M))
+                           ((_ bit2bool 33) (mantissa M))
+                           ((_ bit2bool 31) (mantissa M))
                            ((_ bit2bool 12) (mantissa M))
                            ((_ bit2bool 25) (mantissa M))
+                           ((_ bit2bool 19) (mantissa M))
+                           ((_ bit2bool 27) (mantissa M))
+                           ((_ bit2bool 50) (mantissa M))
+                           ((_ bit2bool 29) (mantissa M))
+                           ((_ bit2bool 14) (mantissa M))
+                           ((_ bit2bool 28) (mantissa M))
+                           ((_ bit2bool 49) (mantissa M))
+                           ((_ bit2bool 4) (mantissa M))
+                           ((_ bit2bool 3) (mantissa M))
+                           (= (exponent M) #b10000000010)
+                           ((_ bit2bool 9) (mantissa M))
+                           ((_ bit2bool 5) (mantissa M))
+                           ((_ bit2bool 36) (mantissa M))
+                           ((_ bit2bool 38) (mantissa M))
+                           ((_ bit2bool 2) (mantissa M))
+                           ((_ bit2bool 48) (mantissa M))
+                           ((_ bit2bool 51) (mantissa M))
+                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 40) (mantissa M))
+                           ((_ bit2bool 35) (mantissa M))
+                           ((_ bit2bool 37) (mantissa M))
+                           ((_ bit2bool 15) (mantissa M))
+                           ((_ bit2bool 44) (mantissa M))
                            ((_ bit2bool 43) (mantissa M))
-                           ((_ bit2bool 34) (mantissa M))
-                           ((_ bit2bool 31) (mantissa M))
-                           ((_ bit2bool 30) (mantissa M))
-                           ((_ bit2bool 11) (mantissa M)))
+                           ((_ bit2bool 11) (mantissa M))
+                           ((_ bit2bool 18) (mantissa M))
+                           ((_ bit2bool 26) (mantissa M)))
                        (<= 0 O)
                        (<= N 2)
                        (not x!1)
@@ -3284,59 +3284,59 @@
                            (= (exponent M) #b10000000010))
                        (or (sign M)
                            (not (bvule #b10000000010 (exponent M)))
-                           ((_ bit2bool 17) (mantissa M))
-                           ((_ bit2bool 3) (mantissa M))
-                           ((_ bit2bool 4) (mantissa M))
-                           ((_ bit2bool 5) (mantissa M))
-                           ((_ bit2bool 38) (mantissa M))
-                           ((_ bit2bool 48) (mantissa M))
-                           ((_ bit2bool 14) (mantissa M))
-                           ((_ bit2bool 46) (mantissa M))
-                           ((_ bit2bool 15) (mantissa M))
-                           ((_ bit2bool 35) (mantissa M))
-                           ((_ bit2bool 50) (mantissa M))
-                           ((_ bit2bool 42) (mantissa M))
-                           ((_ bit2bool 23) (mantissa M))
-                           ((_ bit2bool 22) (mantissa M))
-                           ((_ bit2bool 33) (mantissa M))
-                           ((_ bit2bool 29) (mantissa M))
-                           ((_ bit2bool 9) (mantissa M))
-                           ((_ bit2bool 36) (mantissa M))
-                           ((_ bit2bool 28) (mantissa M))
-                           ((_ bit2bool 32) (mantissa M))
-                           ((_ bit2bool 37) (mantissa M))
-                           ((_ bit2bool 27) (mantissa M))
-                           ((_ bit2bool 45) (mantissa M))
-                           ((_ bit2bool 8) (mantissa M))
-                           ((_ bit2bool 2) (mantissa M))
-                           ((_ bit2bool 1) (mantissa M))
-                           ((_ bit2bool 26) (mantissa M))
-                           ((_ bit2bool 10) (mantissa M))
-                           ((_ bit2bool 41) (mantissa M))
-                           ((_ bit2bool 7) (mantissa M))
-                           ((_ bit2bool 24) (mantissa M))
-                           ((_ bit2bool 40) (mantissa M))
-                           ((_ bit2bool 39) (mantissa M))
-                           ((_ bit2bool 20) (mantissa M))
-                           ((_ bit2bool 19) (mantissa M))
-                           (= (exponent M) #b10000000010)
                            ((_ bit2bool 16) (mantissa M))
+                           ((_ bit2bool 34) (mantissa M))
+                           ((_ bit2bool 30) (mantissa M))
+                           ((_ bit2bool 23) (mantissa M))
+                           ((_ bit2bool 39) (mantissa M))
                            ((_ bit2bool 21) (mantissa M))
                            ((_ bit2bool 0) (mantissa M))
-                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 20) (mantissa M))
+                           ((_ bit2bool 1) (mantissa M))
+                           ((_ bit2bool 17) (mantissa M))
+                           ((_ bit2bool 46) (mantissa M))
+                           ((_ bit2bool 41) (mantissa M))
+                           ((_ bit2bool 7) (mantissa M))
                            ((_ bit2bool 6) (mantissa M))
+                           ((_ bit2bool 22) (mantissa M))
+                           ((_ bit2bool 10) (mantissa M))
+                           ((_ bit2bool 32) (mantissa M))
+                           ((_ bit2bool 24) (mantissa M))
+                           ((_ bit2bool 8) (mantissa M))
+                           ((_ bit2bool 42) (mantissa M))
                            ((_ bit2bool 47) (mantissa M))
-                           ((_ bit2bool 51) (mantissa M))
-                           ((_ bit2bool 18) (mantissa M))
-                           ((_ bit2bool 49) (mantissa M))
-                           ((_ bit2bool 44) (mantissa M))
+                           ((_ bit2bool 45) (mantissa M))
+                           ((_ bit2bool 33) (mantissa M))
+                           ((_ bit2bool 31) (mantissa M))
                            ((_ bit2bool 12) (mantissa M))
                            ((_ bit2bool 25) (mantissa M))
+                           ((_ bit2bool 19) (mantissa M))
+                           ((_ bit2bool 27) (mantissa M))
+                           ((_ bit2bool 50) (mantissa M))
+                           ((_ bit2bool 29) (mantissa M))
+                           ((_ bit2bool 14) (mantissa M))
+                           ((_ bit2bool 28) (mantissa M))
+                           ((_ bit2bool 49) (mantissa M))
+                           ((_ bit2bool 4) (mantissa M))
+                           ((_ bit2bool 3) (mantissa M))
+                           (= (exponent M) #b10000000010)
+                           ((_ bit2bool 9) (mantissa M))
+                           ((_ bit2bool 5) (mantissa M))
+                           ((_ bit2bool 36) (mantissa M))
+                           ((_ bit2bool 38) (mantissa M))
+                           ((_ bit2bool 2) (mantissa M))
+                           ((_ bit2bool 48) (mantissa M))
+                           ((_ bit2bool 51) (mantissa M))
+                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 40) (mantissa M))
+                           ((_ bit2bool 35) (mantissa M))
+                           ((_ bit2bool 37) (mantissa M))
+                           ((_ bit2bool 15) (mantissa M))
+                           ((_ bit2bool 44) (mantissa M))
                            ((_ bit2bool 43) (mantissa M))
-                           ((_ bit2bool 34) (mantissa M))
-                           ((_ bit2bool 31) (mantissa M))
-                           ((_ bit2bool 30) (mantissa M))
-                           ((_ bit2bool 11) (mantissa M)))
+                           ((_ bit2bool 11) (mantissa M))
+                           ((_ bit2bool 18) (mantissa M))
+                           ((_ bit2bool 26) (mantissa M)))
                        (<= N 2)
                        (not x!1)
                        (<= 0 N))
@@ -3395,59 +3395,59 @@
                            (= (exponent M) #b10000000010))
                        (or (sign M)
                            (not (bvule #b10000000010 (exponent M)))
-                           ((_ bit2bool 17) (mantissa M))
-                           ((_ bit2bool 3) (mantissa M))
-                           ((_ bit2bool 4) (mantissa M))
-                           ((_ bit2bool 5) (mantissa M))
-                           ((_ bit2bool 38) (mantissa M))
-                           ((_ bit2bool 48) (mantissa M))
-                           ((_ bit2bool 14) (mantissa M))
-                           ((_ bit2bool 46) (mantissa M))
-                           ((_ bit2bool 15) (mantissa M))
-                           ((_ bit2bool 35) (mantissa M))
-                           ((_ bit2bool 50) (mantissa M))
-                           ((_ bit2bool 42) (mantissa M))
-                           ((_ bit2bool 23) (mantissa M))
-                           ((_ bit2bool 22) (mantissa M))
-                           ((_ bit2bool 33) (mantissa M))
-                           ((_ bit2bool 29) (mantissa M))
-                           ((_ bit2bool 9) (mantissa M))
-                           ((_ bit2bool 36) (mantissa M))
-                           ((_ bit2bool 28) (mantissa M))
-                           ((_ bit2bool 32) (mantissa M))
-                           ((_ bit2bool 37) (mantissa M))
-                           ((_ bit2bool 27) (mantissa M))
-                           ((_ bit2bool 45) (mantissa M))
-                           ((_ bit2bool 8) (mantissa M))
-                           ((_ bit2bool 2) (mantissa M))
-                           ((_ bit2bool 1) (mantissa M))
-                           ((_ bit2bool 26) (mantissa M))
-                           ((_ bit2bool 10) (mantissa M))
-                           ((_ bit2bool 41) (mantissa M))
-                           ((_ bit2bool 7) (mantissa M))
-                           ((_ bit2bool 24) (mantissa M))
-                           ((_ bit2bool 40) (mantissa M))
-                           ((_ bit2bool 39) (mantissa M))
-                           ((_ bit2bool 20) (mantissa M))
-                           ((_ bit2bool 19) (mantissa M))
-                           (= (exponent M) #b10000000010)
                            ((_ bit2bool 16) (mantissa M))
+                           ((_ bit2bool 34) (mantissa M))
+                           ((_ bit2bool 30) (mantissa M))
+                           ((_ bit2bool 23) (mantissa M))
+                           ((_ bit2bool 39) (mantissa M))
                            ((_ bit2bool 21) (mantissa M))
                            ((_ bit2bool 0) (mantissa M))
-                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 20) (mantissa M))
+                           ((_ bit2bool 1) (mantissa M))
+                           ((_ bit2bool 17) (mantissa M))
+                           ((_ bit2bool 46) (mantissa M))
+                           ((_ bit2bool 41) (mantissa M))
+                           ((_ bit2bool 7) (mantissa M))
                            ((_ bit2bool 6) (mantissa M))
+                           ((_ bit2bool 22) (mantissa M))
+                           ((_ bit2bool 10) (mantissa M))
+                           ((_ bit2bool 32) (mantissa M))
+                           ((_ bit2bool 24) (mantissa M))
+                           ((_ bit2bool 8) (mantissa M))
+                           ((_ bit2bool 42) (mantissa M))
                            ((_ bit2bool 47) (mantissa M))
-                           ((_ bit2bool 51) (mantissa M))
-                           ((_ bit2bool 18) (mantissa M))
-                           ((_ bit2bool 49) (mantissa M))
-                           ((_ bit2bool 44) (mantissa M))
+                           ((_ bit2bool 45) (mantissa M))
+                           ((_ bit2bool 33) (mantissa M))
+                           ((_ bit2bool 31) (mantissa M))
                            ((_ bit2bool 12) (mantissa M))
                            ((_ bit2bool 25) (mantissa M))
+                           ((_ bit2bool 19) (mantissa M))
+                           ((_ bit2bool 27) (mantissa M))
+                           ((_ bit2bool 50) (mantissa M))
+                           ((_ bit2bool 29) (mantissa M))
+                           ((_ bit2bool 14) (mantissa M))
+                           ((_ bit2bool 28) (mantissa M))
+                           ((_ bit2bool 49) (mantissa M))
+                           ((_ bit2bool 4) (mantissa M))
+                           ((_ bit2bool 3) (mantissa M))
+                           (= (exponent M) #b10000000010)
+                           ((_ bit2bool 9) (mantissa M))
+                           ((_ bit2bool 5) (mantissa M))
+                           ((_ bit2bool 36) (mantissa M))
+                           ((_ bit2bool 38) (mantissa M))
+                           ((_ bit2bool 2) (mantissa M))
+                           ((_ bit2bool 48) (mantissa M))
+                           ((_ bit2bool 51) (mantissa M))
+                           ((_ bit2bool 13) (mantissa M))
+                           ((_ bit2bool 40) (mantissa M))
+                           ((_ bit2bool 35) (mantissa M))
+                           ((_ bit2bool 37) (mantissa M))
+                           ((_ bit2bool 15) (mantissa M))
+                           ((_ bit2bool 44) (mantissa M))
                            ((_ bit2bool 43) (mantissa M))
-                           ((_ bit2bool 34) (mantissa M))
-                           ((_ bit2bool 31) (mantissa M))
-                           ((_ bit2bool 30) (mantissa M))
-                           ((_ bit2bool 11) (mantissa M)))
+                           ((_ bit2bool 11) (mantissa M))
+                           ((_ bit2bool 18) (mantissa M))
+                           ((_ bit2bool 26) (mantissa M)))
                        (not x!1)
                        (<= 0 N))
                   :weight 0)))
@@ -3506,59 +3506,59 @@
                       (= (exponent N) #b10000000010))
                   (or (sign N)
                       (not (bvule #b10000000010 (exponent N)))
-                      ((_ bit2bool 17) (mantissa N))
-                      ((_ bit2bool 3) (mantissa N))
-                      ((_ bit2bool 4) (mantissa N))
-                      ((_ bit2bool 5) (mantissa N))
-                      ((_ bit2bool 38) (mantissa N))
-                      ((_ bit2bool 48) (mantissa N))
-                      ((_ bit2bool 14) (mantissa N))
-                      ((_ bit2bool 46) (mantissa N))
-                      ((_ bit2bool 15) (mantissa N))
-                      ((_ bit2bool 35) (mantissa N))
-                      ((_ bit2bool 50) (mantissa N))
-                      ((_ bit2bool 42) (mantissa N))
-                      ((_ bit2bool 23) (mantissa N))
-                      ((_ bit2bool 22) (mantissa N))
-                      ((_ bit2bool 33) (mantissa N))
-                      ((_ bit2bool 29) (mantissa N))
-                      ((_ bit2bool 9) (mantissa N))
-                      ((_ bit2bool 36) (mantissa N))
-                      ((_ bit2bool 28) (mantissa N))
-                      ((_ bit2bool 32) (mantissa N))
-                      ((_ bit2bool 37) (mantissa N))
-                      ((_ bit2bool 27) (mantissa N))
-                      ((_ bit2bool 45) (mantissa N))
-                      ((_ bit2bool 8) (mantissa N))
-                      ((_ bit2bool 2) (mantissa N))
-                      ((_ bit2bool 1) (mantissa N))
-                      ((_ bit2bool 26) (mantissa N))
-                      ((_ bit2bool 10) (mantissa N))
-                      ((_ bit2bool 41) (mantissa N))
-                      ((_ bit2bool 7) (mantissa N))
-                      ((_ bit2bool 24) (mantissa N))
-                      ((_ bit2bool 40) (mantissa N))
-                      ((_ bit2bool 39) (mantissa N))
-                      ((_ bit2bool 20) (mantissa N))
-                      ((_ bit2bool 19) (mantissa N))
-                      (= (exponent N) #b10000000010)
                       ((_ bit2bool 16) (mantissa N))
+                      ((_ bit2bool 34) (mantissa N))
+                      ((_ bit2bool 30) (mantissa N))
+                      ((_ bit2bool 23) (mantissa N))
+                      ((_ bit2bool 39) (mantissa N))
                       ((_ bit2bool 21) (mantissa N))
                       ((_ bit2bool 0) (mantissa N))
-                      ((_ bit2bool 13) (mantissa N))
+                      ((_ bit2bool 20) (mantissa N))
+                      ((_ bit2bool 1) (mantissa N))
+                      ((_ bit2bool 17) (mantissa N))
+                      ((_ bit2bool 46) (mantissa N))
+                      ((_ bit2bool 41) (mantissa N))
+                      ((_ bit2bool 7) (mantissa N))
                       ((_ bit2bool 6) (mantissa N))
+                      ((_ bit2bool 22) (mantissa N))
+                      ((_ bit2bool 10) (mantissa N))
+                      ((_ bit2bool 32) (mantissa N))
+                      ((_ bit2bool 24) (mantissa N))
+                      ((_ bit2bool 8) (mantissa N))
+                      ((_ bit2bool 42) (mantissa N))
                       ((_ bit2bool 47) (mantissa N))
-                      ((_ bit2bool 51) (mantissa N))
-                      ((_ bit2bool 18) (mantissa N))
-                      ((_ bit2bool 49) (mantissa N))
-                      ((_ bit2bool 44) (mantissa N))
+                      ((_ bit2bool 45) (mantissa N))
+                      ((_ bit2bool 33) (mantissa N))
+                      ((_ bit2bool 31) (mantissa N))
                       ((_ bit2bool 12) (mantissa N))
                       ((_ bit2bool 25) (mantissa N))
+                      ((_ bit2bool 19) (mantissa N))
+                      ((_ bit2bool 27) (mantissa N))
+                      ((_ bit2bool 50) (mantissa N))
+                      ((_ bit2bool 29) (mantissa N))
+                      ((_ bit2bool 14) (mantissa N))
+                      ((_ bit2bool 28) (mantissa N))
+                      ((_ bit2bool 49) (mantissa N))
+                      ((_ bit2bool 4) (mantissa N))
+                      ((_ bit2bool 3) (mantissa N))
+                      (= (exponent N) #b10000000010)
+                      ((_ bit2bool 9) (mantissa N))
+                      ((_ bit2bool 5) (mantissa N))
+                      ((_ bit2bool 36) (mantissa N))
+                      ((_ bit2bool 38) (mantissa N))
+                      ((_ bit2bool 2) (mantissa N))
+                      ((_ bit2bool 48) (mantissa N))
+                      ((_ bit2bool 51) (mantissa N))
+                      ((_ bit2bool 13) (mantissa N))
+                      ((_ bit2bool 40) (mantissa N))
+                      ((_ bit2bool 35) (mantissa N))
+                      ((_ bit2bool 37) (mantissa N))
+                      ((_ bit2bool 15) (mantissa N))
+                      ((_ bit2bool 44) (mantissa N))
                       ((_ bit2bool 43) (mantissa N))
-                      ((_ bit2bool 34) (mantissa N))
-                      ((_ bit2bool 31) (mantissa N))
-                      ((_ bit2bool 30) (mantissa N))
-                      ((_ bit2bool 11) (mantissa N)))
+                      ((_ bit2bool 11) (mantissa N))
+                      ((_ bit2bool 18) (mantissa N))
+                      ((_ bit2bool 26) (mantissa N)))
                   (not J)))
           :weight 0))
      (forall ((A Int)
@@ -3943,60 +3943,60 @@
                       (= (exponent Q) #b10000000010)
                       (not (bvule #b10000000010 (exponent Q))))
                   (or (sign Q)
-                      ((_ bit2bool 17) (mantissa Q))
-                      ((_ bit2bool 32) (mantissa Q))
-                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 16) (mantissa Q))
                       ((_ bit2bool 42) (mantissa Q))
+                      ((_ bit2bool 46) (mantissa Q))
+                      ((_ bit2bool 41) (mantissa Q))
+                      ((_ bit2bool 47) (mantissa Q))
                       ((_ bit2bool 37) (mantissa Q))
-                      ((_ bit2bool 12) (mantissa Q))
-                      ((_ bit2bool 33) (mantissa Q))
-                      ((_ bit2bool 27) (mantissa Q))
-                      ((_ bit2bool 49) (mantissa Q))
-                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 22) (mantissa Q))
+                      ((_ bit2bool 45) (mantissa Q))
+                      ((_ bit2bool 40) (mantissa Q))
+                      ((_ bit2bool 44) (mantissa Q))
                       ((_ bit2bool 43) (mantissa Q))
                       (= (exponent Q) #b10000000010)
-                      ((_ bit2bool 34) (mantissa Q))
-                      ((_ bit2bool 7) (mantissa Q))
-                      ((_ bit2bool 45) (mantissa Q))
-                      ((_ bit2bool 13) (mantissa Q))
-                      ((_ bit2bool 16) (mantissa Q))
-                      ((_ bit2bool 28) (mantissa Q))
-                      (not (bvule #b10000000010 (exponent Q)))
-                      ((_ bit2bool 18) (mantissa Q))
-                      ((_ bit2bool 6) (mantissa Q))
+                      ((_ bit2bool 29) (mantissa Q))
+                      ((_ bit2bool 33) (mantissa Q))
+                      ((_ bit2bool 38) (mantissa Q))
                       ((_ bit2bool 9) (mantissa Q))
                       ((_ bit2bool 8) (mantissa Q))
-                      ((_ bit2bool 36) (mantissa Q))
-                      ((_ bit2bool 26) (mantissa Q))
-                      ((_ bit2bool 41) (mantissa Q))
-                      ((_ bit2bool 10) (mantissa Q))
-                      ((_ bit2bool 47) (mantissa Q))
-                      ((_ bit2bool 40) (mantissa Q))
-                      ((_ bit2bool 39) (mantissa Q))
-                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 13) (mantissa Q))
+                      (not (bvule #b10000000010 (exponent Q)))
+                      ((_ bit2bool 2) (mantissa Q))
+                      ((_ bit2bool 32) (mantissa Q))
+                      ((_ bit2bool 31) (mantissa Q))
                       ((_ bit2bool 24) (mantissa Q))
-                      ((_ bit2bool 23) (mantissa Q))
-                      ((_ bit2bool 22) (mantissa Q))
-                      ((_ bit2bool 21) (mantissa Q))
-                      ((_ bit2bool 20) (mantissa Q))
                       ((_ bit2bool 19) (mantissa Q))
-                      ((_ bit2bool 29) (mantissa Q))
-                      ((_ bit2bool 38) (mantissa Q))
-                      ((_ bit2bool 35) (mantissa Q))
-                      ((_ bit2bool 15) (mantissa Q))
-                      ((_ bit2bool 46) (mantissa Q))
-                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 27) (mantissa Q))
                       ((_ bit2bool 48) (mantissa Q))
+                      ((_ bit2bool 28) (mantissa Q))
+                      ((_ bit2bool 49) (mantissa Q))
+                      ((_ bit2bool 15) (mantissa Q))
+                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 7) (mantissa Q))
+                      ((_ bit2bool 6) (mantissa Q))
                       ((_ bit2bool 5) (mantissa Q))
                       ((_ bit2bool 4) (mantissa Q))
                       ((_ bit2bool 3) (mantissa Q))
-                      ((_ bit2bool 44) (mantissa Q))
-                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 10) (mantissa Q))
+                      ((_ bit2bool 39) (mantissa Q))
+                      ((_ bit2bool 17) (mantissa Q))
                       ((_ bit2bool 1) (mantissa Q))
-                      ((_ bit2bool 2) (mantissa Q))
-                      ((_ bit2bool 31) (mantissa Q))
+                      ((_ bit2bool 20) (mantissa Q))
+                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 21) (mantissa Q))
+                      ((_ bit2bool 23) (mantissa Q))
                       ((_ bit2bool 30) (mantissa Q))
-                      ((_ bit2bool 11) (mantissa Q)))
+                      ((_ bit2bool 34) (mantissa Q))
+                      ((_ bit2bool 35) (mantissa Q))
+                      ((_ bit2bool 36) (mantissa Q))
+                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 12) (mantissa Q))
+                      ((_ bit2bool 11) (mantissa Q))
+                      ((_ bit2bool 18) (mantissa Q))
+                      ((_ bit2bool 26) (mantissa Q)))
                   M
                   (= T 0)))
           :weight 0))
@@ -4137,60 +4137,60 @@
                       (= (exponent Q) #b10000000010)
                       (not (bvule #b10000000010 (exponent Q))))
                   (or (sign Q)
-                      ((_ bit2bool 17) (mantissa Q))
-                      ((_ bit2bool 32) (mantissa Q))
-                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 16) (mantissa Q))
                       ((_ bit2bool 42) (mantissa Q))
+                      ((_ bit2bool 46) (mantissa Q))
+                      ((_ bit2bool 41) (mantissa Q))
+                      ((_ bit2bool 47) (mantissa Q))
                       ((_ bit2bool 37) (mantissa Q))
-                      ((_ bit2bool 12) (mantissa Q))
-                      ((_ bit2bool 33) (mantissa Q))
-                      ((_ bit2bool 27) (mantissa Q))
-                      ((_ bit2bool 49) (mantissa Q))
-                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 22) (mantissa Q))
+                      ((_ bit2bool 45) (mantissa Q))
+                      ((_ bit2bool 40) (mantissa Q))
+                      ((_ bit2bool 44) (mantissa Q))
                       ((_ bit2bool 43) (mantissa Q))
                       (= (exponent Q) #b10000000010)
-                      ((_ bit2bool 34) (mantissa Q))
-                      ((_ bit2bool 7) (mantissa Q))
-                      ((_ bit2bool 45) (mantissa Q))
-                      ((_ bit2bool 13) (mantissa Q))
-                      ((_ bit2bool 16) (mantissa Q))
-                      ((_ bit2bool 28) (mantissa Q))
-                      (not (bvule #b10000000010 (exponent Q)))
-                      ((_ bit2bool 18) (mantissa Q))
-                      ((_ bit2bool 6) (mantissa Q))
+                      ((_ bit2bool 29) (mantissa Q))
+                      ((_ bit2bool 33) (mantissa Q))
+                      ((_ bit2bool 38) (mantissa Q))
                       ((_ bit2bool 9) (mantissa Q))
                       ((_ bit2bool 8) (mantissa Q))
-                      ((_ bit2bool 36) (mantissa Q))
-                      ((_ bit2bool 26) (mantissa Q))
-                      ((_ bit2bool 41) (mantissa Q))
-                      ((_ bit2bool 10) (mantissa Q))
-                      ((_ bit2bool 47) (mantissa Q))
-                      ((_ bit2bool 40) (mantissa Q))
-                      ((_ bit2bool 39) (mantissa Q))
-                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 13) (mantissa Q))
+                      (not (bvule #b10000000010 (exponent Q)))
+                      ((_ bit2bool 2) (mantissa Q))
+                      ((_ bit2bool 32) (mantissa Q))
+                      ((_ bit2bool 31) (mantissa Q))
                       ((_ bit2bool 24) (mantissa Q))
-                      ((_ bit2bool 23) (mantissa Q))
-                      ((_ bit2bool 22) (mantissa Q))
-                      ((_ bit2bool 21) (mantissa Q))
-                      ((_ bit2bool 20) (mantissa Q))
                       ((_ bit2bool 19) (mantissa Q))
-                      ((_ bit2bool 29) (mantissa Q))
-                      ((_ bit2bool 38) (mantissa Q))
-                      ((_ bit2bool 35) (mantissa Q))
-                      ((_ bit2bool 15) (mantissa Q))
-                      ((_ bit2bool 46) (mantissa Q))
-                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 51) (mantissa Q))
+                      ((_ bit2bool 50) (mantissa Q))
+                      ((_ bit2bool 27) (mantissa Q))
                       ((_ bit2bool 48) (mantissa Q))
+                      ((_ bit2bool 28) (mantissa Q))
+                      ((_ bit2bool 49) (mantissa Q))
+                      ((_ bit2bool 15) (mantissa Q))
+                      ((_ bit2bool 14) (mantissa Q))
+                      ((_ bit2bool 7) (mantissa Q))
+                      ((_ bit2bool 6) (mantissa Q))
                       ((_ bit2bool 5) (mantissa Q))
                       ((_ bit2bool 4) (mantissa Q))
                       ((_ bit2bool 3) (mantissa Q))
-                      ((_ bit2bool 44) (mantissa Q))
-                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 10) (mantissa Q))
+                      ((_ bit2bool 39) (mantissa Q))
+                      ((_ bit2bool 17) (mantissa Q))
                       ((_ bit2bool 1) (mantissa Q))
-                      ((_ bit2bool 2) (mantissa Q))
-                      ((_ bit2bool 31) (mantissa Q))
+                      ((_ bit2bool 20) (mantissa Q))
+                      ((_ bit2bool 0) (mantissa Q))
+                      ((_ bit2bool 21) (mantissa Q))
+                      ((_ bit2bool 23) (mantissa Q))
                       ((_ bit2bool 30) (mantissa Q))
-                      ((_ bit2bool 11) (mantissa Q)))))
+                      ((_ bit2bool 34) (mantissa Q))
+                      ((_ bit2bool 35) (mantissa Q))
+                      ((_ bit2bool 36) (mantissa Q))
+                      ((_ bit2bool 25) (mantissa Q))
+                      ((_ bit2bool 12) (mantissa Q))
+                      ((_ bit2bool 11) (mantissa Q))
+                      ((_ bit2bool 18) (mantissa Q))
+                      ((_ bit2bool 26) (mantissa Q)))))
           :weight 0))
      (forall ((A Int) (B Int) (C Int) (D Int) (E Int))
        (! (= (Main_void_clinit_Block1 A B C D E) (and (= A 1) (= E 1)))
@@ -4667,58 +4667,40 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block21:
+Main_void_mainJayArray_java_lang_String_Block8:
+AND(
+  GE(
+    i4_279:INTEGER,
+    0
+    ),
+  GE(
+    i3_278:INTEGER,
+    0
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block11:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block13:
-AND(GE($i7_1018:INTEGER, 0), GE(i4_1021:INTEGER, 0), NOT(GE($i7_1018:INTEGER, 3)))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block20:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block10:
+Main_void_mainJayArray_java_lang_String_Block2:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block0:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block6:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block11:
-true
----------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block23:
+Main_void_mainJayArray_java_lang_String_Block22:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block16:
-AND(GE($i8_1093:INTEGER, 0), GE(i3_1096:INTEGER, 0), NOT(GE(i3_1096:INTEGER, 3)), NOT(GE($i8_1093:INTEGER, 4)))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block18:
-false
+Main_void_mainJayArray_java_lang_String_Block12:
+true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block19:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block14:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block9:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block8:
-AND(GE(i4_279:INTEGER, 0), GE(i3_278:INTEGER, 0))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block17:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block2:
+Main_void_mainJayArray_java_lang_String_Block21:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3:
@@ -4727,16 +4709,88 @@ true
 Main_void_mainJayArray_java_lang_String_Block15:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block5:
-AND(GE(i4_193:INTEGER, 0), GE(i3_192:INTEGER, 0))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block22:
+Main_void_mainJayArray_java_lang_String_Block10:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block12:
+Main_void_mainJayArray_java_lang_String_Block9:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block16:
+AND(
+  GE(
+    $i8_1093:INTEGER,
+    0
+    ),
+  GE(
+    i3_1096:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      i3_1096:INTEGER,
+      3
+        )
+    ),
+  NOT(
+    GE(
+      $i8_1093:INTEGER,
+      4
+        )
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block6:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block17:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block20:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block18:
+false
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block23:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block13:
+AND(
+  GE(
+    $i7_1018:INTEGER,
+    0
+    ),
+  GE(
+    i4_1021:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      $i7_1018:INTEGER,
+      3
+        )
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block5:
+AND(
+  GE(
+    i4_193:INTEGER,
+    0
+    ),
+  GE(
+    i3_192:INTEGER,
+    0
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block1:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
@@ -4770,7 +4824,363 @@ Main_void_mainJayArray_java_lang_String_Block2_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_2:
-AND(GE(i3_133:INTEGER, 0), GE(i4_134:INTEGER, 0), NOT(GE(i3_133:INTEGER, 3)), NOT(GE(i4_134:INTEGER, 4)), OR(FP_SIGN(d0_132_3:DOUBLE), EQ(FP_EXPONENT(d0_132_3:DOUBLE), #b10000000010), EQ(FP_EXPONENT(d0_132_3:DOUBLE), #b11111111111), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_132_3:DOUBLE)))), OR(FP_SIGN(d0_132_3:DOUBLE), BIT2BOOL[0](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[1](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[2](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[3](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[4](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[5](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[6](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[7](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[8](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[9](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[10](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[11](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[12](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[13](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[14](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[15](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[16](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[17](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[18](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[19](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[20](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[21](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[22](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[23](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[24](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[25](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[26](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[27](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[28](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[29](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[30](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[31](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[32](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[33](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[34](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[35](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[36](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[37](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[38](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[39](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[40](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[41](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[42](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[43](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[44](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[45](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[46](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[47](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[48](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[49](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[50](FP_MANTISSA(d0_132_3:DOUBLE)), BIT2BOOL[51](FP_MANTISSA(d0_132_3:DOUBLE)), EQ(FP_EXPONENT(d0_132_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_132_3:DOUBLE)))), OR(FP_SIGN(d0_132_3:DOUBLE), EQ(d0_132_3:DOUBLE, DOUBLE{s=false, e=1026, m=6755399441055744}), NOT(EQ(FP_EXPONENT(d0_132_3:DOUBLE), #b10000000010)), NOT(BIT2BOOL[51](FP_MANTISSA(d0_132_3:DOUBLE))), NOT(BIT2BOOL[52](FP_MANTISSA(d0_132_3:DOUBLE)))))
+AND(
+  GE(
+    i3_133:INTEGER,
+    0
+    ),
+  GE(
+    i4_134:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      i3_133:INTEGER,
+      3
+        )
+    ),
+  NOT(
+    GE(
+      i4_134:INTEGER,
+      4
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_132_3:DOUBLE
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_132_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_132_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_132_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_132_3:DOUBLE
+        ),
+    BIT2BOOL([0]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([1]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([2]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([3]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([4]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([5]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([6]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([7]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([8]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([9]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([10]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([11]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([12]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([13]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([14]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([15]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([16]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([17]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([18]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([19]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([20]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([21]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([22]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([23]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([24]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([25]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([26]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([27]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([28]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([29]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([30]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([31]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([32]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([33]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([34]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([35]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([36]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([37]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([38]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([39]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([40]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([41]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([42]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([43]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([44]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([45]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([46]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([47]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([48]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([49]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([50]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([51]
+      FP_MANTISSA(
+        d0_132_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_132_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_132_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_132_3:DOUBLE
+        ),
+    EQ(
+      d0_132_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=6755399441055744}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_132_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          d0_132_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          d0_132_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_3:
 true
@@ -4792,13 +5202,31 @@ Main_void_mainJayArray_java_lang_String_Block6_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_1-FAddResult:
-AND(GE(i4_292:INTEGER, 0), GE(i3_291:INTEGER, 0))
+AND(
+  GE(
+    i4_292:INTEGER,
+    0
+    ),
+  GE(
+    i3_291:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_12:
-AND(GE(i4_306:INTEGER, 0), GE(i3_305:INTEGER, 0))
+AND(
+  GE(
+    i4_306:INTEGER,
+    0
+    ),
+  GE(
+    i3_305:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13:
 true
@@ -4807,10 +5235,28 @@ Main_void_mainJayArray_java_lang_String_Block7_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_16:
-AND(GE(i4_369:INTEGER, 0), GE(i3_368:INTEGER, 0))
+AND(
+  GE(
+    i4_369:INTEGER,
+    0
+    ),
+  GE(
+    i3_368:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13_15:
-AND(GE(i4_383:INTEGER, 0), GE(i3_382:INTEGER, 0))
+AND(
+  GE(
+    i4_383:INTEGER,
+    0
+    ),
+  GE(
+    i3_382:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13_15_17:
 true
@@ -4828,7 +5274,10 @@ Main_void_mainJayArray_java_lang_String_Block7_2:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block22_1-FCmpResult:
-LE(-1:INTEGER, 0)
+LE(
+  -1:INTEGER,
+  0
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block22_11:
 true
@@ -4837,13 +5286,31 @@ Main_void_mainJayArray_java_lang_String_Block22_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_1:
-AND(GE(i4_677:INTEGER, 0), GE(i3_676:INTEGER, 0))
+AND(
+  GE(
+    i4_677:INTEGER,
+    0
+    ),
+  GE(
+    i3_676:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_12:
-AND(GE(i4_691:INTEGER, 0), GE(i3_690:INTEGER, 0))
+AND(
+  GE(
+    i4_691:INTEGER,
+    0
+    ),
+  GE(
+    i3_690:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_13:
 true
@@ -4852,10 +5319,28 @@ Main_void_mainJayArray_java_lang_String_Block10_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_16:
-AND(GE(i4_754:INTEGER, 0), GE(i3_753:INTEGER, 0))
+AND(
+  GE(
+    i4_754:INTEGER,
+    0
+    ),
+  GE(
+    i3_753:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_13_15:
-AND(GE(i4_768:INTEGER, 0), GE(i3_767:INTEGER, 0))
+AND(
+  GE(
+    i4_768:INTEGER,
+    0
+    ),
+  GE(
+    i3_767:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_13_15_17:
 true
@@ -4891,7 +5376,125 @@ Main_void_mainJayArray_java_lang_String_Block16_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block16_2-FCmpResult:
-AND(GE(i3_1144:INTEGER, 0), GE(i4_1145:INTEGER, 0), NOT(GE(i3_1144:INTEGER, 3)), NOT(GE(i4_1145:INTEGER, 4)), OR(FP_SIGN(d0_1143_3:DOUBLE), EQ(FP_EXPONENT(d0_1143_3:DOUBLE), #b11111111111), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1143_3:DOUBLE))), EQ(FP_EXPONENT(d0_1143_3:DOUBLE), #b10000000010), NOT(LE(-1:INTEGER, 0))), OR(FP_SIGN(d0_1143_3:DOUBLE), NOT(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_1143_3:DOUBLE)), #x0000000000000)), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_1143_3:DOUBLE))), EQ(FP_EXPONENT(d0_1143_3:DOUBLE), #b10000000010), NOT(LE(-1:INTEGER, 0))), OR(FP_SIGN(d0_1143_3:DOUBLE), NOT(BVULE(#b11000000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_1143_3:DOUBLE))), EQ(d0_1143_3:DOUBLE, DOUBLE{s=false, e=1026, m=6755399441055744}), NOT(EQ(FP_EXPONENT(d0_1143_3:DOUBLE), #b10000000010)), NOT(LE(-1:INTEGER, 0))))
+AND(
+  GE(
+    i3_1144:INTEGER,
+    0
+    ),
+  GE(
+    i4_1145:INTEGER,
+    0
+    ),
+  NOT(
+    GE(
+      i3_1144:INTEGER,
+      3
+        )
+    ),
+  NOT(
+    GE(
+      i4_1145:INTEGER,
+      4
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1143_3:DOUBLE
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1143_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1143_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1143_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1143_3:DOUBLE
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([51, 0]
+          FP_MANTISSA(
+            d0_1143_3:DOUBLE
+                    )
+                ),
+        #x0000000000000
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_1143_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_1143_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_1143_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b11000000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_1143_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      d0_1143_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=6755399441055744}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_1143_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block16_1_11:
 true
@@ -4902,10 +5505,10 @@ true
 Main_void_mainJayArray_java_lang_String_Block17_1:
 true
 ---------------------------------- 
-Main_void_clinit_Block0:
+Main_void_clinit_Block1:
 true
 ---------------------------------- 
-Main_void_clinit_Block1:
+Main_void_clinit_Block0:
 true
 ---------------------------------- 
 Main_void_clinit_Block1_1:
@@ -4920,10 +5523,10 @@ true
 inv_$StaticFields_Main_2:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block1:
+JayHornAssertions_void_clinit_Block0:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block0:
+JayHornAssertions_void_clinit_Block1:
 true
 ---------------------------------- 
 JayHornAssertions_void_clinit_Block1_1:

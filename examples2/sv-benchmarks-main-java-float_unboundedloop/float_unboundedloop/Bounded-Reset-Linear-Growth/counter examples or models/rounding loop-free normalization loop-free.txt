@@ -2160,31 +2160,31 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block7:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block2:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block3:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block6:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block5:
+Main_void_mainJayArray_java_lang_String_Block8:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block0:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block8:
+Main_void_mainJayArray_java_lang_String_Block4:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block4:
+Main_void_mainJayArray_java_lang_String_Block1:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block7:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block3:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block2:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block5:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block6:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
@@ -2212,7 +2212,78 @@ Main_void_mainJayArray_java_lang_String_Block2_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_2:
-AND(NOT(FP_SIGN(d0_105_3:DOUBLE)), OR(BIT2BOOL[10](FP_EXPONENT(d0_105_3:DOUBLE)), EQ(FP_EXPONENT(d0_105_3:DOUBLE), #b01111111111)), OR(EQ(FP_EXPONENT(d0_105_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_105_3:DOUBLE)))), OR(NOT(EQ(FP_EXPONENT(d0_105_3:DOUBLE), #b10000000010)), EQ(d0_105_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_105_3:DOUBLE)))), OR(BIT2BOOL[52](FP_MANTISSA(d0_105_3:DOUBLE)), NOT(BIT2BOOL[8](FP_EXPONENT(d0_105_3:DOUBLE)))))
+AND(
+  NOT(
+    FP_SIGN(
+      d0_105_3:DOUBLE
+        )
+    ),
+  OR(
+    BIT2BOOL([10]
+      FP_EXPONENT(
+        d0_105_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_105_3:DOUBLE
+            ),
+      #b01111111111
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_105_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_105_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_105_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    EQ(
+      d0_105_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_105_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    BIT2BOOL([52]
+      FP_MANTISSA(
+        d0_105_3:DOUBLE
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        FP_EXPONENT(
+          d0_105_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_3:
 true
@@ -2220,7 +2291,50 @@ true
 Assert_#0_Main.java,_line_29:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult:
-AND(GE(-1:INTEGER, 0), OR(EQ(FP_EXPONENT(d0_134_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d0_134_3:DOUBLE)))), OR(NOT(EQ(FP_EXPONENT(d0_134_3:DOUBLE), #b10000000010)), EQ(d0_134_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_134_3:DOUBLE)))))
+AND(
+  GE(
+    -1:INTEGER,
+    0
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_134_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_134_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_134_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    EQ(
+      d0_134_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_134_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_11:
 true
@@ -2229,19 +2343,132 @@ Main_void_mainJayArray_java_lang_String_Block3_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_1-FAddResult:
-AND(NOT(FP_SIGN(d0_152_3:DOUBLE)), NOT(EQ(FP_EXPONENT(d0_152_3:DOUBLE), #b11111111111)), OR(BIT2BOOL[10](FP_EXPONENT(d0_152_3:DOUBLE)), EQ(FP_EXPONENT(d0_152_3:DOUBLE), #b01111111111)), OR(BIT2BOOL[52](FP_MANTISSA(d0_152_3:DOUBLE)), NOT(BIT2BOOL[8](FP_EXPONENT(d0_152_3:DOUBLE)))))
+AND(
+  NOT(
+    FP_SIGN(
+      d0_152_3:DOUBLE
+        )
+    ),
+  NOT(
+    EQ(
+      FP_EXPONENT(
+        d0_152_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    BIT2BOOL([10]
+      FP_EXPONENT(
+        d0_152_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_152_3:DOUBLE
+            ),
+      #b01111111111
+        )
+    ),
+  OR(
+    BIT2BOOL([52]
+      FP_MANTISSA(
+        d0_152_3:DOUBLE
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        FP_EXPONENT(
+          d0_152_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_12:
-AND(NOT(FP_SIGN(d0_163_3:DOUBLE)), NOT(FP_SIGN((DoubleFloatingPoint
+AND(
+  NOT(
+    FP_SIGN(
+      d0_163_3:DOUBLE
+        )
+    ),
+  NOT(
+    FP_SIGN(
+      (DoubleFloatingPoint
   false
   #b01111111111
-  #b10000000000000000000000000000000000000000000000000000):DOUBLE)), BVULE(#b01111111111, BVADD(#b00000000001, FP_EXPONENT(d0_163_3:DOUBLE))), OR(NOT(BIT2BOOL[8](FP_EXPONENT(d0_163_3:DOUBLE))), NOT(EQ(BVEXTRACT[158, 158](BVADD(BVCONCAT(#b0, FP_MANTISSA(d0_163_3:DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVLSHR(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b10000000000000000000000000000000000000000000000000000):DOUBLE
+        )
+    ),
+  BVULE(
+    #b01111111111,
+    BVADD(
+      #b00000000001,
+      FP_EXPONENT(
+        d0_163_3:DOUBLE
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([8]
+        FP_EXPONENT(
+          d0_163_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([158, 158]
+          BVADD(
+            BVCONCAT(
+              #b0,
+              FP_MANTISSA(
+                d0_163_3:DOUBLE
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        ),
+            BVLSHR(
+              BVCONCAT(
+                #b0,
+                FP_MANTISSA(
+                  (DoubleFloatingPoint
   false
   #b01111111111
-  #b10000000000000000000000000000000000000000000000000000):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVCONCAT(#x0000000000000000000000000000000000000, exponentsDiff_165:BITVECTOR)))), #b0))), OR(BIT2BOOL[0](FP_EXPONENT(d0_163_3:DOUBLE)), NOT(BIT2BOOL[8](FP_EXPONENT(d0_163_3:DOUBLE)))))
+  #b10000000000000000000000000000000000000000000000000000):DOUBLE
+                                ),
+                #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                            ),
+              BVCONCAT(
+                #x0000000000000000000000000000000000000,
+                exponentsDiff_165:BITVECTOR
+                            )
+                        )
+                    )
+                ),
+        #b0
+            )
+        )
+    ),
+  OR(
+    BIT2BOOL([0]
+      FP_EXPONENT(
+        d0_163_3:DOUBLE
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        FP_EXPONENT(
+          d0_163_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_13:
 true
@@ -2250,7 +2477,88 @@ Main_void_mainJayArray_java_lang_String_Block4_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_16:
-AND(NOT(EFP_SIGN(efp_216:EDOUBLE)), OR(BIT2BOOL[10](EFP_EXPONENT(efp_216:EDOUBLE)), EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_216:EDOUBLE)), #b01111111111)), OR(BIT2BOOL[157](EFP_MANTISSA(efp_216:EDOUBLE)), NOT(BIT2BOOL[8](EFP_EXPONENT(efp_216:EDOUBLE)))), OR(NOT(BIT2BOOL[8](EFP_EXPONENT(efp_216:EDOUBLE))), NOT(EQ(BVEXTRACT[104, 104](EFP_MANTISSA(efp_216:EDOUBLE)), #b1)), BVULE(#b10000000000000000000000000000000000000000000000000000, BVADD(#b00000000000000000000000000000000000000000000000000001, BVEXTRACT[157, 105](EFP_MANTISSA(efp_216:EDOUBLE))))), OR(NOT(BIT2BOOL[0](EFP_EXPONENT(efp_216:EDOUBLE))), NOT(BIT2BOOL[8](EFP_EXPONENT(efp_216:EDOUBLE)))))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_216:EDOUBLE
+        )
+    ),
+  OR(
+    BIT2BOOL([10]
+      EFP_EXPONENT(
+        efp_216:EDOUBLE
+            )
+        ),
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_216:EDOUBLE
+                )
+            ),
+      #b01111111111
+        )
+    ),
+  OR(
+    BIT2BOOL([157]
+      EFP_MANTISSA(
+        efp_216:EDOUBLE
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        EFP_EXPONENT(
+          efp_216:EDOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([8]
+        EFP_EXPONENT(
+          efp_216:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([104, 104]
+          EFP_MANTISSA(
+            efp_216:EDOUBLE
+                    )
+                ),
+        #b1
+            )
+        ),
+    BVULE(
+      #b10000000000000000000000000000000000000000000000000000,
+      BVADD(
+        #b00000000000000000000000000000000000000000000000000001,
+        BVEXTRACT([157, 105]
+          EFP_MANTISSA(
+            efp_216:EDOUBLE
+                    )
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([0]
+        EFP_EXPONENT(
+          efp_216:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        EFP_EXPONENT(
+          efp_216:EDOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_13_15:
 false
@@ -2268,7 +2576,101 @@ Main_void_mainJayArray_java_lang_String_Block4_16_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_2-FCmpResult:
-AND(NOT(EQ(FP_EXPONENT(d0_399_3:DOUBLE), #b11111111111)), NOT(FP_SIGN(d0_399_3:DOUBLE)), OR(BIT2BOOL[10](FP_EXPONENT(d0_399_3:DOUBLE)), EQ(FP_EXPONENT(d0_399_3:DOUBLE), #b01111111111)), OR(NOT(BVULE(#b10000000010, FP_EXPONENT(d0_399_3:DOUBLE))), EQ(FP_EXPONENT(d0_399_3:DOUBLE), #b10000000010), NOT(LE(-1:INTEGER, 0))), OR(NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_399_3:DOUBLE))), EQ(d0_399_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(EQ(FP_EXPONENT(d0_399_3:DOUBLE), #b10000000010)), NOT(LE(-1:INTEGER, 0))), OR(BIT2BOOL[52](FP_MANTISSA(d0_399_3:DOUBLE)), NOT(EQ(BVEXTRACT[8, 8](FP_EXPONENT(d0_399_3:DOUBLE)), #b1))))
+AND(
+  NOT(
+    EQ(
+      FP_EXPONENT(
+        d0_399_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  NOT(
+    FP_SIGN(
+      d0_399_3:DOUBLE
+        )
+    ),
+  OR(
+    BIT2BOOL([10]
+      FP_EXPONENT(
+        d0_399_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_399_3:DOUBLE
+            ),
+      #b01111111111
+        )
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_399_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_399_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_399_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      d0_399_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_399_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    BIT2BOOL([52]
+      FP_MANTISSA(
+        d0_399_3:DOUBLE
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([8, 8]
+          FP_EXPONENT(
+            d0_399_3:DOUBLE
+                    )
+                ),
+        #b1
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_1-FAddResult_11:
 true
@@ -2282,7 +2684,10 @@ true
 Assert_#1_Main.java,_line_33:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_1-FCmpResult:
-LE(-1:INTEGER, 0)
+LE(
+  -1:INTEGER,
+  0
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_11:
 true
@@ -2293,10 +2698,10 @@ true
 Main_void_mainJayArray_java_lang_String_Block5_1:
 true
 ---------------------------------- 
-Main_void_clinit_Block1:
+Main_void_clinit_Block0:
 true
 ---------------------------------- 
-Main_void_clinit_Block0:
+Main_void_clinit_Block1:
 true
 ---------------------------------- 
 Main_void_clinit_Block1_1:
@@ -2311,10 +2716,10 @@ true
 inv_$StaticFields_Main_2:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block1:
+JayHornAssertions_void_clinit_Block0:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block0:
+JayHornAssertions_void_clinit_Block1:
 true
 ---------------------------------- 
 JayHornAssertions_void_clinit_Block1_1:

@@ -1806,13 +1806,43 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block6:
+Main_void_mainJayArray_java_lang_String_Block7:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block0:
+Main_void_mainJayArray_java_lang_String_Block2:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block10:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block5:
+AND(
+  LE(
+    $ex__147_0:INTEGER,
+    0
+    ),
+  GE(
+    $ex__147_0:INTEGER,
+    0
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block8:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block1:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block3:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block9:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block6:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4:
@@ -1821,31 +1851,10 @@ true
 Main_void_mainJayArray_java_lang_String_Block13:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block7:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block2:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block8:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block5:
-AND(LE($ex__147_0:INTEGER, 0), GE($ex__147_0:INTEGER, 0))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block3:
-true
----------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block12:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block11:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block10:
+Main_void_mainJayArray_java_lang_String_Block0:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
@@ -1873,7 +1882,16 @@ Main_void_mainJayArray_java_lang_String_Block1_7:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_1:
-AND(LE($ex__86_0:INTEGER, 0), GE($ex__86_0:INTEGER, 0))
+AND(
+  LE(
+    $ex__86_0:INTEGER,
+    0
+    ),
+  GE(
+    $ex__86_0:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_2:
 true
@@ -1910,7 +1928,21 @@ Main_void_mainJayArray_java_lang_String_Block7_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13:
-AND(LE($ex__229_0:INTEGER, 0), NOT(BIT2BOOL[53](em_237:BITVECTOR)), GE($ex__229_0:INTEGER, 0))
+AND(
+  LE(
+    $ex__229_0:INTEGER,
+    0
+    ),
+  NOT(
+    BIT2BOOL([53]
+      em_237:BITVECTOR
+        )
+    ),
+  GE(
+    $ex__229_0:INTEGER,
+    0
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_13_Bits:
 true
@@ -1948,10 +1980,10 @@ true
 inv_$StaticFields_Main_2:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block0:
+JayHornAssertions_void_clinit_Block1:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block1:
+JayHornAssertions_void_clinit_Block0:
 true
 ---------------------------------- 
 JayHornAssertions_void_clinit_Block1_1:

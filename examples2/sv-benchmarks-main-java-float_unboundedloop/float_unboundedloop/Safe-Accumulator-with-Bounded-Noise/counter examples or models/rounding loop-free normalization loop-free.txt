@@ -1,7 +1,7 @@
 (and (= |Assert_#2_Main.java,_line_42|
         (exists ((x!1 Int) (x!2 DoubleFloatingPoint))
-          (! (and (or (not (= (exponent x!2) #b10000000001))
-                      (not ((_ bit2bool 52) (mantissa x!2)))
+          (! (and (or (not ((_ bit2bool 52) (mantissa x!2)))
+                      (not (= (exponent x!2) #b10000000001))
                       (not ((_ bit2bool 51) (mantissa x!2))))
                   (>= x!1 0)
                   (or (not (bvule #b10000000001 (exponent x!2)))
@@ -181,64 +181,15 @@
                       (not (bvule #b10100000000000000000000000000000000000000000000000000
                                   (mantissa T))))
                   (or (= (exponent T) #b11111111111)
+                      (not (<= J 0))
+                      (not (bvule #b10000000001 (exponent T)))
                       (= (exponent T) #b10000000001)
-                      (not (<= J 0))
-                      (not (bvule #b10000000001 (exponent T)))
                       (sign T))
-                  (or (= (exponent T) #b10000000001)
-                      (not (<= J 0))
-                      (not (= ((_ extract 51 0) (mantissa T)) #x0000000000000))
+                  (or (not (<= J 0))
                       (not (bvule #b10000000001 (exponent T)))
+                      (= (exponent T) #b10000000001)
+                      (not (= ((_ extract 51 0) (mantissa T)) #x0000000000000))
                       (sign T))))
-          :weight 0))
-     (forall ((A Int)
-              (B Int)
-              (C Int)
-              (D Int)
-              (E Int)
-              (F Bool)
-              (G Bool)
-              (H Int)
-              (I Int)
-              (J Int)
-              (K Int)
-              (L Int)
-              (M Int)
-              (N Int)
-              (O Bool)
-              (P Bool)
-              (Q Int)
-              (R Int)
-              (S Int)
-              (T DoubleFloatingPoint)
-              (U Int)
-              (V ExtendedDoubleFloatingPoint)
-              (W (_ BitVec 53)))
-       (! (= (Main_void_mainJayArray_java_lang_String_Block6_13_15
-               A
-               B
-               C
-               D
-               E
-               F
-               G
-               H
-               I
-               J
-               K
-               L
-               M
-               N
-               O
-               P
-               Q
-               R
-               S
-               T
-               U
-               V
-               W)
-             true)
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -336,6 +287,55 @@
                T
                U
                V)
+             true)
+          :weight 0))
+     (forall ((A Int)
+              (B Int)
+              (C Int)
+              (D Int)
+              (E Int)
+              (F Bool)
+              (G Bool)
+              (H Int)
+              (I Int)
+              (J Int)
+              (K Int)
+              (L Int)
+              (M Int)
+              (N Int)
+              (O Bool)
+              (P Bool)
+              (Q Int)
+              (R Int)
+              (S Int)
+              (T DoubleFloatingPoint)
+              (U Int)
+              (V ExtendedDoubleFloatingPoint)
+              (W (_ BitVec 53)))
+       (! (= (Main_void_mainJayArray_java_lang_String_Block6_13_15
+               A
+               B
+               C
+               D
+               E
+               F
+               G
+               H
+               I
+               J
+               K
+               L
+               M
+               N
+               O
+               P
+               Q
+               R
+               S
+               T
+               U
+               V
+               W)
              true)
           :weight 0))
      (forall ((A Int)
@@ -508,8 +508,8 @@
                M
                N
                O)
-             (and (or (not (= (exponent N) #b10000000001))
-                      (not ((_ bit2bool 51) (mantissa N)))
+             (and (or (not ((_ bit2bool 51) (mantissa N)))
+                      (not (= (exponent N) #b10000000001))
                       (not ((_ bit2bool 52) (mantissa N))))
                   (>= F 0)
                   (or (not (bvule #b10000000001 (exponent N)))
@@ -663,20 +663,20 @@
                       (not (= (exponent T) #b11111111111))
                       (= ((_ extract 51 0) (mantissa T)) #x0000000000000))
                   (or (not (>= K 0))
+                      (not (sign T))
                       (bvule (mantissa T)
                              #b10100000000000000000000000000000000000000000000000000)
-                      (not (sign T))
                       (not (= (exponent T) #b10000000001)))
                   (or (not (sign T))
                       (not (>= K 0))
                       (bvule (exponent T) #b10000000001))
                   (or (= (exponent T) #b11111111111)
+                      (not (bvule #b10000000001 (exponent T)))
                       (= (exponent T) #b10000000001)
-                      (not (bvule #b10000000001 (exponent T)))
                       (sign T))
-                  (or (= (exponent T) #b10000000001)
+                  (or (not (bvule #b10000000001 (exponent T)))
+                      (= (exponent T) #b10000000001)
                       (not (= ((_ extract 51 0) (mantissa T)) #x0000000000000))
-                      (not (bvule #b10000000001 (exponent T)))
                       (sign T))))
           :weight 0))
      (forall ((A Int)
@@ -727,24 +727,25 @@
                       (not (= (exponent T) #b10000000001))
                       (sign T))
                   (or (= (exponent T) #b11111111111)
-                      (= (exponent T) #b10000000001)
                       (not (bvule #b10000000001 (exponent T)))
+                      (= (exponent T) #b10000000001)
                       (sign T))
-                  (or (= (exponent T) #b10000000001)
-                      ((_ bit2bool 10) (mantissa T))
-                      ((_ bit2bool 29) (mantissa T))
-                      ((_ bit2bool 8) (mantissa T))
+                  (or ((_ bit2bool 8) (mantissa T))
                       ((_ bit2bool 15) (mantissa T))
-                      ((_ bit2bool 42) (mantissa T))
+                      ((_ bit2bool 29) (mantissa T))
                       ((_ bit2bool 28) (mantissa T))
-                      ((_ bit2bool 0) (mantissa T))
-                      ((_ bit2bool 37) (mantissa T))
-                      ((_ bit2bool 45) (mantissa T))
+                      ((_ bit2bool 51) (mantissa T))
+                      ((_ bit2bool 41) (mantissa T))
+                      ((_ bit2bool 43) (mantissa T))
+                      ((_ bit2bool 40) (mantissa T))
+                      ((_ bit2bool 16) (mantissa T))
+                      (not (bvule #b10000000001 (exponent T)))
+                      ((_ bit2bool 4) (mantissa T))
+                      (= (exponent T) #b10000000001)
+                      ((_ bit2bool 25) (mantissa T))
                       ((_ bit2bool 44) (mantissa T))
                       ((_ bit2bool 14) (mantissa T))
                       ((_ bit2bool 9) (mantissa T))
-                      ((_ bit2bool 41) (mantissa T))
-                      ((_ bit2bool 43) (mantissa T))
                       ((_ bit2bool 17) (mantissa T))
                       ((_ bit2bool 47) (mantissa T))
                       ((_ bit2bool 46) (mantissa T))
@@ -752,37 +753,36 @@
                       ((_ bit2bool 12) (mantissa T))
                       ((_ bit2bool 11) (mantissa T))
                       ((_ bit2bool 48) (mantissa T))
+                      ((_ bit2bool 10) (mantissa T))
+                      ((_ bit2bool 50) (mantissa T))
+                      ((_ bit2bool 42) (mantissa T))
                       ((_ bit2bool 27) (mantissa T))
                       ((_ bit2bool 26) (mantissa T))
                       ((_ bit2bool 20) (mantissa T))
                       ((_ bit2bool 19) (mantissa T))
                       ((_ bit2bool 18) (mantissa T))
-                      ((_ bit2bool 16) (mantissa T))
-                      (not (bvule #b10000000001 (exponent T)))
-                      ((_ bit2bool 4) (mantissa T))
-                      ((_ bit2bool 40) (mantissa T))
                       ((_ bit2bool 3) (mantissa T))
                       ((_ bit2bool 2) (mantissa T))
                       ((_ bit2bool 36) (mantissa T))
                       ((_ bit2bool 35) (mantissa T))
                       ((_ bit2bool 13) (mantissa T))
+                      ((_ bit2bool 37) (mantissa T))
+                      ((_ bit2bool 45) (mantissa T))
                       ((_ bit2bool 39) (mantissa T))
                       ((_ bit2bool 38) (mantissa T))
                       ((_ bit2bool 22) (mantissa T))
                       ((_ bit2bool 21) (mantissa T))
                       ((_ bit2bool 24) (mantissa T))
                       ((_ bit2bool 23) (mantissa T))
-                      ((_ bit2bool 25) (mantissa T))
-                      ((_ bit2bool 34) (mantissa T))
+                      (sign T)
+                      ((_ bit2bool 0) (mantissa T))
                       ((_ bit2bool 6) (mantissa T))
                       ((_ bit2bool 31) (mantissa T))
-                      ((_ bit2bool 50) (mantissa T))
                       ((_ bit2bool 33) (mantissa T))
                       ((_ bit2bool 5) (mantissa T))
-                      (sign T)
+                      ((_ bit2bool 34) (mantissa T))
                       ((_ bit2bool 7) (mantissa T))
                       ((_ bit2bool 49) (mantissa T))
-                      ((_ bit2bool 51) (mantissa T))
                       ((_ bit2bool 32) (mantissa T))
                       ((_ bit2bool 1) (mantissa T)))))
           :weight 0))
@@ -968,7 +968,7 @@
                   (or (not (bvule #b10000000001 (exponent T)))
                       (= (exponent T) #b10000000001))
                   (= V (bvadd #b10000000010 (exponent T)))
-                  (= G (= L 0))
+                  (= F (= L 0))
                   (or (not (= (exponent T) #b00000000000))
                       (not (= (mantissa T)
                               #b00000000000000000000000000000000000000000000000000000)))
@@ -1082,7 +1082,7 @@
                   (or (not (bvule #b10000000001 (exponent T)))
                       (= (exponent T) #b10000000001))
                   (= V (bvadd #b10000000010 (exponent T)))
-                  (= G (= L 0))
+                  (= F (= L 0))
                   (or (not (= (exponent T) #b00000000000))
                       (not (= (mantissa T)
                               #b00000000000000000000000000000000000000000000000000000)))
@@ -1377,8 +1377,8 @@
                M
                N
                O)
-             (and (or (not (= (exponent N) #b10000000001))
-                      (not ((_ bit2bool 51) (mantissa N)))
+             (and (or (not ((_ bit2bool 51) (mantissa N)))
+                      (not (= (exponent N) #b10000000001))
                       (not ((_ bit2bool 52) (mantissa N))))
                   (>= F 0)
                   (or (not (bvule #b10000000001 (exponent N)))
@@ -1441,24 +1441,25 @@
                       (not (= (exponent T) #b10000000001))
                       (sign T))
                   (or (= (exponent T) #b11111111111)
-                      (= (exponent T) #b10000000001)
                       (not (bvule #b10000000001 (exponent T)))
+                      (= (exponent T) #b10000000001)
                       (sign T))
-                  (or (= (exponent T) #b10000000001)
-                      ((_ bit2bool 10) (mantissa T))
-                      ((_ bit2bool 29) (mantissa T))
-                      ((_ bit2bool 8) (mantissa T))
+                  (or ((_ bit2bool 8) (mantissa T))
                       ((_ bit2bool 15) (mantissa T))
-                      ((_ bit2bool 42) (mantissa T))
+                      ((_ bit2bool 29) (mantissa T))
                       ((_ bit2bool 28) (mantissa T))
-                      ((_ bit2bool 0) (mantissa T))
-                      ((_ bit2bool 37) (mantissa T))
-                      ((_ bit2bool 45) (mantissa T))
+                      ((_ bit2bool 51) (mantissa T))
+                      ((_ bit2bool 41) (mantissa T))
+                      ((_ bit2bool 43) (mantissa T))
+                      ((_ bit2bool 40) (mantissa T))
+                      ((_ bit2bool 16) (mantissa T))
+                      (not (bvule #b10000000001 (exponent T)))
+                      ((_ bit2bool 4) (mantissa T))
+                      (= (exponent T) #b10000000001)
+                      ((_ bit2bool 25) (mantissa T))
                       ((_ bit2bool 44) (mantissa T))
                       ((_ bit2bool 14) (mantissa T))
                       ((_ bit2bool 9) (mantissa T))
-                      ((_ bit2bool 41) (mantissa T))
-                      ((_ bit2bool 43) (mantissa T))
                       ((_ bit2bool 17) (mantissa T))
                       ((_ bit2bool 47) (mantissa T))
                       ((_ bit2bool 46) (mantissa T))
@@ -1466,37 +1467,36 @@
                       ((_ bit2bool 12) (mantissa T))
                       ((_ bit2bool 11) (mantissa T))
                       ((_ bit2bool 48) (mantissa T))
+                      ((_ bit2bool 10) (mantissa T))
+                      ((_ bit2bool 50) (mantissa T))
+                      ((_ bit2bool 42) (mantissa T))
                       ((_ bit2bool 27) (mantissa T))
                       ((_ bit2bool 26) (mantissa T))
                       ((_ bit2bool 20) (mantissa T))
                       ((_ bit2bool 19) (mantissa T))
                       ((_ bit2bool 18) (mantissa T))
-                      ((_ bit2bool 16) (mantissa T))
-                      (not (bvule #b10000000001 (exponent T)))
-                      ((_ bit2bool 4) (mantissa T))
-                      ((_ bit2bool 40) (mantissa T))
                       ((_ bit2bool 3) (mantissa T))
                       ((_ bit2bool 2) (mantissa T))
                       ((_ bit2bool 36) (mantissa T))
                       ((_ bit2bool 35) (mantissa T))
                       ((_ bit2bool 13) (mantissa T))
+                      ((_ bit2bool 37) (mantissa T))
+                      ((_ bit2bool 45) (mantissa T))
                       ((_ bit2bool 39) (mantissa T))
                       ((_ bit2bool 38) (mantissa T))
                       ((_ bit2bool 22) (mantissa T))
                       ((_ bit2bool 21) (mantissa T))
                       ((_ bit2bool 24) (mantissa T))
                       ((_ bit2bool 23) (mantissa T))
-                      ((_ bit2bool 25) (mantissa T))
-                      ((_ bit2bool 34) (mantissa T))
+                      (sign T)
+                      ((_ bit2bool 0) (mantissa T))
                       ((_ bit2bool 6) (mantissa T))
                       ((_ bit2bool 31) (mantissa T))
-                      ((_ bit2bool 50) (mantissa T))
                       ((_ bit2bool 33) (mantissa T))
                       ((_ bit2bool 5) (mantissa T))
-                      (sign T)
+                      ((_ bit2bool 34) (mantissa T))
                       ((_ bit2bool 7) (mantissa T))
                       ((_ bit2bool 49) (mantissa T))
-                      ((_ bit2bool 51) (mantissa T))
                       ((_ bit2bool 32) (mantissa T))
                       ((_ bit2bool 1) (mantissa T)))
                   (or (not (= (exponent T) #b11111111111))
@@ -1542,8 +1542,8 @@
                O
                P)
              (and (or (not (= (exponent O) #b10000000001))
-                      (not ((_ bit2bool 51) (mantissa O)))
-                      (not ((_ bit2bool 52) (mantissa O))))
+                      (not ((_ bit2bool 52) (mantissa O)))
+                      (not ((_ bit2bool 51) (mantissa O))))
                   (or (not (sign O)) (bvule (exponent O) #b10000000001))
                   (or (not (bvule #b10000000001 (exponent O)))
                       (= (exponent O) #b10000000001))
@@ -1953,7 +1953,7 @@
                       (= (exponent T) #b10000000001))
                   O
                   P
-                  (= G (= L 0))))
+                  (= F (= L 0))))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -2006,7 +2006,7 @@
                       (= (exponent T) #b10000000001))
                   (not O)
                   P
-                  (= G (= L 0))))
+                  (= F (= L 0))))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -2058,7 +2058,7 @@
                   (or (not (bvule #b10000000001 (exponent T)))
                       (= (exponent T) #b10000000001))
                   P
-                  (= G (= L 0))))
+                  (= F (= L 0))))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -2091,8 +2091,8 @@
                M
                N
                O)
-             (and (or (not (= (exponent N) #b10000000001))
-                      (not ((_ bit2bool 51) (mantissa N)))
+             (and (or (not ((_ bit2bool 51) (mantissa N)))
+                      (not (= (exponent N) #b10000000001))
                       (not ((_ bit2bool 52) (mantissa N))))
                   (>= F 0)
                   (or (not (bvule #b10000000001 (exponent N)))
@@ -2123,8 +2123,8 @@
                J
                K)
              (exists ((x!1 DoubleFloatingPoint))
-               (! (and (or (not (= (exponent x!1) #b10000000001))
-                           (not ((_ bit2bool 52) (mantissa x!1)))
+               (! (and (or (not ((_ bit2bool 52) (mantissa x!1)))
+                           (not (= (exponent x!1) #b10000000001))
                            (not ((_ bit2bool 51) (mantissa x!1))))
                        (>= F 0)
                        (or (not (bvule #b10000000001 (exponent x!1)))
@@ -2232,8 +2232,8 @@
                O
                P)
              (and (or (not (= (exponent O) #b10000000001))
-                      (not ((_ bit2bool 51) (mantissa O)))
-                      (not ((_ bit2bool 52) (mantissa O))))
+                      (not ((_ bit2bool 52) (mantissa O)))
+                      (not ((_ bit2bool 51) (mantissa O))))
                   (or (not (sign O)) (bvule (exponent O) #b10000000001))
                   (or (not (bvule #b10000000001 (exponent O)))
                       (= (exponent O) #b10000000001))
@@ -2377,8 +2377,8 @@
                Q)
              (exists ((x!1 DoubleFloatingPoint))
                (! (and (or (sign x!1)
-                           (not (= (exponent x!1) #b10000000001))
                            (not ((_ bit2bool 52) (mantissa x!1)))
+                           (not (= (exponent x!1) #b10000000001))
                            (not ((_ bit2bool 51) (mantissa x!1))))
                        (or (not (>= K 0))
                            (not (= (exponent x!1) #b11111111111))
@@ -2426,8 +2426,8 @@
               (U Int))
        (! (let ((a!1 (exists ((x!1 DoubleFloatingPoint))
                        (! (and (or (sign x!1)
-                                   (not (= (exponent x!1) #b10000000001))
                                    (not ((_ bit2bool 52) (mantissa x!1)))
+                                   (not (= (exponent x!1) #b10000000001))
                                    (not ((_ bit2bool 51) (mantissa x!1))))
                                (or (not (>= K 0))
                                    (not (= (exponent x!1) #b11111111111))
@@ -2495,7 +2495,6 @@
                              #b00000000000
                              #b00000000000000000000000000000000000000000000000000000))
                         (= U 1))
-                   a!1
                    (and (or (not ((_ bit2bool 52) (mantissa T)))
                             (not ((_ bit2bool 51) (mantissa T)))
                             (not (= (exponent T) #b10000000001))
@@ -2504,23 +2503,24 @@
                             (not (= (exponent T) #b11111111111))
                             (= ((_ extract 51 0) (mantissa T)) #x0000000000000))
                         (or (not (>= K 0))
+                            (not (sign T))
                             (bvule (mantissa T)
                                    #b10100000000000000000000000000000000000000000000000000)
-                            (not (sign T))
                             (not (= (exponent T) #b10000000001)))
                         (or (not (sign T))
                             (not (>= K 0))
                             (bvule (exponent T) #b10000000001))
                         (or (= (exponent T) #b11111111111)
-                            (= (exponent T) #b10000000001)
                             (not (bvule #b10000000001 (exponent T)))
+                            (= (exponent T) #b10000000001)
                             (sign T))
-                        (or (= (exponent T) #b10000000001)
+                        (or (not (bvule #b10000000001 (exponent T)))
+                            (= (exponent T) #b10000000001)
                             (not (= ((_ extract 51 0) (mantissa T))
                                     #x0000000000000))
-                            (not (bvule #b10000000001 (exponent T)))
                             (sign T))
-                        (>= K 0)))))
+                        (>= K 0))
+                   a!1)))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -2570,24 +2570,25 @@
                       (not (= (exponent T) #b10000000001))
                       (sign T))
                   (or (= (exponent T) #b11111111111)
-                      (= (exponent T) #b10000000001)
                       (not (bvule #b10000000001 (exponent T)))
+                      (= (exponent T) #b10000000001)
                       (sign T))
-                  (or (= (exponent T) #b10000000001)
-                      ((_ bit2bool 10) (mantissa T))
-                      ((_ bit2bool 29) (mantissa T))
-                      ((_ bit2bool 8) (mantissa T))
+                  (or ((_ bit2bool 8) (mantissa T))
                       ((_ bit2bool 15) (mantissa T))
-                      ((_ bit2bool 42) (mantissa T))
+                      ((_ bit2bool 29) (mantissa T))
                       ((_ bit2bool 28) (mantissa T))
-                      ((_ bit2bool 0) (mantissa T))
-                      ((_ bit2bool 37) (mantissa T))
-                      ((_ bit2bool 45) (mantissa T))
+                      ((_ bit2bool 51) (mantissa T))
+                      ((_ bit2bool 41) (mantissa T))
+                      ((_ bit2bool 43) (mantissa T))
+                      ((_ bit2bool 40) (mantissa T))
+                      ((_ bit2bool 16) (mantissa T))
+                      (not (bvule #b10000000001 (exponent T)))
+                      ((_ bit2bool 4) (mantissa T))
+                      (= (exponent T) #b10000000001)
+                      ((_ bit2bool 25) (mantissa T))
                       ((_ bit2bool 44) (mantissa T))
                       ((_ bit2bool 14) (mantissa T))
                       ((_ bit2bool 9) (mantissa T))
-                      ((_ bit2bool 41) (mantissa T))
-                      ((_ bit2bool 43) (mantissa T))
                       ((_ bit2bool 17) (mantissa T))
                       ((_ bit2bool 47) (mantissa T))
                       ((_ bit2bool 46) (mantissa T))
@@ -2595,37 +2596,36 @@
                       ((_ bit2bool 12) (mantissa T))
                       ((_ bit2bool 11) (mantissa T))
                       ((_ bit2bool 48) (mantissa T))
+                      ((_ bit2bool 10) (mantissa T))
+                      ((_ bit2bool 50) (mantissa T))
+                      ((_ bit2bool 42) (mantissa T))
                       ((_ bit2bool 27) (mantissa T))
                       ((_ bit2bool 26) (mantissa T))
                       ((_ bit2bool 20) (mantissa T))
                       ((_ bit2bool 19) (mantissa T))
                       ((_ bit2bool 18) (mantissa T))
-                      ((_ bit2bool 16) (mantissa T))
-                      (not (bvule #b10000000001 (exponent T)))
-                      ((_ bit2bool 4) (mantissa T))
-                      ((_ bit2bool 40) (mantissa T))
                       ((_ bit2bool 3) (mantissa T))
                       ((_ bit2bool 2) (mantissa T))
                       ((_ bit2bool 36) (mantissa T))
                       ((_ bit2bool 35) (mantissa T))
                       ((_ bit2bool 13) (mantissa T))
+                      ((_ bit2bool 37) (mantissa T))
+                      ((_ bit2bool 45) (mantissa T))
                       ((_ bit2bool 39) (mantissa T))
                       ((_ bit2bool 38) (mantissa T))
                       ((_ bit2bool 22) (mantissa T))
                       ((_ bit2bool 21) (mantissa T))
                       ((_ bit2bool 24) (mantissa T))
                       ((_ bit2bool 23) (mantissa T))
-                      ((_ bit2bool 25) (mantissa T))
-                      ((_ bit2bool 34) (mantissa T))
+                      (sign T)
+                      ((_ bit2bool 0) (mantissa T))
                       ((_ bit2bool 6) (mantissa T))
                       ((_ bit2bool 31) (mantissa T))
-                      ((_ bit2bool 50) (mantissa T))
                       ((_ bit2bool 33) (mantissa T))
                       ((_ bit2bool 5) (mantissa T))
-                      (sign T)
+                      ((_ bit2bool 34) (mantissa T))
                       ((_ bit2bool 7) (mantissa T))
                       ((_ bit2bool 49) (mantissa T))
-                      ((_ bit2bool 51) (mantissa T))
                       ((_ bit2bool 32) (mantissa T))
                       ((_ bit2bool 1) (mantissa T)))
                   (sign T)
@@ -2875,9 +2875,9 @@
                M
                N
                O)
-             (and (or (not (= (exponent N) #b10000000001))
-                      (not ((_ bit2bool 51) (mantissa N)))
-                      (not ((_ bit2bool 52) (mantissa N))))
+             (and (or (not ((_ bit2bool 51) (mantissa N)))
+                      (not ((_ bit2bool 52) (mantissa N)))
+                      (not (= (exponent N) #b10000000001)))
                   (>= F 0)
                   (or (not (bvule #b10000000001 (exponent N)))
                       (= (exponent N) #b10000000001))
@@ -2955,8 +2955,8 @@
               (U Int))
        (! (let ((a!1 (exists ((x!1 DoubleFloatingPoint))
                        (! (and (or (sign x!1)
-                                   (not (= (exponent x!1) #b10000000001))
                                    (not ((_ bit2bool 52) (mantissa x!1)))
+                                   (not (= (exponent x!1) #b10000000001))
                                    (not ((_ bit2bool 51) (mantissa x!1))))
                                (or (not (>= K 0))
                                    (not (= (exponent x!1) #b11111111111))
@@ -3062,7 +3062,7 @@
                   (or (not (bvule #b10000000001 (exponent T)))
                       (= (exponent T) #b10000000001))
                   P
-                  (= G (= L 0))))
+                  (= F (= L 0))))
           :weight 0))
      (forall ((A Int)
               (B Int)
@@ -3171,8 +3171,8 @@
                       (= T 1))
                  (exists ((x!1 DoubleFloatingPoint))
                    (! (and (or (sign x!1)
-                               (not (= (exponent x!1) #b10000000001))
                                (not ((_ bit2bool 52) (mantissa x!1)))
+                               (not (= (exponent x!1) #b10000000001))
                                (not ((_ bit2bool 51) (mantissa x!1))))
                            (or (not (>= J 0))
                                (not (= (exponent x!1) #b11111111111))
@@ -3204,8 +3204,8 @@
                                 #b10000000001
                                 #b10100000000000000000000000000000000000000000000000000)))
                       :weight 0))
-                 (and (or (not ((_ bit2bool 52) (mantissa S)))
-                          (not ((_ bit2bool 51) (mantissa S)))
+                 (and (or (not ((_ bit2bool 51) (mantissa S)))
+                          (not ((_ bit2bool 52) (mantissa S)))
                           (not (= (exponent S) #b10000000001))
                           (sign S))
                       (or (not (>= J 0))
@@ -3402,8 +3402,8 @@
                R
                S
                T)
-             (and (or (not ((_ bit2bool 52) (mantissa S)))
-                      (not ((_ bit2bool 51) (mantissa S)))
+             (and (or (not ((_ bit2bool 51) (mantissa S)))
+                      (not ((_ bit2bool 52) (mantissa S)))
                       (not (= (exponent S) #b10000000001)))
                   (or (not (sign S)) (bvule (exponent S) #b10000000001))
                   (or (not (bvule #b10000000001 (exponent S)))
@@ -3648,46 +3648,378 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block8:
-AND(OR(FP_SIGN(d0_923_3:DOUBLE), EQ(FP_EXPONENT(d0_923_3:DOUBLE), #b10000000001), EQ(FP_EXPONENT(d0_923_3:DOUBLE), #b11111111111), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_923_3:DOUBLE)))), OR(FP_SIGN(d0_923_3:DOUBLE), BIT2BOOL[0](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[1](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[2](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[3](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[4](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[5](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[6](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[7](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[8](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[9](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[10](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[11](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[12](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[13](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[14](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[15](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[16](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[17](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[18](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[19](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[20](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[21](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[22](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[23](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[24](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[25](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[26](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[27](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[28](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[29](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[30](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[31](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[32](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[33](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[34](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[35](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[36](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[37](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[38](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[39](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[40](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[41](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[42](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[43](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[44](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[45](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[46](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[47](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[48](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[49](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[50](FP_MANTISSA(d0_923_3:DOUBLE)), BIT2BOOL[51](FP_MANTISSA(d0_923_3:DOUBLE)), EQ(FP_EXPONENT(d0_923_3:DOUBLE), #b10000000001), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_923_3:DOUBLE)))), OR(FP_SIGN(d0_923_3:DOUBLE), NOT(EQ(FP_EXPONENT(d0_923_3:DOUBLE), #b10000000001)), NOT(BIT2BOOL[51](FP_MANTISSA(d0_923_3:DOUBLE))), NOT(BIT2BOOL[52](FP_MANTISSA(d0_923_3:DOUBLE)))))
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block4:
+Main_void_mainJayArray_java_lang_String_Block9:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block10:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block11:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block0:
+Main_void_mainJayArray_java_lang_String_Block6:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block13:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block9:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block7:
+Main_void_mainJayArray_java_lang_String_Block12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block12:
+Main_void_mainJayArray_java_lang_String_Block0:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block6:
+Main_void_mainJayArray_java_lang_String_Block4:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block1:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block11:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block13:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block8:
+AND(
+  OR(
+    FP_SIGN(
+      d0_923_3:DOUBLE
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_923_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_923_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_923_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_923_3:DOUBLE
+        ),
+    BIT2BOOL([0]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([1]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([2]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([3]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([4]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([5]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([6]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([7]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([8]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([9]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([10]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([11]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([12]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([13]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([14]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([15]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([16]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([17]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([18]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([19]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([20]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([21]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([22]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([23]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([24]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([25]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([26]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([27]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([28]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([29]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([30]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([31]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([32]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([33]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([34]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([35]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([36]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([37]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([38]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([39]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([40]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([41]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([42]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([43]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([44]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([45]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([46]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([47]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([48]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([49]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([50]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    BIT2BOOL([51]
+      FP_MANTISSA(
+        d0_923_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_923_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_923_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_923_3:DOUBLE
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_923_3:DOUBLE
+                ),
+        #b10000000001
+            )
+        ),
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          d0_923_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          d0_923_3:DOUBLE
+                )
+            )
+        )
+    )
+)
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block10:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block7:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
@@ -3715,7 +4047,61 @@ Main_void_mainJayArray_java_lang_String_Block2_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_2:
-AND(OR(NOT(FP_SIGN(d0_135_3:DOUBLE)), BVULE(FP_EXPONENT(d0_135_3:DOUBLE), #b10000000001)), OR(EQ(FP_EXPONENT(d0_135_3:DOUBLE), #b10000000001), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_135_3:DOUBLE)))), OR(NOT(BIT2BOOL[51](FP_MANTISSA(d0_135_3:DOUBLE))), NOT(BIT2BOOL[52](FP_MANTISSA(d0_135_3:DOUBLE))), NOT(EQ(FP_EXPONENT(d0_135_3:DOUBLE), #b10000000001))))
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_135_3:DOUBLE
+            )
+        ),
+    BVULE(
+      FP_EXPONENT(
+        d0_135_3:DOUBLE
+            ),
+      #b10000000001
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_135_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_135_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          d0_135_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          d0_135_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_135_3:DOUBLE
+                ),
+        #b10000000001
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_3:
 true
@@ -3723,7 +4109,52 @@ true
 Assert_#0_Main.java,_line_32:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult:
-AND(GE(-1:INTEGER, 0), OR(NOT(BVULE(#b10000000001, FP_EXPONENT(d0_170_3:DOUBLE))), EQ(FP_EXPONENT(d0_170_3:DOUBLE), #b10000000001)), OR(NOT(EQ(FP_EXPONENT(d0_170_3:DOUBLE), #b10000000001)), NOT(BIT2BOOL[51](FP_MANTISSA(d0_170_3:DOUBLE))), NOT(BIT2BOOL[52](FP_MANTISSA(d0_170_3:DOUBLE)))))
+AND(
+  GE(
+    -1:INTEGER,
+    0
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_170_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_170_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_170_3:DOUBLE
+                ),
+        #b10000000001
+            )
+        ),
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          d0_170_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          d0_170_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_11:
 true
@@ -3748,7 +4179,10 @@ true
 Assert_#2_Main.java,_line_42:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block12_1-FCmpResult:
-LE(-1:INTEGER, 0)
+LE(
+  -1:INTEGER,
+  0
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block12_11:
 true
@@ -3823,7 +4257,108 @@ Main_void_mainJayArray_java_lang_String_Block6_16_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_1-FCmpResult:
-AND(OR(EQ(FP_EXPONENT(d0_909_3:DOUBLE), #b11111111111), FP_SIGN(d0_909_3:DOUBLE), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_909_3:DOUBLE))), EQ(FP_EXPONENT(d0_909_3:DOUBLE), #b10000000001), NOT(LE(-1:INTEGER, 0))), OR(NOT(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_909_3:DOUBLE)), #x0000000000000)), FP_SIGN(d0_909_3:DOUBLE), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_909_3:DOUBLE))), EQ(FP_EXPONENT(d0_909_3:DOUBLE), #b10000000001), NOT(LE(-1:INTEGER, 0))), OR(NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_909_3:DOUBLE))), FP_SIGN(d0_909_3:DOUBLE), NOT(EQ(FP_EXPONENT(d0_909_3:DOUBLE), #b10000000001)), NOT(BIT2BOOL[51](FP_MANTISSA(d0_909_3:DOUBLE))), NOT(LE(-1:INTEGER, 0))))
+AND(
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_909_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    FP_SIGN(
+      d0_909_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_909_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_909_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        BVEXTRACT([51, 0]
+          FP_MANTISSA(
+            d0_909_3:DOUBLE
+                    )
+                ),
+        #x0000000000000
+            )
+        ),
+    FP_SIGN(
+      d0_909_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_909_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_909_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d0_909_3:DOUBLE
+                )
+            )
+        ),
+    FP_SIGN(
+      d0_909_3:DOUBLE
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_909_3:DOUBLE
+                ),
+        #b10000000001
+            )
+        ),
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          d0_909_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_11:
 true
@@ -3832,7 +4367,159 @@ Main_void_mainJayArray_java_lang_String_Block7_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block8_1-FCmpResult:
-AND(OR(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_940_3:DOUBLE)), #x0000000000000), NOT(EQ(FP_EXPONENT(d0_940_3:DOUBLE), #b11111111111)), NOT(GE(-1:INTEGER, 0))), OR(BVULE(FP_MANTISSA(d0_940_3:DOUBLE), #b10100000000000000000000000000000000000000000000000000), NOT(FP_SIGN(d0_940_3:DOUBLE)), NOT(EQ(FP_EXPONENT(d0_940_3:DOUBLE), #b10000000001)), NOT(GE(-1:INTEGER, 0))), OR(NOT(FP_SIGN(d0_940_3:DOUBLE)), BVULE(FP_EXPONENT(d0_940_3:DOUBLE), #b10000000001), NOT(GE(-1:INTEGER, 0))), OR(EQ(FP_EXPONENT(d0_940_3:DOUBLE), #b11111111111), FP_SIGN(d0_940_3:DOUBLE), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_940_3:DOUBLE))), EQ(FP_EXPONENT(d0_940_3:DOUBLE), #b10000000001)), OR(NOT(EQ(BVEXTRACT[51, 0](FP_MANTISSA(d0_940_3:DOUBLE)), #x0000000000000)), FP_SIGN(d0_940_3:DOUBLE), NOT(BVULE(#b10000000001, FP_EXPONENT(d0_940_3:DOUBLE))), EQ(FP_EXPONENT(d0_940_3:DOUBLE), #b10000000001)), OR(FP_SIGN(d0_940_3:DOUBLE), NOT(EQ(FP_EXPONENT(d0_940_3:DOUBLE), #b10000000001)), NOT(BIT2BOOL[51](FP_MANTISSA(d0_940_3:DOUBLE))), NOT(BIT2BOOL[52](FP_MANTISSA(d0_940_3:DOUBLE)))))
+AND(
+  OR(
+    EQ(
+      BVEXTRACT([51, 0]
+        FP_MANTISSA(
+          d0_940_3:DOUBLE
+                )
+            ),
+      #x0000000000000
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_940_3:DOUBLE
+                ),
+        #b11111111111
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    BVULE(
+      FP_MANTISSA(
+        d0_940_3:DOUBLE
+            ),
+      #b10100000000000000000000000000000000000000000000000000
+        ),
+    NOT(
+      FP_SIGN(
+        d0_940_3:DOUBLE
+            )
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_940_3:DOUBLE
+                ),
+        #b10000000001
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_940_3:DOUBLE
+            )
+        ),
+    BVULE(
+      FP_EXPONENT(
+        d0_940_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_940_3:DOUBLE
+            ),
+      #b11111111111
+        ),
+    FP_SIGN(
+      d0_940_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_940_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_940_3:DOUBLE
+            ),
+      #b10000000001
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        BVEXTRACT([51, 0]
+          FP_MANTISSA(
+            d0_940_3:DOUBLE
+                    )
+                ),
+        #x0000000000000
+            )
+        ),
+    FP_SIGN(
+      d0_940_3:DOUBLE
+        ),
+    NOT(
+      BVULE(
+        #b10000000001,
+        FP_EXPONENT(
+          d0_940_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_940_3:DOUBLE
+            ),
+      #b10000000001
+        )
+    ),
+  OR(
+    FP_SIGN(
+      d0_940_3:DOUBLE
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_940_3:DOUBLE
+                ),
+        #b10000000001
+            )
+        ),
+    NOT(
+      BIT2BOOL([51]
+        FP_MANTISSA(
+          d0_940_3:DOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          d0_940_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block8_11:
 true

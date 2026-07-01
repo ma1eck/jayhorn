@@ -1757,31 +1757,31 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block5:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block6:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block0:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block4:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block8:
+Main_void_mainJayArray_java_lang_String_Block7:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block7:
+Main_void_mainJayArray_java_lang_String_Block3:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block3:
+Main_void_mainJayArray_java_lang_String_Block1:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block6:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block5:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block0:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block8:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block4:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
@@ -1809,7 +1809,48 @@ Main_void_mainJayArray_java_lang_String_Block2_1:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_2:
-AND(NOT(FP_SIGN(d0_105_3:DOUBLE)), BVULE(#b01111111110, FP_EXPONENT(d0_105_3:DOUBLE)), OR(NOT(EQ(FP_EXPONENT(d0_105_3:DOUBLE), #b01111111110)), BVULE(#b11000000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_105_3:DOUBLE))), OR(EQ(d0_105_3:DOUBLE, DOUBLE{s=false, e=1024, m=4503599627370496}), NOT(BIT2BOOL[10](FP_EXPONENT(d0_105_3:DOUBLE)))))
+AND(
+  NOT(
+    FP_SIGN(
+      d0_105_3:DOUBLE
+        )
+    ),
+  BVULE(
+    #b01111111110,
+    FP_EXPONENT(
+      d0_105_3:DOUBLE
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_105_3:DOUBLE
+                ),
+        #b01111111110
+            )
+        ),
+    BVULE(
+      #b11000000000000000000000000000000000000000000000000000,
+      FP_MANTISSA(
+        d0_105_3:DOUBLE
+            )
+        )
+    ),
+  OR(
+    EQ(
+      d0_105_3:DOUBLE,
+      DOUBLE{s=false, e=1024, m=4503599627370496}
+        ),
+    NOT(
+      BIT2BOOL([10]
+        FP_EXPONENT(
+          d0_105_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block2_3:
 true
@@ -1817,7 +1858,25 @@ true
 Assert_#0_Main.java,_line_29:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult:
-AND(GE(-1:INTEGER, 0), OR(NOT(BIT2BOOL[10](FP_EXPONENT(d0_134_3:DOUBLE))), EQ(d0_134_3:DOUBLE, DOUBLE{s=false, e=1024, m=4503599627370496})))
+AND(
+  GE(
+    -1:INTEGER,
+    0
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([10]
+        FP_EXPONENT(
+          d0_134_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      d0_134_3:DOUBLE,
+      DOUBLE{s=false, e=1024, m=4503599627370496}
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_11:
 true
@@ -1826,7 +1885,13 @@ Main_void_mainJayArray_java_lang_String_Block3_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_1:
-NOT(BIT2BOOL[10](FP_EXPONENT(resultFP_220:DOUBLE)))
+NOT(
+  BIT2BOOL([10]
+    FP_EXPONENT(
+      resultFP_220:DOUBLE
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_11:
 true
@@ -1835,7 +1900,18 @@ Main_void_mainJayArray_java_lang_String_Block4_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_13:
-AND(NOT(BIT2BOOL[10](ee_179:BITVECTOR)), NOT(BIT2BOOL[53](em_180:BITVECTOR)))
+AND(
+  NOT(
+    BIT2BOOL([10]
+      ee_179:BITVECTOR
+        )
+    ),
+  NOT(
+    BIT2BOOL([53]
+      em_180:BITVECTOR
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_13_Bits:
 true
@@ -1847,7 +1923,64 @@ Main_void_mainJayArray_java_lang_String_Block4_13_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_2-FCmpResult:
-AND(NOT(BIT2BOOL[10](FP_EXPONENT(d0_324_3:DOUBLE))), OR(NOT(FP_SIGN(d0_324_3:DOUBLE)), NOT(GE(-1:INTEGER, 0))), OR(BVULE(#b01111111110, FP_EXPONENT(d0_324_3:DOUBLE)), NOT(GE(-1:INTEGER, 0))), OR(BVULE(#b11000000000000000000000000000000000000000000000000000, FP_MANTISSA(d0_324_3:DOUBLE)), NOT(EQ(FP_EXPONENT(d0_324_3:DOUBLE), #b01111111110)), NOT(GE(-1:INTEGER, 0))))
+AND(
+  NOT(
+    BIT2BOOL([10]
+      FP_EXPONENT(
+        d0_324_3:DOUBLE
+            )
+        )
+    ),
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_324_3:DOUBLE
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    BVULE(
+      #b01111111110,
+      FP_EXPONENT(
+        d0_324_3:DOUBLE
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    ),
+  OR(
+    BVULE(
+      #b11000000000000000000000000000000000000000000000000000,
+      FP_MANTISSA(
+        d0_324_3:DOUBLE
+            )
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_324_3:DOUBLE
+                ),
+        #b01111111110
+            )
+        ),
+    NOT(
+      GE(
+        -1:INTEGER,
+        0
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block4_1_11:
 true
@@ -1861,7 +1994,10 @@ true
 Assert_#1_Main.java,_line_33:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_1-FCmpResult:
-LE(-1:INTEGER, 0)
+LE(
+  -1:INTEGER,
+  0
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block7_11:
 true
@@ -1872,10 +2008,10 @@ true
 Main_void_mainJayArray_java_lang_String_Block5_1:
 true
 ---------------------------------- 
-Main_void_clinit_Block0:
+Main_void_clinit_Block1:
 true
 ---------------------------------- 
-Main_void_clinit_Block1:
+Main_void_clinit_Block0:
 true
 ---------------------------------- 
 Main_void_clinit_Block1_1:
@@ -1890,10 +2026,10 @@ true
 inv_$StaticFields_Main_2:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block0:
+JayHornAssertions_void_clinit_Block1:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block1:
+JayHornAssertions_void_clinit_Block0:
 true
 ---------------------------------- 
 JayHornAssertions_void_clinit_Block1_1:

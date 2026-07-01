@@ -6005,40 +6005,92 @@ true
 JayHornAssertions_void_clinit_post:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block5:
+Main_void_mainJayArray_java_lang_String_Block1:
 true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block0:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block2:
-AND(OR(NOT(FP_SIGN(d2_124_3:DOUBLE)), EQ(FP_EXPONENT(d2_124_3:DOUBLE), #b11111111111)), OR(EQ(FP_EXPONENT(d2_124_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d2_124_3:DOUBLE)))), OR(NOT(EQ(FP_EXPONENT(d2_124_3:DOUBLE), #b10000000010)), EQ(d2_124_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d2_124_3:DOUBLE)))))
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6:
 true
 ---------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block7:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block1:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block4:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block9:
-true
----------------------------------- 
-Main_void_mainJayArray_java_lang_String_Block10:
-true
+Main_void_mainJayArray_java_lang_String_Block2:
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        d2_124_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d2_124_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d2_124_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d2_124_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d2_124_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    EQ(
+      d2_124_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d2_124_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block8:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block5:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block11:
 true
 ---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block0:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block7:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block10:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block9:
+true
+---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3:
+true
+---------------------------------- 
+Main_void_mainJayArray_java_lang_String_Block4:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block1_1:
@@ -6077,7 +6129,50 @@ true
 Assert_#0_Main.java,_line_30:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult:
-AND(GE(-1:INTEGER, 0), OR(NOT(BVULE(#b10000000010, FP_EXPONENT(d2_189_3:DOUBLE))), EQ(FP_EXPONENT(d2_189_3:DOUBLE), #b10000000010)), OR(EQ(d2_189_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(EQ(FP_EXPONENT(d2_189_3:DOUBLE), #b10000000010)), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d2_189_3:DOUBLE)))))
+AND(
+  GE(
+    -1:INTEGER,
+    0
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d2_189_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d2_189_3:DOUBLE
+            ),
+      #b10000000010
+        )
+    ),
+  OR(
+    EQ(
+      d2_189_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d2_189_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d2_189_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block3_11:
 true
@@ -6091,7 +6186,10 @@ true
 Assert_#1_Main.java,_line_39:
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult:
-LE(-1:INTEGER, 0)
+LE(
+  -1:INTEGER,
+  0
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block10_11:
 true
@@ -6100,37 +6198,139 @@ Main_void_mainJayArray_java_lang_String_Block10_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_1:
-AND(NOT(FP_SIGN((DoubleFloatingPoint
+AND(
+  NOT(
+    FP_SIGN(
+      (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE)), NOT(EQ(FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+        )
+    ),
+  NOT(
+    EQ(
+      FP_EXPONENT(
+        (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE), #b11111111111)), OR(NOT(EQ(FP_MANTISSA((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_MANTISSA(
+          (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE), #b00000000000000000000000000000000000000000000000000000)), NOT(EQ(BVEXTRACT[0, 0](FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                ),
+        #b00000000000000000000000000000000000000000000000000000
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([0, 0]
+          FP_EXPONENT(
+            (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE)), #b1))), OR(NOT(EQ(BVEXTRACT[10, 10](BVADD(#b10000000010, FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                    )
+                ),
+        #b1
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        BVEXTRACT([10, 10]
+          BVADD(
+            #b10000000010,
+            FP_EXPONENT(
+              (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE))), #b0)), NOT(BVULE(#b10000000010, FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                        )
+                    )
+                ),
+        #b0
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE)))), OR(EQ(FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE), #b10000000001), EQ(BVEXTRACT[158, 158](BVADD(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+            ),
+      #b10000000001
+        ),
+    EQ(
+      BVEXTRACT([158, 158]
+        BVADD(
+          BVCONCAT(
+            #b0,
+            FP_MANTISSA(
+              (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVLSHR(#b010011001100110011001100110011001100110011001100110011000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, BVCONCAT(#x0000000000000000000000000000000000000, BVADD(#b10000000010, FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                        ),
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                    ),
+          BVLSHR(
+            #b010011001100110011001100110011001100110011001100110011000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+            BVCONCAT(
+              #x0000000000000000000000000000000000000,
+              BVADD(
+                #b10000000010,
+                FP_EXPONENT(
+                  (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE)))))), #b0), NOT(BVULE(#b10000000010, BVADD(#b00000000001, FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+      #b0
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVADD(
+          #b00000000001,
+          FP_EXPONENT(
+            (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE))))))
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                    )
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_111:
 true
@@ -6139,10 +6339,194 @@ Main_void_mainJayArray_java_lang_String_Block5_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_13:
-AND(NOT(EFP_SIGN(efp_299:EDOUBLE)), OR(BIT2BOOL[11](EFP_EXPONENT(efp_299:EDOUBLE)), NOT(EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_299:EDOUBLE)), #b11111111111))), OR(EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_299:EDOUBLE)), #b10000000001), NOT(EQ(BVEXTRACT[10, 10](BVADD(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_299:EDOUBLE)))), #b0)), NOT(BVULE(#b10000000010, BVADD(#b00000000001, BVEXTRACT[10, 0](EFP_EXPONENT(efp_299:EDOUBLE)))))))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_299:EDOUBLE
+        )
+    ),
+  OR(
+    BIT2BOOL([11]
+      EFP_EXPONENT(
+        efp_299:EDOUBLE
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([10, 0]
+          EFP_EXPONENT(
+            efp_299:EDOUBLE
+                    )
+                ),
+        #b11111111111
+            )
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_299:EDOUBLE
+                )
+            ),
+      #b10000000001
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([10, 10]
+          BVADD(
+            #b10000000010,
+            BVEXTRACT([10, 0]
+              EFP_EXPONENT(
+                efp_299:EDOUBLE
+                            )
+                        )
+                    )
+                ),
+        #b0
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVADD(
+          #b00000000001,
+          BVEXTRACT([10, 0]
+            EFP_EXPONENT(
+              efp_299:EDOUBLE
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_14:
-AND(NOT(EFP_SIGN(efp_329:EDOUBLE)), OR(NOT(BIT2BOOL[0](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[1](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[2](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[3](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[4](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[5](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[6](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[7](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[8](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[9](EFP_EXPONENT(efp_329:EDOUBLE))), NOT(BIT2BOOL[10](EFP_EXPONENT(efp_329:EDOUBLE)))), OR(NOT(EQ(BVEXTRACT[10, 10](BVADD(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_329:EDOUBLE)))), #b0)), EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_329:EDOUBLE)), #b10000000001), NOT(BVULE(#b10000000010, BVADD(#b00000000001, BVEXTRACT[10, 0](EFP_EXPONENT(efp_329:EDOUBLE)))))))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_329:EDOUBLE
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([0]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([1]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([2]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([3]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([4]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([5]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([6]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([7]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([9]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([10]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        BVEXTRACT([10, 10]
+          BVADD(
+            #b10000000010,
+            BVEXTRACT([10, 0]
+              EFP_EXPONENT(
+                efp_329:EDOUBLE
+                            )
+                        )
+                    )
+                ),
+        #b0
+            )
+        ),
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_329:EDOUBLE
+                )
+            ),
+      #b10000000001
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVADD(
+          #b00000000001,
+          BVEXTRACT([10, 0]
+            EFP_EXPONENT(
+              efp_329:EDOUBLE
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_15:
 true
@@ -6157,22 +6541,175 @@ Main_void_mainJayArray_java_lang_String_Block5_14_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_2-FAddResult:
-AND(OR(NOT(FP_SIGN($d0_494_3:DOUBLE)), EQ(FP_EXPONENT($d0_494_3:DOUBLE), #b11111111111)), OR(NOT(BVULE(#b10000000010, FP_EXPONENT($d0_494_3:DOUBLE))), EQ(FP_EXPONENT($d0_494_3:DOUBLE), #b10000000010)), OR(EQ($d0_494_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(EQ(FP_EXPONENT($d0_494_3:DOUBLE), #b10000000010)), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA($d0_494_3:DOUBLE)))))
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        $d0_494_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        $d0_494_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          $d0_494_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        $d0_494_3:DOUBLE
+            ),
+      #b10000000010
+        )
+    ),
+  OR(
+    EQ(
+      $d0_494_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          $d0_494_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          $d0_494_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_1_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_1_12:
-AND(NOT(FP_SIGN($d0_508_3:DOUBLE)), NOT(FP_SIGN((DoubleFloatingPoint
+AND(
+  NOT(
+    FP_SIGN(
+      $d0_508_3:DOUBLE
+        )
+    ),
+  NOT(
+    FP_SIGN(
+      (DoubleFloatingPoint
   false
   #b01111111110
-  #b10011001100110011001100110011001100110011001100110011):DOUBLE)), NOT(BVULE(#b10000000010, FP_EXPONENT($d0_508_3:DOUBLE))), OR(BIT2BOOL[1](FP_EXPONENT($d0_508_3:DOUBLE)), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, BVEXTRACT[158, 106](BVADD(BVLSHR(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b10011001100110011001100110011001100110011001100110011):DOUBLE
+        )
+    ),
+  NOT(
+    BVULE(
+      #b10000000010,
+      FP_EXPONENT(
+        $d0_508_3:DOUBLE
+            )
+        )
+    ),
+  OR(
+    BIT2BOOL([1]
+      FP_EXPONENT(
+        $d0_508_3:DOUBLE
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        BVEXTRACT([158, 106]
+          BVADD(
+            BVLSHR(
+              BVCONCAT(
+                #b0,
+                FP_MANTISSA(
+                  (DoubleFloatingPoint
   false
   #b01111111110
-  #b10011001100110011001100110011001100110011001100110011):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVCONCAT(#x0000000000000000000000000000000000000, exponentsDiff_514:BITVECTOR)), BVCONCAT(#b0, FP_MANTISSA($d0_508_3:DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))))), OR(EQ(BVEXTRACT[158, 158](BVADD(BVLSHR(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b10011001100110011001100110011001100110011001100110011):DOUBLE
+                                ),
+                #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                            ),
+              BVCONCAT(
+                #x0000000000000000000000000000000000000,
+                exponentsDiff_514:BITVECTOR
+                            )
+                        ),
+            BVCONCAT(
+              #b0,
+              FP_MANTISSA(
+                $d0_508_3:DOUBLE
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        )
+                    )
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([158, 158]
+        BVADD(
+          BVLSHR(
+            BVCONCAT(
+              #b0,
+              FP_MANTISSA(
+                (DoubleFloatingPoint
   false
   #b01111111110
-  #b10011001100110011001100110011001100110011001100110011):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVCONCAT(#x0000000000000000000000000000000000000, exponentsDiff_514:BITVECTOR)), BVCONCAT(#b0, FP_MANTISSA($d0_508_3:DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))), #b0), EQ(FP_EXPONENT($d0_508_3:DOUBLE), #b10000000001), NOT(BVULE(#b10000000010, BVADD(#b00000000001, FP_EXPONENT($d0_508_3:DOUBLE))))))
+  #b10011001100110011001100110011001100110011001100110011):DOUBLE
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        ),
+            BVCONCAT(
+              #x0000000000000000000000000000000000000,
+              exponentsDiff_514:BITVECTOR
+                        )
+                    ),
+          BVCONCAT(
+            #b0,
+            FP_MANTISSA(
+              $d0_508_3:DOUBLE
+                        ),
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                    )
+                )
+            ),
+      #b0
+        ),
+    EQ(
+      FP_EXPONENT(
+        $d0_508_3:DOUBLE
+            ),
+      #b10000000001
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVADD(
+          #b00000000001,
+          FP_EXPONENT(
+            $d0_508_3:DOUBLE
+                    )
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_1_13:
 true
@@ -6181,7 +6718,59 @@ Main_void_mainJayArray_java_lang_String_Block5_1_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_1_16:
-AND(NOT(EFP_SIGN(efp_573:EDOUBLE)), OR(NOT(BIT2BOOL[1](EFP_EXPONENT(efp_573:EDOUBLE))), NOT(BIT2BOOL[10](EFP_EXPONENT(efp_573:EDOUBLE))), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, BVEXTRACT[157, 105](EFP_MANTISSA(efp_573:EDOUBLE))))), OR(NOT(BVULE(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_573:EDOUBLE)))), EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_573:EDOUBLE)), #b10000000010)))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_573:EDOUBLE
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([1]
+        EFP_EXPONENT(
+          efp_573:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([10]
+        EFP_EXPONENT(
+          efp_573:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        BVEXTRACT([157, 105]
+          EFP_MANTISSA(
+            efp_573:EDOUBLE
+                    )
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVEXTRACT([10, 0]
+          EFP_EXPONENT(
+            efp_573:EDOUBLE
+                    )
+                )
+            )
+        ),
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_573:EDOUBLE
+                )
+            ),
+      #b10000000010
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_1_13_15:
 false
@@ -6199,7 +6788,75 @@ Main_void_mainJayArray_java_lang_String_Block5_1_16_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_3-FCmpResult:
-AND(OR(NOT(FP_SIGN(d2_791_3:DOUBLE)), EQ(FP_EXPONENT(d2_791_3:DOUBLE), #b11111111111)), OR(GE(-1:INTEGER, 0), NOT(EQ(BVEXTRACT[10, 10](FP_EXPONENT(d2_791_3:DOUBLE)), #b1))), OR(NOT(EQ(FP_EXPONENT(d2_791_3:DOUBLE), #b10000000010)), EQ(d2_791_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d2_791_3:DOUBLE)))), OR(EQ(FP_EXPONENT(d2_791_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d2_791_3:DOUBLE)))))
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        d2_791_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d2_791_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    GE(
+      -1:INTEGER,
+      0
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([10, 10]
+          FP_EXPONENT(
+            d2_791_3:DOUBLE
+                    )
+                ),
+        #b1
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d2_791_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    EQ(
+      d2_791_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d2_791_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d2_791_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d2_791_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block5_2-FAddResult_11:
 true
@@ -6208,19 +6865,53 @@ Main_void_mainJayArray_java_lang_String_Block5_2-FAddResult_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_1:
-AND(NOT(FP_SIGN((DoubleFloatingPoint
+AND(
+  NOT(
+    FP_SIGN(
+      (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE)), OR(NOT(EQ(FP_MANTISSA((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_MANTISSA(
+          (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE), #b00000000000000000000000000000000000000000000000000000)), NOT(EQ(BVEXTRACT[0, 0](FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                ),
+        #b00000000000000000000000000000000000000000000000000000
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([0, 0]
+          FP_EXPONENT(
+            (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE)), #b1))), NOT(BVULE(#b10000000010, FP_EXPONENT((DoubleFloatingPoint
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+                    )
+                ),
+        #b1
+            )
+        )
+    ),
+  NOT(
+    BVULE(
+      #b10000000010,
+      FP_EXPONENT(
+        (DoubleFloatingPoint
   false
   #b11111111111
-  #b11000000000000000000000000000000000000000000000000000):DOUBLE))))
+  #b11000000000000000000000000000000000000000000000000000):DOUBLE
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_111:
 true
@@ -6229,10 +6920,246 @@ Main_void_mainJayArray_java_lang_String_Block6_12:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_13:
-AND(NOT(EFP_SIGN(efp_871:EDOUBLE)), OR(BIT2BOOL[11](EFP_EXPONENT(efp_871:EDOUBLE)), NOT(BIT2BOOL[8](EFP_EXPONENT(efp_871:EDOUBLE))), NOT(BIT2BOOL[10](EFP_EXPONENT(efp_871:EDOUBLE)))), OR(NOT(BVULE(#b10000000010, BVADD(#b00000000001, BVEXTRACT[10, 0](EFP_EXPONENT(efp_871:EDOUBLE))))), EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_871:EDOUBLE)), #b10000000001)))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_871:EDOUBLE
+        )
+    ),
+  OR(
+    BIT2BOOL([11]
+      EFP_EXPONENT(
+        efp_871:EDOUBLE
+            )
+        ),
+    NOT(
+      BIT2BOOL([8]
+        EFP_EXPONENT(
+          efp_871:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([10]
+        EFP_EXPONENT(
+          efp_871:EDOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVADD(
+          #b00000000001,
+          BVEXTRACT([10, 0]
+            EFP_EXPONENT(
+              efp_871:EDOUBLE
+                        )
+                    )
+                )
+            )
+        ),
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_871:EDOUBLE
+                )
+            ),
+      #b10000000001
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_14:
-AND(NOT(EFP_SIGN(efp_901:EDOUBLE)), OR(BIT2BOOL[52](EFP_MANTISSA(efp_901:EDOUBLE)), NOT(EQ(BVEXTRACT[105, 105](BVADD(BVCONCAT(#b0, BVADD(#b00000000000000000000000000000000000000000000000000001, BVEXTRACT[104, 52](EFP_MANTISSA(efp_901:EDOUBLE))), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVLSHR(#b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, BVCONCAT(#x0000000000000000000000000000000000000, BVADD(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE))))))), #b1)), EQ(BVEXTRACT[103, 1](BVADD(BVCONCAT(#b0, BVADD(#b00000000000000000000000000000000000000000000000000001, BVEXTRACT[104, 52](EFP_MANTISSA(efp_901:EDOUBLE))), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVLSHR(#b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, BVCONCAT(#x0000000000000000000000000000000000000, BVADD(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE))))))), #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)), OR(BIT2BOOL[52](EFP_MANTISSA(efp_901:EDOUBLE)), EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE)), #b10000000001), EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE)), #b01111111111), NOT(EQ(BVEXTRACT[105, 105](BVADD(BVLSHR(#b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, BVCONCAT(#x0000000000000000000000000000000000000, BVADD(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE))))), BVCONCAT(#b0, BVEXTRACT[104, 52](EFP_MANTISSA(efp_901:EDOUBLE)), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))), #b1))), OR(EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE)), #b10000000001), EQ(BVEXTRACT[103, 1](BVADD(BVLSHR(#b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, BVCONCAT(#x0000000000000000000000000000000000000, BVADD(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE))))), BVCONCAT(#b0, BVEXTRACT[104, 52](EFP_MANTISSA(efp_901:EDOUBLE)), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))), #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)), NOT(BVULE(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_901:EDOUBLE)))))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_901:EDOUBLE
+        )
+    ),
+  OR(
+    BIT2BOOL([52]
+      EFP_MANTISSA(
+        efp_901:EDOUBLE
+            )
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([105, 105]
+          BVADD(
+            BVCONCAT(
+              #b0,
+              BVADD(
+                #b00000000000000000000000000000000000000000000000000001,
+                BVEXTRACT([104, 52]
+                  EFP_MANTISSA(
+                    efp_901:EDOUBLE
+                                    )
+                                )
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        ),
+            BVLSHR(
+              #b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+              BVCONCAT(
+                #x0000000000000000000000000000000000000,
+                BVADD(
+                  #b10000000010,
+                  BVEXTRACT([10, 0]
+                    EFP_EXPONENT(
+                      efp_901:EDOUBLE
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+        #b1
+            )
+        ),
+    EQ(
+      BVEXTRACT([103, 1]
+        BVADD(
+          BVCONCAT(
+            #b0,
+            BVADD(
+              #b00000000000000000000000000000000000000000000000000001,
+              BVEXTRACT([104, 52]
+                EFP_MANTISSA(
+                  efp_901:EDOUBLE
+                                )
+                            )
+                        ),
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                    ),
+          BVLSHR(
+            #b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+            BVCONCAT(
+              #x0000000000000000000000000000000000000,
+              BVADD(
+                #b10000000010,
+                BVEXTRACT([10, 0]
+                  EFP_EXPONENT(
+                    efp_901:EDOUBLE
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+      #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        )
+    ),
+  OR(
+    BIT2BOOL([52]
+      EFP_MANTISSA(
+        efp_901:EDOUBLE
+            )
+        ),
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_901:EDOUBLE
+                )
+            ),
+      #b10000000001
+        ),
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_901:EDOUBLE
+                )
+            ),
+      #b01111111111
+        ),
+    NOT(
+      EQ(
+        BVEXTRACT([105, 105]
+          BVADD(
+            BVLSHR(
+              #b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+              BVCONCAT(
+                #x0000000000000000000000000000000000000,
+                BVADD(
+                  #b10000000010,
+                  BVEXTRACT([10, 0]
+                    EFP_EXPONENT(
+                      efp_901:EDOUBLE
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+            BVCONCAT(
+              #b0,
+              BVEXTRACT([104, 52]
+                EFP_MANTISSA(
+                  efp_901:EDOUBLE
+                                )
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        )
+                    )
+                ),
+        #b1
+            )
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_901:EDOUBLE
+                )
+            ),
+      #b10000000001
+        ),
+    EQ(
+      BVEXTRACT([103, 1]
+        BVADD(
+          BVLSHR(
+            #b011001100110011001100110011001100110011001100110011010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+            BVCONCAT(
+              #x0000000000000000000000000000000000000,
+              BVADD(
+                #b10000000010,
+                BVEXTRACT([10, 0]
+                  EFP_EXPONENT(
+                    efp_901:EDOUBLE
+                                    )
+                                )
+                            )
+                        )
+                    ),
+          BVCONCAT(
+            #b0,
+            BVEXTRACT([104, 52]
+              EFP_MANTISSA(
+                efp_901:EDOUBLE
+                            )
+                        ),
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                    )
+                )
+            ),
+      #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        )
+    ),
+  NOT(
+    BVULE(
+      #b10000000010,
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_901:EDOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_15:
 true
@@ -6247,25 +7174,209 @@ Main_void_mainJayArray_java_lang_String_Block6_14_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_2-FAddResult:
-AND(OR(NOT(FP_SIGN($d1_1067_3:DOUBLE)), EQ(FP_EXPONENT($d1_1067_3:DOUBLE), #b11111111111)), OR(EQ(FP_EXPONENT($d1_1067_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT($d1_1067_3:DOUBLE)))), OR(EQ($d1_1067_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(EQ(FP_EXPONENT($d1_1067_3:DOUBLE), #b10000000010)), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA($d1_1067_3:DOUBLE)))))
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        $d1_1067_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        $d1_1067_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        $d1_1067_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          $d1_1067_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      $d1_1067_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          $d1_1067_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          $d1_1067_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_1_11:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_1_12:
-AND(NOT(FP_SIGN($d1_1081_3:DOUBLE)), NOT(FP_SIGN((DoubleFloatingPoint
+AND(
+  NOT(
+    FP_SIGN(
+      $d1_1081_3:DOUBLE
+        )
+    ),
+  NOT(
+    FP_SIGN(
+      (DoubleFloatingPoint
   false
   #b01111111110
-  #b11001100110011001100110011001100110011001100110011010):DOUBLE)), NOT(EQ(FP_EXPONENT($d1_1081_3:DOUBLE), #b00000010110)), OR(NOT(BIT2BOOL[10](FP_EXPONENT($d1_1081_3:DOUBLE))), EQ(BVEXTRACT[103, 1](BVADD(BVLSHR(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b11001100110011001100110011001100110011001100110011010):DOUBLE
+        )
+    ),
+  NOT(
+    EQ(
+      FP_EXPONENT(
+        $d1_1081_3:DOUBLE
+            ),
+      #b00000010110
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([10]
+        FP_EXPONENT(
+          $d1_1081_3:DOUBLE
+                )
+            )
+        ),
+    EQ(
+      BVEXTRACT([103, 1]
+        BVADD(
+          BVLSHR(
+            BVCONCAT(
+              #b0,
+              FP_MANTISSA(
+                (DoubleFloatingPoint
   false
   #b01111111110
-  #b11001100110011001100110011001100110011001100110011010):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVCONCAT(#x0000000000000000000000000000000000000, exponentsDiff_1086:BITVECTOR)), BVCONCAT(#b0, FP_MANTISSA($d1_1081_3:DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))), #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), EQ(BVEXTRACT[158, 158](BVADD(BVLSHR(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b11001100110011001100110011001100110011001100110011010):DOUBLE
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        ),
+            BVCONCAT(
+              #x0000000000000000000000000000000000000,
+              exponentsDiff_1086:BITVECTOR
+                        )
+                    ),
+          BVCONCAT(
+            #b0,
+            FP_MANTISSA(
+              $d1_1081_3:DOUBLE
+                        ),
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                    )
+                )
+            ),
+      #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        ),
+    EQ(
+      BVEXTRACT([158, 158]
+        BVADD(
+          BVLSHR(
+            BVCONCAT(
+              #b0,
+              FP_MANTISSA(
+                (DoubleFloatingPoint
   false
   #b01111111110
-  #b11001100110011001100110011001100110011001100110011010):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVCONCAT(#x0000000000000000000000000000000000000, exponentsDiff_1086:BITVECTOR)), BVCONCAT(#b0, FP_MANTISSA($d1_1081_3:DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))), #b0), EQ(FP_EXPONENT($d1_1081_3:DOUBLE), #b10000000001)), NOT(BVULE(#b10000000010, FP_EXPONENT($d1_1081_3:DOUBLE))), OR(BIT2BOOL[1](FP_EXPONENT($d1_1081_3:DOUBLE)), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, BVEXTRACT[158, 106](BVADD(BVLSHR(BVCONCAT(#b0, FP_MANTISSA((DoubleFloatingPoint
+  #b11001100110011001100110011001100110011001100110011010):DOUBLE
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        ),
+            BVCONCAT(
+              #x0000000000000000000000000000000000000,
+              exponentsDiff_1086:BITVECTOR
+                        )
+                    ),
+          BVCONCAT(
+            #b0,
+            FP_MANTISSA(
+              $d1_1081_3:DOUBLE
+                        ),
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                    )
+                )
+            ),
+      #b0
+        ),
+    EQ(
+      FP_EXPONENT(
+        $d1_1081_3:DOUBLE
+            ),
+      #b10000000001
+        )
+    ),
+  NOT(
+    BVULE(
+      #b10000000010,
+      FP_EXPONENT(
+        $d1_1081_3:DOUBLE
+            )
+        )
+    ),
+  OR(
+    BIT2BOOL([1]
+      FP_EXPONENT(
+        $d1_1081_3:DOUBLE
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        BVEXTRACT([158, 106]
+          BVADD(
+            BVLSHR(
+              BVCONCAT(
+                #b0,
+                FP_MANTISSA(
+                  (DoubleFloatingPoint
   false
   #b01111111110
-  #b11001100110011001100110011001100110011001100110011010):DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), BVCONCAT(#x0000000000000000000000000000000000000, exponentsDiff_1086:BITVECTOR)), BVCONCAT(#b0, FP_MANTISSA($d1_1081_3:DOUBLE), #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)))))))
+  #b11001100110011001100110011001100110011001100110011010):DOUBLE
+                                ),
+                #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                            ),
+              BVCONCAT(
+                #x0000000000000000000000000000000000000,
+                exponentsDiff_1086:BITVECTOR
+                            )
+                        ),
+            BVCONCAT(
+              #b0,
+              FP_MANTISSA(
+                $d1_1081_3:DOUBLE
+                            ),
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_1_13:
 true
@@ -6274,7 +7385,103 @@ Main_void_mainJayArray_java_lang_String_Block6_1_14:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_1_16:
-AND(NOT(EFP_SIGN(efp_1145:EDOUBLE)), OR(EQ(BVEXTRACT[10, 0](EFP_EXPONENT(efp_1145:EDOUBLE)), #b10000000010), NOT(BVULE(#b10000000010, BVEXTRACT[10, 0](EFP_EXPONENT(efp_1145:EDOUBLE))))), OR(EQ(BVEXTRACT[102, 0](EFP_MANTISSA(efp_1145:EDOUBLE)), #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), NOT(BIT2BOOL[1](EFP_EXPONENT(efp_1145:EDOUBLE))), NOT(BIT2BOOL[10](EFP_EXPONENT(efp_1145:EDOUBLE))), NOT(BIT2BOOL[104](EFP_MANTISSA(efp_1145:EDOUBLE))), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, BVADD(#b00000000000000000000000000000000000000000000000000001, BVEXTRACT[157, 105](EFP_MANTISSA(efp_1145:EDOUBLE)))))), OR(NOT(BIT2BOOL[1](EFP_EXPONENT(efp_1145:EDOUBLE))), NOT(BIT2BOOL[10](EFP_EXPONENT(efp_1145:EDOUBLE))), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, BVEXTRACT[157, 105](EFP_MANTISSA(efp_1145:EDOUBLE))))))
+AND(
+  NOT(
+    EFP_SIGN(
+      efp_1145:EDOUBLE
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([10, 0]
+        EFP_EXPONENT(
+          efp_1145:EDOUBLE
+                )
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        BVEXTRACT([10, 0]
+          EFP_EXPONENT(
+            efp_1145:EDOUBLE
+                    )
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      BVEXTRACT([102, 0]
+        EFP_MANTISSA(
+          efp_1145:EDOUBLE
+                )
+            ),
+      #b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        ),
+    NOT(
+      BIT2BOOL([1]
+        EFP_EXPONENT(
+          efp_1145:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([10]
+        EFP_EXPONENT(
+          efp_1145:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([104]
+        EFP_MANTISSA(
+          efp_1145:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        BVADD(
+          #b00000000000000000000000000000000000000000000000000001,
+          BVEXTRACT([157, 105]
+            EFP_MANTISSA(
+              efp_1145:EDOUBLE
+                        )
+                    )
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      BIT2BOOL([1]
+        EFP_EXPONENT(
+          efp_1145:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BIT2BOOL([10]
+        EFP_EXPONENT(
+          efp_1145:EDOUBLE
+                )
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        BVEXTRACT([157, 105]
+          EFP_MANTISSA(
+            efp_1145:EDOUBLE
+                    )
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_1_13_15:
 false
@@ -6292,7 +7499,75 @@ Main_void_mainJayArray_java_lang_String_Block6_1_16_S:
 true
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_3-FCmpResult:
-AND(OR(NOT(FP_SIGN(d2_1363_3:DOUBLE)), EQ(FP_EXPONENT(d2_1363_3:DOUBLE), #b11111111111)), OR(NOT(LE(-1:INTEGER, 0)), NOT(BVULE(#b10000000010, FP_EXPONENT(d2_1363_3:DOUBLE)))), OR(EQ(FP_EXPONENT(d2_1363_3:DOUBLE), #b10000000010), NOT(BVULE(#b10000000010, FP_EXPONENT(d2_1363_3:DOUBLE)))), OR(NOT(EQ(FP_EXPONENT(d2_1363_3:DOUBLE), #b10000000010)), EQ(d2_1363_3:DOUBLE, DOUBLE{s=false, e=1026, m=5629499534213120}), NOT(BVULE(#b10100000000000000000000000000000000000000000000000000, FP_MANTISSA(d2_1363_3:DOUBLE)))))
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        d2_1363_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d2_1363_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  OR(
+    NOT(
+      LE(
+        -1:INTEGER,
+        0
+            )
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d2_1363_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d2_1363_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d2_1363_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d2_1363_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    EQ(
+      d2_1363_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=5629499534213120}
+        ),
+    NOT(
+      BVULE(
+        #b10100000000000000000000000000000000000000000000000000,
+        FP_MANTISSA(
+          d2_1363_3:DOUBLE
+                )
+            )
+        )
+    )
+)
 ---------------------------------- 
 Main_void_mainJayArray_java_lang_String_Block6_2-FAddResult_11:
 true
@@ -6306,10 +7581,10 @@ true
 Main_void_mainJayArray_java_lang_String_Block7_1:
 true
 ---------------------------------- 
-Main_void_clinit_Block0:
+Main_void_clinit_Block1:
 true
 ---------------------------------- 
-Main_void_clinit_Block1:
+Main_void_clinit_Block0:
 true
 ---------------------------------- 
 Main_void_clinit_Block1_1:
@@ -6324,10 +7599,10 @@ true
 inv_$StaticFields_Main_2:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block0:
+JayHornAssertions_void_clinit_Block1:
 true
 ---------------------------------- 
-JayHornAssertions_void_clinit_Block1:
+JayHornAssertions_void_clinit_Block0:
 true
 ---------------------------------- 
 JayHornAssertions_void_clinit_Block1_1:

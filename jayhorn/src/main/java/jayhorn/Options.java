@@ -134,6 +134,18 @@ public class Options {
 	@Option(name = "-src", usage = "java file", required = false)
 	private String javaSrcInput="";
 
+	public String getSrcBasename() {
+		String outName = "";
+		String in = getJavaSrcInput();
+		if (in != null) {
+			if (in.endsWith(File.separator))
+				in = in.substring(0, in.length() - 1);
+			outName = in.substring(in.lastIndexOf(File.separator) + 1, in.length()).replace(".java", "").replace(".class", "");
+		}
+		if (outName.equals(""))
+			outName = "noname";
+		return outName;
+	}
 	public String getJavaInput() {
 		return this.javaInput;
 	}
