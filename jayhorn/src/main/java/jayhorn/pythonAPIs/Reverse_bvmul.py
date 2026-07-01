@@ -109,16 +109,14 @@ def to_ternary(val, mask, width):
 def test():
     width = 4
 
-    # A = ????
-    A_v, A_m = 0b0000, 0b0000
+    # A = 0011
+    A_v, A_m = 0b0011, 0b1111
 
-    # B = ???? (3)
-    #B_v, B_m = 0b0011, 0b1111
-    B_v, B_m = 0b0000, 0b0000
+    # B = 00?? 
+    B_v, B_m = 0b0000, 0b1100
 
-
-    # C refined to 0011 (3)
-    C_v, C_m = 0b0011, 0b1111
+    # C = 0?1?
+    C_v, C_m = 0b0010, 0b1010
 
     A_v_r, A_m_r, B_v_r, B_m_r = refine_mul_backward(
         width,
@@ -131,6 +129,7 @@ def test():
     print("Refined B:", to_ternary(B_v_r, B_m_r, width))
 
 if __name__ == "__main__":
+    # test()
     if len(sys.argv) != 8:
         print("Error: expected width A_v A_m B_v B_m C_v_r C_m_r")
         sys.exit(1)

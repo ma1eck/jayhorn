@@ -1,3 +1,7895 @@
 
 
-=== RUN 1 TIMEOUT ===
+=== RUN 1 ===
+[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
+[root] - Horn solver: spacer
+[root] - Building CFG  ... 
+[root] - Safety Verification ... 
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+		(Main_void_mainJayArray_java_lang_String_Block1
+  $in_0_0_0
+  $in_0_0_1
+  $in_0_0_2
+  $in_0_0_3
+  inHeapCounter_1
+  $assert_14_2
+  $b0_3
+  $b1_4
+  $b2_5
+  $b3_6
+  $b4_7
+  $b5_8
+  $b6_9
+  $in_0_0_0
+  $in_0_0_1
+  $in_0_0_2
+  $in_0_0_3
+  $z1_10
+  JayArray_java_lang_String_11
+  outHeapCounter_12
+  undef_field0_13
+  undef_field1_14_0
+  undef_field1_14_1
+  undef_field1_14_2) <- true && (Main_void_mainJayArray_java_lang_String_pre
+  $in_0_0_0
+  $in_0_0_1
+  $in_0_0_2
+  $in_0_0_3
+  inHeapCounter_1)
+		(Main_void_mainJayArray_java_lang_String_Block1_1
+  $in_0_15_0
+  $in_0_15_1
+  $in_0_15_2
+  $in_0_15_3
+  inHeapCounter_16
+  $assert_14_17
+  $b0_18
+  $b1_19
+  $b2_20
+  $b3_21
+  $b4_22
+  $b5_23
+  $b6_24
+  $in_0_15_0
+  $in_0_15_1
+  $in_0_15_2
+  $in_0_15_3
+  $z1_25
+  JayArray_java_lang_String_26
+  1
+  undef_field0_28
+  undef_field1_29_0
+  undef_field1_29_1
+  undef_field1_29_2) <- true && (Main_void_mainJayArray_java_lang_String_Block1
+  $in_0_15_0
+  $in_0_15_1
+  $in_0_15_2
+  $in_0_15_3
+  inHeapCounter_16
+  $assert_14_17
+  $b0_18
+  $b1_19
+  $b2_20
+  $b3_21
+  $b4_22
+  $b5_23
+  $b6_24
+  $in_0_15_0
+  $in_0_15_1
+  $in_0_15_2
+  $in_0_15_3
+  $z1_25
+  JayArray_java_lang_String_26
+  outHeapCounter_27
+  undef_field0_28
+  undef_field1_29_0
+  undef_field1_29_1
+  undef_field1_29_2)
+		(Main_void_mainJayArray_java_lang_String_Block1_2
+  $in_0_30_0
+  $in_0_30_1
+  $in_0_30_2
+  $in_0_30_3
+  inHeapCounter_31
+  $assert_14_32
+  $b0_33
+  $b1_34
+  $b2_35
+  $b3_36
+  $b4_37
+  $b5_38
+  $b6_39
+  $in_0_30_0
+  $in_0_30_1
+  $in_0_30_2
+  $in_0_30_3
+  $z1_40
+  outHeapCounter_42
+  undef_field0_43
+  undef_field1_44_0
+  undef_field1_44_1
+  undef_field1_44_2) <- (and (or false (= $in_0_30_1 137)) (>= $in_0_30_3 0) (= $in_0_30_0 1)) && (Main_void_mainJayArray_java_lang_String_Block1_1
+  $in_0_30_0
+  $in_0_30_1
+  $in_0_30_2
+  $in_0_30_3
+  inHeapCounter_31
+  $assert_14_32
+  $b0_33
+  $b1_34
+  $b2_35
+  $b3_36
+  $b4_37
+  $b5_38
+  $b6_39
+  $in_0_30_0
+  $in_0_30_1
+  $in_0_30_2
+  $in_0_30_3
+  $z1_40
+  JayArray_java_lang_String_41
+  outHeapCounter_42
+  undef_field0_43
+  undef_field1_44_0
+  undef_field1_44_1
+  undef_field1_44_2)
+		(inv_JayArray_java_lang_String_103
+  $in_0_45_0
+  $in_0_45_1
+  $in_0_45_2
+  $in_0_45_3
+  _lastpush0_59
+  _ai0_60
+  $in_0_45_3
+  undef_field0_57
+  undef_field1_58_0
+  undef_field1_58_1
+  undef_field1_58_2) <- true && (Main_void_mainJayArray_java_lang_String_Block1_2
+  $in_0_45_0
+  $in_0_45_1
+  $in_0_45_2
+  $in_0_45_3
+  inHeapCounter_46
+  $assert_14_47
+  $b0_48
+  $b1_49
+  $b2_50
+  $b3_51
+  $b4_52
+  $b5_53
+  $b6_54
+  $in_0_45_0
+  $in_0_45_1
+  $in_0_45_2
+  $in_0_45_3
+  $z1_55
+  outHeapCounter_56
+  undef_field0_57
+  undef_field1_58_0
+  undef_field1_58_1
+  undef_field1_58_2)
+		(Main_void_mainJayArray_java_lang_String_Block1_3
+  $in_0_45_0
+  $in_0_45_1
+  $in_0_45_2
+  $in_0_45_3
+  inHeapCounter_46
+  $assert_14_47
+  $b0_48
+  $b1_49
+  $b2_50
+  $b3_51
+  $b4_52
+  $b5_53
+  $b6_54
+  $z1_55
+  outHeapCounter_56) <- true && (Main_void_mainJayArray_java_lang_String_Block1_2
+  $in_0_45_0
+  $in_0_45_1
+  $in_0_45_2
+  $in_0_45_3
+  inHeapCounter_46
+  $assert_14_47
+  $b0_48
+  $b1_49
+  $b2_50
+  $b3_51
+  $b4_52
+  $b5_53
+  $b6_54
+  $in_0_45_0
+  $in_0_45_1
+  $in_0_45_2
+  $in_0_45_3
+  $z1_55
+  outHeapCounter_56
+  undef_field0_57
+  undef_field1_58_0
+  undef_field1_58_1
+  undef_field1_58_2)
+		(Main_void_clinit_pre outHeapCounter_72) <- true && (Main_void_mainJayArray_java_lang_String_Block1_3
+  $in_0_61_0
+  $in_0_61_1
+  $in_0_61_2
+  $in_0_61_3
+  inHeapCounter_62
+  $assert_14_63
+  $b0_64
+  $b1_65
+  $b2_66
+  $b3_67
+  $b4_68
+  $b5_69
+  $b6_70
+  $z1_71
+  outHeapCounter_72)
+		(Main_void_mainJayArray_java_lang_String_Block1_4
+  $in_0_61_0
+  $in_0_61_1
+  $in_0_61_2
+  $in_0_61_3
+  inHeapCounter_62
+  $assert_14_63
+  $b0_64
+  $b1_65
+  $b2_66
+  $b3_67
+  $b4_68
+  $b5_69
+  $b6_70
+  $z1_71
+  callRes_75) <- true && (Main_void_mainJayArray_java_lang_String_Block1_3
+  $in_0_61_0
+  $in_0_61_1
+  $in_0_61_2
+  $in_0_61_3
+  inHeapCounter_62
+  $assert_14_63
+  $b0_64
+  $b1_65
+  $b2_66
+  $b3_67
+  $b4_68
+  $b5_69
+  $b6_70
+  $z1_71
+  outHeapCounter_72) && (Main_void_clinit_post
+  outHeapCounter_72
+  callRes_74_0
+  callRes_74_1
+  callRes_74_2
+  callRes_75)
+		(JayHornAssertions_void_clinit_pre outHeapCounter_87) <- true && (Main_void_mainJayArray_java_lang_String_Block1_4
+  $in_0_76_0
+  $in_0_76_1
+  $in_0_76_2
+  $in_0_76_3
+  inHeapCounter_77
+  $assert_14_78
+  $b0_79
+  $b1_80
+  $b2_81
+  $b3_82
+  $b4_83
+  $b5_84
+  $b6_85
+  $z1_86
+  outHeapCounter_87)
+		(Main_void_mainJayArray_java_lang_String_Block1_5
+  $in_0_76_0
+  $in_0_76_1
+  $in_0_76_2
+  $in_0_76_3
+  inHeapCounter_77
+  $assert_14_78
+  $b0_79
+  $b1_80
+  $b2_81
+  $b3_82
+  $b4_83
+  $b5_84
+  $b6_85
+  callRes_89_0
+  callRes_89_1
+  callRes_89_2
+  $z1_86
+  callRes_90) <- true && (Main_void_mainJayArray_java_lang_String_Block1_4
+  $in_0_76_0
+  $in_0_76_1
+  $in_0_76_2
+  $in_0_76_3
+  inHeapCounter_77
+  $assert_14_78
+  $b0_79
+  $b1_80
+  $b2_81
+  $b3_82
+  $b4_83
+  $b5_84
+  $b6_85
+  $z1_86
+  outHeapCounter_87) && (JayHornAssertions_void_clinit_post
+  outHeapCounter_87
+  callRes_89_0
+  callRes_89_1
+  callRes_89_2
+  callRes_90)
+		(Main_void_mainJayArray_java_lang_String_Block1_6
+  $in_0_91_0
+  $in_0_91_1
+  $in_0_91_2
+  $in_0_91_3
+  inHeapCounter_92
+  $assert_14_93
+  $b0_94
+  $b1_95
+  $b2_96
+  $b3_97
+  $b4_98
+  $b5_99
+  $b6_100
+  $ex__101_0
+  $ex__101_1
+  $ex__101_2
+  $z1_102
+  (- 1)
+  133
+  |$double(1.2)_105_2|
+  (DoubleFloatingPoint
+    false
+    #b01111111111
+    #b10011001100110011001100110011001100110011001100110011)
+  outHeapCounter_103) <- true && (Main_void_mainJayArray_java_lang_String_Block1_5
+  $in_0_91_0
+  $in_0_91_1
+  $in_0_91_2
+  $in_0_91_3
+  inHeapCounter_92
+  $assert_14_93
+  $b0_94
+  $b1_95
+  $b2_96
+  $b3_97
+  $b4_98
+  $b5_99
+  $b6_100
+  $ex__101_0
+  $ex__101_1
+  $ex__101_2
+  $z1_102
+  outHeapCounter_103)
+		(Main_void_mainJayArray_java_lang_String_Block2
+  $in_0_106_0
+  $in_0_106_1
+  $in_0_106_2
+  $in_0_106_3
+  inHeapCounter_107
+  $assert_14_108
+  $b0_109
+  $b1_110
+  $b2_111
+  $b3_112
+  $b4_113
+  $b5_114
+  $b6_115
+  $ex__116_0
+  $ex__116_1
+  $ex__116_2
+  $z1_117
+  d0_118_0
+  d0_118_1
+  d0_118_2
+  d0_118_3
+  outHeapCounter_119) <- true && (Main_void_mainJayArray_java_lang_String_Block1_6
+  $in_0_106_0
+  $in_0_106_1
+  $in_0_106_2
+  $in_0_106_3
+  inHeapCounter_107
+  $assert_14_108
+  $b0_109
+  $b1_110
+  $b2_111
+  $b3_112
+  $b4_113
+  $b5_114
+  $b6_115
+  $ex__116_0
+  $ex__116_1
+  $ex__116_2
+  $z1_117
+  d0_118_0
+  d0_118_1
+  d0_118_2
+  d0_118_3
+  outHeapCounter_119)
+		(Main_void_mainJayArray_java_lang_String_Block2_1
+  $in_0_120_0
+  $in_0_120_1
+  $in_0_120_2
+  $in_0_120_3
+  inHeapCounter_121
+  $b0_123
+  $b1_124
+  $b2_125
+  $b3_126
+  $b4_127
+  $b5_128
+  $b6_129
+  $ex__130_0
+  $ex__130_1
+  $ex__130_2
+  $z1_havoc
+  d0_132_0
+  d0_132_1
+  d0_132_2
+  d0_132_3
+  outHeapCounter_133) <- true && (Main_void_mainJayArray_java_lang_String_Block2
+  $in_0_120_0
+  $in_0_120_1
+  $in_0_120_2
+  $in_0_120_3
+  inHeapCounter_121
+  $assert_14_122
+  $b0_123
+  $b1_124
+  $b2_125
+  $b3_126
+  $b4_127
+  $b5_128
+  $b6_129
+  $ex__130_0
+  $ex__130_1
+  $ex__130_2
+  $z1_131
+  d0_132_0
+  d0_132_1
+  d0_132_2
+  d0_132_3
+  outHeapCounter_133)
+		(Main_void_mainJayArray_java_lang_String_Block2_2
+  $in_0_134_0
+  $in_0_134_1
+  $in_0_134_2
+  $in_0_134_3
+  inHeapCounter_135
+  (= $ex__143_0 0)
+  $b0_136
+  $b1_137
+  $b2_138
+  $b3_139
+  $b4_140
+  $b5_141
+  $b6_142
+  $ex__143_0
+  $ex__143_1
+  $ex__143_2
+  $z1_144
+  d0_145_0
+  d0_145_1
+  d0_145_2
+  d0_145_3
+  outHeapCounter_146) <- true && (Main_void_mainJayArray_java_lang_String_Block2_1
+  $in_0_134_0
+  $in_0_134_1
+  $in_0_134_2
+  $in_0_134_3
+  inHeapCounter_135
+  $b0_136
+  $b1_137
+  $b2_138
+  $b3_139
+  $b4_140
+  $b5_141
+  $b6_142
+  $ex__143_0
+  $ex__143_1
+  $ex__143_2
+  $z1_144
+  d0_145_0
+  d0_145_1
+  d0_145_2
+  d0_145_3
+  outHeapCounter_146)
+		(Main_void_mainJayArray_java_lang_String_Block2_3
+  $in_0_148_0
+  $in_0_148_1
+  $in_0_148_2
+  $in_0_148_3
+  inHeapCounter_149
+  $assert_14_150
+  $b0_151
+  $b1_152
+  $b2_153
+  $b3_154
+  $b4_155
+  $b5_156
+  $b6_157
+  $ex__158_0
+  $ex__158_1
+  $ex__158_2
+  $z1_159
+  d0_160_0
+  d0_160_1
+  d0_160_2
+  d0_160_3
+  outHeapCounter_161) <- true && (Main_void_mainJayArray_java_lang_String_Block2_2
+  $in_0_148_0
+  $in_0_148_1
+  $in_0_148_2
+  $in_0_148_3
+  inHeapCounter_149
+  $assert_14_150
+  $b0_151
+  $b1_152
+  $b2_153
+  $b3_154
+  $b4_155
+  $b5_156
+  $b6_157
+  $ex__158_0
+  $ex__158_1
+  $ex__158_2
+  $z1_159
+  d0_160_0
+  d0_160_1
+  d0_160_2
+  d0_160_3
+  outHeapCounter_161)
+		|Assert_#0_Main.java,_line_29| <- (not $assert_14_150) && (Main_void_mainJayArray_java_lang_String_Block2_2
+  $in_0_148_0
+  $in_0_148_1
+  $in_0_148_2
+  $in_0_148_3
+  inHeapCounter_149
+  $assert_14_150
+  $b0_151
+  $b1_152
+  $b2_153
+  $b3_154
+  $b4_155
+  $b5_156
+  $b6_157
+  $ex__158_0
+  $ex__158_1
+  $ex__158_2
+  $z1_159
+  d0_160_0
+  d0_160_1
+  d0_160_2
+  d0_160_3
+  outHeapCounter_161)
+		(Main_void_mainJayArray_java_lang_String_Block3
+  $in_0_162_0
+  $in_0_162_1
+  $in_0_162_2
+  $in_0_162_3
+  inHeapCounter_163
+  $b0_165
+  $b1_166
+  $b2_167
+  $b3_168
+  $ex__172_0
+  $ex__172_1
+  $ex__172_2
+  $z1_173
+  d0_174_0
+  d0_174_1
+  d0_174_2
+  d0_174_3
+  outHeapCounter_175) <- (= $z1_173 false) && (Main_void_mainJayArray_java_lang_String_Block2_3
+  $in_0_162_0
+  $in_0_162_1
+  $in_0_162_2
+  $in_0_162_3
+  inHeapCounter_163
+  $assert_14_164
+  $b0_165
+  $b1_166
+  $b2_167
+  $b3_168
+  $b4_169
+  $b5_170
+  $b6_171
+  $ex__172_0
+  $ex__172_1
+  $ex__172_2
+  $z1_173
+  d0_174_0
+  d0_174_1
+  d0_174_2
+  d0_174_3
+  outHeapCounter_175)
+		(Main_void_mainJayArray_java_lang_String_Block4
+  $in_0_162_0
+  $in_0_162_1
+  $in_0_162_2
+  $in_0_162_3
+  inHeapCounter_163
+  $assert_14_164
+  $b0_165
+  $b1_166
+  $b2_167
+  $b3_168
+  $b4_169
+  $b5_170
+  $b6_171
+  $ex__172_0
+  $ex__172_1
+  $ex__172_2
+  $z1_173
+  d0_174_0
+  d0_174_1
+  d0_174_2
+  d0_174_3
+  outHeapCounter_175) <- (not (= $z1_173 false)) && (Main_void_mainJayArray_java_lang_String_Block2_3
+  $in_0_162_0
+  $in_0_162_1
+  $in_0_162_2
+  $in_0_162_3
+  inHeapCounter_163
+  $assert_14_164
+  $b0_165
+  $b1_166
+  $b2_167
+  $b3_168
+  $b4_169
+  $b5_170
+  $b6_171
+  $ex__172_0
+  $ex__172_1
+  $ex__172_2
+  $z1_173
+  d0_174_0
+  d0_174_1
+  d0_174_2
+  d0_174_3
+  outHeapCounter_175)
+		(Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  (- 1)
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_184_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b01111111111
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111111
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_184_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block3
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  $b0_178
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185) <- (and (= (exponent d0_184_3) #b00000000000)
+     (= (mantissa d0_184_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b01111111111
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b01111111111
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block3
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  $b0_178
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(Main_void_mainJayArray_java_lang_String_Block3_11
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_184_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b01111111111
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_184_3) #b00000000000)
+                (= (mantissa d0_184_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111111
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b01111111111
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_184_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111111
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_184_3
+               (DoubleFloatingPoint
+                 false
+                 #b01111111111
+                 #b10000000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block3
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  $b0_178
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(Main_void_mainJayArray_java_lang_String_Block3_12
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185) <- (= (sign d0_184_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b01111111111
+           #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block3_11
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(let ((a!1 (ite (not (= (sign d0_184_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+    $in_0_176_0
+    $in_0_176_1
+    $in_0_176_2
+    $in_0_176_3
+    inHeapCounter_177
+    a!1
+    $b1_179
+    $b2_180
+    $b3_181
+    $ex__182_0
+    $ex__182_1
+    $ex__182_2
+    d0_184_0
+    d0_184_1
+    d0_184_2
+    d0_184_3
+    outHeapCounter_185)) <- (not (= (sign d0_184_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b01111111111
+                #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block3_11
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(let ((a!1 (ite (not (= (sign d0_184_3) false))
+                (bvugt (mantissa d0_184_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b01111111111
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_184_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b01111111111
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+    $in_0_176_0
+    $in_0_176_1
+    $in_0_176_2
+    $in_0_176_3
+    inHeapCounter_177
+    (ite a!1 (- 1) 1)
+    $b1_179
+    $b2_180
+    $b3_181
+    $ex__182_0
+    $ex__182_1
+    $ex__182_2
+    d0_184_0
+    d0_184_1
+    d0_184_2
+    d0_184_3
+    outHeapCounter_185)) <- (= (exponent d0_184_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b01111111111
+               #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block3_12
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(let ((a!1 (ite (not (= (sign d0_184_3) false))
+                (bvugt (exponent d0_184_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b01111111111
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_184_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b01111111111
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+    $in_0_176_0
+    $in_0_176_1
+    $in_0_176_2
+    $in_0_176_3
+    inHeapCounter_177
+    (ite a!1 (- 1) 1)
+    $b1_179
+    $b2_180
+    $b3_181
+    $ex__182_0
+    $ex__182_1
+    $ex__182_2
+    d0_184_0
+    d0_184_1
+    d0_184_2
+    d0_184_3
+    outHeapCounter_185)) <- (not (= (exponent d0_184_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b01111111111
+                    #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block3_12
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  0
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_184_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b01111111111
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_184_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111111
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_184_3
+          (DoubleFloatingPoint
+            false
+            #b01111111111
+            #b10000000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block3
+  $in_0_176_0
+  $in_0_176_1
+  $in_0_176_2
+  $in_0_176_3
+  inHeapCounter_177
+  $b0_178
+  $b1_179
+  $b2_180
+  $b3_181
+  $ex__182_0
+  $ex__182_1
+  $ex__182_2
+  $z1_183
+  d0_184_0
+  d0_184_1
+  d0_184_2
+  d0_184_3
+  outHeapCounter_185)
+		(Main_void_mainJayArray_java_lang_String_Block9
+  $in_0_187_0
+  $in_0_187_1
+  $in_0_187_2
+  $in_0_187_3
+  inHeapCounter_188
+  $b0_189
+  $b1_190
+  $b2_191
+  $b3_192
+  $ex__193_0
+  $ex__193_1
+  $ex__193_2
+  d0_194_0
+  d0_194_1
+  d0_194_2
+  d0_194_3
+  outHeapCounter_195) <- (<= $b0_189 0) && (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+  $in_0_187_0
+  $in_0_187_1
+  $in_0_187_2
+  $in_0_187_3
+  inHeapCounter_188
+  $b0_189
+  $b1_190
+  $b2_191
+  $b3_192
+  $ex__193_0
+  $ex__193_1
+  $ex__193_2
+  d0_194_0
+  d0_194_1
+  d0_194_2
+  d0_194_3
+  outHeapCounter_195)
+		(Main_void_mainJayArray_java_lang_String_Block10
+  $in_0_187_0
+  $in_0_187_1
+  $in_0_187_2
+  $in_0_187_3
+  inHeapCounter_188
+  $b0_189
+  $b1_190
+  $b2_191
+  $b3_192
+  $ex__193_0
+  $ex__193_1
+  $ex__193_2
+  d0_194_0
+  d0_194_1
+  d0_194_2
+  d0_194_3
+  outHeapCounter_195) <- (not (<= $b0_189 0)) && (Main_void_mainJayArray_java_lang_String_Block3_1-FCmpResult
+  $in_0_187_0
+  $in_0_187_1
+  $in_0_187_2
+  $in_0_187_3
+  inHeapCounter_188
+  $b0_189
+  $b1_190
+  $b2_191
+  $b3_192
+  $ex__193_0
+  $ex__193_1
+  $ex__193_2
+  d0_194_0
+  d0_194_1
+  d0_194_2
+  d0_194_3
+  outHeapCounter_195)
+		(Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  (- 1)
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_208_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_208_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block4
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  $b4_203
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209) <- (and (= (exponent d0_208_3) #b00000000000)
+     (= (mantissa d0_208_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block4
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  $b4_203
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(Main_void_mainJayArray_java_lang_String_Block4_11
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_208_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_208_3) #b00000000000)
+                (= (mantissa d0_208_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_208_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_208_3
+               (DoubleFloatingPoint
+                 false
+                 #b10000000000
+                 #b10000000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block4
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  $b4_203
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(Main_void_mainJayArray_java_lang_String_Block4_12
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209) <- (= (sign d0_208_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b10000000000
+           #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block4_11
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(let ((a!1 (ite (not (= (sign d0_208_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+    $in_0_196_0
+    $in_0_196_1
+    $in_0_196_2
+    $in_0_196_3
+    inHeapCounter_197
+    $assert_14_198
+    $b0_199
+    $b1_200
+    $b2_201
+    $b3_202
+    a!1
+    $b5_204
+    $b6_205
+    $ex__206_0
+    $ex__206_1
+    $ex__206_2
+    $z1_207
+    d0_208_0
+    d0_208_1
+    d0_208_2
+    d0_208_3
+    outHeapCounter_209)) <- (not (= (sign d0_208_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b10000000000
+                #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block4_11
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(let ((a!1 (ite (not (= (sign d0_208_3) false))
+                (bvugt (mantissa d0_208_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_208_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+    $in_0_196_0
+    $in_0_196_1
+    $in_0_196_2
+    $in_0_196_3
+    inHeapCounter_197
+    $assert_14_198
+    $b0_199
+    $b1_200
+    $b2_201
+    $b3_202
+    (ite a!1 (- 1) 1)
+    $b5_204
+    $b6_205
+    $ex__206_0
+    $ex__206_1
+    $ex__206_2
+    $z1_207
+    d0_208_0
+    d0_208_1
+    d0_208_2
+    d0_208_3
+    outHeapCounter_209)) <- (= (exponent d0_208_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b10000000000
+               #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block4_12
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(let ((a!1 (ite (not (= (sign d0_208_3) false))
+                (bvugt (exponent d0_208_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_208_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+    $in_0_196_0
+    $in_0_196_1
+    $in_0_196_2
+    $in_0_196_3
+    inHeapCounter_197
+    $assert_14_198
+    $b0_199
+    $b1_200
+    $b2_201
+    $b3_202
+    (ite a!1 (- 1) 1)
+    $b5_204
+    $b6_205
+    $ex__206_0
+    $ex__206_1
+    $ex__206_2
+    $z1_207
+    d0_208_0
+    d0_208_1
+    d0_208_2
+    d0_208_3
+    outHeapCounter_209)) <- (not (= (exponent d0_208_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block4_12
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  0
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_208_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_208_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_208_3
+          (DoubleFloatingPoint
+            false
+            #b10000000000
+            #b10000000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block4
+  $in_0_196_0
+  $in_0_196_1
+  $in_0_196_2
+  $in_0_196_3
+  inHeapCounter_197
+  $assert_14_198
+  $b0_199
+  $b1_200
+  $b2_201
+  $b3_202
+  $b4_203
+  $b5_204
+  $b6_205
+  $ex__206_0
+  $ex__206_1
+  $ex__206_2
+  $z1_207
+  d0_208_0
+  d0_208_1
+  d0_208_2
+  d0_208_3
+  outHeapCounter_209)
+		(Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_211_0
+  $in_0_211_1
+  $in_0_211_2
+  $in_0_211_3
+  inHeapCounter_212
+  $assert_14_213
+  $b0_214
+  $b1_215
+  $b2_216
+  $b3_217
+  $b4_218
+  $b5_219
+  $b6_220
+  $ex__221_0
+  $ex__221_1
+  $ex__221_2
+  $z1_222
+  d0_223_0
+  d0_223_1
+  d0_223_2
+  d0_223_3
+  outHeapCounter_224) <- (>= $b4_218 0) && (Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+  $in_0_211_0
+  $in_0_211_1
+  $in_0_211_2
+  $in_0_211_3
+  inHeapCounter_212
+  $assert_14_213
+  $b0_214
+  $b1_215
+  $b2_216
+  $b3_217
+  $b4_218
+  $b5_219
+  $b6_220
+  $ex__221_0
+  $ex__221_1
+  $ex__221_2
+  $z1_222
+  d0_223_0
+  d0_223_1
+  d0_223_2
+  d0_223_3
+  outHeapCounter_224)
+		(Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_211_0
+  $in_0_211_1
+  $in_0_211_2
+  $in_0_211_3
+  inHeapCounter_212
+  $assert_14_213
+  $b0_214
+  $b1_215
+  $b2_216
+  $b3_217
+  $b4_218
+  $b5_219
+  $b6_220
+  $ex__221_0
+  $ex__221_1
+  $ex__221_2
+  $z1_222
+  d0_223_0
+  d0_223_1
+  d0_223_2
+  d0_223_3
+  outHeapCounter_224) <- (not (>= $b4_218 0)) && (Main_void_mainJayArray_java_lang_String_Block4_1-FCmpResult
+  $in_0_211_0
+  $in_0_211_1
+  $in_0_211_2
+  $in_0_211_3
+  inHeapCounter_212
+  $assert_14_213
+  $b0_214
+  $b1_215
+  $b2_216
+  $b3_217
+  $b4_218
+  $b5_219
+  $b6_220
+  $ex__221_0
+  $ex__221_1
+  $ex__221_2
+  $z1_222
+  d0_223_0
+  d0_223_1
+  d0_223_2
+  d0_223_3
+  outHeapCounter_224)
+		(Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  (- 1)
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_232_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10100000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_232_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block9
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  $b1_228
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233) <- (and (= (exponent d0_232_3) #b00000000000)
+     (= (mantissa d0_232_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10100000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10100000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block9
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  $b1_228
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(Main_void_mainJayArray_java_lang_String_Block9_11
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_232_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10100000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_232_3) #b00000000000)
+                (= (mantissa d0_232_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_232_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_232_3
+               (DoubleFloatingPoint
+                 false
+                 #b10000000000
+                 #b10100000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block9
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  $b1_228
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(Main_void_mainJayArray_java_lang_String_Block9_12
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233) <- (= (sign d0_232_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b10000000000
+           #b10100000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block9_11
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(let ((a!1 (ite (not (= (sign d0_232_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+    $in_0_225_0
+    $in_0_225_1
+    $in_0_225_2
+    $in_0_225_3
+    inHeapCounter_226
+    a!1
+    $b2_229
+    $b3_230
+    $ex__231_0
+    $ex__231_1
+    $ex__231_2
+    d0_232_0
+    d0_232_1
+    d0_232_2
+    d0_232_3
+    outHeapCounter_233)) <- (not (= (sign d0_232_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b10000000000
+                #b10100000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block9_11
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(let ((a!1 (ite (not (= (sign d0_232_3) false))
+                (bvugt (mantissa d0_232_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_232_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+    $in_0_225_0
+    $in_0_225_1
+    $in_0_225_2
+    $in_0_225_3
+    inHeapCounter_226
+    (ite a!1 (- 1) 1)
+    $b2_229
+    $b3_230
+    $ex__231_0
+    $ex__231_1
+    $ex__231_2
+    d0_232_0
+    d0_232_1
+    d0_232_2
+    d0_232_3
+    outHeapCounter_233)) <- (= (exponent d0_232_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b10000000000
+               #b10100000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block9_12
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(let ((a!1 (ite (not (= (sign d0_232_3) false))
+                (bvugt (exponent d0_232_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_232_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+    $in_0_225_0
+    $in_0_225_1
+    $in_0_225_2
+    $in_0_225_3
+    inHeapCounter_226
+    (ite a!1 (- 1) 1)
+    $b2_229
+    $b3_230
+    $ex__231_0
+    $ex__231_1
+    $ex__231_2
+    d0_232_0
+    d0_232_1
+    d0_232_2
+    d0_232_3
+    outHeapCounter_233)) <- (not (= (exponent d0_232_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10100000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block9_12
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  0
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_232_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10100000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_232_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_232_3
+          (DoubleFloatingPoint
+            false
+            #b10000000000
+            #b10100000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block9
+  $in_0_225_0
+  $in_0_225_1
+  $in_0_225_2
+  $in_0_225_3
+  inHeapCounter_226
+  $b0_227
+  $b1_228
+  $b2_229
+  $b3_230
+  $ex__231_0
+  $ex__231_1
+  $ex__231_2
+  d0_232_0
+  d0_232_1
+  d0_232_2
+  d0_232_3
+  outHeapCounter_233)
+		(Main_void_mainJayArray_java_lang_String_Block12
+  $in_0_235_0
+  $in_0_235_1
+  $in_0_235_2
+  $in_0_235_3
+  inHeapCounter_236
+  $b1_237
+  $b2_238
+  $b3_239
+  $ex__240_0
+  $ex__240_1
+  $ex__240_2
+  outHeapCounter_242) <- (< $b1_237 0) && (Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+  $in_0_235_0
+  $in_0_235_1
+  $in_0_235_2
+  $in_0_235_3
+  inHeapCounter_236
+  $b1_237
+  $b2_238
+  $b3_239
+  $ex__240_0
+  $ex__240_1
+  $ex__240_2
+  d0_241_0
+  d0_241_1
+  d0_241_2
+  d0_241_3
+  outHeapCounter_242)
+		(Main_void_mainJayArray_java_lang_String_Block13
+  $in_0_235_0
+  $in_0_235_1
+  $in_0_235_2
+  $in_0_235_3
+  inHeapCounter_236
+  $b1_237
+  $b2_238
+  $b3_239
+  $ex__240_0
+  $ex__240_1
+  $ex__240_2
+  d0_241_0
+  d0_241_1
+  d0_241_2
+  d0_241_3
+  outHeapCounter_242) <- (not (< $b1_237 0)) && (Main_void_mainJayArray_java_lang_String_Block9_1-FCmpResult
+  $in_0_235_0
+  $in_0_235_1
+  $in_0_235_2
+  $in_0_235_3
+  inHeapCounter_236
+  $b1_237
+  $b2_238
+  $b3_239
+  $ex__240_0
+  $ex__240_1
+  $ex__240_2
+  d0_241_0
+  d0_241_1
+  d0_241_2
+  d0_241_3
+  outHeapCounter_242)
+		(Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  (- 1)
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_250_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_250_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block10
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  $b3_248
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251) <- (and (= (exponent d0_250_3) #b00000000000)
+     (= (mantissa d0_250_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block10
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  $b3_248
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(Main_void_mainJayArray_java_lang_String_Block10_11
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_250_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_250_3) #b00000000000)
+                (= (mantissa d0_250_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_250_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_250_3
+               (DoubleFloatingPoint
+                 false
+                 #b10000000000
+                 #b10000000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block10
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  $b3_248
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(Main_void_mainJayArray_java_lang_String_Block10_12
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251) <- (= (sign d0_250_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b10000000000
+           #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block10_11
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(let ((a!1 (ite (not (= (sign d0_250_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+    $in_0_243_0
+    $in_0_243_1
+    $in_0_243_2
+    $in_0_243_3
+    inHeapCounter_244
+    $b0_245
+    $b1_246
+    $b2_247
+    a!1
+    $ex__249_0
+    $ex__249_1
+    $ex__249_2
+    d0_250_0
+    d0_250_1
+    d0_250_2
+    d0_250_3
+    outHeapCounter_251)) <- (not (= (sign d0_250_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b10000000000
+                #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block10_11
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(let ((a!1 (ite (not (= (sign d0_250_3) false))
+                (bvugt (mantissa d0_250_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_250_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+    $in_0_243_0
+    $in_0_243_1
+    $in_0_243_2
+    $in_0_243_3
+    inHeapCounter_244
+    $b0_245
+    $b1_246
+    $b2_247
+    (ite a!1 (- 1) 1)
+    $ex__249_0
+    $ex__249_1
+    $ex__249_2
+    d0_250_0
+    d0_250_1
+    d0_250_2
+    d0_250_3
+    outHeapCounter_251)) <- (= (exponent d0_250_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b10000000000
+               #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block10_12
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(let ((a!1 (ite (not (= (sign d0_250_3) false))
+                (bvugt (exponent d0_250_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_250_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+    $in_0_243_0
+    $in_0_243_1
+    $in_0_243_2
+    $in_0_243_3
+    inHeapCounter_244
+    $b0_245
+    $b1_246
+    $b2_247
+    (ite a!1 (- 1) 1)
+    $ex__249_0
+    $ex__249_1
+    $ex__249_2
+    d0_250_0
+    d0_250_1
+    d0_250_2
+    d0_250_3
+    outHeapCounter_251)) <- (not (= (exponent d0_250_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block10_12
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  0
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_250_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_250_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_250_3
+          (DoubleFloatingPoint
+            false
+            #b10000000000
+            #b10000000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block10
+  $in_0_243_0
+  $in_0_243_1
+  $in_0_243_2
+  $in_0_243_3
+  inHeapCounter_244
+  $b0_245
+  $b1_246
+  $b2_247
+  $b3_248
+  $ex__249_0
+  $ex__249_1
+  $ex__249_2
+  d0_250_0
+  d0_250_1
+  d0_250_2
+  d0_250_3
+  outHeapCounter_251)
+		(Main_void_mainJayArray_java_lang_String_Block11
+  $in_0_253_0
+  $in_0_253_1
+  $in_0_253_2
+  $in_0_253_3
+  inHeapCounter_254
+  $b2_257
+  $b3_258
+  $ex__259_0
+  $ex__259_1
+  $ex__259_2
+  outHeapCounter_261) <- (<= $b3_258 0) && (Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+  $in_0_253_0
+  $in_0_253_1
+  $in_0_253_2
+  $in_0_253_3
+  inHeapCounter_254
+  $b0_255
+  $b1_256
+  $b2_257
+  $b3_258
+  $ex__259_0
+  $ex__259_1
+  $ex__259_2
+  d0_260_0
+  d0_260_1
+  d0_260_2
+  d0_260_3
+  outHeapCounter_261)
+		(Main_void_mainJayArray_java_lang_String_Block9
+  $in_0_253_0
+  $in_0_253_1
+  $in_0_253_2
+  $in_0_253_3
+  inHeapCounter_254
+  $b0_255
+  $b1_256
+  $b2_257
+  $b3_258
+  $ex__259_0
+  $ex__259_1
+  $ex__259_2
+  d0_260_0
+  d0_260_1
+  d0_260_2
+  d0_260_3
+  outHeapCounter_261) <- (not (<= $b3_258 0)) && (Main_void_mainJayArray_java_lang_String_Block10_1-FCmpResult
+  $in_0_253_0
+  $in_0_253_1
+  $in_0_253_2
+  $in_0_253_3
+  inHeapCounter_254
+  $b0_255
+  $b1_256
+  $b2_257
+  $b3_258
+  $ex__259_0
+  $ex__259_1
+  $ex__259_2
+  d0_260_0
+  d0_260_1
+  d0_260_2
+  d0_260_3
+  outHeapCounter_261)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (and (= (sign d0_274_3) (sign a!2))
+       (= (exponent d0_274_3) #b00000000000)
+       (= (mantissa d0_274_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       (= (exponent a!2) #b00000000000)
+       (= (mantissa a!2)
+          #b00000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(let ((a!1 (DoubleFloatingPoint
+             (ite (= (sign d0_274_3) false) true false)
+             (exponent d0_274_3)
+             (mantissa d0_274_3))))
+  (Main_void_mainJayArray_java_lang_String_Block5_1
+    $in_0_262_0
+    $in_0_262_1
+    $in_0_262_2
+    $in_0_262_3
+    inHeapCounter_263
+    $assert_14_264
+    $b0_265
+    $b1_266
+    $b2_267
+    $b3_268
+    $b4_269
+    $b6_271
+    $ex__272_0
+    $ex__272_1
+    $ex__272_2
+    $z1_273
+    d0_274_0
+    d0_274_1
+    d0_274_2
+    a!1
+    outHeapCounter_275)) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (and (not (= (sign d0_274_3) (sign a!2)))
+       (= (exponent d0_274_3) #b00000000000)
+       (= (mantissa d0_274_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       (= (exponent a!2) #b00000000000)
+       (= (mantissa a!2)
+          #b00000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (and (= (sign d0_274_3) (sign a!2))
+       (= (exponent d0_274_3) #b11111111111)
+       (= ((_ extract 51 0) (mantissa d0_274_3)) #x0000000000000)
+       (= (exponent a!2) #b11111111111)
+       (= ((_ extract 51 0) (mantissa a!2)) #x0000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  (DoubleFloatingPoint
+    false
+    #b11111111111
+    #b11000000000000000000000000000000000000000000000000000)
+  outHeapCounter_275) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (and (not (= (sign d0_274_3) (sign a!2)))
+       (= (exponent d0_274_3) #b11111111111)
+       (= ((_ extract 51 0) (mantissa d0_274_3)) #x0000000000000)
+       (= (exponent a!2) #b11111111111)
+       (= ((_ extract 51 0) (mantissa a!2)) #x0000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  (DoubleFloatingPoint
+    false
+    #b11111111111
+    #b11000000000000000000000000000000000000000000000000000)
+  outHeapCounter_275) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_274_3)) #x0000000000000)))
+      (a!2 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!3 (DoubleFloatingPoint
+             a!2
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+(let ((a!4 (not (= ((_ extract 51 0) (mantissa a!3)) #x0000000000000))))
+  (or (and (= (exponent d0_274_3) #b11111111111) a!1)
+      (and (= (exponent a!3) #b11111111111) a!4))))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+  (Main_void_mainJayArray_java_lang_String_Block5_1
+    $in_0_262_0
+    $in_0_262_1
+    $in_0_262_2
+    $in_0_262_3
+    inHeapCounter_263
+    $assert_14_264
+    $b0_265
+    $b1_266
+    $b2_267
+    $b3_268
+    $b4_269
+    $b6_271
+    $ex__272_0
+    $ex__272_1
+    $ex__272_2
+    $z1_273
+    d0_274_0
+    d0_274_1
+    d0_274_2
+    (DoubleFloatingPoint
+      a!1
+      (exponent (DoubleFloatingPoint
+                  false
+                  #b01111111101
+                  #b10011001100110011001100110011001100110011001100110011))
+      (mantissa (DoubleFloatingPoint
+                  false
+                  #b01111111101
+                  #b10011001100110011001100110011001100110011001100110011)))
+    outHeapCounter_275)) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+(let ((a!3 (not (and (= (exponent a!2) #b00000000000)
+                     (= (mantissa a!2)
+                        #b00000000000000000000000000000000000000000000000000000)))))
+  (and (= (exponent d0_274_3) #b00000000000)
+       (= (mantissa d0_274_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       (not (= (exponent a!2) #b11111111111))
+       a!3)))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false))
+      (a!3 (not (and (= (exponent d0_274_3) #b00000000000)
+                     (= (mantissa d0_274_3)
+                        #b00000000000000000000000000000000000000000000000000000)))))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (and (= (exponent a!2) #b00000000000)
+       (= (mantissa a!2)
+          #b00000000000000000000000000000000000000000000000000000)
+       (not (= (exponent d0_274_3) #b11111111111))
+       a!3))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+  (Main_void_mainJayArray_java_lang_String_Block5_1
+    $in_0_262_0
+    $in_0_262_1
+    $in_0_262_2
+    $in_0_262_3
+    inHeapCounter_263
+    $assert_14_264
+    $b0_265
+    $b1_266
+    $b2_267
+    $b3_268
+    $b4_269
+    $b6_271
+    $ex__272_0
+    $ex__272_1
+    $ex__272_2
+    $z1_273
+    d0_274_0
+    d0_274_1
+    d0_274_2
+    (DoubleFloatingPoint
+      a!1
+      (exponent (DoubleFloatingPoint
+                  false
+                  #b01111111101
+                  #b10011001100110011001100110011001100110011001100110011))
+      (mantissa (DoubleFloatingPoint
+                  false
+                  #b01111111101
+                  #b10011001100110011001100110011001100110011001100110011)))
+    outHeapCounter_275)) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (and (= (exponent a!2) #b11111111111)
+       (= (mantissa a!2)
+          #b00000000000000000000000000000000000000000000000000000)
+       (not (= (exponent d0_274_3) #b11111111111))))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (exponent (DoubleFloatingPoint
+                       a!1
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b01111111101
+                                   #b10011001100110011001100110011001100110011001100110011))
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b01111111101
+                                   #b10011001100110011001100110011001100110011001100110011))))))
+  (and (= (exponent d0_274_3) #b11111111111)
+       (= (mantissa d0_274_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       (not (= a!2 #b11111111111))))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false)))
+(let ((a!2 (exponent (DoubleFloatingPoint
+                       a!1
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b01111111101
+                                   #b10011001100110011001100110011001100110011001100110011))
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b01111111101
+                                   #b10011001100110011001100110011001100110011001100110011))))))
+  (Main_void_mainJayArray_java_lang_String_Block5_11
+    $in_0_262_0
+    $in_0_262_1
+    $in_0_262_2
+    $in_0_262_3
+    inHeapCounter_263
+    $assert_14_264
+    $b0_265
+    $b1_266
+    $b2_267
+    $b3_268
+    $b4_269
+    $b5_270
+    $b6_271
+    $ex__272_0
+    $ex__272_1
+    $ex__272_2
+    $z1_273
+    d0_274_0
+    d0_274_1
+    d0_274_2
+    d0_274_3
+    outHeapCounter_275
+    (bvadd (exponent d0_274_3) (bvneg a!2))))) <- (let ((a!1 (ite (= (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b10011001100110011001100110011001100110011001100110011))
+                   false)
+                true
+                false))
+      (a!3 (not (and (= (exponent d0_274_3) #b00000000000)
+                     (= (mantissa d0_274_3)
+                        #b00000000000000000000000000000000000000000000000000000)))))
+(let ((a!2 (DoubleFloatingPoint
+             a!1
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+(let ((a!4 (not (and (= (exponent a!2) #b00000000000)
+                     (= (mantissa a!2)
+                        #b00000000000000000000000000000000000000000000000000000)))))
+  (and (not (= (exponent d0_274_3) #b11111111111))
+       (not (= (exponent a!2) #b11111111111))
+       a!3
+       a!4)))) && (Main_void_mainJayArray_java_lang_String_Block5
+  $in_0_262_0
+  $in_0_262_1
+  $in_0_262_2
+  $in_0_262_3
+  inHeapCounter_263
+  $assert_14_264
+  $b0_265
+  $b1_266
+  $b2_267
+  $b3_268
+  $b4_269
+  $b5_270
+  $b6_271
+  $ex__272_0
+  $ex__272_1
+  $ex__272_2
+  $z1_273
+  d0_274_0
+  d0_274_1
+  d0_274_2
+  d0_274_3
+  outHeapCounter_275)
+		(let ((a!1 (DoubleFloatingPoint
+             (not (sign (DoubleFloatingPoint
+                          false
+                          #b01111111101
+                          #b10011001100110011001100110011001100110011001100110011)))
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (Main_void_mainJayArray_java_lang_String_Block5_12
+    $in_0_277_0
+    $in_0_277_1
+    $in_0_277_2
+    $in_0_277_3
+    inHeapCounter_278
+    $assert_14_279
+    $b0_280
+    $b1_281
+    $b2_282
+    $b3_283
+    $b4_284
+    $b5_285
+    $b6_286
+    $ex__287_0
+    $ex__287_1
+    $ex__287_2
+    $z1_288
+    d0_289_0
+    d0_289_1
+    d0_289_2
+    d0_289_3
+    outHeapCounter_290
+    exponentsDiff_291
+    a!1
+    d0_289_3)) <- (= ((_ extract 10 10) exponentsDiff_291) #b0) && (Main_void_mainJayArray_java_lang_String_Block5_11
+  $in_0_277_0
+  $in_0_277_1
+  $in_0_277_2
+  $in_0_277_3
+  inHeapCounter_278
+  $assert_14_279
+  $b0_280
+  $b1_281
+  $b2_282
+  $b3_283
+  $b4_284
+  $b5_285
+  $b6_286
+  $ex__287_0
+  $ex__287_1
+  $ex__287_2
+  $z1_288
+  d0_289_0
+  d0_289_1
+  d0_289_2
+  d0_289_3
+  outHeapCounter_290
+  exponentsDiff_291)
+		(let ((a!1 (DoubleFloatingPoint
+             (not (sign (DoubleFloatingPoint
+                          false
+                          #b01111111101
+                          #b10011001100110011001100110011001100110011001100110011)))
+             (exponent (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011))
+             (mantissa (DoubleFloatingPoint
+                         false
+                         #b01111111101
+                         #b10011001100110011001100110011001100110011001100110011)))))
+  (Main_void_mainJayArray_java_lang_String_Block5_12
+    $in_0_295_0
+    $in_0_295_1
+    $in_0_295_2
+    $in_0_295_3
+    inHeapCounter_296
+    $assert_14_297
+    $b0_298
+    $b1_299
+    $b2_300
+    $b3_301
+    $b4_302
+    $b5_303
+    $b6_304
+    $ex__305_0
+    $ex__305_1
+    $ex__305_2
+    $z1_306
+    d0_307_0
+    d0_307_1
+    d0_307_2
+    d0_307_3
+    outHeapCounter_308
+    (bvneg exponentsDiff_309)
+    d0_307_3
+    a!1)) <- (= ((_ extract 10 10) exponentsDiff_309) #b1) && (Main_void_mainJayArray_java_lang_String_Block5_11
+  $in_0_295_0
+  $in_0_295_1
+  $in_0_295_2
+  $in_0_295_3
+  inHeapCounter_296
+  $assert_14_297
+  $b0_298
+  $b1_299
+  $b2_300
+  $b3_301
+  $b4_302
+  $b5_303
+  $b6_304
+  $ex__305_0
+  $ex__305_1
+  $ex__305_2
+  $z1_306
+  d0_307_0
+  d0_307_1
+  d0_307_2
+  d0_307_3
+  outHeapCounter_308
+  exponentsDiff_309)
+		(let ((a!1 (bvlshr (concat ((_ zero_extend 1) (mantissa lfp_326))
+                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+                   ((_ zero_extend 148) exponentsDiff_325)))
+      (a!2 (ExtendedDoubleFloatingPoint
+             (sign rfp_327)
+             ((_ zero_extend 1) (exponent rfp_327))
+             (concat ((_ zero_extend 1) (mantissa rfp_327))
+                     #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
+  (Main_void_mainJayArray_java_lang_String_Block5_13
+    $in_0_311_0
+    $in_0_311_1
+    $in_0_311_2
+    $in_0_311_3
+    inHeapCounter_312
+    $assert_14_313
+    $b0_314
+    $b1_315
+    $b2_316
+    $b3_317
+    $b4_318
+    $b5_319
+    $b6_320
+    $ex__321_0
+    $ex__321_1
+    $ex__321_2
+    $z1_322
+    d0_323_0
+    d0_323_1
+    d0_323_2
+    d0_323_3
+    outHeapCounter_324
+    (ExtendedDoubleFloatingPoint
+      (sign lfp_326)
+      ((_ zero_extend 1) (exponent lfp_326))
+      a!1)
+    a!2)) <- true && (Main_void_mainJayArray_java_lang_String_Block5_12
+  $in_0_311_0
+  $in_0_311_1
+  $in_0_311_2
+  $in_0_311_3
+  inHeapCounter_312
+  $assert_14_313
+  $b0_314
+  $b1_315
+  $b2_316
+  $b3_317
+  $b4_318
+  $b5_319
+  $b6_320
+  $ex__321_0
+  $ex__321_1
+  $ex__321_2
+  $z1_322
+  d0_323_0
+  d0_323_1
+  d0_323_2
+  d0_323_3
+  outHeapCounter_324
+  exponentsDiff_325
+  lfp_326
+  rfp_327)
+		(Main_void_mainJayArray_java_lang_String_Block5_14
+  $in_0_328_0
+  $in_0_328_1
+  $in_0_328_2
+  $in_0_328_3
+  inHeapCounter_329
+  $assert_14_330
+  $b0_331
+  $b1_332
+  $b2_333
+  $b3_334
+  $b4_335
+  $b5_336
+  $b6_337
+  $ex__338_0
+  $ex__338_1
+  $ex__338_2
+  $z1_339
+  d0_340_0
+  d0_340_1
+  d0_340_2
+  d0_340_3
+  outHeapCounter_341
+  (ExtendedDoubleFloatingPoint
+    (esign lefp_342)
+    (eexponent refp_343)
+    (bvadd (emantissa lefp_342) (emantissa refp_343)))) <- (= (esign lefp_342) (esign refp_343)) && (Main_void_mainJayArray_java_lang_String_Block5_13
+  $in_0_328_0
+  $in_0_328_1
+  $in_0_328_2
+  $in_0_328_3
+  inHeapCounter_329
+  $assert_14_330
+  $b0_331
+  $b1_332
+  $b2_333
+  $b3_334
+  $b4_335
+  $b5_336
+  $b6_337
+  $ex__338_0
+  $ex__338_1
+  $ex__338_2
+  $z1_339
+  d0_340_0
+  d0_340_1
+  d0_340_2
+  d0_340_3
+  outHeapCounter_341
+  lefp_342
+  refp_343)
+		(Main_void_mainJayArray_java_lang_String_Block5_16
+  $in_0_344_0
+  $in_0_344_1
+  $in_0_344_2
+  $in_0_344_3
+  inHeapCounter_345
+  $assert_14_346
+  $b0_347
+  $b1_348
+  $b2_349
+  $b3_350
+  $b4_351
+  $b5_352
+  $b6_353
+  $ex__354_0
+  $ex__354_1
+  $ex__354_2
+  $z1_355
+  d0_356_0
+  d0_356_1
+  d0_356_2
+  d0_356_3
+  outHeapCounter_357
+  efp_358) <- (= ((_ extract 158 158) (emantissa efp_358)) #b0) && (Main_void_mainJayArray_java_lang_String_Block5_14
+  $in_0_344_0
+  $in_0_344_1
+  $in_0_344_2
+  $in_0_344_3
+  inHeapCounter_345
+  $assert_14_346
+  $b0_347
+  $b1_348
+  $b2_349
+  $b3_350
+  $b4_351
+  $b5_352
+  $b6_353
+  $ex__354_0
+  $ex__354_1
+  $ex__354_2
+  $z1_355
+  d0_356_0
+  d0_356_1
+  d0_356_2
+  d0_356_3
+  outHeapCounter_357
+  efp_358)
+		(Main_void_mainJayArray_java_lang_String_Block5_16
+  $in_0_344_0
+  $in_0_344_1
+  $in_0_344_2
+  $in_0_344_3
+  inHeapCounter_345
+  $assert_14_346
+  $b0_347
+  $b1_348
+  $b2_349
+  $b3_350
+  $b4_351
+  $b5_352
+  $b6_353
+  $ex__354_0
+  $ex__354_1
+  $ex__354_2
+  $z1_355
+  d0_356_0
+  d0_356_1
+  d0_356_2
+  d0_356_3
+  outHeapCounter_357
+  (ExtendedDoubleFloatingPoint
+    (esign efp_358)
+    (bvadd (eexponent efp_358) #x001)
+    (bvlshr (emantissa efp_358)
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001))) <- (not (= ((_ extract 158 158) (emantissa efp_358)) #b0)) && (Main_void_mainJayArray_java_lang_String_Block5_14
+  $in_0_344_0
+  $in_0_344_1
+  $in_0_344_2
+  $in_0_344_3
+  inHeapCounter_345
+  $assert_14_346
+  $b0_347
+  $b1_348
+  $b2_349
+  $b3_350
+  $b4_351
+  $b5_352
+  $b6_353
+  $ex__354_0
+  $ex__354_1
+  $ex__354_2
+  $z1_355
+  d0_356_0
+  d0_356_1
+  d0_356_2
+  d0_356_3
+  outHeapCounter_357
+  efp_358)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_359_0
+  $in_0_359_1
+  $in_0_359_2
+  $in_0_359_3
+  inHeapCounter_360
+  $assert_14_361
+  $b0_362
+  $b1_363
+  $b2_364
+  $b3_365
+  $b4_366
+  $b6_368
+  $ex__369_0
+  $ex__369_1
+  $ex__369_2
+  $z1_370
+  d0_371_0
+  d0_371_1
+  d0_371_2
+  (DoubleFloatingPoint
+    false
+    #b00000000000
+    #b00000000000000000000000000000000000000000000000000000)
+  outHeapCounter_372) <- (and (not (= (esign lefp_373) (esign refp_374)))
+     (= (emantissa lefp_373) (emantissa refp_374))
+     (= (eexponent lefp_373) (eexponent refp_374))) && (Main_void_mainJayArray_java_lang_String_Block5_13
+  $in_0_359_0
+  $in_0_359_1
+  $in_0_359_2
+  $in_0_359_3
+  inHeapCounter_360
+  $assert_14_361
+  $b0_362
+  $b1_363
+  $b2_364
+  $b3_365
+  $b4_366
+  $b5_367
+  $b6_368
+  $ex__369_0
+  $ex__369_1
+  $ex__369_2
+  $z1_370
+  d0_371_0
+  d0_371_1
+  d0_371_2
+  d0_371_3
+  outHeapCounter_372
+  lefp_373
+  refp_374)
+		(Main_void_mainJayArray_java_lang_String_Block5_13_15
+  $in_0_359_0
+  $in_0_359_1
+  $in_0_359_2
+  $in_0_359_3
+  inHeapCounter_360
+  $assert_14_361
+  $b0_362
+  $b1_363
+  $b2_364
+  $b3_365
+  $b4_366
+  $b5_367
+  $b6_368
+  $ex__369_0
+  $ex__369_1
+  $ex__369_2
+  $z1_370
+  d0_371_0
+  d0_371_1
+  d0_371_2
+  (DoubleFloatingPoint
+    false
+    #b00000000000
+    #b00000000000000000000000000000000000000000000000000000)
+  outHeapCounter_372
+  (ExtendedDoubleFloatingPoint
+    (esign lefp_373)
+    (eexponent lefp_373)
+    (bvsub (emantissa lefp_373) (emantissa refp_374)))
+  #b00000000000000000000000000000000000000000000000000000) <- (let ((a!1 (and (= (emantissa lefp_373) (emantissa refp_374))
+                (not (= (eexponent lefp_373) (eexponent refp_374))))))
+  (and (not (= (esign lefp_373) (esign refp_374)))
+       (or (bvugt (emantissa lefp_373) (emantissa refp_374)) a!1))) && (Main_void_mainJayArray_java_lang_String_Block5_13
+  $in_0_359_0
+  $in_0_359_1
+  $in_0_359_2
+  $in_0_359_3
+  inHeapCounter_360
+  $assert_14_361
+  $b0_362
+  $b1_363
+  $b2_364
+  $b3_365
+  $b4_366
+  $b5_367
+  $b6_368
+  $ex__369_0
+  $ex__369_1
+  $ex__369_2
+  $z1_370
+  d0_371_0
+  d0_371_1
+  d0_371_2
+  d0_371_3
+  outHeapCounter_372
+  lefp_373
+  refp_374)
+		(Main_void_mainJayArray_java_lang_String_Block5_13_15
+  $in_0_375_0
+  $in_0_375_1
+  $in_0_375_2
+  $in_0_375_3
+  inHeapCounter_376
+  $assert_14_377
+  $b0_378
+  $b1_379
+  $b2_380
+  $b3_381
+  $b4_382
+  $b5_383
+  $b6_384
+  $ex__385_0
+  $ex__385_1
+  $ex__385_2
+  $z1_386
+  d0_387_0
+  d0_387_1
+  d0_387_2
+  d0_387_3
+  outHeapCounter_388
+  (ExtendedDoubleFloatingPoint
+    (esign refp_390)
+    (eexponent refp_390)
+    (bvsub (emantissa refp_390) (emantissa lefp_389)))
+  #b00000000000000000000000000000000000000000000000000000) <- (and (not (= (esign lefp_389) (esign refp_390)))
+     (bvult (emantissa lefp_389) (emantissa refp_390))) && (Main_void_mainJayArray_java_lang_String_Block5_13
+  $in_0_375_0
+  $in_0_375_1
+  $in_0_375_2
+  $in_0_375_3
+  inHeapCounter_376
+  $assert_14_377
+  $b0_378
+  $b1_379
+  $b2_380
+  $b3_381
+  $b4_382
+  $b5_383
+  $b6_384
+  $ex__385_0
+  $ex__385_1
+  $ex__385_2
+  $z1_386
+  d0_387_0
+  d0_387_1
+  d0_387_2
+  d0_387_3
+  outHeapCounter_388
+  lefp_389
+  refp_390)
+		(Main_void_mainJayArray_java_lang_String_Block5_13_15_17
+  $in_0_391_0
+  $in_0_391_1
+  $in_0_391_2
+  $in_0_391_3
+  inHeapCounter_392
+  $assert_14_393
+  $b0_394
+  $b1_395
+  $b2_396
+  $b3_397
+  $b4_398
+  $b5_399
+  $b6_400
+  $ex__401_0
+  $ex__401_1
+  $ex__401_2
+  $z1_402
+  d0_403_0
+  d0_403_1
+  d0_403_2
+  d0_403_3
+  outHeapCounter_404
+  efp_405
+  lzc_406
+  (bvlshr (bvshl (emantissa efp_405) leadingZeroC) leadingZeroC)
+  leadingZeroC) <- (= ((_ extract 157 157) (emantissa efp_405)) #b0) && (Main_void_mainJayArray_java_lang_String_Block5_13_15
+  $in_0_391_0
+  $in_0_391_1
+  $in_0_391_2
+  $in_0_391_3
+  inHeapCounter_392
+  $assert_14_393
+  $b0_394
+  $b1_395
+  $b2_396
+  $b3_397
+  $b4_398
+  $b5_399
+  $b6_400
+  $ex__401_0
+  $ex__401_1
+  $ex__401_2
+  $z1_402
+  d0_403_0
+  d0_403_1
+  d0_403_2
+  d0_403_3
+  outHeapCounter_404
+  efp_405
+  lzc_406)
+		(Main_void_mainJayArray_java_lang_String_Block5_16
+  $in_0_391_0
+  $in_0_391_1
+  $in_0_391_2
+  $in_0_391_3
+  inHeapCounter_392
+  $assert_14_393
+  $b0_394
+  $b1_395
+  $b2_396
+  $b3_397
+  $b4_398
+  $b5_399
+  $b6_400
+  $ex__401_0
+  $ex__401_1
+  $ex__401_2
+  $z1_402
+  d0_403_0
+  d0_403_1
+  d0_403_2
+  d0_403_3
+  outHeapCounter_404
+  efp_405) <- (= ((_ extract 157 157) (emantissa efp_405)) #b1) && (Main_void_mainJayArray_java_lang_String_Block5_13_15
+  $in_0_391_0
+  $in_0_391_1
+  $in_0_391_2
+  $in_0_391_3
+  inHeapCounter_392
+  $assert_14_393
+  $b0_394
+  $b1_395
+  $b2_396
+  $b3_397
+  $b4_398
+  $b5_399
+  $b6_400
+  $ex__401_0
+  $ex__401_1
+  $ex__401_2
+  $z1_402
+  d0_403_0
+  d0_403_1
+  d0_403_2
+  d0_403_3
+  outHeapCounter_404
+  efp_405
+  lzc_406)
+		(let ((a!1 (ExtendedDoubleFloatingPoint
+             (esign efp_421)
+             (bvsub (eexponent efp_421)
+                    ((_ extract 11 0)
+                      (bvsub lzcount_424
+                             #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)))
+             (bvshl (emantissa efp_421)
+                    (bvsub lzcount_424
+                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)))))
+  (Main_void_mainJayArray_java_lang_String_Block5_16
+    $in_0_407_0
+    $in_0_407_1
+    $in_0_407_2
+    $in_0_407_3
+    inHeapCounter_408
+    $assert_14_409
+    $b0_410
+    $b1_411
+    $b2_412
+    $b3_413
+    $b4_414
+    $b5_415
+    $b6_416
+    $ex__417_0
+    $ex__417_1
+    $ex__417_2
+    $z1_418
+    d0_419_0
+    d0_419_1
+    d0_419_2
+    d0_419_3
+    outHeapCounter_420
+    a!1)) <- (let ((a!1 (= (bvand (bvlshr (emantissa efp_421)
+                             (bvsub #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010011101
+                                    lzcount_424))
+                     #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)))
+  (and a!1 (= tmpMantissa_423 (emantissa efp_421)))) && (Main_void_mainJayArray_java_lang_String_Block5_13_15_17
+  $in_0_407_0
+  $in_0_407_1
+  $in_0_407_2
+  $in_0_407_3
+  inHeapCounter_408
+  $assert_14_409
+  $b0_410
+  $b1_411
+  $b2_412
+  $b3_413
+  $b4_414
+  $b5_415
+  $b6_416
+  $ex__417_0
+  $ex__417_1
+  $ex__417_2
+  $z1_418
+  d0_419_0
+  d0_419_1
+  d0_419_2
+  d0_419_3
+  outHeapCounter_420
+  efp_421
+  lzc_422
+  tmpMantissa_423
+  lzcount_424)
+		(Main_void_mainJayArray_java_lang_String_Block5_16_Bits
+  $in_0_455_0
+  $in_0_455_1
+  $in_0_455_2
+  $in_0_455_3
+  inHeapCounter_456
+  $assert_14_457
+  $b0_458
+  $b1_459
+  $b2_460
+  $b3_461
+  $b4_462
+  $b5_463
+  $b6_464
+  $ex__465_0
+  $ex__465_1
+  $ex__465_2
+  $z1_466
+  d0_467_0
+  d0_467_1
+  d0_467_2
+  d0_467_3
+  outHeapCounter_468
+  (DoubleFloatingPoint
+    (esign efp_469)
+    ((_ extract 10 0) (eexponent efp_469))
+    ((_ extract 157 105) (emantissa efp_469)))
+  ((_ extract 105 105) (emantissa efp_469))
+  ((_ extract 104 104) (emantissa efp_469))
+  ((_ extract 103 103) (emantissa efp_469))
+  ((_ zero_extend 1) ((_ extract 102 0) (emantissa efp_469)))) <- true && (Main_void_mainJayArray_java_lang_String_Block5_16
+  $in_0_455_0
+  $in_0_455_1
+  $in_0_455_2
+  $in_0_455_3
+  inHeapCounter_456
+  $assert_14_457
+  $b0_458
+  $b1_459
+  $b2_460
+  $b3_461
+  $b4_462
+  $b5_463
+  $b6_464
+  $ex__465_0
+  $ex__465_1
+  $ex__465_2
+  $z1_466
+  d0_467_0
+  d0_467_1
+  d0_467_2
+  d0_467_3
+  outHeapCounter_468
+  efp_469)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_470_0
+  $in_0_470_1
+  $in_0_470_2
+  $in_0_470_3
+  inHeapCounter_471
+  $assert_14_472
+  $b0_473
+  $b1_474
+  $b2_475
+  $b3_476
+  $b4_477
+  $b6_479
+  $ex__480_0
+  $ex__480_1
+  $ex__480_2
+  $z1_481
+  d0_482_0
+  d0_482_1
+  d0_482_2
+  resultFP_484
+  outHeapCounter_483) <- (= G_486 #b0) && (Main_void_mainJayArray_java_lang_String_Block5_16_Bits
+  $in_0_470_0
+  $in_0_470_1
+  $in_0_470_2
+  $in_0_470_3
+  inHeapCounter_471
+  $assert_14_472
+  $b0_473
+  $b1_474
+  $b2_475
+  $b3_476
+  $b4_477
+  $b5_478
+  $b6_479
+  $ex__480_0
+  $ex__480_1
+  $ex__480_2
+  $z1_481
+  d0_482_0
+  d0_482_1
+  d0_482_2
+  d0_482_3
+  outHeapCounter_483
+  resultFP_484
+  LSB_485
+  G_486
+  R_487
+  S_488)
+		(Main_void_mainJayArray_java_lang_String_Block5_16_LSBR
+  $in_0_489_0
+  $in_0_489_1
+  $in_0_489_2
+  $in_0_489_3
+  inHeapCounter_490
+  $assert_14_491
+  $b0_492
+  $b1_493
+  $b2_494
+  $b3_495
+  $b4_496
+  $b5_497
+  $b6_498
+  $ex__499_0
+  $ex__499_1
+  $ex__499_2
+  $z1_500
+  d0_501_0
+  d0_501_1
+  d0_501_2
+  d0_501_3
+  outHeapCounter_502
+  resultFP_503
+  LSB_504
+  G_505
+  R_506
+  S_507) <- (= G_505 #b1) && (Main_void_mainJayArray_java_lang_String_Block5_16_Bits
+  $in_0_489_0
+  $in_0_489_1
+  $in_0_489_2
+  $in_0_489_3
+  inHeapCounter_490
+  $assert_14_491
+  $b0_492
+  $b1_493
+  $b2_494
+  $b3_495
+  $b4_496
+  $b5_497
+  $b6_498
+  $ex__499_0
+  $ex__499_1
+  $ex__499_2
+  $z1_500
+  d0_501_0
+  d0_501_1
+  d0_501_2
+  d0_501_3
+  outHeapCounter_502
+  resultFP_503
+  LSB_504
+  G_505
+  R_506
+  S_507)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_508_0
+  $in_0_508_1
+  $in_0_508_2
+  $in_0_508_3
+  inHeapCounter_509
+  $assert_14_510
+  $b0_511
+  $b1_512
+  $b2_513
+  $b3_514
+  $b4_515
+  $b6_517
+  $ex__518_0
+  $ex__518_1
+  $ex__518_2
+  $z1_519
+  d0_520_0
+  d0_520_1
+  d0_520_2
+  (DoubleFloatingPoint
+    (sign resultFP_522)
+    (exponent resultFP_522)
+    (bvadd (mantissa resultFP_522)
+           #b00000000000000000000000000000000000000000000000000001))
+  outHeapCounter_521) <- (or (= LSB_523 #b1) (= R_525 #b1)) && (Main_void_mainJayArray_java_lang_String_Block5_16_LSBR
+  $in_0_508_0
+  $in_0_508_1
+  $in_0_508_2
+  $in_0_508_3
+  inHeapCounter_509
+  $assert_14_510
+  $b0_511
+  $b1_512
+  $b2_513
+  $b3_514
+  $b4_515
+  $b5_516
+  $b6_517
+  $ex__518_0
+  $ex__518_1
+  $ex__518_2
+  $z1_519
+  d0_520_0
+  d0_520_1
+  d0_520_2
+  d0_520_3
+  outHeapCounter_521
+  resultFP_522
+  LSB_523
+  G_524
+  R_525
+  S_526)
+		(Main_void_mainJayArray_java_lang_String_Block5_16_S
+  $in_0_527_0
+  $in_0_527_1
+  $in_0_527_2
+  $in_0_527_3
+  inHeapCounter_528
+  $assert_14_529
+  $b0_530
+  $b1_531
+  $b2_532
+  $b3_533
+  $b4_534
+  $b5_535
+  $b6_536
+  $ex__537_0
+  $ex__537_1
+  $ex__537_2
+  $z1_538
+  d0_539_0
+  d0_539_1
+  d0_539_2
+  d0_539_3
+  outHeapCounter_540
+  resultFP_541
+  LSB_542
+  G_543
+  R_544
+  S_545
+  0) <- (and (= LSB_542 #b0) (= R_544 #b0)) && (Main_void_mainJayArray_java_lang_String_Block5_16_LSBR
+  $in_0_527_0
+  $in_0_527_1
+  $in_0_527_2
+  $in_0_527_3
+  inHeapCounter_528
+  $assert_14_529
+  $b0_530
+  $b1_531
+  $b2_532
+  $b3_533
+  $b4_534
+  $b5_535
+  $b6_536
+  $ex__537_0
+  $ex__537_1
+  $ex__537_2
+  $z1_538
+  d0_539_0
+  d0_539_1
+  d0_539_2
+  d0_539_3
+  outHeapCounter_540
+  resultFP_541
+  LSB_542
+  G_543
+  R_544
+  S_545)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_546_0
+  $in_0_546_1
+  $in_0_546_2
+  $in_0_546_3
+  inHeapCounter_547
+  $assert_14_548
+  $b0_549
+  $b1_550
+  $b2_551
+  $b3_552
+  $b4_553
+  $b6_555
+  $ex__556_0
+  $ex__556_1
+  $ex__556_2
+  $z1_557
+  d0_558_0
+  d0_558_1
+  d0_558_2
+  resultFP_560
+  outHeapCounter_559) <- (= S_564 #x00000000000000000000000000) && (Main_void_mainJayArray_java_lang_String_Block5_16_S
+  $in_0_546_0
+  $in_0_546_1
+  $in_0_546_2
+  $in_0_546_3
+  inHeapCounter_547
+  $assert_14_548
+  $b0_549
+  $b1_550
+  $b2_551
+  $b3_552
+  $b4_553
+  $b5_554
+  $b6_555
+  $ex__556_0
+  $ex__556_1
+  $ex__556_2
+  $z1_557
+  d0_558_0
+  d0_558_1
+  d0_558_2
+  d0_558_3
+  outHeapCounter_559
+  resultFP_560
+  LSB_561
+  G_562
+  R_563
+  S_564
+  c_565)
+		(Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_566_0
+  $in_0_566_1
+  $in_0_566_2
+  $in_0_566_3
+  inHeapCounter_567
+  $assert_14_568
+  $b0_569
+  $b1_570
+  $b2_571
+  $b3_572
+  $b4_573
+  $b6_575
+  $ex__576_0
+  $ex__576_1
+  $ex__576_2
+  $z1_577
+  d0_578_0
+  d0_578_1
+  d0_578_2
+  (DoubleFloatingPoint
+    (sign resultFP_580)
+    (exponent resultFP_580)
+    (bvadd (mantissa resultFP_580)
+           #b00000000000000000000000000000000000000000000000000001))
+  outHeapCounter_579) <- (not (= S_584 #x00000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block5_16_S
+  $in_0_566_0
+  $in_0_566_1
+  $in_0_566_2
+  $in_0_566_3
+  inHeapCounter_567
+  $assert_14_568
+  $b0_569
+  $b1_570
+  $b2_571
+  $b3_572
+  $b4_573
+  $b5_574
+  $b6_575
+  $ex__576_0
+  $ex__576_1
+  $ex__576_2
+  $z1_577
+  d0_578_0
+  d0_578_1
+  d0_578_2
+  d0_578_3
+  outHeapCounter_579
+  resultFP_580
+  LSB_581
+  G_582
+  R_583
+  S_584
+  c_585)
+		(Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  (- 1)
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_597_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10100000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_597_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  0
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598) <- (and (= (exponent d0_597_3) #b00000000000)
+     (= (mantissa d0_597_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10100000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10100000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(Main_void_mainJayArray_java_lang_String_Block5_1_11
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_597_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10100000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_597_3) #b00000000000)
+                (= (mantissa d0_597_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_597_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_597_3
+               (DoubleFloatingPoint
+                 false
+                 #b10000000000
+                 #b10100000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(Main_void_mainJayArray_java_lang_String_Block5_1_12
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598) <- (= (sign d0_597_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b10000000000
+           #b10100000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block5_1_11
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(let ((a!1 (ite (not (= (sign d0_597_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+    $in_0_586_0
+    $in_0_586_1
+    $in_0_586_2
+    $in_0_586_3
+    inHeapCounter_587
+    $assert_14_588
+    $b0_589
+    $b1_590
+    $b2_591
+    $b3_592
+    $b4_593
+    a!1
+    $b6_594
+    $ex__595_0
+    $ex__595_1
+    $ex__595_2
+    $z1_596
+    d0_597_0
+    d0_597_1
+    d0_597_2
+    d0_597_3
+    outHeapCounter_598)) <- (not (= (sign d0_597_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b10000000000
+                #b10100000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block5_1_11
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(let ((a!1 (ite (not (= (sign d0_597_3) false))
+                (bvugt (mantissa d0_597_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_597_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+    $in_0_586_0
+    $in_0_586_1
+    $in_0_586_2
+    $in_0_586_3
+    inHeapCounter_587
+    $assert_14_588
+    $b0_589
+    $b1_590
+    $b2_591
+    $b3_592
+    $b4_593
+    (ite a!1 (- 1) 1)
+    $b6_594
+    $ex__595_0
+    $ex__595_1
+    $ex__595_2
+    $z1_596
+    d0_597_0
+    d0_597_1
+    d0_597_2
+    d0_597_3
+    outHeapCounter_598)) <- (= (exponent d0_597_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b10000000000
+               #b10100000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block5_1_12
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(let ((a!1 (ite (not (= (sign d0_597_3) false))
+                (bvugt (exponent d0_597_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_597_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10100000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+    $in_0_586_0
+    $in_0_586_1
+    $in_0_586_2
+    $in_0_586_3
+    inHeapCounter_587
+    $assert_14_588
+    $b0_589
+    $b1_590
+    $b2_591
+    $b3_592
+    $b4_593
+    (ite a!1 (- 1) 1)
+    $b6_594
+    $ex__595_0
+    $ex__595_1
+    $ex__595_2
+    $z1_596
+    d0_597_0
+    d0_597_1
+    d0_597_2
+    d0_597_3
+    outHeapCounter_598)) <- (not (= (exponent d0_597_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10100000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block5_1_12
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  0
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_597_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10100000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_597_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_597_3
+          (DoubleFloatingPoint
+            false
+            #b10000000000
+            #b10100000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block5_1
+  $in_0_586_0
+  $in_0_586_1
+  $in_0_586_2
+  $in_0_586_3
+  inHeapCounter_587
+  $assert_14_588
+  $b0_589
+  $b1_590
+  $b2_591
+  $b3_592
+  $b4_593
+  $b6_594
+  $ex__595_0
+  $ex__595_1
+  $ex__595_2
+  $z1_596
+  d0_597_0
+  d0_597_1
+  d0_597_2
+  d0_597_3
+  outHeapCounter_598)
+		(Main_void_mainJayArray_java_lang_String_Block2
+  $in_0_601_0
+  $in_0_601_1
+  $in_0_601_2
+  $in_0_601_3
+  inHeapCounter_602
+  $assert_14_603
+  $b0_604
+  $b1_605
+  $b2_606
+  $b3_607
+  $b4_608
+  $b5_609
+  $b6_610
+  $ex__611_0
+  $ex__611_1
+  $ex__611_2
+  $z1_612
+  d0_613_0
+  d0_613_1
+  d0_613_2
+  d0_613_3
+  outHeapCounter_614) <- (> $b5_609 0) && (Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+  $in_0_601_0
+  $in_0_601_1
+  $in_0_601_2
+  $in_0_601_3
+  inHeapCounter_602
+  $assert_14_603
+  $b0_604
+  $b1_605
+  $b2_606
+  $b3_607
+  $b4_608
+  $b5_609
+  $b6_610
+  $ex__611_0
+  $ex__611_1
+  $ex__611_2
+  $z1_612
+  d0_613_0
+  d0_613_1
+  d0_613_2
+  d0_613_3
+  outHeapCounter_614)
+		(Main_void_mainJayArray_java_lang_String_Block8
+  $in_0_601_0
+  $in_0_601_1
+  $in_0_601_2
+  $in_0_601_3
+  inHeapCounter_602
+  $assert_14_603
+  $b0_604
+  $b1_605
+  $b2_606
+  $b3_607
+  $b4_608
+  $b5_609
+  $b6_610
+  $ex__611_0
+  $ex__611_1
+  $ex__611_2
+  $z1_612
+  outHeapCounter_614) <- (not (> $b5_609 0)) && (Main_void_mainJayArray_java_lang_String_Block5_2-FCmpResult
+  $in_0_601_0
+  $in_0_601_1
+  $in_0_601_2
+  $in_0_601_3
+  inHeapCounter_602
+  $assert_14_603
+  $b0_604
+  $b1_605
+  $b2_606
+  $b3_607
+  $b4_608
+  $b5_609
+  $b6_610
+  $ex__611_0
+  $ex__611_1
+  $ex__611_2
+  $z1_612
+  d0_613_0
+  d0_613_1
+  d0_613_2
+  d0_613_3
+  outHeapCounter_614)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628) <- (and (= (sign d0_627_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b01111111101
+                #b11001100110011001100110011001100110011001100110011010)))
+     (= (exponent d0_627_3) #b00000000000)
+     (= (mantissa d0_627_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b01111111101
+                    #b11001100110011001100110011001100110011001100110011010))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b01111111101
+                    #b11001100110011001100110011001100110011001100110011010))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(let ((a!1 (DoubleFloatingPoint
+             (ite (= (sign d0_627_3) false) true false)
+             (exponent d0_627_3)
+             (mantissa d0_627_3))))
+  (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+    $in_0_615_0
+    $in_0_615_1
+    $in_0_615_2
+    $in_0_615_3
+    inHeapCounter_616
+    $assert_14_617
+    $b0_618
+    $b1_619
+    $b2_620
+    $b3_621
+    $b4_622
+    $b5_623
+    $ex__625_0
+    $ex__625_1
+    $ex__625_2
+    $z1_626
+    d0_627_0
+    d0_627_1
+    d0_627_2
+    a!1
+    outHeapCounter_628)) <- (let ((a!1 (not (= (sign d0_627_3)
+                   (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b11001100110011001100110011001100110011001100110011010))))))
+  (and a!1
+       (= (exponent d0_627_3) #b00000000000)
+       (= (mantissa d0_627_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       (= (exponent (DoubleFloatingPoint
+                      false
+                      #b01111111101
+                      #b11001100110011001100110011001100110011001100110011010))
+          #b00000000000)
+       (= (mantissa (DoubleFloatingPoint
+                      false
+                      #b01111111101
+                      #b11001100110011001100110011001100110011001100110011010))
+          #b00000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628) <- (let ((a!1 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b01111111101
+                            #b11001100110011001100110011001100110011001100110011010)))
+              #x0000000000000)))
+  (and (= (sign d0_627_3)
+          (sign (DoubleFloatingPoint
+                  false
+                  #b01111111101
+                  #b11001100110011001100110011001100110011001100110011010)))
+       (= (exponent d0_627_3) #b11111111111)
+       (= ((_ extract 51 0) (mantissa d0_627_3)) #x0000000000000)
+       (= (exponent (DoubleFloatingPoint
+                      false
+                      #b01111111101
+                      #b11001100110011001100110011001100110011001100110011010))
+          #b11111111111)
+       a!1)) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  (DoubleFloatingPoint
+    false
+    #b11111111111
+    #b11000000000000000000000000000000000000000000000000000)
+  outHeapCounter_628) <- (let ((a!1 (not (= (sign d0_627_3)
+                   (sign (DoubleFloatingPoint
+                           false
+                           #b01111111101
+                           #b11001100110011001100110011001100110011001100110011010)))))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b01111111101
+                            #b11001100110011001100110011001100110011001100110011010)))
+              #x0000000000000)))
+  (and a!1
+       (= (exponent d0_627_3) #b11111111111)
+       (= ((_ extract 51 0) (mantissa d0_627_3)) #x0000000000000)
+       (= (exponent (DoubleFloatingPoint
+                      false
+                      #b01111111101
+                      #b11001100110011001100110011001100110011001100110011010))
+          #b11111111111)
+       a!2)) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  (DoubleFloatingPoint
+    false
+    #b11111111111
+    #b11000000000000000000000000000000000000000000000000000)
+  outHeapCounter_628) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_627_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b01111111101
+                            #b11001100110011001100110011001100110011001100110011010)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_627_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  (DoubleFloatingPoint
+    false
+    #b01111111101
+    #b11001100110011001100110011001100110011001100110011010)
+  outHeapCounter_628) <- (let ((a!1 (not (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b11111111111)))
+      (a!2 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b00000000000000000000000000000000000000000000000000000))))
+  (and (= (exponent d0_627_3) #b00000000000)
+       (= (mantissa d0_627_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       a!1
+       (not a!2))) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628) <- (let ((a!1 (not (and (= (exponent d0_627_3) #b00000000000)
+                     (= (mantissa d0_627_3)
+                        #b00000000000000000000000000000000000000000000000000000)))))
+  (and (= (exponent (DoubleFloatingPoint
+                      false
+                      #b01111111101
+                      #b11001100110011001100110011001100110011001100110011010))
+          #b00000000000)
+       (= (mantissa (DoubleFloatingPoint
+                      false
+                      #b01111111101
+                      #b11001100110011001100110011001100110011001100110011010))
+          #b00000000000000000000000000000000000000000000000000000)
+       (not (= (exponent d0_627_3) #b11111111111))
+       a!1)) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  (DoubleFloatingPoint
+    false
+    #b01111111101
+    #b11001100110011001100110011001100110011001100110011010)
+  outHeapCounter_628) <- (and (= (exponent (DoubleFloatingPoint
+                    false
+                    #b01111111101
+                    #b11001100110011001100110011001100110011001100110011010))
+        #b11111111111)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b01111111101
+                    #b11001100110011001100110011001100110011001100110011010))
+        #b00000000000000000000000000000000000000000000000000000)
+     (not (= (exponent d0_627_3) #b11111111111))) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628) <- (let ((a!1 (not (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b11111111111))))
+  (and (= (exponent d0_627_3) #b11111111111)
+       (= (mantissa d0_627_3)
+          #b00000000000000000000000000000000000000000000000000000)
+       a!1)) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(let ((a!1 (bvadd (exponent d0_627_3)
+                  (bvneg (exponent (DoubleFloatingPoint
+                                     false
+                                     #b01111111101
+                                     #b11001100110011001100110011001100110011001100110011010))))))
+  (Main_void_mainJayArray_java_lang_String_Block6_11
+    $in_0_615_0
+    $in_0_615_1
+    $in_0_615_2
+    $in_0_615_3
+    inHeapCounter_616
+    $assert_14_617
+    $b0_618
+    $b1_619
+    $b2_620
+    $b3_621
+    $b4_622
+    $b5_623
+    $b6_624
+    $ex__625_0
+    $ex__625_1
+    $ex__625_2
+    $z1_626
+    d0_627_0
+    d0_627_1
+    d0_627_2
+    d0_627_3
+    outHeapCounter_628
+    a!1)) <- (let ((a!1 (not (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b11111111111)))
+      (a!2 (not (and (= (exponent d0_627_3) #b00000000000)
+                     (= (mantissa d0_627_3)
+                        #b00000000000000000000000000000000000000000000000000000))))
+      (a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b01111111101
+                               #b11001100110011001100110011001100110011001100110011010))
+                   #b00000000000000000000000000000000000000000000000000000))))
+  (and (not (= (exponent d0_627_3) #b11111111111)) a!1 a!2 (not a!3))) && (Main_void_mainJayArray_java_lang_String_Block6
+  $in_0_615_0
+  $in_0_615_1
+  $in_0_615_2
+  $in_0_615_3
+  inHeapCounter_616
+  $assert_14_617
+  $b0_618
+  $b1_619
+  $b2_620
+  $b3_621
+  $b4_622
+  $b5_623
+  $b6_624
+  $ex__625_0
+  $ex__625_1
+  $ex__625_2
+  $z1_626
+  d0_627_0
+  d0_627_1
+  d0_627_2
+  d0_627_3
+  outHeapCounter_628)
+		(Main_void_mainJayArray_java_lang_String_Block6_12
+  $in_0_630_0
+  $in_0_630_1
+  $in_0_630_2
+  $in_0_630_3
+  inHeapCounter_631
+  $assert_14_632
+  $b0_633
+  $b1_634
+  $b2_635
+  $b3_636
+  $b4_637
+  $b5_638
+  $b6_639
+  $ex__640_0
+  $ex__640_1
+  $ex__640_2
+  $z1_641
+  d0_642_0
+  d0_642_1
+  d0_642_2
+  d0_642_3
+  outHeapCounter_643
+  exponentsDiff_644
+  (DoubleFloatingPoint
+    false
+    #b01111111101
+    #b11001100110011001100110011001100110011001100110011010)
+  d0_642_3) <- (= ((_ extract 10 10) exponentsDiff_644) #b0) && (Main_void_mainJayArray_java_lang_String_Block6_11
+  $in_0_630_0
+  $in_0_630_1
+  $in_0_630_2
+  $in_0_630_3
+  inHeapCounter_631
+  $assert_14_632
+  $b0_633
+  $b1_634
+  $b2_635
+  $b3_636
+  $b4_637
+  $b5_638
+  $b6_639
+  $ex__640_0
+  $ex__640_1
+  $ex__640_2
+  $z1_641
+  d0_642_0
+  d0_642_1
+  d0_642_2
+  d0_642_3
+  outHeapCounter_643
+  exponentsDiff_644)
+		(Main_void_mainJayArray_java_lang_String_Block6_12
+  $in_0_648_0
+  $in_0_648_1
+  $in_0_648_2
+  $in_0_648_3
+  inHeapCounter_649
+  $assert_14_650
+  $b0_651
+  $b1_652
+  $b2_653
+  $b3_654
+  $b4_655
+  $b5_656
+  $b6_657
+  $ex__658_0
+  $ex__658_1
+  $ex__658_2
+  $z1_659
+  d0_660_0
+  d0_660_1
+  d0_660_2
+  d0_660_3
+  outHeapCounter_661
+  (bvneg exponentsDiff_662)
+  d0_660_3
+  (DoubleFloatingPoint
+    false
+    #b01111111101
+    #b11001100110011001100110011001100110011001100110011010)) <- (= ((_ extract 10 10) exponentsDiff_662) #b1) && (Main_void_mainJayArray_java_lang_String_Block6_11
+  $in_0_648_0
+  $in_0_648_1
+  $in_0_648_2
+  $in_0_648_3
+  inHeapCounter_649
+  $assert_14_650
+  $b0_651
+  $b1_652
+  $b2_653
+  $b3_654
+  $b4_655
+  $b5_656
+  $b6_657
+  $ex__658_0
+  $ex__658_1
+  $ex__658_2
+  $z1_659
+  d0_660_0
+  d0_660_1
+  d0_660_2
+  d0_660_3
+  outHeapCounter_661
+  exponentsDiff_662)
+		(let ((a!1 (bvlshr (concat ((_ zero_extend 1) (mantissa lfp_679))
+                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+                   ((_ zero_extend 148) exponentsDiff_678)))
+      (a!2 (ExtendedDoubleFloatingPoint
+             (sign rfp_680)
+             ((_ zero_extend 1) (exponent rfp_680))
+             (concat ((_ zero_extend 1) (mantissa rfp_680))
+                     #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000))))
+  (Main_void_mainJayArray_java_lang_String_Block6_13
+    $in_0_664_0
+    $in_0_664_1
+    $in_0_664_2
+    $in_0_664_3
+    inHeapCounter_665
+    $assert_14_666
+    $b0_667
+    $b1_668
+    $b2_669
+    $b3_670
+    $b4_671
+    $b5_672
+    $b6_673
+    $ex__674_0
+    $ex__674_1
+    $ex__674_2
+    $z1_675
+    d0_676_0
+    d0_676_1
+    d0_676_2
+    d0_676_3
+    outHeapCounter_677
+    (ExtendedDoubleFloatingPoint
+      (sign lfp_679)
+      ((_ zero_extend 1) (exponent lfp_679))
+      a!1)
+    a!2)) <- true && (Main_void_mainJayArray_java_lang_String_Block6_12
+  $in_0_664_0
+  $in_0_664_1
+  $in_0_664_2
+  $in_0_664_3
+  inHeapCounter_665
+  $assert_14_666
+  $b0_667
+  $b1_668
+  $b2_669
+  $b3_670
+  $b4_671
+  $b5_672
+  $b6_673
+  $ex__674_0
+  $ex__674_1
+  $ex__674_2
+  $z1_675
+  d0_676_0
+  d0_676_1
+  d0_676_2
+  d0_676_3
+  outHeapCounter_677
+  exponentsDiff_678
+  lfp_679
+  rfp_680)
+		(Main_void_mainJayArray_java_lang_String_Block6_14
+  $in_0_681_0
+  $in_0_681_1
+  $in_0_681_2
+  $in_0_681_3
+  inHeapCounter_682
+  $assert_14_683
+  $b0_684
+  $b1_685
+  $b2_686
+  $b3_687
+  $b4_688
+  $b5_689
+  $b6_690
+  $ex__691_0
+  $ex__691_1
+  $ex__691_2
+  $z1_692
+  d0_693_0
+  d0_693_1
+  d0_693_2
+  d0_693_3
+  outHeapCounter_694
+  (ExtendedDoubleFloatingPoint
+    (esign lefp_695)
+    (eexponent refp_696)
+    (bvadd (emantissa lefp_695) (emantissa refp_696)))) <- (= (esign lefp_695) (esign refp_696)) && (Main_void_mainJayArray_java_lang_String_Block6_13
+  $in_0_681_0
+  $in_0_681_1
+  $in_0_681_2
+  $in_0_681_3
+  inHeapCounter_682
+  $assert_14_683
+  $b0_684
+  $b1_685
+  $b2_686
+  $b3_687
+  $b4_688
+  $b5_689
+  $b6_690
+  $ex__691_0
+  $ex__691_1
+  $ex__691_2
+  $z1_692
+  d0_693_0
+  d0_693_1
+  d0_693_2
+  d0_693_3
+  outHeapCounter_694
+  lefp_695
+  refp_696)
+		(Main_void_mainJayArray_java_lang_String_Block6_16
+  $in_0_697_0
+  $in_0_697_1
+  $in_0_697_2
+  $in_0_697_3
+  inHeapCounter_698
+  $assert_14_699
+  $b0_700
+  $b1_701
+  $b2_702
+  $b3_703
+  $b4_704
+  $b5_705
+  $b6_706
+  $ex__707_0
+  $ex__707_1
+  $ex__707_2
+  $z1_708
+  d0_709_0
+  d0_709_1
+  d0_709_2
+  d0_709_3
+  outHeapCounter_710
+  efp_711) <- (= ((_ extract 158 158) (emantissa efp_711)) #b0) && (Main_void_mainJayArray_java_lang_String_Block6_14
+  $in_0_697_0
+  $in_0_697_1
+  $in_0_697_2
+  $in_0_697_3
+  inHeapCounter_698
+  $assert_14_699
+  $b0_700
+  $b1_701
+  $b2_702
+  $b3_703
+  $b4_704
+  $b5_705
+  $b6_706
+  $ex__707_0
+  $ex__707_1
+  $ex__707_2
+  $z1_708
+  d0_709_0
+  d0_709_1
+  d0_709_2
+  d0_709_3
+  outHeapCounter_710
+  efp_711)
+		(Main_void_mainJayArray_java_lang_String_Block6_16
+  $in_0_697_0
+  $in_0_697_1
+  $in_0_697_2
+  $in_0_697_3
+  inHeapCounter_698
+  $assert_14_699
+  $b0_700
+  $b1_701
+  $b2_702
+  $b3_703
+  $b4_704
+  $b5_705
+  $b6_706
+  $ex__707_0
+  $ex__707_1
+  $ex__707_2
+  $z1_708
+  d0_709_0
+  d0_709_1
+  d0_709_2
+  d0_709_3
+  outHeapCounter_710
+  (ExtendedDoubleFloatingPoint
+    (esign efp_711)
+    (bvadd (eexponent efp_711) #x001)
+    (bvlshr (emantissa efp_711)
+            #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001))) <- (not (= ((_ extract 158 158) (emantissa efp_711)) #b0)) && (Main_void_mainJayArray_java_lang_String_Block6_14
+  $in_0_697_0
+  $in_0_697_1
+  $in_0_697_2
+  $in_0_697_3
+  inHeapCounter_698
+  $assert_14_699
+  $b0_700
+  $b1_701
+  $b2_702
+  $b3_703
+  $b4_704
+  $b5_705
+  $b6_706
+  $ex__707_0
+  $ex__707_1
+  $ex__707_2
+  $z1_708
+  d0_709_0
+  d0_709_1
+  d0_709_2
+  d0_709_3
+  outHeapCounter_710
+  efp_711)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_712_0
+  $in_0_712_1
+  $in_0_712_2
+  $in_0_712_3
+  inHeapCounter_713
+  $assert_14_714
+  $b0_715
+  $b1_716
+  $b2_717
+  $b3_718
+  $b4_719
+  $b5_720
+  $ex__722_0
+  $ex__722_1
+  $ex__722_2
+  $z1_723
+  d0_724_0
+  d0_724_1
+  d0_724_2
+  (DoubleFloatingPoint
+    false
+    #b00000000000
+    #b00000000000000000000000000000000000000000000000000000)
+  outHeapCounter_725) <- (and (not (= (esign lefp_726) (esign refp_727)))
+     (= (emantissa lefp_726) (emantissa refp_727))
+     (= (eexponent lefp_726) (eexponent refp_727))) && (Main_void_mainJayArray_java_lang_String_Block6_13
+  $in_0_712_0
+  $in_0_712_1
+  $in_0_712_2
+  $in_0_712_3
+  inHeapCounter_713
+  $assert_14_714
+  $b0_715
+  $b1_716
+  $b2_717
+  $b3_718
+  $b4_719
+  $b5_720
+  $b6_721
+  $ex__722_0
+  $ex__722_1
+  $ex__722_2
+  $z1_723
+  d0_724_0
+  d0_724_1
+  d0_724_2
+  d0_724_3
+  outHeapCounter_725
+  lefp_726
+  refp_727)
+		(Main_void_mainJayArray_java_lang_String_Block6_13_15
+  $in_0_712_0
+  $in_0_712_1
+  $in_0_712_2
+  $in_0_712_3
+  inHeapCounter_713
+  $assert_14_714
+  $b0_715
+  $b1_716
+  $b2_717
+  $b3_718
+  $b4_719
+  $b5_720
+  $b6_721
+  $ex__722_0
+  $ex__722_1
+  $ex__722_2
+  $z1_723
+  d0_724_0
+  d0_724_1
+  d0_724_2
+  (DoubleFloatingPoint
+    false
+    #b00000000000
+    #b00000000000000000000000000000000000000000000000000000)
+  outHeapCounter_725
+  (ExtendedDoubleFloatingPoint
+    (esign lefp_726)
+    (eexponent lefp_726)
+    (bvsub (emantissa lefp_726) (emantissa refp_727)))
+  #b00000000000000000000000000000000000000000000000000000) <- (let ((a!1 (and (= (emantissa lefp_726) (emantissa refp_727))
+                (not (= (eexponent lefp_726) (eexponent refp_727))))))
+  (and (not (= (esign lefp_726) (esign refp_727)))
+       (or (bvugt (emantissa lefp_726) (emantissa refp_727)) a!1))) && (Main_void_mainJayArray_java_lang_String_Block6_13
+  $in_0_712_0
+  $in_0_712_1
+  $in_0_712_2
+  $in_0_712_3
+  inHeapCounter_713
+  $assert_14_714
+  $b0_715
+  $b1_716
+  $b2_717
+  $b3_718
+  $b4_719
+  $b5_720
+  $b6_721
+  $ex__722_0
+  $ex__722_1
+  $ex__722_2
+  $z1_723
+  d0_724_0
+  d0_724_1
+  d0_724_2
+  d0_724_3
+  outHeapCounter_725
+  lefp_726
+  refp_727)
+		(Main_void_mainJayArray_java_lang_String_Block6_13_15
+  $in_0_728_0
+  $in_0_728_1
+  $in_0_728_2
+  $in_0_728_3
+  inHeapCounter_729
+  $assert_14_730
+  $b0_731
+  $b1_732
+  $b2_733
+  $b3_734
+  $b4_735
+  $b5_736
+  $b6_737
+  $ex__738_0
+  $ex__738_1
+  $ex__738_2
+  $z1_739
+  d0_740_0
+  d0_740_1
+  d0_740_2
+  d0_740_3
+  outHeapCounter_741
+  (ExtendedDoubleFloatingPoint
+    (esign refp_743)
+    (eexponent refp_743)
+    (bvsub (emantissa refp_743) (emantissa lefp_742)))
+  #b00000000000000000000000000000000000000000000000000000) <- (and (not (= (esign lefp_742) (esign refp_743)))
+     (bvult (emantissa lefp_742) (emantissa refp_743))) && (Main_void_mainJayArray_java_lang_String_Block6_13
+  $in_0_728_0
+  $in_0_728_1
+  $in_0_728_2
+  $in_0_728_3
+  inHeapCounter_729
+  $assert_14_730
+  $b0_731
+  $b1_732
+  $b2_733
+  $b3_734
+  $b4_735
+  $b5_736
+  $b6_737
+  $ex__738_0
+  $ex__738_1
+  $ex__738_2
+  $z1_739
+  d0_740_0
+  d0_740_1
+  d0_740_2
+  d0_740_3
+  outHeapCounter_741
+  lefp_742
+  refp_743)
+		(Main_void_mainJayArray_java_lang_String_Block6_13_15_17
+  $in_0_744_0
+  $in_0_744_1
+  $in_0_744_2
+  $in_0_744_3
+  inHeapCounter_745
+  $assert_14_746
+  $b0_747
+  $b1_748
+  $b2_749
+  $b3_750
+  $b4_751
+  $b5_752
+  $b6_753
+  $ex__754_0
+  $ex__754_1
+  $ex__754_2
+  $z1_755
+  d0_756_0
+  d0_756_1
+  d0_756_2
+  d0_756_3
+  outHeapCounter_757
+  efp_758
+  lzc_759
+  (bvlshr (bvshl (emantissa efp_758) leadingZeroC) leadingZeroC)
+  leadingZeroC) <- (= ((_ extract 157 157) (emantissa efp_758)) #b0) && (Main_void_mainJayArray_java_lang_String_Block6_13_15
+  $in_0_744_0
+  $in_0_744_1
+  $in_0_744_2
+  $in_0_744_3
+  inHeapCounter_745
+  $assert_14_746
+  $b0_747
+  $b1_748
+  $b2_749
+  $b3_750
+  $b4_751
+  $b5_752
+  $b6_753
+  $ex__754_0
+  $ex__754_1
+  $ex__754_2
+  $z1_755
+  d0_756_0
+  d0_756_1
+  d0_756_2
+  d0_756_3
+  outHeapCounter_757
+  efp_758
+  lzc_759)
+		(Main_void_mainJayArray_java_lang_String_Block6_16
+  $in_0_744_0
+  $in_0_744_1
+  $in_0_744_2
+  $in_0_744_3
+  inHeapCounter_745
+  $assert_14_746
+  $b0_747
+  $b1_748
+  $b2_749
+  $b3_750
+  $b4_751
+  $b5_752
+  $b6_753
+  $ex__754_0
+  $ex__754_1
+  $ex__754_2
+  $z1_755
+  d0_756_0
+  d0_756_1
+  d0_756_2
+  d0_756_3
+  outHeapCounter_757
+  efp_758) <- (= ((_ extract 157 157) (emantissa efp_758)) #b1) && (Main_void_mainJayArray_java_lang_String_Block6_13_15
+  $in_0_744_0
+  $in_0_744_1
+  $in_0_744_2
+  $in_0_744_3
+  inHeapCounter_745
+  $assert_14_746
+  $b0_747
+  $b1_748
+  $b2_749
+  $b3_750
+  $b4_751
+  $b5_752
+  $b6_753
+  $ex__754_0
+  $ex__754_1
+  $ex__754_2
+  $z1_755
+  d0_756_0
+  d0_756_1
+  d0_756_2
+  d0_756_3
+  outHeapCounter_757
+  efp_758
+  lzc_759)
+		(let ((a!1 (ExtendedDoubleFloatingPoint
+             (esign efp_774)
+             (bvsub (eexponent efp_774)
+                    ((_ extract 11 0)
+                      (bvsub lzcount_777
+                             #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)))
+             (bvshl (emantissa efp_774)
+                    (bvsub lzcount_777
+                           #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)))))
+  (Main_void_mainJayArray_java_lang_String_Block6_16
+    $in_0_760_0
+    $in_0_760_1
+    $in_0_760_2
+    $in_0_760_3
+    inHeapCounter_761
+    $assert_14_762
+    $b0_763
+    $b1_764
+    $b2_765
+    $b3_766
+    $b4_767
+    $b5_768
+    $b6_769
+    $ex__770_0
+    $ex__770_1
+    $ex__770_2
+    $z1_771
+    d0_772_0
+    d0_772_1
+    d0_772_2
+    d0_772_3
+    outHeapCounter_773
+    a!1)) <- (let ((a!1 (= (bvand (bvlshr (emantissa efp_774)
+                             (bvsub #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010011101
+                                    lzcount_777))
+                     #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+              #b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)))
+  (and a!1 (= tmpMantissa_776 (emantissa efp_774)))) && (Main_void_mainJayArray_java_lang_String_Block6_13_15_17
+  $in_0_760_0
+  $in_0_760_1
+  $in_0_760_2
+  $in_0_760_3
+  inHeapCounter_761
+  $assert_14_762
+  $b0_763
+  $b1_764
+  $b2_765
+  $b3_766
+  $b4_767
+  $b5_768
+  $b6_769
+  $ex__770_0
+  $ex__770_1
+  $ex__770_2
+  $z1_771
+  d0_772_0
+  d0_772_1
+  d0_772_2
+  d0_772_3
+  outHeapCounter_773
+  efp_774
+  lzc_775
+  tmpMantissa_776
+  lzcount_777)
+		(Main_void_mainJayArray_java_lang_String_Block6_16_Bits
+  $in_0_808_0
+  $in_0_808_1
+  $in_0_808_2
+  $in_0_808_3
+  inHeapCounter_809
+  $assert_14_810
+  $b0_811
+  $b1_812
+  $b2_813
+  $b3_814
+  $b4_815
+  $b5_816
+  $b6_817
+  $ex__818_0
+  $ex__818_1
+  $ex__818_2
+  $z1_819
+  d0_820_0
+  d0_820_1
+  d0_820_2
+  d0_820_3
+  outHeapCounter_821
+  (DoubleFloatingPoint
+    (esign efp_822)
+    ((_ extract 10 0) (eexponent efp_822))
+    ((_ extract 157 105) (emantissa efp_822)))
+  ((_ extract 105 105) (emantissa efp_822))
+  ((_ extract 104 104) (emantissa efp_822))
+  ((_ extract 103 103) (emantissa efp_822))
+  ((_ zero_extend 1) ((_ extract 102 0) (emantissa efp_822)))) <- true && (Main_void_mainJayArray_java_lang_String_Block6_16
+  $in_0_808_0
+  $in_0_808_1
+  $in_0_808_2
+  $in_0_808_3
+  inHeapCounter_809
+  $assert_14_810
+  $b0_811
+  $b1_812
+  $b2_813
+  $b3_814
+  $b4_815
+  $b5_816
+  $b6_817
+  $ex__818_0
+  $ex__818_1
+  $ex__818_2
+  $z1_819
+  d0_820_0
+  d0_820_1
+  d0_820_2
+  d0_820_3
+  outHeapCounter_821
+  efp_822)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_823_0
+  $in_0_823_1
+  $in_0_823_2
+  $in_0_823_3
+  inHeapCounter_824
+  $assert_14_825
+  $b0_826
+  $b1_827
+  $b2_828
+  $b3_829
+  $b4_830
+  $b5_831
+  $ex__833_0
+  $ex__833_1
+  $ex__833_2
+  $z1_834
+  d0_835_0
+  d0_835_1
+  d0_835_2
+  resultFP_837
+  outHeapCounter_836) <- (= G_839 #b0) && (Main_void_mainJayArray_java_lang_String_Block6_16_Bits
+  $in_0_823_0
+  $in_0_823_1
+  $in_0_823_2
+  $in_0_823_3
+  inHeapCounter_824
+  $assert_14_825
+  $b0_826
+  $b1_827
+  $b2_828
+  $b3_829
+  $b4_830
+  $b5_831
+  $b6_832
+  $ex__833_0
+  $ex__833_1
+  $ex__833_2
+  $z1_834
+  d0_835_0
+  d0_835_1
+  d0_835_2
+  d0_835_3
+  outHeapCounter_836
+  resultFP_837
+  LSB_838
+  G_839
+  R_840
+  S_841)
+		(Main_void_mainJayArray_java_lang_String_Block6_16_LSBR
+  $in_0_842_0
+  $in_0_842_1
+  $in_0_842_2
+  $in_0_842_3
+  inHeapCounter_843
+  $assert_14_844
+  $b0_845
+  $b1_846
+  $b2_847
+  $b3_848
+  $b4_849
+  $b5_850
+  $b6_851
+  $ex__852_0
+  $ex__852_1
+  $ex__852_2
+  $z1_853
+  d0_854_0
+  d0_854_1
+  d0_854_2
+  d0_854_3
+  outHeapCounter_855
+  resultFP_856
+  LSB_857
+  G_858
+  R_859
+  S_860) <- (= G_858 #b1) && (Main_void_mainJayArray_java_lang_String_Block6_16_Bits
+  $in_0_842_0
+  $in_0_842_1
+  $in_0_842_2
+  $in_0_842_3
+  inHeapCounter_843
+  $assert_14_844
+  $b0_845
+  $b1_846
+  $b2_847
+  $b3_848
+  $b4_849
+  $b5_850
+  $b6_851
+  $ex__852_0
+  $ex__852_1
+  $ex__852_2
+  $z1_853
+  d0_854_0
+  d0_854_1
+  d0_854_2
+  d0_854_3
+  outHeapCounter_855
+  resultFP_856
+  LSB_857
+  G_858
+  R_859
+  S_860)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_861_0
+  $in_0_861_1
+  $in_0_861_2
+  $in_0_861_3
+  inHeapCounter_862
+  $assert_14_863
+  $b0_864
+  $b1_865
+  $b2_866
+  $b3_867
+  $b4_868
+  $b5_869
+  $ex__871_0
+  $ex__871_1
+  $ex__871_2
+  $z1_872
+  d0_873_0
+  d0_873_1
+  d0_873_2
+  (DoubleFloatingPoint
+    (sign resultFP_875)
+    (exponent resultFP_875)
+    (bvadd (mantissa resultFP_875)
+           #b00000000000000000000000000000000000000000000000000001))
+  outHeapCounter_874) <- (or (= LSB_876 #b1) (= R_878 #b1)) && (Main_void_mainJayArray_java_lang_String_Block6_16_LSBR
+  $in_0_861_0
+  $in_0_861_1
+  $in_0_861_2
+  $in_0_861_3
+  inHeapCounter_862
+  $assert_14_863
+  $b0_864
+  $b1_865
+  $b2_866
+  $b3_867
+  $b4_868
+  $b5_869
+  $b6_870
+  $ex__871_0
+  $ex__871_1
+  $ex__871_2
+  $z1_872
+  d0_873_0
+  d0_873_1
+  d0_873_2
+  d0_873_3
+  outHeapCounter_874
+  resultFP_875
+  LSB_876
+  G_877
+  R_878
+  S_879)
+		(Main_void_mainJayArray_java_lang_String_Block6_16_S
+  $in_0_880_0
+  $in_0_880_1
+  $in_0_880_2
+  $in_0_880_3
+  inHeapCounter_881
+  $assert_14_882
+  $b0_883
+  $b1_884
+  $b2_885
+  $b3_886
+  $b4_887
+  $b5_888
+  $b6_889
+  $ex__890_0
+  $ex__890_1
+  $ex__890_2
+  $z1_891
+  d0_892_0
+  d0_892_1
+  d0_892_2
+  d0_892_3
+  outHeapCounter_893
+  resultFP_894
+  LSB_895
+  G_896
+  R_897
+  S_898
+  0) <- (and (= LSB_895 #b0) (= R_897 #b0)) && (Main_void_mainJayArray_java_lang_String_Block6_16_LSBR
+  $in_0_880_0
+  $in_0_880_1
+  $in_0_880_2
+  $in_0_880_3
+  inHeapCounter_881
+  $assert_14_882
+  $b0_883
+  $b1_884
+  $b2_885
+  $b3_886
+  $b4_887
+  $b5_888
+  $b6_889
+  $ex__890_0
+  $ex__890_1
+  $ex__890_2
+  $z1_891
+  d0_892_0
+  d0_892_1
+  d0_892_2
+  d0_892_3
+  outHeapCounter_893
+  resultFP_894
+  LSB_895
+  G_896
+  R_897
+  S_898)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_899_0
+  $in_0_899_1
+  $in_0_899_2
+  $in_0_899_3
+  inHeapCounter_900
+  $assert_14_901
+  $b0_902
+  $b1_903
+  $b2_904
+  $b3_905
+  $b4_906
+  $b5_907
+  $ex__909_0
+  $ex__909_1
+  $ex__909_2
+  $z1_910
+  d0_911_0
+  d0_911_1
+  d0_911_2
+  resultFP_913
+  outHeapCounter_912) <- (= S_917 #x00000000000000000000000000) && (Main_void_mainJayArray_java_lang_String_Block6_16_S
+  $in_0_899_0
+  $in_0_899_1
+  $in_0_899_2
+  $in_0_899_3
+  inHeapCounter_900
+  $assert_14_901
+  $b0_902
+  $b1_903
+  $b2_904
+  $b3_905
+  $b4_906
+  $b5_907
+  $b6_908
+  $ex__909_0
+  $ex__909_1
+  $ex__909_2
+  $z1_910
+  d0_911_0
+  d0_911_1
+  d0_911_2
+  d0_911_3
+  outHeapCounter_912
+  resultFP_913
+  LSB_914
+  G_915
+  R_916
+  S_917
+  c_918)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_919_0
+  $in_0_919_1
+  $in_0_919_2
+  $in_0_919_3
+  inHeapCounter_920
+  $assert_14_921
+  $b0_922
+  $b1_923
+  $b2_924
+  $b3_925
+  $b4_926
+  $b5_927
+  $ex__929_0
+  $ex__929_1
+  $ex__929_2
+  $z1_930
+  d0_931_0
+  d0_931_1
+  d0_931_2
+  (DoubleFloatingPoint
+    (sign resultFP_933)
+    (exponent resultFP_933)
+    (bvadd (mantissa resultFP_933)
+           #b00000000000000000000000000000000000000000000000000001))
+  outHeapCounter_932) <- (not (= S_937 #x00000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block6_16_S
+  $in_0_919_0
+  $in_0_919_1
+  $in_0_919_2
+  $in_0_919_3
+  inHeapCounter_920
+  $assert_14_921
+  $b0_922
+  $b1_923
+  $b2_924
+  $b3_925
+  $b4_926
+  $b5_927
+  $b6_928
+  $ex__929_0
+  $ex__929_1
+  $ex__929_2
+  $z1_930
+  d0_931_0
+  d0_931_1
+  d0_931_2
+  d0_931_3
+  outHeapCounter_932
+  resultFP_933
+  LSB_934
+  G_935
+  R_936
+  S_937
+  c_938)
+		(Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  (- 1)
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_950_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_950_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  0
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951) <- (and (= (exponent d0_950_3) #b00000000000)
+     (= (mantissa d0_950_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult_11
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_950_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_950_3) #b00000000000)
+                (= (mantissa d0_950_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_950_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_950_3
+               (DoubleFloatingPoint
+                 false
+                 #b10000000000
+                 #b10000000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult_12
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951) <- (= (sign d0_950_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b10000000000
+           #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult_11
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(let ((a!1 (ite (not (= (sign d0_950_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+    $in_0_939_0
+    $in_0_939_1
+    $in_0_939_2
+    $in_0_939_3
+    inHeapCounter_940
+    $assert_14_941
+    $b0_942
+    $b1_943
+    $b2_944
+    $b3_945
+    $b4_946
+    $b5_947
+    a!1
+    $ex__948_0
+    $ex__948_1
+    $ex__948_2
+    $z1_949
+    d0_950_0
+    d0_950_1
+    d0_950_2
+    d0_950_3
+    outHeapCounter_951)) <- (not (= (sign d0_950_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b10000000000
+                #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult_11
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(let ((a!1 (ite (not (= (sign d0_950_3) false))
+                (bvugt (mantissa d0_950_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_950_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+    $in_0_939_0
+    $in_0_939_1
+    $in_0_939_2
+    $in_0_939_3
+    inHeapCounter_940
+    $assert_14_941
+    $b0_942
+    $b1_943
+    $b2_944
+    $b3_945
+    $b4_946
+    $b5_947
+    (ite a!1 (- 1) 1)
+    $ex__948_0
+    $ex__948_1
+    $ex__948_2
+    $z1_949
+    d0_950_0
+    d0_950_1
+    d0_950_2
+    d0_950_3
+    outHeapCounter_951)) <- (= (exponent d0_950_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b10000000000
+               #b10000000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult_12
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(let ((a!1 (ite (not (= (sign d0_950_3) false))
+                (bvugt (exponent d0_950_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_950_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b10000000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+    $in_0_939_0
+    $in_0_939_1
+    $in_0_939_2
+    $in_0_939_3
+    inHeapCounter_940
+    $assert_14_941
+    $b0_942
+    $b1_943
+    $b2_944
+    $b3_945
+    $b4_946
+    $b5_947
+    (ite a!1 (- 1) 1)
+    $ex__948_0
+    $ex__948_1
+    $ex__948_2
+    $z1_949
+    d0_950_0
+    d0_950_1
+    d0_950_2
+    d0_950_3
+    outHeapCounter_951)) <- (not (= (exponent d0_950_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b10000000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult_12
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  0
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_950_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b10000000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_950_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b10000000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_950_3
+          (DoubleFloatingPoint
+            false
+            #b10000000000
+            #b10000000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block6_1-FAddResult
+  $in_0_939_0
+  $in_0_939_1
+  $in_0_939_2
+  $in_0_939_3
+  inHeapCounter_940
+  $assert_14_941
+  $b0_942
+  $b1_943
+  $b2_944
+  $b3_945
+  $b4_946
+  $b5_947
+  $ex__948_0
+  $ex__948_1
+  $ex__948_2
+  $z1_949
+  d0_950_0
+  d0_950_1
+  d0_950_2
+  d0_950_3
+  outHeapCounter_951)
+		(Main_void_mainJayArray_java_lang_String_Block2
+  $in_0_954_0
+  $in_0_954_1
+  $in_0_954_2
+  $in_0_954_3
+  inHeapCounter_955
+  $assert_14_956
+  $b0_957
+  $b1_958
+  $b2_959
+  $b3_960
+  $b4_961
+  $b5_962
+  $b6_963
+  $ex__964_0
+  $ex__964_1
+  $ex__964_2
+  $z1_965
+  d0_966_0
+  d0_966_1
+  d0_966_2
+  d0_966_3
+  outHeapCounter_967) <- (< $b6_963 0) && (Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+  $in_0_954_0
+  $in_0_954_1
+  $in_0_954_2
+  $in_0_954_3
+  inHeapCounter_955
+  $assert_14_956
+  $b0_957
+  $b1_958
+  $b2_959
+  $b3_960
+  $b4_961
+  $b5_962
+  $b6_963
+  $ex__964_0
+  $ex__964_1
+  $ex__964_2
+  $z1_965
+  d0_966_0
+  d0_966_1
+  d0_966_2
+  d0_966_3
+  outHeapCounter_967)
+		(Main_void_mainJayArray_java_lang_String_Block7
+  $in_0_954_0
+  $in_0_954_1
+  $in_0_954_2
+  $in_0_954_3
+  inHeapCounter_955
+  $assert_14_956
+  $b0_957
+  $b1_958
+  $b2_959
+  $b3_960
+  $b4_961
+  $b5_962
+  $b6_963
+  $ex__964_0
+  $ex__964_1
+  $ex__964_2
+  $z1_965
+  outHeapCounter_967) <- (not (< $b6_963 0)) && (Main_void_mainJayArray_java_lang_String_Block6_2-FCmpResult
+  $in_0_954_0
+  $in_0_954_1
+  $in_0_954_2
+  $in_0_954_3
+  inHeapCounter_955
+  $assert_14_956
+  $b0_957
+  $b1_958
+  $b2_959
+  $b3_960
+  $b4_961
+  $b5_962
+  $b6_963
+  $ex__964_0
+  $ex__964_1
+  $ex__964_2
+  $z1_965
+  d0_966_0
+  d0_966_1
+  d0_966_2
+  d0_966_3
+  outHeapCounter_967)
+		(Main_void_mainJayArray_java_lang_String_Block12_1
+  $in_0_968_0
+  $in_0_968_1
+  $in_0_968_2
+  $in_0_968_3
+  inHeapCounter_969
+  $b2_971
+  $b3_972
+  $ex__973_0
+  $ex__973_1
+  $ex__973_2
+  outHeapCounter_974) <- true && (Main_void_mainJayArray_java_lang_String_Block12
+  $in_0_968_0
+  $in_0_968_1
+  $in_0_968_2
+  $in_0_968_3
+  inHeapCounter_969
+  $b1_970
+  $b2_971
+  $b3_972
+  $ex__973_0
+  $ex__973_1
+  $ex__973_2
+  outHeapCounter_974)
+		|Assert_#1_Main.java,_line_38| <- (not (not (= 0 0))) && (Main_void_mainJayArray_java_lang_String_Block12
+  $in_0_968_0
+  $in_0_968_1
+  $in_0_968_2
+  $in_0_968_3
+  inHeapCounter_969
+  $b1_970
+  $b2_971
+  $b3_972
+  $ex__973_0
+  $ex__973_1
+  $ex__973_2
+  outHeapCounter_974)
+		(Main_void_mainJayArray_java_lang_String_Block11
+  $in_0_975_0
+  $in_0_975_1
+  $in_0_975_2
+  $in_0_975_3
+  inHeapCounter_976
+  $b2_977
+  $b3_978
+  $ex__979_0
+  $ex__979_1
+  $ex__979_2
+  outHeapCounter_980) <- true && (Main_void_mainJayArray_java_lang_String_Block12_1
+  $in_0_975_0
+  $in_0_975_1
+  $in_0_975_2
+  $in_0_975_3
+  inHeapCounter_976
+  $b2_977
+  $b3_978
+  $ex__979_0
+  $ex__979_1
+  $ex__979_2
+  outHeapCounter_980)
+		(Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  (- 1)
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  outHeapCounter_988) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_987_3)) #x0000000000000)))
+      (a!2 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b11100000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!3 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b11100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!2))))
+  (or (and (= (exponent d0_987_3) #b11111111111) a!1) a!3))) && (Main_void_mainJayArray_java_lang_String_Block13
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  $b2_984
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  outHeapCounter_988) <- (and (= (exponent d0_987_3) #b00000000000)
+     (= (mantissa d0_987_3)
+        #b00000000000000000000000000000000000000000000000000000)
+     (= (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b11100000000000000000000000000000000000000000000000000))
+        #b00000000000)
+     (= (mantissa (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b11100000000000000000000000000000000000000000000000000))
+        #b00000000000000000000000000000000000000000000000000000)) && (Main_void_mainJayArray_java_lang_String_Block13
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  $b2_984
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(Main_void_mainJayArray_java_lang_String_Block13_11
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_987_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b11100000000000000000000000000000000000000000000000000)))
+              #x0000000000000))
+      (a!5 (and (= (exponent d0_987_3) #b00000000000)
+                (= (mantissa d0_987_3)
+                   #b00000000000000000000000000000000000000000000000000000)
+                (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b11100000000000000000000000000000000000000000000000000))
+                   #b00000000000)
+                (= (mantissa (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b11100000000000000000000000000000000000000000000000000))
+                   #b00000000000000000000000000000000000000000000000000000))))
+(let ((a!2 (not (and (= (exponent d0_987_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b11100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (not (= d0_987_3
+               (DoubleFloatingPoint
+                 false
+                 #b10000000000
+                 #b11100000000000000000000000000000000000000000000000000)))
+       (not a!5)))) && (Main_void_mainJayArray_java_lang_String_Block13
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  $b2_984
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(Main_void_mainJayArray_java_lang_String_Block13_12
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988) <- (= (sign d0_987_3)
+   (sign (DoubleFloatingPoint
+           false
+           #b10000000000
+           #b11100000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block13_11
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(let ((a!1 (ite (not (= (sign d0_987_3) false)) (- 1) 1)))
+  (Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+    $in_0_981_0
+    $in_0_981_1
+    $in_0_981_2
+    $in_0_981_3
+    inHeapCounter_982
+    $b1_983
+    a!1
+    $b3_985
+    $ex__986_0
+    $ex__986_1
+    $ex__986_2
+    outHeapCounter_988)) <- (not (= (sign d0_987_3)
+        (sign (DoubleFloatingPoint
+                false
+                #b10000000000
+                #b11100000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block13_11
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(let ((a!1 (ite (not (= (sign d0_987_3) false))
+                (bvugt (mantissa d0_987_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b11100000000000000000000000000000000000000000000000000)))
+                (bvult (mantissa d0_987_3)
+                       (mantissa (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b11100000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+    $in_0_981_0
+    $in_0_981_1
+    $in_0_981_2
+    $in_0_981_3
+    inHeapCounter_982
+    $b1_983
+    (ite a!1 (- 1) 1)
+    $b3_985
+    $ex__986_0
+    $ex__986_1
+    $ex__986_2
+    outHeapCounter_988)) <- (= (exponent d0_987_3)
+   (exponent (DoubleFloatingPoint
+               false
+               #b10000000000
+               #b11100000000000000000000000000000000000000000000000000))) && (Main_void_mainJayArray_java_lang_String_Block13_12
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(let ((a!1 (ite (not (= (sign d0_987_3) false))
+                (bvugt (exponent d0_987_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b11100000000000000000000000000000000000000000000000000)))
+                (bvult (exponent d0_987_3)
+                       (exponent (DoubleFloatingPoint
+                                   false
+                                   #b10000000000
+                                   #b11100000000000000000000000000000000000000000000000000))))))
+  (Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+    $in_0_981_0
+    $in_0_981_1
+    $in_0_981_2
+    $in_0_981_3
+    inHeapCounter_982
+    $b1_983
+    (ite a!1 (- 1) 1)
+    $b3_985
+    $ex__986_0
+    $ex__986_1
+    $ex__986_2
+    outHeapCounter_988)) <- (not (= (exponent d0_987_3)
+        (exponent (DoubleFloatingPoint
+                    false
+                    #b10000000000
+                    #b11100000000000000000000000000000000000000000000000000)))) && (Main_void_mainJayArray_java_lang_String_Block13_12
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  0
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  outHeapCounter_988) <- (let ((a!1 (not (= ((_ extract 51 0) (mantissa d0_987_3)) #x0000000000000)))
+      (a!3 (= ((_ extract 51 0)
+                (mantissa (DoubleFloatingPoint
+                            false
+                            #b10000000000
+                            #b11100000000000000000000000000000000000000000000000000)))
+              #x0000000000000)))
+(let ((a!2 (not (and (= (exponent d0_987_3) #b11111111111) a!1)))
+      (a!4 (and (= (exponent (DoubleFloatingPoint
+                               false
+                               #b10000000000
+                               #b11100000000000000000000000000000000000000000000000000))
+                   #b11111111111)
+                (not a!3))))
+  (and a!2
+       (not a!4)
+       (= d0_987_3
+          (DoubleFloatingPoint
+            false
+            #b10000000000
+            #b11100000000000000000000000000000000000000000000000000))))) && (Main_void_mainJayArray_java_lang_String_Block13
+  $in_0_981_0
+  $in_0_981_1
+  $in_0_981_2
+  $in_0_981_3
+  inHeapCounter_982
+  $b1_983
+  $b2_984
+  $b3_985
+  $ex__986_0
+  $ex__986_1
+  $ex__986_2
+  d0_987_0
+  d0_987_1
+  d0_987_2
+  d0_987_3
+  outHeapCounter_988)
+		(Main_void_mainJayArray_java_lang_String_Block11
+  $in_0_990_0
+  $in_0_990_1
+  $in_0_990_2
+  $in_0_990_3
+  inHeapCounter_991
+  $b2_993
+  $b3_994
+  $ex__995_0
+  $ex__995_1
+  $ex__995_2
+  outHeapCounter_996) <- (<= $b2_993 0) && (Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+  $in_0_990_0
+  $in_0_990_1
+  $in_0_990_2
+  $in_0_990_3
+  inHeapCounter_991
+  $b1_992
+  $b2_993
+  $b3_994
+  $ex__995_0
+  $ex__995_1
+  $ex__995_2
+  outHeapCounter_996)
+		(Main_void_mainJayArray_java_lang_String_Block12
+  $in_0_990_0
+  $in_0_990_1
+  $in_0_990_2
+  $in_0_990_3
+  inHeapCounter_991
+  $b1_992
+  $b2_993
+  $b3_994
+  $ex__995_0
+  $ex__995_1
+  $ex__995_2
+  outHeapCounter_996) <- (not (<= $b2_993 0)) && (Main_void_mainJayArray_java_lang_String_Block13_1-FCmpResult
+  $in_0_990_0
+  $in_0_990_1
+  $in_0_990_2
+  $in_0_990_3
+  inHeapCounter_991
+  $b1_992
+  $b2_993
+  $b3_994
+  $ex__995_0
+  $ex__995_1
+  $ex__995_2
+  outHeapCounter_996)
+		(Main_void_mainJayArray_java_lang_String_Block0
+  $in_0_997_0
+  $in_0_997_1
+  $in_0_997_2
+  $in_0_997_3
+  inHeapCounter_998
+  $ex__1001_0
+  $ex__1001_1
+  $ex__1001_2
+  outHeapCounter_1002) <- true && (Main_void_mainJayArray_java_lang_String_Block11
+  $in_0_997_0
+  $in_0_997_1
+  $in_0_997_2
+  $in_0_997_3
+  inHeapCounter_998
+  $b2_999
+  $b3_1000
+  $ex__1001_0
+  $ex__1001_1
+  $ex__1001_2
+  outHeapCounter_1002)
+		(Main_void_mainJayArray_java_lang_String_Block8_1
+  $in_0_1003_0
+  $in_0_1003_1
+  $in_0_1003_2
+  $in_0_1003_3
+  inHeapCounter_1004
+  $assert_14_1005
+  $b0_1006
+  $b1_1007
+  $b2_1008
+  $b3_1009
+  $b4_1010
+  $b5_1011
+  $b6_1012
+  $ex__1013_0
+  $ex__1013_1
+  $ex__1013_2
+  $z1_1014
+  (- 7)
+  133
+  |$double(1.5)_1017_2|
+  (DoubleFloatingPoint
+    false
+    #b01111111111
+    #b11000000000000000000000000000000000000000000000000000)
+  outHeapCounter_1015) <- true && (Main_void_mainJayArray_java_lang_String_Block8
+  $in_0_1003_0
+  $in_0_1003_1
+  $in_0_1003_2
+  $in_0_1003_3
+  inHeapCounter_1004
+  $assert_14_1005
+  $b0_1006
+  $b1_1007
+  $b2_1008
+  $b3_1009
+  $b4_1010
+  $b5_1011
+  $b6_1012
+  $ex__1013_0
+  $ex__1013_1
+  $ex__1013_2
+  $z1_1014
+  outHeapCounter_1015)
+		(Main_void_mainJayArray_java_lang_String_Block2
+  $in_0_1018_0
+  $in_0_1018_1
+  $in_0_1018_2
+  $in_0_1018_3
+  inHeapCounter_1019
+  $assert_14_1020
+  $b0_1021
+  $b1_1022
+  $b2_1023
+  $b3_1024
+  $b4_1025
+  $b5_1026
+  $b6_1027
+  $ex__1028_0
+  $ex__1028_1
+  $ex__1028_2
+  $z1_1029
+  d0_1030_0
+  d0_1030_1
+  d0_1030_2
+  d0_1030_3
+  outHeapCounter_1031) <- true && (Main_void_mainJayArray_java_lang_String_Block8_1
+  $in_0_1018_0
+  $in_0_1018_1
+  $in_0_1018_2
+  $in_0_1018_3
+  inHeapCounter_1019
+  $assert_14_1020
+  $b0_1021
+  $b1_1022
+  $b2_1023
+  $b3_1024
+  $b4_1025
+  $b5_1026
+  $b6_1027
+  $ex__1028_0
+  $ex__1028_1
+  $ex__1028_2
+  $z1_1029
+  d0_1030_0
+  d0_1030_1
+  d0_1030_2
+  d0_1030_3
+  outHeapCounter_1031)
+		(Main_void_mainJayArray_java_lang_String_Block7_1
+  $in_0_1032_0
+  $in_0_1032_1
+  $in_0_1032_2
+  $in_0_1032_3
+  inHeapCounter_1033
+  $assert_14_1034
+  $b0_1035
+  $b1_1036
+  $b2_1037
+  $b3_1038
+  $b4_1039
+  $b5_1040
+  $b6_1041
+  $ex__1042_0
+  $ex__1042_1
+  $ex__1042_2
+  $z1_1043
+  (- 4)
+  133
+  |$double(2.8)_1046_2|
+  (DoubleFloatingPoint
+    false
+    #b10000000000
+    #b10110011001100110011001100110011001100110011001100110)
+  outHeapCounter_1044) <- true && (Main_void_mainJayArray_java_lang_String_Block7
+  $in_0_1032_0
+  $in_0_1032_1
+  $in_0_1032_2
+  $in_0_1032_3
+  inHeapCounter_1033
+  $assert_14_1034
+  $b0_1035
+  $b1_1036
+  $b2_1037
+  $b3_1038
+  $b4_1039
+  $b5_1040
+  $b6_1041
+  $ex__1042_0
+  $ex__1042_1
+  $ex__1042_2
+  $z1_1043
+  outHeapCounter_1044)
+		(Main_void_mainJayArray_java_lang_String_Block2
+  $in_0_1047_0
+  $in_0_1047_1
+  $in_0_1047_2
+  $in_0_1047_3
+  inHeapCounter_1048
+  $assert_14_1049
+  $b0_1050
+  $b1_1051
+  $b2_1052
+  $b3_1053
+  $b4_1054
+  $b5_1055
+  $b6_1056
+  $ex__1057_0
+  $ex__1057_1
+  $ex__1057_2
+  $z1_1058
+  d0_1059_0
+  d0_1059_1
+  d0_1059_2
+  d0_1059_3
+  outHeapCounter_1060) <- true && (Main_void_mainJayArray_java_lang_String_Block7_1
+  $in_0_1047_0
+  $in_0_1047_1
+  $in_0_1047_2
+  $in_0_1047_3
+  inHeapCounter_1048
+  $assert_14_1049
+  $b0_1050
+  $b1_1051
+  $b2_1052
+  $b3_1053
+  $b4_1054
+  $b5_1055
+  $b6_1056
+  $ex__1057_0
+  $ex__1057_1
+  $ex__1057_2
+  $z1_1058
+  d0_1059_0
+  d0_1059_1
+  d0_1059_2
+  d0_1059_3
+  outHeapCounter_1060)
+		(Main_void_mainJayArray_java_lang_String_post
+  $in_0_1061_0
+  $in_0_1061_1
+  $in_0_1061_2
+  $in_0_1061_3
+  inHeapCounter_1062
+  $ex__1063_0
+  $ex__1063_1
+  $ex__1063_2
+  outHeapCounter_1064) <- true && (Main_void_mainJayArray_java_lang_String_Block0
+  $in_0_1061_0
+  $in_0_1061_1
+  $in_0_1061_2
+  $in_0_1061_3
+  inHeapCounter_1062
+  $ex__1063_0
+  $ex__1063_1
+  $ex__1063_2
+  outHeapCounter_1064)
+		(Main_void_clinit_Block1
+  inHeapCounter_1065
+  $Global_Main_1066_0
+  $Global_Main_1066_1
+  $Global_Main_1066_2
+  inHeapCounter_1065) <- true && (Main_void_clinit_pre inHeapCounter_1065)
+		(Main_void_clinit_Block1_1
+  inHeapCounter_1067
+  $Global_Main_1068_0
+  $Global_Main_1068_1
+  $Global_Main_1068_2
+  inHeapCounter_1067) <- true && (Main_void_clinit_Block1
+  inHeapCounter_1067
+  $Global_Main_1068_0
+  $Global_Main_1068_1
+  $Global_Main_1068_2
+  inHeapCounter_1067)
+		(Main_void_clinit_Block1_2
+  inHeapCounter_1070
+  $Global_Main_1071_0
+  $Global_Main_1071_1
+  $Global_Main_1071_2
+  0
+  0
+  0
+  outHeapCounter_1072) <- true && (Main_void_clinit_Block1_1
+  inHeapCounter_1070
+  $Global_Main_1071_0
+  $Global_Main_1071_1
+  $Global_Main_1071_2
+  outHeapCounter_1072)
+		(inv_$StaticFields_Main_2 (- 10) 297 $Global_Main_1075_2 _lastpush0_1078 false) <- true && (Main_void_clinit_Block1_2
+  inHeapCounter_1074
+  $Global_Main_1075_0
+  $Global_Main_1075_1
+  $Global_Main_1075_2
+  $ex__1076_0
+  $ex__1076_1
+  $ex__1076_2
+  outHeapCounter_1077)
+		(Main_void_clinit_Block1_3
+  inHeapCounter_1074
+  $ex__1076_0
+  $ex__1076_1
+  $ex__1076_2
+  outHeapCounter_1077) <- true && (Main_void_clinit_Block1_2
+  inHeapCounter_1074
+  $Global_Main_1075_0
+  $Global_Main_1075_1
+  $Global_Main_1075_2
+  $ex__1076_0
+  $ex__1076_1
+  $ex__1076_2
+  outHeapCounter_1077)
+		(Main_void_clinit_Block0
+  inHeapCounter_1079
+  $ex__1080_0
+  $ex__1080_1
+  $ex__1080_2
+  outHeapCounter_1081) <- true && (Main_void_clinit_Block1_3
+  inHeapCounter_1079
+  $ex__1080_0
+  $ex__1080_1
+  $ex__1080_2
+  outHeapCounter_1081)
+		(Main_void_clinit_post
+  inHeapCounter_1082
+  $ex__1083_0
+  $ex__1083_1
+  $ex__1083_2
+  outHeapCounter_1084) <- true && (Main_void_clinit_Block0
+  inHeapCounter_1082
+  $ex__1083_0
+  $ex__1083_1
+  $ex__1083_2
+  outHeapCounter_1084)
+		(JayHornAssertions_void_clinit_Block1 inHeapCounter_1085 inHeapCounter_1085) <- true && (JayHornAssertions_void_clinit_pre inHeapCounter_1085)
+		(JayHornAssertions_void_clinit_Block1_1 inHeapCounter_1086 inHeapCounter_1086) <- true && (JayHornAssertions_void_clinit_Block1 inHeapCounter_1086 inHeapCounter_1086)
+		(JayHornAssertions_void_clinit_Block1_2
+  inHeapCounter_1088
+  0
+  0
+  0
+  outHeapCounter_1089) <- true && (JayHornAssertions_void_clinit_Block1_1 inHeapCounter_1088 outHeapCounter_1089)
+		(JayHornAssertions_void_clinit_Block0
+  inHeapCounter_1091
+  $ex__1092_0
+  $ex__1092_1
+  $ex__1092_2
+  outHeapCounter_1093) <- true && (JayHornAssertions_void_clinit_Block1_2
+  inHeapCounter_1091
+  $ex__1092_0
+  $ex__1092_1
+  $ex__1092_2
+  outHeapCounter_1093)
+		(JayHornAssertions_void_clinit_post
+  inHeapCounter_1094
+  $ex__1095_0
+  $ex__1095_1
+  $ex__1095_2
+  outHeapCounter_1096) <- true && (JayHornAssertions_void_clinit_Block0
+  inHeapCounter_1094
+  $ex__1095_0
+  $ex__1095_1
+  $ex__1095_2
+  outHeapCounter_1096)
+		-------------
+
+[root] - Checking properties
+Spacer takes 31983 to check the given benchmark!
+SAFE

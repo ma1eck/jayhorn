@@ -1274,8 +1274,8 @@ public class SpacerProver implements Prover {
 		killThread();
 		try {
 			this.solver.reset();
-//			this.solver.dispose();
-			ctx.close(); // was dispose
+			this.solver.dispose();
+//			ctx.close(); // was dispose
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
@@ -1638,7 +1638,8 @@ public class SpacerProver implements Prover {
 						InvariantTree invTree = Parser.convertExpr(invariantMapped);
 						if (
 //								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_1")
-								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")
+//								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")
+								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_2")
 //								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block5")
 //								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block8")
 						){
