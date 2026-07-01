@@ -1,18 +1,18 @@
+import sys
 from z3 import *
 
-def to_ternary_str(val, mask, width):
-    res = []
-    for i in range(width - 1, -1, -1):
-        m_bit = (mask >> i) & 1
-        v_bit = (val >> i) & 1
-        res.append(str(v_bit) if m_bit else "?")
-    return "".join(res)
+def to_ternary(val, mask, width):
+    bits = []
+    for i in reversed(range(width)):
+        if (mask >> i) & 1:
+            bits.append(str((val >> i) & 1))
+        else:
+            bits.append("?")
+    return "".join(bits)
 
 def merge_ternary_list(solutions, width):
-   
     if not solutions:
         return (0, 0)
-    
     
     merged_val = solutions[0][0]
     merged_mask = (1 << width) - 1 
@@ -23,8 +23,7 @@ def merge_ternary_list(solutions, width):
         
     return merged_val, merged_mask
 
-def refine_bvmul_with_threshold(width, A_v, A_m, B_v, B_m, C_v, C_m, threshold=8):
-   
+def refine_mul_backward(width, A_value, A_mask, B_value, B_mask, C_value, C_mask, threshold=8):
     s = Solver()
     
     A_concrete = BitVec('A_c', width)
@@ -32,20 +31,18 @@ def refine_bvmul_with_threshold(width, A_v, A_m, B_v, B_m, C_v, C_m, threshold=8
     C_concrete = BitVec('C_c', width)
     
     s.add(C_concrete == A_concrete * B_concrete)
-    s.add((A_concrete & A_m) == (A_v & A_m))
-    s.add((B_concrete & B_m) == (B_v & B_m))
-    s.add((C_concrete & C_m) == (C_v & C_m))
+    s.add((A_concrete & A_mask) == (A_value & A_mask))
+    s.add((B_concrete & B_mask) == (B_value & B_mask))
+    s.add((C_concrete & C_mask) == (C_value & C_mask))
     
     precise_sols = []
     
     while s.check() == sat:
-
         if len(precise_sols) >= threshold:
-            print(f"[Warning] Solutions exceeded threshold ({threshold}). Merging to prevent state explosion...")
             A_merged_v, A_merged_m = merge_ternary_list([sol[0] for sol in precise_sols], width)
             B_merged_v, B_merged_m = merge_ternary_list([sol[1] for sol in precise_sols], width)
             
-            return [((A_merged_v, A_merged_m), (B_merged_v, B_merged_m))]
+            return [(A_merged_v, A_merged_m, B_merged_v, B_merged_m)]
             
         model = s.model()
         a_val = model[A_concrete].as_long()
@@ -54,21 +51,64 @@ def refine_bvmul_with_threshold(width, A_v, A_m, B_v, B_m, C_v, C_m, threshold=8
         precise_sols.append(((a_val, (1 << width) - 1), (b_val, (1 << width) - 1)))
         
         s.add(Or(A_concrete != a_val, B_concrete != b_val))
-        
-    return precise_sols
+    
+    if precise_sols:
+        results = []
+        for (a_val, a_mask), (b_val, b_mask) in precise_sols:
+            results.append((a_val, a_mask, b_val, b_mask))
+        return results
+    
+    return None
+
+def test():
+    width = 12
+
+    # A = 0???????????
+    A_v, A_m = 0b000000000000, 0b100000000000
+
+    # B = 0???????????
+    B_v, B_m = 0b000000000000, 0b100000000000
+
+    # C = 000000000110
+    C_v, C_m = 0b000000000110, 0b111111111111
+
+    result = refine_mul_backward(width, A_v, A_m, B_v, B_m, C_v, C_m)
+    
+    if result is None:
+        print("No solution found")
+        return
+    
+    for A_v_r, A_m_r, B_v_r, B_m_r in result:
+        print("Refined A:", to_ternary(A_v_r, A_m_r, width))
+        print("Refined B:", to_ternary(B_v_r, B_m_r, width))
 
 if __name__ == "__main__":
-    width = 4
-    A_val, A_mask = 0b0011, 0b1111 # 0011
-    B_val, B_mask = 0b0000, 0b1100 # 00??
-    C_val, C_mask = 0b0010, 0b1010 # 0?1?
-    
-    print("--- Test with Threshold = 5 ---")
-    sols_precise = refine_bvmul_with_threshold(width, A_val, A_mask, B_val, B_mask, C_val, C_mask, threshold=5)
-    for idx, (A_sol, B_sol) in enumerate(sols_precise, 1):
-        print(f"Option {idx}: A = {to_ternary_str(A_sol[0], A_sol[1], width)}, B = {to_ternary_str(B_sol[0], B_sol[1], width)}")
-        
-    print("\n--- Test with Threshold = 1 (Force Merge) ---")
-    sols_merged = refine_bvmul_with_threshold(width, A_val, A_mask, B_val, B_mask, C_val, C_mask, threshold=1)
-    for idx, (A_sol, B_sol) in enumerate(sols_merged, 1):
-        print(f"Merged Output: A = {to_ternary_str(A_sol[0], A_sol[1], width)}, B = {to_ternary_str(B_sol[0], B_sol[1], width)}")
+    # test()
+    if len(sys.argv) != 8:
+        print("Error: expected width A_v A_m B_v B_m C_v_r C_m_r")
+        sys.exit(1)
+
+    width  = int(sys.argv[1])
+    A_v    = int(sys.argv[2], 2)
+    A_m    = int(sys.argv[3], 2)
+    B_v    = int(sys.argv[4], 2)
+    B_m    = int(sys.argv[5], 2)
+    C_v    = int(sys.argv[6], 2)
+    C_m    = int(sys.argv[7], 2)
+
+    result = refine_mul_backward(width, A_v, A_m, B_v, B_m, C_v, C_m)
+
+    if result is None:
+        print("Error: Contradiction found, no valid shift fits the data.")
+        sys.exit(1)
+
+    fmt = f'0{width}b'
+    output_parts = []
+    for A_v_r, A_m_r, B_v_r, B_m_r in result:
+        output_parts.extend([
+            format(A_v_r, fmt),
+            format(A_m_r, fmt),
+            format(B_v_r, fmt),
+            format(B_m_r, fmt)
+        ])
+    print(','.join(output_parts))

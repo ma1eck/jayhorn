@@ -606,21 +606,23 @@ public class PhaseTwo {
                     String enforcedValue = enforcedBV.getValueStr();
                     String enforcedMask = enforcedBV.getMaskStr();
 
-                        List<String> out = PythonBridge.run("Reverse_bvmul",
+                        List<String> out = PythonBridge.run("Reverse_bvmul_v2",
                                 String.valueOf(value1.length()),
                                 String.valueOf(value1), String.valueOf(mask1),
                                 String.valueOf(value2), String.valueOf(mask2),
                                 String.valueOf(enforcedValue), String.valueOf(enforcedMask)
                         );
-                        String A_v_r = out.get(0);
-                        String A_m_r = out.get(1);
-                        String B_v_r = out.get(2);
-                        String B_m_r = out.get(3);
+                        for (int i=0; i < out.size(); i+=4) {
+                            String A_v_r = out.get(i+0);
+                            String A_m_r = out.get(i+1);
+                            String B_v_r = out.get(i+2);
+                            String B_m_r = out.get(i+3);
 
-                        BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
-                        BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
-                        newEnforce1.add(enforcedBV1);
-                        newEnforce2.add(enforcedBV2);
+                            BVLiteralValue enforcedBV1 = BVLiteralValue.mkBVLiteralValue(A_v_r, A_m_r);
+                            BVLiteralValue enforcedBV2 = BVLiteralValue.mkBVLiteralValue(B_v_r, B_m_r);
+                            newEnforce1.add(enforcedBV1);
+                            newEnforce2.add(enforcedBV2);
+                        }
                 }
             }
             enforceState(child1, newEnforce1, seenBranches);

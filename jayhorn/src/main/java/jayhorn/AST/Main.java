@@ -351,6 +351,19 @@ public class Main {
         return mkAnd(eg2_branch1(), eg2_branch2(), eg2_branch3());
     }
 
+    private static InvariantTree mulTestTree(){
+        VariableNode v52 = new VariableNode("v52", VarType.DOUBLE);
+        VariableNode v56 = new VariableNode("v56", VarType.DOUBLE);
+        LiteralNode b00000000110 =
+                LiteralNode.getBVLiteral("#b00000000110");
+        LiteralNode b0 = LiteralNode.getBVLiteral("#b0");
+
+
+        return (mkEq(b00000000110, mkBvmul(
+                mkConcat(b0, mkFPExponent(v52)), mkConcat(b0, mkFPExponent(v56))
+        )));
+    }
+
 //    NOT(
 //    EQ(
 //      BVEXTRACT([97, 97]
@@ -610,7 +623,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 //        runAllJsonTrees();
-        InvariantTree t1 = mkAnd(mkOr( eg2_branch1()));
+        InvariantTree t1 = mkAnd(mkOr(mulTestTree()));
         parse_print(t1);
     }
 
