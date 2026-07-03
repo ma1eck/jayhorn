@@ -11,6 +11,8 @@ import jayhorn.phaseTwoParser.PhaseTwo;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static jayhorn.AST.Nodes.OperationNode.*;
 
@@ -622,9 +624,12 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-//        runAllJsonTrees();
-        InvariantTree t1 = mkAnd(mkOr(mulTestTree()));
-        parse_print(t1);
+//        filterTrees();
+//        InvariantTree tree = load("Nested-Saturation-Then-Reset_Main_void_mainJayArray_java_lang_String_Block2_2");
+//        System.out.println(tree.toPrettyString());
+//                runAllJsonTrees();
+//        InvariantTree t1 = load("Nested-Saturation-Then-ResetMain_void_mainJayArray_java_lang_String_Block2_1");
+//        parse_print(t1);
     }
 
     private static void runAllJsonTrees() throws IOException {
@@ -638,6 +643,27 @@ public class Main {
                 if (file.isFile()) {
                     fileName = (file.getName());
                     read_parse_save(fileName);
+                }
+            }
+        }
+    }
+    private static void filterTrees() throws IOException {
+        String fileName;
+        File folder = new File("invariantTreeJsons");
+
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    fileName = (file.getName());
+                    InvariantTree t1 = load(fileName);
+                    if (t1 instanceof LiteralNode) {
+                        Files.deleteIfExists(Paths.get("invariantTreeJsons/" + fileName));
+                        System.out.println("File "+ fileName +" deleted if it existed.");
+                    }
+
+
                 }
             }
         }
@@ -668,9 +694,13 @@ public class Main {
     private static void read_parse_save(String fileName) throws IOException {
         StringBuilder result = new StringBuilder();
 
-        InvariantTree t1 = load(fileName);
-        parse_fillResult(t1, result);
 
+        try {
+            InvariantTree t1 = load(fileName);
+            parse_fillResult(t1, result);
+        }catch (Exception e){
+            System.out.println("get exception on "+ fileName+" tree:" + e.getMessage());
+        }
         saveResults(result, fileName);
     }
 

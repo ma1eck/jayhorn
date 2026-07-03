@@ -1,0 +1,60 @@
+================== input tree ==================
+
+AND(
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_115_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_115_3:DOUBLE
+            ),
+      #b11111111111
+        )
+    ),
+  NOT(
+    EQ(
+      DOUBLE{s=false, e=1026, m=4503599627370496},
+      d0_115_3:DOUBLE
+        )
+    ),
+  OR(
+    EQ(
+      d0_115_3:DOUBLE,
+      DOUBLE{s=false, e=1026, m=4503599627370496}
+        ),
+    NOT(
+      EQ(
+        FP_EXPONENT(
+          d0_115_3:DOUBLE
+                ),
+        #b10000000010
+            )
+        ),
+    NOT(
+      BIT2BOOL([52]
+        FP_MANTISSA(
+          d0_115_3:DOUBLE
+                )
+            )
+        )
+    ),
+  OR(
+    EQ(
+      FP_EXPONENT(
+        d0_115_3:DOUBLE
+            ),
+      #b10000000010
+        ),
+    NOT(
+      BVULE(
+        #b10000000010,
+        FP_EXPONENT(
+          d0_115_3:DOUBLE
+                )
+            )
+        )
+    )
+)

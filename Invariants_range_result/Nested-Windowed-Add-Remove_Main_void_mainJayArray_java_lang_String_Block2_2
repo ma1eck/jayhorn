@@ -1,0 +1,115 @@
+================== input tree ==================
+
+AND(
+  GE(
+    i4_130:INTEGER,
+    0
+    ),
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_129_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_EXPONENT(
+        d0_129_3:DOUBLE
+            ),
+      #b00000000000
+        )
+    ),
+  OR(
+    NOT(
+      FP_SIGN(
+        d0_129_3:DOUBLE
+            )
+        ),
+    EQ(
+      FP_MANTISSA(
+        d0_129_3:DOUBLE
+            ),
+      #b00000000000000000000000000000000000000000000000000000
+        )
+    ),
+  NOT(
+    BVULE(
+      #b10000000011,
+      FP_EXPONENT(
+        d0_129_3:DOUBLE
+            )
+        )
+    ),
+  NOT(
+    GE(
+      i4_130:INTEGER,
+      4
+        )
+    )
+)
+================== output ==================
+============================================
+
+================== tree format ==================
+
+AND({i4_130: [{[-2147483648,3]}] d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998])] }
+  GE({i4_130: [{[0,2147483647]}] }
+    i4_130:INTEGER,
+    0
+    ),
+  OR({d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=00000000000, mantissa=null} (The result is exact: [-2.225073858507201e-308, 2.225073858507201e-308])] }
+    NOT({d0_129_3: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] }
+      FP_SIGN(
+        d0_129_3:DOUBLE
+            )
+        ),
+    EQ({d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=00000000000, mantissa=null} (The result is exact: [-2.225073858507201e-308, 2.225073858507201e-308])] }
+      FP_EXPONENT(
+        d0_129_3:DOUBLE
+            ),
+      #b00000000000
+        )
+    ),
+  OR({d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=null, mantissa=00000000000000000000000000000000000000000000000000000} (The result is exact: [0.0, 0.0] + [-0.0, -0.0])] }
+    NOT({d0_129_3: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] }
+      FP_SIGN(
+        d0_129_3:DOUBLE
+            )
+        ),
+    EQ({d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=null, mantissa=00000000000000000000000000000000000000000000000000000} (The result is exact: [0.0, 0.0] + [-0.0, -0.0])] }
+      FP_MANTISSA(
+        d0_129_3:DOUBLE
+            ),
+      #b00000000000000000000000000000000000000000000000000000
+        )
+    ),
+  NOT({d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998]), FloatingPointLiteralValue{sign=null, exponent=1000000000?, mantissa=null} (The result is exact: [-7.999999999999999, -2.0] + [2.0, 7.999999999999999]), FloatingPointLiteralValue{sign=null, exponent=10000000010, mantissa=null} (The result is exact: [-15.999999999999998, -8.0] + [8.0, 15.999999999999998])] }
+    BVULE(
+      #b10000000011,
+      FP_EXPONENT(
+        d0_129_3:DOUBLE
+            )
+        )
+    ),
+  NOT({i4_130: [{[-2147483648,3]}] }
+    GE(
+      i4_130:INTEGER,
+      4
+        )
+    )
+)
+
+================== CNF format ==================
+
+AND(
+  {i4_130: [{[0,2147483647]}] },
+  OR(
+    {d0_129_3: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] },
+    {d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=00000000000, mantissa=null} (The result is exact: [-2.225073858507201e-308, 2.225073858507201e-308])] }
+    ),
+  OR(
+    {d0_129_3: [FloatingPointLiteralValue{sign=0, exponent=null, mantissa=null} (The result is exact: [0.0, inf])] },
+    {d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=null, mantissa=00000000000000000000000000000000000000000000000000000} (The result is exact: [0.0, 0.0] + [-0.0, -0.0])] }
+    ),
+  {d0_129_3: [FloatingPointLiteralValue{sign=null, exponent=0??????????, mantissa=null} (The result is exact: [-1.9999999999999998, 1.9999999999999998]), FloatingPointLiteralValue{sign=null, exponent=1000000000?, mantissa=null} (The result is exact: [-7.999999999999999, -2.0] + [2.0, 7.999999999999999]), FloatingPointLiteralValue{sign=null, exponent=10000000010, mantissa=null} (The result is exact: [-15.999999999999998, -8.0] + [8.0, 15.999999999999998])] },
+  {i4_130: [{[-2147483648,3]}] }
+)
