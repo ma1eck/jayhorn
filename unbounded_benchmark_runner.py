@@ -22,8 +22,8 @@ ENCODINGS = [
     # ,
               LOOP_FREE
              ]
-# SOLVER = "eldarica"
-SOLVER = "spacer"
+SOLVER = "eldarica"
+# SOLVER = "spacer"
 
 CEX_DIR_NAME = "counter examples or models"
 

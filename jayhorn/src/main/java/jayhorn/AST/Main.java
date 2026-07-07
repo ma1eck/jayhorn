@@ -1,9 +1,6 @@
 package jayhorn.AST;
 
-import com.microsoft.z3.AST;
 import jayhorn.AST.Nodes.*;
-import jayhorn.Options;
-import jayhorn.phaseOneParser.LiteralValues.FloatingPointLiteralValue;
 import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.phaseOneParser.PhaseOne;
 import jayhorn.phaseTwoParser.PhaseTwo;
@@ -621,18 +618,42 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+    private static InvariantTree loadEldarica(String fileName){
+        try {
+            InvariantTree tree = ASTHelper.readJsonFromFile("invariantTreeJsons/eldarica_benchmarks/" + fileName);
+            return tree;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     public static void main(String[] args) throws IOException {
 //        filterTrees();
-//        InvariantTree tree = load("Nested-Saturation-Then-Reset_Main_void_mainJayArray_java_lang_String_Block2_2");
-//        System.out.println(tree.toPrettyString());
-//                runAllJsonTrees();
+        InvariantTree tree = loadEldarica("Bounded-Reset-Linear-Growth__Main_ void main(JayArray_java_lang_String)__Block2_2_18");
+        System.out.println(tree.toPrettyString());
+//                runAllJsonTreesEldaricaFolder();
 //        InvariantTree t1 = load("Nested-Saturation-Then-ResetMain_void_mainJayArray_java_lang_String_Block2_1");
-//        parse_print(t1);
+        parse_print(tree);
+
     }
 
-    private static void runAllJsonTrees() throws IOException {
+    private static void runAllJsonTreesEldaricaFolder() throws IOException {
+        String fileName;
+        File folder = new File("invariantTreeJsons/eldarica_benchmarks");
+
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    fileName = (file.getName());
+                    read_parse_saveEldarica(fileName);
+                }
+            }
+        }
+    }
+    private static void runAllJsonTreesBaseFolder() throws IOException {
         String fileName;
         File folder = new File("invariantTreeJsons");
 
@@ -703,9 +724,26 @@ public class Main {
         }
         saveResults(result, fileName);
     }
+    private static void read_parse_saveEldarica(String fileName) throws IOException {
+        StringBuilder result = new StringBuilder();
+
+        try {
+            InvariantTree t1 = load("eldarica_benchmarks/" + fileName);
+            parse_fillResult(t1, result);
+        }catch (Exception e){
+            System.out.println("get exception on "+ fileName+" tree:" + e.getMessage());
+        }
+        saveEldaricaResults(result, fileName);
+    }
 
     private static void saveResults(StringBuilder result, String file_name) throws IOException {
         String path = "Invariants_range_result\\" + file_name;
+        FileWriter myWriter = new FileWriter(path);
+        myWriter.write(result.toString());
+        myWriter.close();
+    }
+    private static void saveEldaricaResults(StringBuilder result, String file_name) throws IOException {
+        String path = "Invariants_range_result\\eldarica_benchmarks\\" + file_name;
         FileWriter myWriter = new FileWriter(path);
         myWriter.write(result.toString());
         myWriter.close();

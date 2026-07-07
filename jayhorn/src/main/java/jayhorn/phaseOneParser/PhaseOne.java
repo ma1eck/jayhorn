@@ -57,6 +57,9 @@ public class PhaseOne { // todo: add lots of if for safe casting
             case AND:
                 handleAnd(tree);
                 break;
+            case ITE:
+                handleITE(tree);
+                break;
             case NOT:
                 handleNot(tree);
                 break;
@@ -269,6 +272,26 @@ public class PhaseOne { // todo: add lots of if for safe casting
             blv.setState(GBool.UNKNOWN);
         }
 
+    }
+    private static void handleITE(ParentedInvariantTree tree){
+        List<ParentedInvariantTree> children = tree.getChildren();
+        for (ParentedInvariantTree child: children) {
+            phase1(child);
+        }
+        ParentedInvariantTree condChild = children.get(0);
+        ParentedInvariantTree ifChild = children.get(1);
+        ParentedInvariantTree elseChild = children.get(2);
+        if (((BoolLiteralValue) condChild.getStateValue()).state == GBool.TRUE) {
+            tree.setStateValue(ifChild.getStateValue().copy());
+        }
+        else if (((BoolLiteralValue) condChild.getStateValue()).state == GBool.FALSE) {
+            tree.setStateValue(elseChild.getStateValue().copy());
+
+        }else{
+            StateValue merged = ifChild.getStateValue().copy();
+            merged.union(elseChild.getStateValue().copy());
+            tree.setStateValue(merged);
+        }
     }
 
     private static void handleNot(ParentedInvariantTree tree){

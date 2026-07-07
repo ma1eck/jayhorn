@@ -1,5 +1,6 @@
 package jayhorn.checker;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,7 @@ import jayhorn.Options;
 import jayhorn.hornify.HornEncoderContext;
 import jayhorn.hornify.HornPredicate;
 import jayhorn.hornify.Hornify;
+import jayhorn.phaseOneParser.ParentedInvariantTree;
 import jayhorn.solver.*;
 import jayhorn.solver.princess.PrincessProver;
 import jayhorn.solver.princess.CexPrinter;
@@ -488,16 +490,22 @@ public class EldaricaChecker extends Checker {
                 InvariantTree tree = convertExpr(currentInvariant);
                 tree = ASTHelper.cleaner(tree);
                 String newLine = tree.toPrettyString();
-
+                if (entry.getKey().toString().contains("Block2") || entry.getKey().toString().contains("Block5") || entry.getKey().toString().contains("Block2_1") || entry.getKey().toString().contains("Block2_2")){
+                    try {
+                        String benchmarkName = jayhorn.Options.v().getSrcBasename();
+                        String filename = benchmarkName + "_" + entry.getKey();
+                        filename = sanitizeFilename(filename);
+                        ASTHelper.writeJsonToFile(tree, "./invariantTreeJsons/eldarica_benchmarks/" + filename);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
 
                 convertedTrace +=  "\n ---------------------------------- \n";
                 convertedTrace +=   key + ":\n" + newLine;
               //  Log.info(" Original: " + value);
              //   Log.info("Indices found: " + indices + " in " + hClause.get().getHeadFun());
               //  Log.info("new: " + newLine);
-
-
-
 
 
                 //String key = key;
@@ -580,6 +588,10 @@ public class EldaricaChecker extends Checker {
         }
         Log.info(" Converted: " + convertedTrace);
         return sb.toString();
+    }
+
+    private String sanitizeFilename(String name) {
+        return name.replaceAll("[<>:\"/\\\\|?*]", "_");
     }
 
     private IFormula renameVariable(IFormula formula, ConstantTerm oldTerm, ConstantTerm newTerm) {

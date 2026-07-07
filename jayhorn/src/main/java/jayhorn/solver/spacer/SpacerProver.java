@@ -1637,15 +1637,16 @@ public class SpacerProver implements Prover {
 //						String invariantStr = invariantMapped.toString();
 						InvariantTree invTree = Parser.convertExpr(invariantMapped);
 						if (
-								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_1")
-								||
-								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")
-								||
-								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_2")
+//								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_1")
+//								||
+//								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2")
+								relationName.equals("Main_void_mainJayArray_java_lang_String_Block5")
+//								||
+//								relationName.equals("Main_void_mainJayArray_java_lang_String_Block2_2")
 //								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block5")
 //								|| relationName.equals("Main_void_mainJayArray_java_lang_String_Block8")
 						){
-							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
+//							ParentedInvariantTree pt = ASTHelper.toParentedInvariantTree(invTree);
 							try {
 								String benchmarkName = jayhorn.Options.v().getSrcBasename();
 								ASTHelper.writeJsonToFile(invTree, "./invariantTreeJsons/" + benchmarkName + "_" + relationName );

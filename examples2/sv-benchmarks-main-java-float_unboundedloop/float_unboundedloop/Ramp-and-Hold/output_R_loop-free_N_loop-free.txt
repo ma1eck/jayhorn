@@ -1,3 +1,1108 @@
 
 
-=== RUN 1 TIMEOUT ===
+=== RUN 1 ===
+[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
+[root] - Horn solver: eldarica
+[root] - Building CFG  ... 
+[root] - Safety Verification ... 
+[root] - Trying to verify with unbounded heap
+[root] - Hornify  ... 
+[root] - Transform Program Methods into Horn Clauses ... 
+		<Main: void main(JayArray_java_lang_String)>_Block1($in_0_0#0, $in_0_0#1, $in_0_0#2, $in_0_0#3, inHeapCounter_1, $assert_11_2, $b0_3, $b1_4, $b2_5, $in_0_0#0, $in_0_0#1, $in_0_0#2, $in_0_0#3, $z2_6, JayArray_java_lang_String_7, outHeapCounter_8, undef_field0_9, undef_field1_10#0, undef_field1_10#1, undef_field1_10#2) :- <Main: void main(JayArray_java_lang_String)>_pre($in_0_0#0, $in_0_0#1, $in_0_0#2, $in_0_0#3, inHeapCounter_1).
+		<Main: void main(JayArray_java_lang_String)>_Block1_1($in_0_11#0, $in_0_11#1, $in_0_11#2, $in_0_11#3, inHeapCounter_12, $assert_11_13, $b0_14, $b1_15, $b2_16, $in_0_11#0, $in_0_11#1, $in_0_11#2, $in_0_11#3, $z2_17, JayArray_java_lang_String_18, 1, undef_field0_20, undef_field1_21#0, undef_field1_21#1, undef_field1_21#2) :- <Main: void main(JayArray_java_lang_String)>_Block1($in_0_11#0, $in_0_11#1, $in_0_11#2, $in_0_11#3, inHeapCounter_12, $assert_11_13, $b0_14, $b1_15, $b2_16, $in_0_11#0, $in_0_11#1, $in_0_11#2, $in_0_11#3, $z2_17, JayArray_java_lang_String_18, outHeapCounter_19, undef_field0_20, undef_field1_21#0, undef_field1_21#1, undef_field1_21#2).
+		<Main: void main(JayArray_java_lang_String)>_Block1_2($in_0_22#0, $in_0_22#1, $in_0_22#2, $in_0_22#3, inHeapCounter_23, $assert_11_24, $b0_25, $b1_26, $b2_27, $in_0_22#0, $in_0_22#1, $in_0_22#2, $in_0_22#3, $z2_28, outHeapCounter_30, undef_field0_31, undef_field1_32#0, undef_field1_32#1, undef_field1_32#2) :- <Main: void main(JayArray_java_lang_String)>_Block1_1($in_0_22#0, $in_0_22#1, $in_0_22#2, $in_0_22#3, inHeapCounter_23, $assert_11_24, $b0_25, $b1_26, $b2_27, $in_0_22#0, $in_0_22#1, $in_0_22#2, $in_0_22#3, $z2_28, JayArray_java_lang_String_29, outHeapCounter_30, undef_field0_31, undef_field1_32#0, undef_field1_32#1, undef_field1_32#2), (false | $in_0_22#1 = 137) & $in_0_22#3 >= 0 & $in_0_22#0 = 1.
+		inv_JayArray_java_lang_String_103($in_0_33#0, $in_0_33#1, $in_0_33#2, $in_0_33#3, _lastpush0_43, _ai0_44, $in_0_33#3, undef_field0_41, undef_field1_42#0, undef_field1_42#1, undef_field1_42#2) :- <Main: void main(JayArray_java_lang_String)>_Block1_2($in_0_33#0, $in_0_33#1, $in_0_33#2, $in_0_33#3, inHeapCounter_34, $assert_11_35, $b0_36, $b1_37, $b2_38, $in_0_33#0, $in_0_33#1, $in_0_33#2, $in_0_33#3, $z2_39, outHeapCounter_40, undef_field0_41, undef_field1_42#0, undef_field1_42#1, undef_field1_42#2).
+		<Main: void main(JayArray_java_lang_String)>_Block1_3($in_0_33#0, $in_0_33#1, $in_0_33#2, $in_0_33#3, inHeapCounter_34, $assert_11_35, $b0_36, $b1_37, $b2_38, $z2_39, outHeapCounter_40) :- <Main: void main(JayArray_java_lang_String)>_Block1_2($in_0_33#0, $in_0_33#1, $in_0_33#2, $in_0_33#3, inHeapCounter_34, $assert_11_35, $b0_36, $b1_37, $b2_38, $in_0_33#0, $in_0_33#1, $in_0_33#2, $in_0_33#3, $z2_39, outHeapCounter_40, undef_field0_41, undef_field1_42#0, undef_field1_42#1, undef_field1_42#2).
+		<Main: void <clinit>()>_pre(outHeapCounter_52) :- <Main: void main(JayArray_java_lang_String)>_Block1_3($in_0_45#0, $in_0_45#1, $in_0_45#2, $in_0_45#3, inHeapCounter_46, $assert_11_47, $b0_48, $b1_49, $b2_50, $z2_51, outHeapCounter_52).
+		<Main: void main(JayArray_java_lang_String)>_Block1_4($in_0_45#0, $in_0_45#1, $in_0_45#2, $in_0_45#3, inHeapCounter_46, $assert_11_47, $b0_48, $b1_49, $b2_50, $z2_51, callRes_55) :- <Main: void main(JayArray_java_lang_String)>_Block1_3($in_0_45#0, $in_0_45#1, $in_0_45#2, $in_0_45#3, inHeapCounter_46, $assert_11_47, $b0_48, $b1_49, $b2_50, $z2_51, outHeapCounter_52), <Main: void <clinit>()>_post(outHeapCounter_52, callRes_54#0, callRes_54#1, callRes_54#2, callRes_55).
+		<JayHornAssertions: void <clinit>()>_pre(outHeapCounter_63) :- <Main: void main(JayArray_java_lang_String)>_Block1_4($in_0_56#0, $in_0_56#1, $in_0_56#2, $in_0_56#3, inHeapCounter_57, $assert_11_58, $b0_59, $b1_60, $b2_61, $z2_62, outHeapCounter_63).
+		<Main: void main(JayArray_java_lang_String)>_Block1_5($in_0_56#0, $in_0_56#1, $in_0_56#2, $in_0_56#3, inHeapCounter_57, $assert_11_58, $b0_59, $b1_60, $b2_61, callRes_65#0, callRes_65#1, callRes_65#2, $z2_62, callRes_66) :- <Main: void main(JayArray_java_lang_String)>_Block1_4($in_0_56#0, $in_0_56#1, $in_0_56#2, $in_0_56#3, inHeapCounter_57, $assert_11_58, $b0_59, $b1_60, $b2_61, $z2_62, outHeapCounter_63), <JayHornAssertions: void <clinit>()>_post(outHeapCounter_63, callRes_65#0, callRes_65#1, callRes_65#2, callRes_66).
+		<Main: void main(JayArray_java_lang_String)>_Block1_6($in_0_67#0, $in_0_67#1, $in_0_67#2, $in_0_67#3, inHeapCounter_68, $assert_11_69, $b0_70, $b1_71, $b2_72, $ex__73#0, $ex__73#1, $ex__73#2, $z2_74, -1, 133, $double(0.0)_77#2, DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]), outHeapCounter_75) :- <Main: void main(JayArray_java_lang_String)>_Block1_5($in_0_67#0, $in_0_67#1, $in_0_67#2, $in_0_67#3, inHeapCounter_68, $assert_11_69, $b0_70, $b1_71, $b2_72, $ex__73#0, $ex__73#1, $ex__73#2, $z2_74, outHeapCounter_75).
+		<Main: void main(JayArray_java_lang_String)>_Block1_7($in_0_78#0, $in_0_78#1, $in_0_78#2, $in_0_78#3, inHeapCounter_79, $assert_11_80, $b0_81, $b1_82, $b2_83, $ex__84#0, $ex__84#1, $ex__84#2, $z2_85, d0_86#0, d0_86#1, d0_86#2, d0_86#3, outHeapCounter_87, \if (false) \ then (0) \ else (1)) :- <Main: void main(JayArray_java_lang_String)>_Block1_6($in_0_78#0, $in_0_78#1, $in_0_78#2, $in_0_78#3, inHeapCounter_79, $assert_11_80, $b0_81, $b1_82, $b2_83, $ex__84#0, $ex__84#1, $ex__84#2, $z2_85, d0_86#0, d0_86#1, d0_86#2, d0_86#3, outHeapCounter_87).
+		<Main: void main(JayArray_java_lang_String)>_Block2($in_0_89#0, $in_0_89#1, $in_0_89#2, $in_0_89#3, inHeapCounter_90, $assert_11_91, $b0_92, $b1_93, $b2_94, $ex__95#0, $ex__95#1, $ex__95#2, $z2_96, d0_97#0, d0_97#1, d0_97#2, d0_97#3, outHeapCounter_98, z1_99) :- <Main: void main(JayArray_java_lang_String)>_Block1_7($in_0_89#0, $in_0_89#1, $in_0_89#2, $in_0_89#3, inHeapCounter_90, $assert_11_91, $b0_92, $b1_93, $b2_94, $ex__95#0, $ex__95#1, $ex__95#2, $z2_96, d0_97#0, d0_97#1, d0_97#2, d0_97#3, outHeapCounter_98, z1_99).
+		<Main: void main(JayArray_java_lang_String)>_Block2_1($in_0_100#0, $in_0_100#1, $in_0_100#2, $in_0_100#3, inHeapCounter_101, $b0_103, $b1_104, $b2_105, $ex__106#0, $ex__106#1, $ex__106#2, $z2_havoc, d0_108#0, d0_108#1, d0_108#2, d0_108#3, outHeapCounter_109, z1_110) :- <Main: void main(JayArray_java_lang_String)>_Block2($in_0_100#0, $in_0_100#1, $in_0_100#2, $in_0_100#3, inHeapCounter_101, $assert_11_102, $b0_103, $b1_104, $b2_105, $ex__106#0, $ex__106#1, $ex__106#2, $z2_107, d0_108#0, d0_108#1, d0_108#2, d0_108#3, outHeapCounter_109, z1_110).
+		<Main: void main(JayArray_java_lang_String)>_Block2_2($in_0_111#0, $in_0_111#1, $in_0_111#2, $in_0_111#3, inHeapCounter_112, \if ($ex__116#0 = 0) \ then (0) \ else (1), $b0_113, $b1_114, $b2_115, $ex__116#0, $ex__116#1, $ex__116#2, $z2_117, d0_118#0, d0_118#1, d0_118#2, d0_118#3, outHeapCounter_119, z1_120) :- <Main: void main(JayArray_java_lang_String)>_Block2_1($in_0_111#0, $in_0_111#1, $in_0_111#2, $in_0_111#3, inHeapCounter_112, $b0_113, $b1_114, $b2_115, $ex__116#0, $ex__116#1, $ex__116#2, $z2_117, d0_118#0, d0_118#1, d0_118#2, d0_118#3, outHeapCounter_119, z1_120).
+		<Main: void main(JayArray_java_lang_String)>_Block2_3($in_0_122#0, $in_0_122#1, $in_0_122#2, $in_0_122#3, inHeapCounter_123, $assert_11_124, $b0_125, $b1_126, $b2_127, $ex__128#0, $ex__128#1, $ex__128#2, $z2_129, d0_130#0, d0_130#1, d0_130#2, d0_130#3, outHeapCounter_131, z1_132) :- <Main: void main(JayArray_java_lang_String)>_Block2_2($in_0_122#0, $in_0_122#1, $in_0_122#2, $in_0_122#3, inHeapCounter_123, $assert_11_124, $b0_125, $b1_126, $b2_127, $ex__128#0, $ex__128#1, $ex__128#2, $z2_129, d0_130#0, d0_130#1, d0_130#2, d0_130#3, outHeapCounter_131, z1_132).
+		false :- Assert #0: Main.java, line 30.
+		Assert #0: Main.java, line 30 :- <Main: void main(JayArray_java_lang_String)>_Block2_2($in_0_122#0, $in_0_122#1, $in_0_122#2, $in_0_122#3, inHeapCounter_123, $assert_11_124, $b0_125, $b1_126, $b2_127, $ex__128#0, $ex__128#1, $ex__128#2, $z2_129, d0_130#0, d0_130#1, d0_130#2, d0_130#3, outHeapCounter_131, z1_132), $assert_11_124 != 0.
+		<Main: void main(JayArray_java_lang_String)>_Block3($in_0_133#0, $in_0_133#1, $in_0_133#2, $in_0_133#3, inHeapCounter_134, $b0_136, $b1_137, $ex__139#0, $ex__139#1, $ex__139#2, $z2_140, d0_141#0, d0_141#1, d0_141#2, d0_141#3, outHeapCounter_142) :- <Main: void main(JayArray_java_lang_String)>_Block2_3($in_0_133#0, $in_0_133#1, $in_0_133#2, $in_0_133#3, inHeapCounter_134, $assert_11_135, $b0_136, $b1_137, $b2_138, $ex__139#0, $ex__139#1, $ex__139#2, $z2_140, d0_141#0, d0_141#1, d0_141#2, d0_141#3, outHeapCounter_142, z1_143), $z2_140 = 0 <-> false.
+		<Main: void main(JayArray_java_lang_String)>_Block4($in_0_133#0, $in_0_133#1, $in_0_133#2, $in_0_133#3, inHeapCounter_134, $assert_11_135, $b0_136, $b1_137, $b2_138, $ex__139#0, $ex__139#1, $ex__139#2, $z2_140, d0_141#0, d0_141#1, d0_141#2, d0_141#3, outHeapCounter_142, z1_143) :- <Main: void main(JayArray_java_lang_String)>_Block2_3($in_0_133#0, $in_0_133#1, $in_0_133#2, $in_0_133#3, inHeapCounter_134, $assert_11_135, $b0_136, $b1_137, $b2_138, $ex__139#0, $ex__139#1, $ex__139#2, $z2_140, d0_141#0, d0_141#1, d0_141#2, d0_141#3, outHeapCounter_142, z1_143), !($z2_140 = 0 <-> false).
+		<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, -1, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, $b0_146, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), (exponent(d0_150#3) = 2047.\as[bv[11]] & mantissa(d0_150#3)[51:0] != 0.\as[bv[52]]) | (exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]))[51:0] != 0.\as[bv[52]]).
+		<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, $b0_146, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), exponent(d0_150#3) = 0.\as[bv[11]] & mantissa(d0_150#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 0.\as[bv[53]].
+		<Main: void main(JayArray_java_lang_String)>_Block3_11($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, $b0_146, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), !(exponent(d0_150#3) = 2047.\as[bv[11]] & mantissa(d0_150#3)[51:0] != 0.\as[bv[52]]) & !(exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]))[51:0] != 0.\as[bv[52]]) & d0_150#3 != DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]) & !(exponent(d0_150#3) = 0.\as[bv[11]] & mantissa(d0_150#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block3_12($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3_11($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), sign(d0_150#3) = sign(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, \if (sign(d0_150#3) != 0) \ then (-1) \ else (1), $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3_11($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), sign(d0_150#3) != sign(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, \if (\if (sign(d0_150#3) != 0) \ then (bv_ult(53, mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])), mantissa(d0_150#3))) \ else (bv_ult(53, mantissa(d0_150#3), mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]))))) \ then (-1) \ else (1), $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3_12($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), exponent(d0_150#3) = exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, \if (\if (sign(d0_150#3) != 0) \ then (bv_ult(11, exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])), exponent(d0_150#3))) \ else (bv_ult(11, exponent(d0_150#3), exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]))))) \ then (-1) \ else (1), $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3_12($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), exponent(d0_150#3) != exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, 0, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151) :- <Main: void main(JayArray_java_lang_String)>_Block3($in_0_144#0, $in_0_144#1, $in_0_144#2, $in_0_144#3, inHeapCounter_145, $b0_146, $b1_147, $ex__148#0, $ex__148#1, $ex__148#2, $z2_149, d0_150#0, d0_150#1, d0_150#2, d0_150#3, outHeapCounter_151), !(exponent(d0_150#3) = 2047.\as[bv[11]] & mantissa(d0_150#3)[51:0] != 0.\as[bv[52]]) & !(exponent(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]))[51:0] != 0.\as[bv[52]]) & d0_150#3 = DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block7($in_0_153#0, $in_0_153#1, $in_0_153#2, $in_0_153#3, inHeapCounter_154, $b0_155, $b1_156, $ex__157#0, $ex__157#1, $ex__157#2, outHeapCounter_159) :- <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_153#0, $in_0_153#1, $in_0_153#2, $in_0_153#3, inHeapCounter_154, $b0_155, $b1_156, $ex__157#0, $ex__157#1, $ex__157#2, d0_158#0, d0_158#1, d0_158#2, d0_158#3, outHeapCounter_159), -1 >= $b0_155.
+		<Main: void main(JayArray_java_lang_String)>_Block8($in_0_153#0, $in_0_153#1, $in_0_153#2, $in_0_153#3, inHeapCounter_154, $b0_155, $b1_156, $ex__157#0, $ex__157#1, $ex__157#2, d0_158#0, d0_158#1, d0_158#2, d0_158#3, outHeapCounter_159) :- <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult($in_0_153#0, $in_0_153#1, $in_0_153#2, $in_0_153#3, inHeapCounter_154, $b0_155, $b1_156, $ex__157#0, $ex__157#1, $ex__157#2, d0_158#0, d0_158#1, d0_158#2, d0_158#3, outHeapCounter_159), -1 < $b0_155.
+		<Main: void main(JayArray_java_lang_String)>_Block2($in_0_160#0, $in_0_160#1, $in_0_160#2, $in_0_160#3, inHeapCounter_161, $assert_11_162, $b0_163, $b1_164, $b2_165, $ex__166#0, $ex__166#1, $ex__166#2, $z2_167, d0_168#0, d0_168#1, d0_168#2, d0_168#3, outHeapCounter_169, z1_170) :- <Main: void main(JayArray_java_lang_String)>_Block4($in_0_160#0, $in_0_160#1, $in_0_160#2, $in_0_160#3, inHeapCounter_161, $assert_11_162, $b0_163, $b1_164, $b2_165, $ex__166#0, $ex__166#1, $ex__166#2, $z2_167, d0_168#0, d0_168#1, d0_168#2, d0_168#3, outHeapCounter_169, z1_170), !(z1_170 = 0 <-> false).
+		<Main: void main(JayArray_java_lang_String)>_Block5($in_0_160#0, $in_0_160#1, $in_0_160#2, $in_0_160#3, inHeapCounter_161, $assert_11_162, $b0_163, $b1_164, $b2_165, $ex__166#0, $ex__166#1, $ex__166#2, $z2_167, d0_168#0, d0_168#1, d0_168#2, d0_168#3, outHeapCounter_169, z1_170) :- <Main: void main(JayArray_java_lang_String)>_Block4($in_0_160#0, $in_0_160#1, $in_0_160#2, $in_0_160#3, inHeapCounter_161, $assert_11_162, $b0_163, $b1_164, $b2_165, $ex__166#0, $ex__166#1, $ex__166#2, $z2_167, d0_168#0, d0_168#1, d0_168#2, d0_168#3, outHeapCounter_169, z1_170), !!(z1_170 = 0 <-> false).
+		<Main: void main(JayArray_java_lang_String)>_Block7_1($in_0_171#0, $in_0_171#1, $in_0_171#2, $in_0_171#3, inHeapCounter_172, $b1_174, $ex__175#0, $ex__175#1, $ex__175#2, outHeapCounter_176) :- <Main: void main(JayArray_java_lang_String)>_Block7($in_0_171#0, $in_0_171#1, $in_0_171#2, $in_0_171#3, inHeapCounter_172, $b0_173, $b1_174, $ex__175#0, $ex__175#1, $ex__175#2, outHeapCounter_176).
+		false :- Assert #1: Main.java, line 38.
+		Assert #1: Main.java, line 38 :- <Main: void main(JayArray_java_lang_String)>_Block7($in_0_171#0, $in_0_171#1, $in_0_171#2, $in_0_171#3, inHeapCounter_172, $b0_173, $b1_174, $ex__175#0, $ex__175#1, $ex__175#2, outHeapCounter_176), !0 != 0.
+		<Main: void main(JayArray_java_lang_String)>_Block9($in_0_177#0, $in_0_177#1, $in_0_177#2, $in_0_177#3, inHeapCounter_178, $b1_179, $ex__180#0, $ex__180#1, $ex__180#2, outHeapCounter_181) :- <Main: void main(JayArray_java_lang_String)>_Block7_1($in_0_177#0, $in_0_177#1, $in_0_177#2, $in_0_177#3, inHeapCounter_178, $b1_179, $ex__180#0, $ex__180#1, $ex__180#2, outHeapCounter_181).
+		<Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, -1, $ex__186#0, $ex__186#1, $ex__186#2, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, $b1_185, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), (exponent(d0_187#3) = 2047.\as[bv[11]] & mantissa(d0_187#3)[51:0] != 0.\as[bv[52]]) | (exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]).
+		<Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, $b1_185, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), exponent(d0_187#3) = 0.\as[bv[11]] & mantissa(d0_187#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]].
+		<Main: void main(JayArray_java_lang_String)>_Block8_11($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, $b1_185, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), !(exponent(d0_187#3) = 2047.\as[bv[11]] & mantissa(d0_187#3)[51:0] != 0.\as[bv[52]]) & !(exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]) & d0_187#3 != DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]) & !(exponent(d0_187#3) = 0.\as[bv[11]] & mantissa(d0_187#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block8_12($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8_11($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), sign(d0_187#3) = sign(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, \if (sign(d0_187#3) != 0) \ then (-1) \ else (1), $ex__186#0, $ex__186#1, $ex__186#2, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8_11($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), sign(d0_187#3) != sign(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, \if (\if (sign(d0_187#3) != 0) \ then (bv_ult(53, mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])), mantissa(d0_187#3))) \ else (bv_ult(53, mantissa(d0_187#3), mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))))) \ then (-1) \ else (1), $ex__186#0, $ex__186#1, $ex__186#2, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8_12($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), exponent(d0_187#3) = exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, \if (\if (sign(d0_187#3) != 0) \ then (bv_ult(11, exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])), exponent(d0_187#3))) \ else (bv_ult(11, exponent(d0_187#3), exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))))) \ then (-1) \ else (1), $ex__186#0, $ex__186#1, $ex__186#2, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8_12($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), exponent(d0_187#3) != exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, 0, $ex__186#0, $ex__186#1, $ex__186#2, outHeapCounter_188) :- <Main: void main(JayArray_java_lang_String)>_Block8($in_0_182#0, $in_0_182#1, $in_0_182#2, $in_0_182#3, inHeapCounter_183, $b0_184, $b1_185, $ex__186#0, $ex__186#1, $ex__186#2, d0_187#0, d0_187#1, d0_187#2, d0_187#3, outHeapCounter_188), !(exponent(d0_187#3) = 2047.\as[bv[11]] & mantissa(d0_187#3)[51:0] != 0.\as[bv[52]]) & !(exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]) & d0_187#3 = DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block9($in_0_190#0, $in_0_190#1, $in_0_190#2, $in_0_190#3, inHeapCounter_191, $b1_193, $ex__194#0, $ex__194#1, $ex__194#2, outHeapCounter_195) :- <Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_190#0, $in_0_190#1, $in_0_190#2, $in_0_190#3, inHeapCounter_191, $b0_192, $b1_193, $ex__194#0, $ex__194#1, $ex__194#2, outHeapCounter_195), 0 >= $b1_193.
+		<Main: void main(JayArray_java_lang_String)>_Block7($in_0_190#0, $in_0_190#1, $in_0_190#2, $in_0_190#3, inHeapCounter_191, $b0_192, $b1_193, $ex__194#0, $ex__194#1, $ex__194#2, outHeapCounter_195) :- <Main: void main(JayArray_java_lang_String)>_Block8_1-FCmpResult($in_0_190#0, $in_0_190#1, $in_0_190#2, $in_0_190#3, inHeapCounter_191, $b0_192, $b1_193, $ex__194#0, $ex__194#1, $ex__194#2, outHeapCounter_195), 0 < $b1_193.
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), sign(d0_204#3) = sign(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) & exponent(d0_204#3) = 0.\as[bv[11]] & mantissa(d0_204#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, DoubleFloatingPoint(\if (sign(d0_204#3) = 0) \ then (1) \ else (0), exponent(d0_204#3), mantissa(d0_204#3)), outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), sign(d0_204#3) != sign(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) & exponent(d0_204#3) = 0.\as[bv[11]] & mantissa(d0_204#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), sign(d0_204#3) = sign(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) & exponent(d0_204#3) = 2047.\as[bv[11]] & mantissa(d0_204#3)[51:0] = 0.\as[bv[52]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] = 0.\as[bv[52]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, DoubleFloatingPoint(0, 2047.\as[bv[11]], 6755399441055744.\as[bv[53]]), outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), sign(d0_204#3) != sign(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) & exponent(d0_204#3) = 2047.\as[bv[11]] & mantissa(d0_204#3)[51:0] = 0.\as[bv[52]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] = 0.\as[bv[52]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, DoubleFloatingPoint(0, 2047.\as[bv[11]], 6755399441055744.\as[bv[53]]), outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), (exponent(d0_204#3) = 2047.\as[bv[11]] & mantissa(d0_204#3)[51:0] != 0.\as[bv[52]]) | (exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]).
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]), outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), exponent(d0_204#3) = 0.\as[bv[11]] & mantissa(d0_204#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) != 2047.\as[bv[11]] & !(exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]] & exponent(d0_204#3) != 2047.\as[bv[11]] & !(exponent(d0_204#3) = 0.\as[bv[11]] & mantissa(d0_204#3) = 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]), outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]] & exponent(d0_204#3) != 2047.\as[bv[11]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), exponent(d0_204#3) = 2047.\as[bv[11]] & mantissa(d0_204#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) != 2047.\as[bv[11]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_11($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206, bv_add(11, exponent(d0_204#3), bv_neg(11, exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]))))) :- <Main: void main(JayArray_java_lang_String)>_Block5($in_0_196#0, $in_0_196#1, $in_0_196#2, $in_0_196#3, inHeapCounter_197, $assert_11_198, $b0_199, $b1_200, $b2_201, $ex__202#0, $ex__202#1, $ex__202#2, $z2_203, d0_204#0, d0_204#1, d0_204#2, d0_204#3, outHeapCounter_205, z1_206), exponent(d0_204#3) != 2047.\as[bv[11]] & exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) != 2047.\as[bv[11]] & !(exponent(d0_204#3) = 0.\as[bv[11]] & mantissa(d0_204#3) = 0.\as[bv[53]]) & !(exponent(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block5_12($in_0_208#0, $in_0_208#1, $in_0_208#2, $in_0_208#3, inHeapCounter_209, $assert_11_210, $b0_211, $b1_212, $b2_213, $ex__214#0, $ex__214#1, $ex__214#2, $z2_215, d0_216#0, d0_216#1, d0_216#2, d0_216#3, outHeapCounter_217, z1_218, exponentsDiff_219, DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]]), d0_216#3) :- <Main: void main(JayArray_java_lang_String)>_Block5_11($in_0_208#0, $in_0_208#1, $in_0_208#2, $in_0_208#3, inHeapCounter_209, $assert_11_210, $b0_211, $b1_212, $b2_213, $ex__214#0, $ex__214#1, $ex__214#2, $z2_215, d0_216#0, d0_216#1, d0_216#2, d0_216#3, outHeapCounter_217, z1_218, exponentsDiff_219), exponentsDiff_219[10:10] = 0.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_12($in_0_223#0, $in_0_223#1, $in_0_223#2, $in_0_223#3, inHeapCounter_224, $assert_11_225, $b0_226, $b1_227, $b2_228, $ex__229#0, $ex__229#1, $ex__229#2, $z2_230, d0_231#0, d0_231#1, d0_231#2, d0_231#3, outHeapCounter_232, z1_233, bv_neg(11, exponentsDiff_234), d0_231#3, DoubleFloatingPoint(0, 1022.\as[bv[11]], 4503599627370496.\as[bv[53]])) :- <Main: void main(JayArray_java_lang_String)>_Block5_11($in_0_223#0, $in_0_223#1, $in_0_223#2, $in_0_223#3, inHeapCounter_224, $assert_11_225, $b0_226, $b1_227, $b2_228, $ex__229#0, $ex__229#1, $ex__229#2, $z2_230, d0_231#0, d0_231#1, d0_231#2, d0_231#3, outHeapCounter_232, z1_233, exponentsDiff_234), exponentsDiff_234[10:10] = 1.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_13($in_0_236#0, $in_0_236#1, $in_0_236#2, $in_0_236#3, inHeapCounter_237, $assert_11_238, $b0_239, $b1_240, $b2_241, $ex__242#0, $ex__242#1, $ex__242#2, $z2_243, d0_244#0, d0_244#1, d0_244#2, d0_244#3, outHeapCounter_245, z1_246, ExtendedDoubleFloatingPoint(sign(lfp_248), zero_extend(11, 1, exponent(lfp_248)), bv_lshr(159, bv_concat(54, 105, zero_extend(53, 1, mantissa(lfp_248)), 0.\as[bv[105]]), zero_extend(11, 148, exponentsDiff_247))), ExtendedDoubleFloatingPoint(sign(rfp_249), zero_extend(11, 1, exponent(rfp_249)), bv_concat(54, 105, zero_extend(53, 1, mantissa(rfp_249)), 0.\as[bv[105]]))) :- <Main: void main(JayArray_java_lang_String)>_Block5_12($in_0_236#0, $in_0_236#1, $in_0_236#2, $in_0_236#3, inHeapCounter_237, $assert_11_238, $b0_239, $b1_240, $b2_241, $ex__242#0, $ex__242#1, $ex__242#2, $z2_243, d0_244#0, d0_244#1, d0_244#2, d0_244#3, outHeapCounter_245, z1_246, exponentsDiff_247, lfp_248, rfp_249).
+		<Main: void main(JayArray_java_lang_String)>_Block5_14($in_0_250#0, $in_0_250#1, $in_0_250#2, $in_0_250#3, inHeapCounter_251, $assert_11_252, $b0_253, $b1_254, $b2_255, $ex__256#0, $ex__256#1, $ex__256#2, $z2_257, d0_258#0, d0_258#1, d0_258#2, d0_258#3, outHeapCounter_259, z1_260, ExtendedDoubleFloatingPoint(esign(lefp_261), eexponent(refp_262), bv_add(159, emantissa(lefp_261), emantissa(refp_262)))) :- <Main: void main(JayArray_java_lang_String)>_Block5_13($in_0_250#0, $in_0_250#1, $in_0_250#2, $in_0_250#3, inHeapCounter_251, $assert_11_252, $b0_253, $b1_254, $b2_255, $ex__256#0, $ex__256#1, $ex__256#2, $z2_257, d0_258#0, d0_258#1, d0_258#2, d0_258#3, outHeapCounter_259, z1_260, lefp_261, refp_262), esign(lefp_261) = esign(refp_262).
+		<Main: void main(JayArray_java_lang_String)>_Block5_16($in_0_263#0, $in_0_263#1, $in_0_263#2, $in_0_263#3, inHeapCounter_264, $assert_11_265, $b0_266, $b1_267, $b2_268, $ex__269#0, $ex__269#1, $ex__269#2, $z2_270, d0_271#0, d0_271#1, d0_271#2, d0_271#3, outHeapCounter_272, z1_273, efp_274) :- <Main: void main(JayArray_java_lang_String)>_Block5_14($in_0_263#0, $in_0_263#1, $in_0_263#2, $in_0_263#3, inHeapCounter_264, $assert_11_265, $b0_266, $b1_267, $b2_268, $ex__269#0, $ex__269#1, $ex__269#2, $z2_270, d0_271#0, d0_271#1, d0_271#2, d0_271#3, outHeapCounter_272, z1_273, efp_274), emantissa(efp_274)[158:158] = 0.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_16($in_0_263#0, $in_0_263#1, $in_0_263#2, $in_0_263#3, inHeapCounter_264, $assert_11_265, $b0_266, $b1_267, $b2_268, $ex__269#0, $ex__269#1, $ex__269#2, $z2_270, d0_271#0, d0_271#1, d0_271#2, d0_271#3, outHeapCounter_272, z1_273, ExtendedDoubleFloatingPoint(esign(efp_274), bv_add(12, eexponent(efp_274), 1.\as[bv[12]]), bv_lshr(159, emantissa(efp_274), 1.\as[bv[159]]))) :- <Main: void main(JayArray_java_lang_String)>_Block5_14($in_0_263#0, $in_0_263#1, $in_0_263#2, $in_0_263#3, inHeapCounter_264, $assert_11_265, $b0_266, $b1_267, $b2_268, $ex__269#0, $ex__269#1, $ex__269#2, $z2_270, d0_271#0, d0_271#1, d0_271#2, d0_271#3, outHeapCounter_272, z1_273, efp_274), emantissa(efp_274)[158:158] != 0.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_275#0, $in_0_275#1, $in_0_275#2, $in_0_275#3, inHeapCounter_276, $assert_11_277, $b0_278, $b1_279, $ex__281#0, $ex__281#1, $ex__281#2, $z2_282, d0_283#0, d0_283#1, d0_283#2, DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]), outHeapCounter_284, z1_285) :- <Main: void main(JayArray_java_lang_String)>_Block5_13($in_0_275#0, $in_0_275#1, $in_0_275#2, $in_0_275#3, inHeapCounter_276, $assert_11_277, $b0_278, $b1_279, $b2_280, $ex__281#0, $ex__281#1, $ex__281#2, $z2_282, d0_283#0, d0_283#1, d0_283#2, d0_283#3, outHeapCounter_284, z1_285, lefp_286, refp_287), esign(lefp_286) != esign(refp_287) & emantissa(lefp_286) = emantissa(refp_287) & eexponent(lefp_286) = eexponent(refp_287).
+		<Main: void main(JayArray_java_lang_String)>_Block5_13_15($in_0_275#0, $in_0_275#1, $in_0_275#2, $in_0_275#3, inHeapCounter_276, $assert_11_277, $b0_278, $b1_279, $b2_280, $ex__281#0, $ex__281#1, $ex__281#2, $z2_282, d0_283#0, d0_283#1, d0_283#2, DoubleFloatingPoint(0, 0.\as[bv[11]], 0.\as[bv[53]]), outHeapCounter_284, z1_285, ExtendedDoubleFloatingPoint(esign(lefp_286), eexponent(lefp_286), bv_sub(159, emantissa(lefp_286), emantissa(refp_287))), 0.\as[bv[53]]) :- <Main: void main(JayArray_java_lang_String)>_Block5_13($in_0_275#0, $in_0_275#1, $in_0_275#2, $in_0_275#3, inHeapCounter_276, $assert_11_277, $b0_278, $b1_279, $b2_280, $ex__281#0, $ex__281#1, $ex__281#2, $z2_282, d0_283#0, d0_283#1, d0_283#2, d0_283#3, outHeapCounter_284, z1_285, lefp_286, refp_287), esign(lefp_286) != esign(refp_287) & (bv_ult(159, emantissa(refp_287), emantissa(lefp_286)) | (emantissa(lefp_286) = emantissa(refp_287) & eexponent(lefp_286) != eexponent(refp_287))).
+		<Main: void main(JayArray_java_lang_String)>_Block5_13_15($in_0_288#0, $in_0_288#1, $in_0_288#2, $in_0_288#3, inHeapCounter_289, $assert_11_290, $b0_291, $b1_292, $b2_293, $ex__294#0, $ex__294#1, $ex__294#2, $z2_295, d0_296#0, d0_296#1, d0_296#2, d0_296#3, outHeapCounter_297, z1_298, ExtendedDoubleFloatingPoint(esign(refp_300), eexponent(refp_300), bv_sub(159, emantissa(refp_300), emantissa(lefp_299))), 0.\as[bv[53]]) :- <Main: void main(JayArray_java_lang_String)>_Block5_13($in_0_288#0, $in_0_288#1, $in_0_288#2, $in_0_288#3, inHeapCounter_289, $assert_11_290, $b0_291, $b1_292, $b2_293, $ex__294#0, $ex__294#1, $ex__294#2, $z2_295, d0_296#0, d0_296#1, d0_296#2, d0_296#3, outHeapCounter_297, z1_298, lefp_299, refp_300), esign(lefp_299) != esign(refp_300) & bv_ult(159, emantissa(lefp_299), emantissa(refp_300)).
+		<Main: void main(JayArray_java_lang_String)>_Block5_13_15_17($in_0_301#0, $in_0_301#1, $in_0_301#2, $in_0_301#3, inHeapCounter_302, $assert_11_303, $b0_304, $b1_305, $b2_306, $ex__307#0, $ex__307#1, $ex__307#2, $z2_308, d0_309#0, d0_309#1, d0_309#2, d0_309#3, outHeapCounter_310, z1_311, efp_312, lzc_313, bv_lshr(159, bv_shl(159, emantissa(efp_312), leadingZeroC), leadingZeroC), leadingZeroC) :- <Main: void main(JayArray_java_lang_String)>_Block5_13_15($in_0_301#0, $in_0_301#1, $in_0_301#2, $in_0_301#3, inHeapCounter_302, $assert_11_303, $b0_304, $b1_305, $b2_306, $ex__307#0, $ex__307#1, $ex__307#2, $z2_308, d0_309#0, d0_309#1, d0_309#2, d0_309#3, outHeapCounter_310, z1_311, efp_312, lzc_313), emantissa(efp_312)[157:157] = 0.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_16($in_0_301#0, $in_0_301#1, $in_0_301#2, $in_0_301#3, inHeapCounter_302, $assert_11_303, $b0_304, $b1_305, $b2_306, $ex__307#0, $ex__307#1, $ex__307#2, $z2_308, d0_309#0, d0_309#1, d0_309#2, d0_309#3, outHeapCounter_310, z1_311, efp_312) :- <Main: void main(JayArray_java_lang_String)>_Block5_13_15($in_0_301#0, $in_0_301#1, $in_0_301#2, $in_0_301#3, inHeapCounter_302, $assert_11_303, $b0_304, $b1_305, $b2_306, $ex__307#0, $ex__307#1, $ex__307#2, $z2_308, d0_309#0, d0_309#1, d0_309#2, d0_309#3, outHeapCounter_310, z1_311, efp_312, lzc_313), emantissa(efp_312)[157:157] = 1.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_16($in_0_314#0, $in_0_314#1, $in_0_314#2, $in_0_314#3, inHeapCounter_315, $assert_11_316, $b0_317, $b1_318, $b2_319, $ex__320#0, $ex__320#1, $ex__320#2, $z2_321, d0_322#0, d0_322#1, d0_322#2, d0_322#3, outHeapCounter_323, z1_324, ExtendedDoubleFloatingPoint(esign(efp_325), bv_sub(12, eexponent(efp_325), bv_sub(159, lzcount_328, 1.\as[bv[159]])[11:0]), bv_shl(159, emantissa(efp_325), bv_sub(159, lzcount_328, 1.\as[bv[159]])))) :- <Main: void main(JayArray_java_lang_String)>_Block5_13_15_17($in_0_314#0, $in_0_314#1, $in_0_314#2, $in_0_314#3, inHeapCounter_315, $assert_11_316, $b0_317, $b1_318, $b2_319, $ex__320#0, $ex__320#1, $ex__320#2, $z2_321, d0_322#0, d0_322#1, d0_322#2, d0_322#3, outHeapCounter_323, z1_324, efp_325, lzc_326, tmpMantissa_327, lzcount_328), bv_and(159, bv_lshr(159, emantissa(efp_325), bv_sub(159, 157.\as[bv[159]], lzcount_328)), 1.\as[bv[159]]) = 1.\as[bv[159]] & tmpMantissa_327 = emantissa(efp_325).
+		<Main: void main(JayArray_java_lang_String)>_Block5_16_Bits($in_0_353#0, $in_0_353#1, $in_0_353#2, $in_0_353#3, inHeapCounter_354, $assert_11_355, $b0_356, $b1_357, $b2_358, $ex__359#0, $ex__359#1, $ex__359#2, $z2_360, d0_361#0, d0_361#1, d0_361#2, d0_361#3, outHeapCounter_362, z1_363, DoubleFloatingPoint(esign(efp_364), eexponent(efp_364)[10:0], emantissa(efp_364)[157:105]), emantissa(efp_364)[105:105], emantissa(efp_364)[104:104], emantissa(efp_364)[103:103], zero_extend(103, 1, emantissa(efp_364)[102:0])) :- <Main: void main(JayArray_java_lang_String)>_Block5_16($in_0_353#0, $in_0_353#1, $in_0_353#2, $in_0_353#3, inHeapCounter_354, $assert_11_355, $b0_356, $b1_357, $b2_358, $ex__359#0, $ex__359#1, $ex__359#2, $z2_360, d0_361#0, d0_361#1, d0_361#2, d0_361#3, outHeapCounter_362, z1_363, efp_364).
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_365#0, $in_0_365#1, $in_0_365#2, $in_0_365#3, inHeapCounter_366, $assert_11_367, $b0_368, $b1_369, $ex__371#0, $ex__371#1, $ex__371#2, $z2_372, d0_373#0, d0_373#1, d0_373#2, resultFP_376, outHeapCounter_374, z1_375) :- <Main: void main(JayArray_java_lang_String)>_Block5_16_Bits($in_0_365#0, $in_0_365#1, $in_0_365#2, $in_0_365#3, inHeapCounter_366, $assert_11_367, $b0_368, $b1_369, $b2_370, $ex__371#0, $ex__371#1, $ex__371#2, $z2_372, d0_373#0, d0_373#1, d0_373#2, d0_373#3, outHeapCounter_374, z1_375, resultFP_376, LSB_377, G_378, R_379, S_380), G_378 = 0.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_16_LSBR($in_0_381#0, $in_0_381#1, $in_0_381#2, $in_0_381#3, inHeapCounter_382, $assert_11_383, $b0_384, $b1_385, $b2_386, $ex__387#0, $ex__387#1, $ex__387#2, $z2_388, d0_389#0, d0_389#1, d0_389#2, d0_389#3, outHeapCounter_390, z1_391, resultFP_392, LSB_393, G_394, R_395, S_396) :- <Main: void main(JayArray_java_lang_String)>_Block5_16_Bits($in_0_381#0, $in_0_381#1, $in_0_381#2, $in_0_381#3, inHeapCounter_382, $assert_11_383, $b0_384, $b1_385, $b2_386, $ex__387#0, $ex__387#1, $ex__387#2, $z2_388, d0_389#0, d0_389#1, d0_389#2, d0_389#3, outHeapCounter_390, z1_391, resultFP_392, LSB_393, G_394, R_395, S_396), G_394 = 1.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_397#0, $in_0_397#1, $in_0_397#2, $in_0_397#3, inHeapCounter_398, $assert_11_399, $b0_400, $b1_401, $ex__403#0, $ex__403#1, $ex__403#2, $z2_404, d0_405#0, d0_405#1, d0_405#2, DoubleFloatingPoint(sign(resultFP_408), exponent(resultFP_408), bv_add(53, mantissa(resultFP_408), 1.\as[bv[53]])), outHeapCounter_406, z1_407) :- <Main: void main(JayArray_java_lang_String)>_Block5_16_LSBR($in_0_397#0, $in_0_397#1, $in_0_397#2, $in_0_397#3, inHeapCounter_398, $assert_11_399, $b0_400, $b1_401, $b2_402, $ex__403#0, $ex__403#1, $ex__403#2, $z2_404, d0_405#0, d0_405#1, d0_405#2, d0_405#3, outHeapCounter_406, z1_407, resultFP_408, LSB_409, G_410, R_411, S_412), LSB_409 = 1.\as[bv[1]] | R_411 = 1.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_16_S($in_0_413#0, $in_0_413#1, $in_0_413#2, $in_0_413#3, inHeapCounter_414, $assert_11_415, $b0_416, $b1_417, $b2_418, $ex__419#0, $ex__419#1, $ex__419#2, $z2_420, d0_421#0, d0_421#1, d0_421#2, d0_421#3, outHeapCounter_422, z1_423, resultFP_424, LSB_425, G_426, R_427, S_428, 0) :- <Main: void main(JayArray_java_lang_String)>_Block5_16_LSBR($in_0_413#0, $in_0_413#1, $in_0_413#2, $in_0_413#3, inHeapCounter_414, $assert_11_415, $b0_416, $b1_417, $b2_418, $ex__419#0, $ex__419#1, $ex__419#2, $z2_420, d0_421#0, d0_421#1, d0_421#2, d0_421#3, outHeapCounter_422, z1_423, resultFP_424, LSB_425, G_426, R_427, S_428), LSB_425 = 0.\as[bv[1]] & R_427 = 0.\as[bv[1]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_429#0, $in_0_429#1, $in_0_429#2, $in_0_429#3, inHeapCounter_430, $assert_11_431, $b0_432, $b1_433, $ex__435#0, $ex__435#1, $ex__435#2, $z2_436, d0_437#0, d0_437#1, d0_437#2, resultFP_440, outHeapCounter_438, z1_439) :- <Main: void main(JayArray_java_lang_String)>_Block5_16_S($in_0_429#0, $in_0_429#1, $in_0_429#2, $in_0_429#3, inHeapCounter_430, $assert_11_431, $b0_432, $b1_433, $b2_434, $ex__435#0, $ex__435#1, $ex__435#2, $z2_436, d0_437#0, d0_437#1, d0_437#2, d0_437#3, outHeapCounter_438, z1_439, resultFP_440, LSB_441, G_442, R_443, S_444, c_445), S_444 = 0.\as[bv[104]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_446#0, $in_0_446#1, $in_0_446#2, $in_0_446#3, inHeapCounter_447, $assert_11_448, $b0_449, $b1_450, $ex__452#0, $ex__452#1, $ex__452#2, $z2_453, d0_454#0, d0_454#1, d0_454#2, DoubleFloatingPoint(sign(resultFP_457), exponent(resultFP_457), bv_add(53, mantissa(resultFP_457), 1.\as[bv[53]])), outHeapCounter_455, z1_456) :- <Main: void main(JayArray_java_lang_String)>_Block5_16_S($in_0_446#0, $in_0_446#1, $in_0_446#2, $in_0_446#3, inHeapCounter_447, $assert_11_448, $b0_449, $b1_450, $b2_451, $ex__452#0, $ex__452#1, $ex__452#2, $z2_453, d0_454#0, d0_454#1, d0_454#2, d0_454#3, outHeapCounter_455, z1_456, resultFP_457, LSB_458, G_459, R_460, S_461, c_462), S_461 != 0.\as[bv[104]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, -1, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), (exponent(d0_470#3) = 2047.\as[bv[11]] & mantissa(d0_470#3)[51:0] != 0.\as[bv[52]]) | (exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]).
+		<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, 0, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), exponent(d0_470#3) = 0.\as[bv[11]] & mantissa(d0_470#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]].
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_11($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), !(exponent(d0_470#3) = 2047.\as[bv[11]] & mantissa(d0_470#3)[51:0] != 0.\as[bv[52]]) & !(exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]) & d0_470#3 != DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]) & !(exponent(d0_470#3) = 0.\as[bv[11]] & mantissa(d0_470#3) = 0.\as[bv[53]] & exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 0.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_12($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_11($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), sign(d0_470#3) = sign(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, \if (sign(d0_470#3) != 0) \ then (-1) \ else (1), $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_11($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), sign(d0_470#3) != sign(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, \if (\if (sign(d0_470#3) != 0) \ then (bv_ult(53, mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])), mantissa(d0_470#3))) \ else (bv_ult(53, mantissa(d0_470#3), mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))))) \ then (-1) \ else (1), $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_12($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), exponent(d0_470#3) = exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, \if (\if (sign(d0_470#3) != 0) \ then (bv_ult(11, exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])), exponent(d0_470#3))) \ else (bv_ult(11, exponent(d0_470#3), exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))))) \ then (-1) \ else (1), $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_12($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), exponent(d0_470#3) != exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])).
+		<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, 0, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472) :- <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult($in_0_463#0, $in_0_463#1, $in_0_463#2, $in_0_463#3, inHeapCounter_464, $assert_11_465, $b0_466, $b1_467, $ex__468#0, $ex__468#1, $ex__468#2, $z2_469, d0_470#0, d0_470#1, d0_470#2, d0_470#3, outHeapCounter_471, z1_472), !(exponent(d0_470#3) = 2047.\as[bv[11]] & mantissa(d0_470#3)[51:0] != 0.\as[bv[52]]) & !(exponent(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]])) = 2047.\as[bv[11]] & mantissa(DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]))[51:0] != 0.\as[bv[52]]) & d0_470#3 = DoubleFloatingPoint(0, 1026.\as[bv[11]], 4503599627370496.\as[bv[53]]).
+		<Main: void main(JayArray_java_lang_String)>_Block2($in_0_475#0, $in_0_475#1, $in_0_475#2, $in_0_475#3, inHeapCounter_476, $assert_11_477, $b0_478, $b1_479, $b2_480, $ex__481#0, $ex__481#1, $ex__481#2, $z2_482, d0_483#0, d0_483#1, d0_483#2, d0_483#3, outHeapCounter_484, z1_485) :- <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_475#0, $in_0_475#1, $in_0_475#2, $in_0_475#3, inHeapCounter_476, $assert_11_477, $b0_478, $b1_479, $b2_480, $ex__481#0, $ex__481#1, $ex__481#2, $z2_482, d0_483#0, d0_483#1, d0_483#2, d0_483#3, outHeapCounter_484, z1_485), -1 >= $b2_480.
+		<Main: void main(JayArray_java_lang_String)>_Block6($in_0_475#0, $in_0_475#1, $in_0_475#2, $in_0_475#3, inHeapCounter_476, $assert_11_477, $b0_478, $b1_479, $b2_480, $ex__481#0, $ex__481#1, $ex__481#2, $z2_482, d0_483#0, d0_483#1, d0_483#2, d0_483#3, outHeapCounter_484) :- <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult($in_0_475#0, $in_0_475#1, $in_0_475#2, $in_0_475#3, inHeapCounter_476, $assert_11_477, $b0_478, $b1_479, $b2_480, $ex__481#0, $ex__481#1, $ex__481#2, $z2_482, d0_483#0, d0_483#1, d0_483#2, d0_483#3, outHeapCounter_484, z1_485), -1 < $b2_480.
+		<Main: void main(JayArray_java_lang_String)>_Block0($in_0_486#0, $in_0_486#1, $in_0_486#2, $in_0_486#3, inHeapCounter_487, $ex__489#0, $ex__489#1, $ex__489#2, outHeapCounter_490) :- <Main: void main(JayArray_java_lang_String)>_Block9($in_0_486#0, $in_0_486#1, $in_0_486#2, $in_0_486#3, inHeapCounter_487, $b1_488, $ex__489#0, $ex__489#1, $ex__489#2, outHeapCounter_490).
+		<Main: void main(JayArray_java_lang_String)>_Block6_1($in_0_491#0, $in_0_491#1, $in_0_491#2, $in_0_491#3, inHeapCounter_492, $assert_11_493, $b0_494, $b1_495, $b2_496, $ex__497#0, $ex__497#1, $ex__497#2, $z2_498, d0_499#0, d0_499#1, d0_499#2, d0_499#3, outHeapCounter_500, \if (true) \ then (0) \ else (1)) :- <Main: void main(JayArray_java_lang_String)>_Block6($in_0_491#0, $in_0_491#1, $in_0_491#2, $in_0_491#3, inHeapCounter_492, $assert_11_493, $b0_494, $b1_495, $b2_496, $ex__497#0, $ex__497#1, $ex__497#2, $z2_498, d0_499#0, d0_499#1, d0_499#2, d0_499#3, outHeapCounter_500).
+		<Main: void main(JayArray_java_lang_String)>_Block2($in_0_502#0, $in_0_502#1, $in_0_502#2, $in_0_502#3, inHeapCounter_503, $assert_11_504, $b0_505, $b1_506, $b2_507, $ex__508#0, $ex__508#1, $ex__508#2, $z2_509, d0_510#0, d0_510#1, d0_510#2, d0_510#3, outHeapCounter_511, z1_512) :- <Main: void main(JayArray_java_lang_String)>_Block6_1($in_0_502#0, $in_0_502#1, $in_0_502#2, $in_0_502#3, inHeapCounter_503, $assert_11_504, $b0_505, $b1_506, $b2_507, $ex__508#0, $ex__508#1, $ex__508#2, $z2_509, d0_510#0, d0_510#1, d0_510#2, d0_510#3, outHeapCounter_511, z1_512).
+		<Main: void main(JayArray_java_lang_String)>_post($in_0_513#0, $in_0_513#1, $in_0_513#2, $in_0_513#3, inHeapCounter_514, $ex__515#0, $ex__515#1, $ex__515#2, outHeapCounter_516) :- <Main: void main(JayArray_java_lang_String)>_Block0($in_0_513#0, $in_0_513#1, $in_0_513#2, $in_0_513#3, inHeapCounter_514, $ex__515#0, $ex__515#1, $ex__515#2, outHeapCounter_516).
+		<Main: void <clinit>()>_Block1(inHeapCounter_517, $Global_Main_518#0, $Global_Main_518#1, $Global_Main_518#2, inHeapCounter_517) :- <Main: void <clinit>()>_pre(inHeapCounter_517).
+		<Main: void <clinit>()>_Block1_1(inHeapCounter_519, $Global_Main_520#0, $Global_Main_520#1, $Global_Main_520#2, inHeapCounter_519) :- <Main: void <clinit>()>_Block1(inHeapCounter_519, $Global_Main_520#0, $Global_Main_520#1, $Global_Main_520#2, inHeapCounter_519).
+		<Main: void <clinit>()>_Block1_2(inHeapCounter_522, $Global_Main_523#0, $Global_Main_523#1, $Global_Main_523#2, 0, 0, 0, outHeapCounter_524) :- <Main: void <clinit>()>_Block1_1(inHeapCounter_522, $Global_Main_523#0, $Global_Main_523#1, $Global_Main_523#2, outHeapCounter_524).
+		inv_$StaticFields_Main_2(-4, 297, $Global_Main_527#2, _lastpush0_530, \if (false) \ then (0) \ else (1)) :- <Main: void <clinit>()>_Block1_2(inHeapCounter_526, $Global_Main_527#0, $Global_Main_527#1, $Global_Main_527#2, $ex__528#0, $ex__528#1, $ex__528#2, outHeapCounter_529).
+		<Main: void <clinit>()>_Block1_3(inHeapCounter_526, $ex__528#0, $ex__528#1, $ex__528#2, outHeapCounter_529) :- <Main: void <clinit>()>_Block1_2(inHeapCounter_526, $Global_Main_527#0, $Global_Main_527#1, $Global_Main_527#2, $ex__528#0, $ex__528#1, $ex__528#2, outHeapCounter_529).
+		<Main: void <clinit>()>_Block0(inHeapCounter_531, $ex__532#0, $ex__532#1, $ex__532#2, outHeapCounter_533) :- <Main: void <clinit>()>_Block1_3(inHeapCounter_531, $ex__532#0, $ex__532#1, $ex__532#2, outHeapCounter_533).
+		<Main: void <clinit>()>_post(inHeapCounter_534, $ex__535#0, $ex__535#1, $ex__535#2, outHeapCounter_536) :- <Main: void <clinit>()>_Block0(inHeapCounter_534, $ex__535#0, $ex__535#1, $ex__535#2, outHeapCounter_536).
+		<JayHornAssertions: void <clinit>()>_Block1(inHeapCounter_537, inHeapCounter_537) :- <JayHornAssertions: void <clinit>()>_pre(inHeapCounter_537).
+		<JayHornAssertions: void <clinit>()>_Block1_1(inHeapCounter_538, inHeapCounter_538) :- <JayHornAssertions: void <clinit>()>_Block1(inHeapCounter_538, inHeapCounter_538).
+		<JayHornAssertions: void <clinit>()>_Block1_2(inHeapCounter_540, 0, 0, 0, outHeapCounter_541) :- <JayHornAssertions: void <clinit>()>_Block1_1(inHeapCounter_540, outHeapCounter_541).
+		<JayHornAssertions: void <clinit>()>_Block0(inHeapCounter_543, $ex__544#0, $ex__544#1, $ex__544#2, outHeapCounter_545) :- <JayHornAssertions: void <clinit>()>_Block1_2(inHeapCounter_543, $ex__544#0, $ex__544#1, $ex__544#2, outHeapCounter_545).
+		<JayHornAssertions: void <clinit>()>_post(inHeapCounter_546, $ex__547#0, $ex__547#1, $ex__547#2, outHeapCounter_548) :- <JayHornAssertions: void <clinit>()>_Block0(inHeapCounter_546, $ex__547#0, $ex__547#1, $ex__547#2, outHeapCounter_548).
+		-------------
+
+[root] - Running from entry point: <Main: void main(JayArray_java_lang_String)>
+
+------------------------------- Preprocessing ----------------------------------
+                                                       #clauses  #relation syms
+Initially:                                             101       61
+After eliminating fwd/bwd unreachable clauses (24ms):  94        55
+After partial evaluation (145ms):                      94        55
+After constraint simplification (271ms):               86        55
+After clause inlining (199ms):                         40        9
+After equality propagation (112ms):                    40        9
+After constant propagation (50ms):                     40        9
+After inlining ADT constructors (129ms):               40        9
+After constraint simplification (301ms):               39        9
+After clause inlining (4ms):                           39        9
+After eliminating fwd/bwd unreachable clauses (3ms):   39        9
+After slicing (68ms):                                  39        9
+After equality propagation (25ms):                     39        9
+After constant propagation (20ms):                     39        9
+After constraint simplification (50ms):                33        9
+After clause inlining (0ms):                           33        9
+After eliminating fwd/bwd unreachable clauses (1ms):   31        8
+After slicing (5ms):                                   31        8
+After equality propagation (11ms):                     31        8
+After constant propagation (10ms):                     31        8
+After constraint simplification (26ms):                31        8
+After clause inlining (1ms):                           31        8
+After eliminating fwd/bwd unreachable clauses (1ms):   31        8
+After slicing (3ms):                                   31        8
+After Boolean clause splitting (297ms):                37        8
+After equality propagation (10ms):                     37        8
+After constant propagation (6ms):                      37        8
+After constraint simplification (19ms):                37        8
+After clause inlining (1ms):                           37        8
+After eliminating fwd/bwd unreachable clauses (1ms):   37        8
+After slicing (2ms):                                   37        8
+After cloning of relation symbols (22ms):              37        8
+After shortening of clauses (2ms):                     37        8
+After equation inlining (23ms):                        37        8
+
+Total preprocessing time (ms): 2012
+
+Theories: Types, ap.theories.nia.ValueEnumerator, GroebnerMultiplication, CastAtomSplitter, BitwiseOpSplitter, ModuloArithmetic, ADT(DoubleFloatingPoint)
+Forward  constant and interval propagation ++++++++++++++++++++++++++++++++++++++++++++++++++++-----
+
+Backward constant and interval propagation +++++++++++++++++
+
+Unique satisfiable clauses: 34
+   1 clauses with 0 body literals
+   33 clauses with 1 body literals
+
+Starting CEGAR ...
+.................
+Found counterexample #1, refining ... (4and/0or)  19 -> 19 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 0.\as[bv[11]]
+......
+Found counterexample #2, refining ... (4and/0or)  15 -> 15 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_0_0 = 0
+
+Found counterexample #3, refining ... (4and/0or)  29 -> 29 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_0_0 = 1
+......................
+Found counterexample #4, refining ... (5and/0or)  30 -> 30 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0 = 0.\as[bv[11]]
+..............
+Found counterexample #5, refining ... (7and/0or)  45 -> 45 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1022.\as[bv[11]]
+
+Found counterexample #6, refining ... (9and/0or)  95 -> 95 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1022.\as[bv[12]]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1022.\as[bv[11]]
+.........................
+Found counterexample #7, refining ... (7and/0or)  60 -> 60 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1022.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1022.\as[bv[11]]
+.......................
+Found counterexample #8, refining ... (9and/0or)  115 -> 115 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1023.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1023.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1023.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1023.\as[bv[12]]
+........................
+Found counterexample #9, refining ... (8and/0or)  86 -> 86 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0 = 1022.\as[bv[11]]
+............
+Found counterexample #10, refining ... (10and/0or)  141 -> 141 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: 1023 >= <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: 1023 >= <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: 1023 >= <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: 1023 >= <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: 1023 >= <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: 1022 >= <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0.\as[int]
+.................................................................
+Found counterexample #11, refining ... (14and/0or)  197 -> 197 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_2_0 = 0
+
+Found counterexample #12, refining ... (14and/0or)  197 -> 197 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1023.\as[bv[11]]
+.................................
+Found counterexample #13, refining ... (14and/0or)  205 -> 205 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1024.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1024.\as[bv[12]]
+.................................
+Found counterexample #14, refining ... (14and/0or)  208 -> 208 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1024.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1024.\as[bv[11]]
+.........................
+Found counterexample #15, refining ... (15and/0or)  235 -> 235 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: 1024 >= <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: 1024 >= <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: 1024 >= <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: 1024 >= <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: 1024 >= <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: 1023 >= <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0.\as[int]
+.................................................................................
+Found counterexample #16, refining ... (19and/0or)  306 -> 306 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1024.\as[bv[11]]
+.................................
+Found counterexample #17, refining ... (19and/0or)  298 -> 298 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1025.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1025.\as[bv[12]]
+.................................
+Found counterexample #18, refining ... (19and/0or)  301 -> 301 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1025.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1025.\as[bv[11]]
+.........................
+Found counterexample #19, refining ... (20and/0or)  328 -> 328 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: 1025 >= <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: 1025 >= <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: 1025 >= <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: 1025 >= <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: 1025 >= <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: 1024 >= <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0.\as[int]
+.................................................................................................
+Found counterexample #20, refining ... (24and/0or)  399 -> 399 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1025.\as[bv[11]]
+.................................
+Found counterexample #21, refining ... (24and/0or)  391 -> 391 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1026.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1026.\as[bv[11]]
+
+Found counterexample #22, refining ... (24and/0or)  378 -> 378 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1026.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1026.\as[bv[12]]
+................................
+Found counterexample #23, refining ... (25and/0or)  401 -> 401 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: 1026 >= <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: 1026 >= <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: 1026 >= <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0.\as[int]
+..................................................................................................................
+Found counterexample #24, refining ... (29and/0or)  492 -> 492 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1026.\as[bv[11]]
+...
+Found counterexample #25, refining ... (25and/0or)  424 -> 424 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0 = 0.\as[bv[53]]
+................................................................................................................
+Found counterexample #26, refining ... (28and/0or)  469 -> 469 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: 4503599627370495 >= <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_2_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: 4503599627370495 >= <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0.\as[int]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: !(<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0.\as[int] >= 4503599627370496 & 0 >= <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_0_0)
+................................................................................................................
+Found counterexample #27, refining ... (28and/0or)  452 -> 452 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_0_0 >= 0
+........
+Found counterexample #28, refining ... (28and/0or)  470 -> 470 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: 4503599627370496 >= <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_2_0.\as[int]
+
+Found counterexample #29, refining ... (28and/0or)  469 -> 469 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0.\as[int] >= 4503599627370497
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[157:157] = 1.\as[bv[1]]
+....................................................................................
+Found counterexample #30, refining ... (28and/0or)  434 -> 434 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp: \exists DoubleFloatingPoint v0, v1; !(<Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_1_0 = 1026.\as[bv[11]] & !(v1 = v0 & DoubleFloatingPoint(0, 1026, <Main: void main(JayArray_java_lang_String)>_Block3_1-FCmpResult_exp_2_0) = v0 & DoubleFloatingPoint(0, 1026, 4503599627370496) = v0))
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: \exists DoubleFloatingPoint v0; (DoubleFloatingPoint(0, 1026, <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0) = v0 & DoubleFloatingPoint(0, 1026, 4503599627370496) = v0)
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: \exists DoubleFloatingPoint v0; (DoubleFloatingPoint(0, 1026, <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0) = v0 & DoubleFloatingPoint(0, 1026, 4503599627370496) = v0)
+
+Found counterexample #31, refining ... (28and/0or)  451 -> 451 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: \exists int v0, v1; !(!(v1 != 1 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[104:104] = v1) & !(v0 != 1 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[105:105] = v0))
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_2_0 = 4503599627370496.\as[bv[53]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 1.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1023.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1023.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1023.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[52:52] = 1.\as[bv[1]]
+
+Found counterexample #32, refining ... (28and/0or)  455 -> 455 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: \exists int v0, v1; !(!(v1 != 1 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[103:103] = v1) & !(v0 != 1 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[104:104] = v0))
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0 = 4503599627370496.\as[bv[53]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_2_0 = 4503599627370496.\as[bv[53]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 0.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0 = 4503599627370496.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0 = 4503599627370496.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0 = 4503599627370496.\as[bv[53]]
+...........................................................................................
+Found counterexample #33, refining ... (28and/0or)  439 -> 439 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: \exists int v0; (v0 != 1 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[104:104] = v0)
+...............................................................................
+Found counterexample #34, refining ... (28and/0or)  440 -> 440 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_2_0 = 4503599627370496.\as[bv[53]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 2.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[51:1] = 0.\as[bv[51]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[0:0] = 0.\as[bv[1]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[51:1] = 0.\as[bv[51]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[0:0] = 0.\as[bv[1]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[51:1] = 0.\as[bv[51]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[0:0] = 0.\as[bv[1]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[0:0] = 0.\as[bv[1]]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: \exists int v0, v1; !(!(v1 = 1 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1024.\as[bv[12]] & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[157:157] = 1.\as[bv[1]]) & !(v0 != 0 & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[105:105] = v0))
+.........................................................
+Found counterexample #35, refining ... (28and/0or)  439 -> 439 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1023.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1023.\as[bv[12]] & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[157:157] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[156:105] = 0.\as[bv[52]]
+..........................................................................................
+Found counterexample #36, refining ... (33and/0or)  526 -> 526 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0 = 274031556999544297163190906134303066185487351808.\as[bv[159]]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1023.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_2_0 = 4503599627370496.\as[bv[53]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 1.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[51:0] = 0.\as[bv[52]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0 = 6755399441055744.\as[bv[53]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 1.\as[bv[11]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0 = 6755399441055744.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0 = 6755399441055744.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0 = 6755399441055744.\as[bv[53]]
+................................................................
+Found counterexample #37, refining ... (33and/0or)  527 -> 527 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[156:105] = 0.\as[bv[52]], <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_1_0 = 1024.\as[bv[12]] & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[157:157] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0[156:105] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 2.\as[bv[11]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[52:52] = 1.\as[bv[1]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[52:52] = 1.\as[bv[1]], <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[52:52] = 1.\as[bv[1]], <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[51:0] = 0.\as[bv[52]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[52:52] = 1.\as[bv[1]], <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[51:0] = 0.\as[bv[52]]
+.............................................................................................
+Found counterexample #38, refining ... (38and/0or)  615 -> 615 ... adding predicates:
+<Main: void main(JayArray_java_lang_String)>_Block5_16_exp: <Main: void main(JayArray_java_lang_String)>_Block5_16_exp_2_0 = 228359630832953580969325755111919221821239459840.\as[bv[159]]
+<Main: void main(JayArray_java_lang_String)>_Block5_12_exp: <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_3_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_2_0 = 4503599627370496.\as[bv[53]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_1_0 = 2.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0[51:0] = 0.\as[bv[52]], <Main: void main(JayArray_java_lang_String)>_Block5_12_exp_4_0 = 5629499534213120.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block2_exp: <Main: void main(JayArray_java_lang_String)>_Block2_exp_0_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0[51:0] = 0.\as[bv[52]], <Main: void main(JayArray_java_lang_String)>_Block2_exp_1_0 = 5629499534213120.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_1_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0[51:0] = 0.\as[bv[52]], <Main: void main(JayArray_java_lang_String)>_Block5_2-FCmpResult_exp_2_0 = 5629499534213120.\as[bv[53]]
+<Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp: <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_0_0 = 1024.\as[bv[11]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[52:52] = 1.\as[bv[1]] & <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0[51:0] = 0.\as[bv[52]], <Main: void main(JayArray_java_lang_String)>_Block5_1-FAddResult_exp_1_0 = 5629499534213120.\as[bv[53]]
+.............................................................................
+Found counterexample #39, refining ... (48and/0or)  785 -> 785java.lang.StackOverflowError
+	at scala.collection.SeqLike$class.indexWhere(SeqLike.scala:118)
+	at scala.collection.AbstractSeq.indexWhere(Seq.scala:41)
+	at scala.collection.GenSeqLike$class.indexWhere(GenSeqLike.scala:114)
+	at scala.collection.AbstractSeq.indexWhere(Seq.scala:41)
+	at ap.interpolants.ProofSimplifier$.updateCert(ProofSimplifier.scala:314)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:171)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:145)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:153)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:187)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.encodeInfs(ProofSimplifier.scala:194)
+	at ap.interpolants.ProofSimplifier$.ap$interpolants$ProofSimplifier$$encode(ProofSimplifier.scala:85)
+	at ap.interpolants.ProofSimplifier$.apply(ProofSimplifier.scala:57)
+	at lazabs.horn.predgen.LinTreeInterpolator$.computeInts(LinTreeInterpolator.scala:61)
+	at lazabs.horn.predgen.TreeInterpolator.treeInterpolate(TreeInterpolator.scala:152)
+	at lazabs.horn.predgen.TreeInterpolator$.treeInterpolate(TreeInterpolator.scala:68)
+	at lazabs.horn.predgen.DisjInterpolator$$anonfun$9.apply(DisjInterpolator.scala:609)
+	at lazabs.horn.predgen.DisjInterpolator$$anonfun$9.apply(DisjInterpolator.scala:194)
+	at ap.api.SimpleAPI$.withProver(SimpleAPI.scala:178)
+	at lazabs.horn.predgen.DisjInterpolator$.lazabs$horn$predgen$DisjInterpolator$$predicateGeneratorHelp(DisjInterpolator.scala:194)
+	at lazabs.horn.predgen.DisjInterpolator$$anonfun$predicateGenerator$1.apply$mcV$sp(DisjInterpolator.scala:135)
+	at lazabs.horn.predgen.DisjInterpolator$$anonfun$predicateGenerator$1.apply(DisjInterpolator.scala:135)
+	at lazabs.horn.predgen.DisjInterpolator$$anonfun$predicateGenerator$1.apply(DisjInterpolator.scala:135)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:58)
+	at ap.util.Timeout$.withChecker(Timeout.scala:56)
+	at ap.util.Timeout$$anonfun$withTimeoutMillis$1.apply(Timeout.scala:70)
+	at ap.util.Timeout$.catchTimeout(Timeout.scala:100)
+	at ap.util.Timeout$.withTimeoutMillis(Timeout.scala:73)
+	at lazabs.horn.predgen.DisjInterpolator$.predicateGenerator(DisjInterpolator.scala:152)
+	at lazabs.horn.predgen.DagInterpolator$.interpolatingPredicateGenCEXAndOr(DagInterpolator.scala:160)
+	at lazabs.horn.predgen.Interpolators$DagInterpolator$.apply(Interpolators.scala:50)
+	at lazabs.horn.bottomup.CEGAR.liftedTree1$1(CEGAR.scala:194)
+	at lazabs.horn.bottomup.CEGAR.<init>(CEGAR.scala:171)
+	at lazabs.horn.bottomup.HornPredAbs.<init>(HornPredAbs.scala:138)
+	at lazabs.horn.bottomup.SimpleWrapper$$anonfun$solveLazily$1$$anonfun$apply$1$$anonfun$apply$2.apply(SimpleWrapper.scala:86)
+	at lazabs.horn.bottomup.SimpleWrapper$$anonfun$solveLazily$1$$anonfun$apply$1$$anonfun$apply$2.apply(SimpleWrapper.scala:82)
+	at lazabs.ParallelComputation$.apply(ParallelComputation.scala:46)
+	at lazabs.horn.bottomup.SimpleWrapper$$anonfun$solveLazily$1$$anonfun$apply$1.apply(SimpleWrapper.scala:82)
+	at lazabs.horn.bottomup.SimpleWrapper$$anonfun$solveLazily$1$$anonfun$apply$1.apply(SimpleWrapper.scala:69)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:58)
+	at scala.Console$.withOut(Console.scala:53)
+	at lazabs.horn.bottomup.SimpleWrapper$$anonfun$solveLazily$1.apply(SimpleWrapper.scala:69)
+	at lazabs.horn.bottomup.SimpleWrapper$$anonfun$solveLazily$1.apply(SimpleWrapper.scala:69)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:58)
+	at scala.Console$.withErr(Console.scala:92)
+	at lazabs.horn.bottomup.SimpleWrapper$.solveLazily(SimpleWrapper.scala:69)
+	at lazabs.horn.HornAPI$$anonfun$solveLazily$1.apply(HornAPI.scala:131)
+	at lazabs.horn.HornAPI$$anonfun$solveLazily$1.apply(HornAPI.scala:123)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:58)
+	at lazabs.horn.HornAPI.solveLazily(HornAPI.scala:123)
+	at lazabs.horn.HornAPI.solve(HornAPI.scala:170)
+	at jayhorn.solver.princess.PrincessProver.runEldarica(PrincessProver.java:832)
+	at jayhorn.solver.princess.PrincessProver.checkSat(PrincessProver.java:708)
+	at jayhorn.checker.EldaricaChecker.generateAndCheckHornClauses(EldaricaChecker.java:232)
+	at jayhorn.checker.EldaricaChecker.checkProgram(EldaricaChecker.java:93)
+	at jayhorn.Main.safetyAnalysis(Main.java:75)
+	at jayhorn.Main.main(Main.java:129)
+2026-07-06 01:00:47,370 ERROR (main) [root] - java.lang.RuntimeException: java.lang.StackOverflowError
+UNKNOWN

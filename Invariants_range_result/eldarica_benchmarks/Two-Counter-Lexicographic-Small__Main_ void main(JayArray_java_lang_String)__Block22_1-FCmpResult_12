@@ -1,0 +1,45 @@
+================== input tree ==================
+
+AND(
+  AND(
+    AND(
+      AND(
+        AND(
+          AND(
+            EQ(
+              $in_0_638#0:INTEGER,
+              1
+                        ),
+            EQ(
+              $in_0_638#1:INTEGER,
+              137
+                        )
+                    ),
+          EQ(
+            $ex__641#0:INTEGER,
+            0
+                    )
+                ),
+        EQ(
+          $ex__641#1:INTEGER,
+          0
+                )
+            ),
+      EQ(
+        $ex__641#2:INTEGER,
+        0
+            )
+        ),
+    EQ(
+      outHeapCounter_645:INTEGER,
+      1
+        )
+    ),
+  GE(
+    MUL(
+      -1,
+      -1
+        ),
+    0
+    )
+)
